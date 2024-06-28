@@ -1,0 +1,20 @@
+{
+  "name": "st-portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "set-nodebrew": "nodebrew use $(cat .node-version)",
+    "set-nvm": "nvm use $(cat .node-version)"
+  },
+  "dependencies": {
+    "astro": "^4.11.3",
+    "@astrojs/check": "^0.7.0",
+    "typescript": "^5.5.2"
+  }
+}
