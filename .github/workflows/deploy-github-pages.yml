@@ -20,7 +20,7 @@ jobs:
         uses: withastro/action@v2
         with:
           path: .
-          node-version: $(cat .node-version)
+          node-version: 20.9.0
           package-manager: pnpm@latest
 
   deploy:
