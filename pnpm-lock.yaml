@@ -14,6 +14,12 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^5.1.0
     version: 5.1.0(astro@4.11.3)(tailwindcss@3.4.4)
+  '@fontsource/marcellus':
+    specifier: ^5.0.13
+    version: 5.0.13
+  '@fontsource/zen-old-mincho':
+    specifier: ^5.0.13
+    version: 5.0.13
   astro:
     specifier: ^4.11.3
     version: 4.11.3(typescript@5.5.2)
@@ -667,6 +673,14 @@ packages:
     os: [win32]
     requiresBuild: true
     optional: true
+
+  /@fontsource/marcellus@5.0.13:
+    resolution: {integrity: sha512-fn/RzsepO7t80fhk4UVltymtnTPJ9yp5jQgtXn9gPrO6tI/HiVgRB9u/P0G6SFqj3ELszVINJN0jHcKYcw6Wmg==}
+    dev: false
+
+  /@fontsource/zen-old-mincho@5.0.13:
+    resolution: {integrity: sha512-dxdwI/4ANL3qdqUtNxISbRsq77KTunZttYE98RwhBYxzZelH0vqKXlV9nIrN82YeVQAIDSqT3CvQOMHZg1HJ5w==}
+    dev: false
 
   /@img/sharp-darwin-arm64@0.33.4:
     resolution: {integrity: sha512-p0suNqXufJs9t3RqLBO6vvrgr5OhgbWp76s5gTRvdmxmuv9E1rcaqGUsl3l4mKVmXPkTkTErXediAui4x+8PSA==}
