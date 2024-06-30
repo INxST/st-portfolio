@@ -22,6 +22,7 @@ export default {
         gray: '#808080',
         silver: '#BBBBBB',
         'taupe-gray': '#B4AC97',
+        'quill-gray': '#DEDEDA',
       },
     },
   },
