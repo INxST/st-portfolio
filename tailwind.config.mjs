@@ -1,4 +1,5 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
+import plugin from 'tailwindcss/plugin';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -16,7 +17,28 @@ export default {
         serif: ['Zen Old Mincho', ...defaultTheme.fontFamily.serif],
         'serif-en': ['Marcellus', ...defaultTheme.fontFamily.serif],
       },
+      colors: {
+        black: '#3D3D3D',
+        gray: '#808080',
+        silver: '#BBBBBB',
+        'taupe-gray': '#B4AC97',
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      const newUtilities = {
+        '.horizontal-tb': {
+          writingMode: 'horizontal-tb',
+        },
+        '.vertical-rl': {
+          writingMode: 'vertical-rl',
+        },
+        '.vertical-lr': {
+          writingMode: 'vertical-lr',
+        },
+      };
+      addUtilities(newUtilities);
+    }),
+  ],
 };

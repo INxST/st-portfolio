@@ -5,6 +5,7 @@ import '@fontsource/zen-old-mincho/600.css';
 import '@fontsource/marcellus';
 import { SEO } from 'astro-seo';
 import siteInfo from '@/data/siteInfo';
+import Header from '@/components/Header/index.astro';
 interface Props {
   title?: string;
   description?: string;
@@ -56,7 +57,8 @@ const meta = {
       }}
     />
   </head>
-  <body class="font-serif">
+  <body class="font-serif text-black">
+    <Header />
     <main class="container">
       <slot />
     </main>
