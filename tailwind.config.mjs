@@ -19,10 +19,13 @@ export default {
       },
       colors: {
         black: '#3D3D3D',
+        'mine-shaft': '#2F2F2F',
         gray: '#808080',
         silver: '#BBBBBB',
         'taupe-gray': '#B4AC97',
         'quill-gray': '#DEDEDA',
+        pampas: '#F9F9F6',
+        emperor: '#4F4F4F',
       },
     },
   },

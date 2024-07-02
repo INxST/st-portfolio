@@ -1,5 +1,8 @@
 ---
 import headerLinks from '@/data/headerLinks';
+import Disc from '@/components/Disc.astro';
+import Menu from '@/components/Header/Menu.astro';
+const path = Astro.url.pathname;
 ---
 
 <header>
@@ -11,8 +14,16 @@ import headerLinks from '@/data/headerLinks';
     <ul class="flex ml-auto gap-8">
       {
         headerLinks.map(link => (
-          <li>
-            <a href={link.href} class="text-2xl md:text-lg vertical-rl">
+          <li class="relative">
+            {link.href.includes(path) && (
+              <span class="w-[6px] h-[6px] absolute -top-4 left-1/2 -translate-x-1/2">
+                <Disc />
+              </span>
+            )}
+            <a
+              href={link.href}
+              class={`text-2xl md:text-lg vertical-rl ${link.href.includes(path) && 'text-gray'}`}
+            >
               {link.text}
             </a>
           </li>
@@ -21,11 +32,17 @@ import headerLinks from '@/data/headerLinks';
     </ul>
 
     <button
-      class="font-serif-en border border-silver rounded-[30px] ml-14 py-[6px] px-4 flex gap-2 items-center"
+      class="ts-menu-open font-serif-en border border-silver rounded-[30px] ml-14 py-[6px] px-4 flex gap-2 items-center"
     >
       <span class="inline-block">Menu</span>
-      <span class="inline-block rounded-full bg-taupe-gray w-[6px] h-[6px]"
-      ></span>
+      <Disc />
     </button>
   </div>
 </header>
+
+<Menu />
+
+<script>
+  import menuToggle from './menu-toggle';
+  menuToggle();
+</script>

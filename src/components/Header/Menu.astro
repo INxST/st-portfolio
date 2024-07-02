@@ -1,0 +1,88 @@
+---
+import menus from '@/data/menus';
+import snsLinks from '@/data/snsLinks';
+import Disc from '@/components/Disc.astro';
+---
+
+<div
+  id="menu"
+  class="menu w-screen h-screen bg-mine-shaft bg-[url(/texture-for-black.png)] bg-repeat"
+>
+  <div class="p-10 h-full flex">
+    <picture class="mr-4 h-full">
+      <img src="https://placehold.jp/800x1000.png" alt="" class="max-h-full" />
+    </picture>
+
+    <div class="flex-1 flex flex-col">
+      <div class="flex justify-end">
+        <button
+          class="ts-menu-close text-pampas font-serif-en border border-emperor rounded-[30px] ml-14 py-[6px] px-4 flex gap-2 items-center"
+        >
+          <span class="inline-block">CLOSE</span>
+          <Disc />
+        </button>
+      </div>
+
+      <div class="py-10 flex-1 flex flex-col items-center">
+        <ul class="inline-flex flex-row-reverse gap-12 mt-[12vh]">
+          {
+            menus.map(menu => {
+              return (
+                <li>
+                  <a
+                    href={menu.href}
+                    class="vertical-rl flex flex-row text-pampas"
+                  >
+                    <span class="horizontal-tb ml-2">({menu.number})</span>
+                    <span class="flex flex-col mt-8">
+                      <span class="text-taupe-gray font-serif-en">
+                        {menu.en}
+                      </span>
+                      <span class="text-4xl">{menu.text}</span>
+                    </span>
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+
+        <ul class="mt-auto flex gap-8">
+          {
+            snsLinks.map(link => {
+              return (
+                <li>
+                  <a
+                    href={link.href}
+                    target={link.target}
+                    class="text-pampas font-serif-en text-xl"
+                  >
+                    {link.text}
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .menu {
+    position: fixed;
+    top: -50vh;
+    left: 0;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s;
+
+    &.is-open {
+      top: 0;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+</style>
