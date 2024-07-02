@@ -1,51 +1,68 @@
 ---
+import '@fontsource/zen-old-mincho/400.css';
+import '@fontsource/zen-old-mincho/500.css';
+import '@fontsource/zen-old-mincho/600.css';
+import '@fontsource/marcellus';
+import { SEO } from 'astro-seo';
+import siteInfo from '@/data/siteInfo';
+import Header from '@/components/Header/index.astro';
 interface Props {
-  title: string;
+  title?: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
+const meta = {
+  title: title ? `${title} | ${siteInfo.appName}` : siteInfo.appName,
+  description: description || siteInfo.description,
+  author: siteInfo.author,
+  image: new URL('/images/common/og.png', Astro.url.origin).toString(),
+};
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="/logo.svg" sizes="any" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <SEO
+      charset="UTF-8"
+      title={meta.title}
+      description={meta.description}
+      openGraph={{
+        basic: {
+          title: meta.title,
+          type: 'website',
+          image: meta.image,
+        },
+        image: {
+          alt: meta.title,
+        },
+        optional: {
+          siteName: siteInfo.appName,
+          description: meta.description,
+          locale: 'ja_JP',
+        },
+      }}
+      twitter={{
+        card: 'summary',
+        site: siteInfo.x,
+        title: meta.title,
+        description: meta.description,
+        image: meta.image,
+        imageAlt: meta.title,
+        creator: siteInfo.x,
+      }}
+    />
   </head>
-  <body>
-    <slot />
+  <body
+    class="font-serif text-black bg-quill-gray bg-[url(/texture-for-gray.png)] bg-repeat"
+  >
+    <Header />
+    <main class="container">
+      <slot />
+    </main>
   </body>
 </html>
-<style is:global>
-  :root {
-    --accent: 136, 58, 234;
-    --accent-light: 224, 204, 250;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
-    );
-  }
-  html {
-    font-family: system-ui, sans-serif;
-    background: #13151a;
-    background-size: 224px;
-  }
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
-  }
-</style>
