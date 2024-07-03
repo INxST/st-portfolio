@@ -22,7 +22,6 @@ html {
   $this: &;
   position: relative;
   overflow: hidden;
-  display: flex;
 
   * {
     transition-duration: 0.8s;
@@ -42,6 +41,8 @@ html {
   }
 
   &:not([data-vertical='rl']) {
+    display: inline-flex;
+
     #{$this}__clone {
       + #{$this}__clone {
         span {
