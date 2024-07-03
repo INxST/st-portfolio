@@ -1,4 +1,19 @@
 html {
-  /* 16px(1rem) / 1920px(アートボードサイズ) * 100 */
-  font-size: calc((16 / 1920) * 100vw);
+  /* desctop */
+  @media (min-width: 1024px) {
+    /* 16px(1rem) / 1920px(アートボードサイズ) * 100 */
+    font-size: calc((16 / 1920) * 100vw);
+  }
+
+  /* note */
+  @media (max-width: 1023px) and (min-width: 768px) {
+    /* 16px(1rem) / 1024px(アートボードサイズ) * 100 */
+    font-size: calc((16 / 1024) * 100vw);
+  }
+
+  /* tablet, smartphone */
+  @media (max-width: 767px) {
+    /* 16px(1rem) / 375px(アートボードサイズ) * 100 */
+    font-size: calc((16 / 375) * 100vw);
+  }
 }
