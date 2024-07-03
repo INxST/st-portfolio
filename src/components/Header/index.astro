@@ -22,7 +22,8 @@ const path = Astro.url.pathname;
             )}
             <a
               href={link.href}
-              class={`text-2xl md:text-lg vertical-rl ${link.href.includes(path) && 'text-gray'}`}
+              class={`ts-text-link text-2xl md:text-lg vertical-rl ${link.href.includes(path) && 'text-gray'}`}
+              data-vertical="rl"
             >
               {link.text}
             </a>

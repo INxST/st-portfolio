@@ -6,7 +6,7 @@ import '@fontsource/marcellus';
 import { SEO } from 'astro-seo';
 import siteInfo from '@/data/siteInfo';
 import Header from '@/components/Header/index.astro';
-import '@/styles/global.css';
+import '@/styles/global.scss';
 interface Props {
   title?: string;
   description?: string;
@@ -65,5 +65,9 @@ const meta = {
     <main class="container px-5 md:px-20">
       <slot />
     </main>
+    <script>
+      import hoverTextLink from '@/libs/hover-text-link';
+      hoverTextLink();
+    </script>
   </body>
 </html>
