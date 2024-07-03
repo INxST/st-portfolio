@@ -2,52 +2,69 @@
 import menus from '@/data/menus';
 import snsLinks from '@/data/snsLinks';
 import Disc from '@/components/Disc.astro';
+import MenuLink from '@/components/Header/MenuLink.astro';
 ---
 
 <div
   id="menu"
   class="menu w-screen h-screen bg-mine-shaft bg-[url(/texture-for-black.png)] bg-repeat"
 >
-  <div class="p-10 h-full flex">
-    <picture class="mr-4 h-full">
+  <div class="p-5 md:p-10 h-full flex relative">
+    <picture class="hidden md:flex mr-4 h-full max-w-[50%] items-center">
       <img src="https://placehold.jp/800x1000.png" alt="" class="max-h-full" />
     </picture>
 
     <div class="flex-1 flex flex-col">
-      <div class="flex justify-end">
-        <button
-          class="ts-menu-close text-pampas font-serif-en border border-emperor rounded-[30px] ml-14 py-[6px] px-4 flex gap-2 items-center"
-        >
-          <span class="inline-block">CLOSE</span>
-          <Disc />
-        </button>
-      </div>
+      <button
+        class="ts-menu-close text-pampas font-serif-en border border-emperor rounded-[30px] py-[6px] px-4 flex gap-2 items-center absolute top-5 md:top-10 right-5 md:right-20 group transition-colors hover:bg-pampas hover:text-mine-shaft"
+      >
+        <span class="inline-block">CLOSE</span>
+        <Disc />
+      </button>
 
       <div class="py-10 flex-1 flex flex-col items-center">
-        <ul class="inline-flex flex-row-reverse gap-12 mt-[12vh]">
-          {
-            menus.map(menu => {
-              return (
-                <li>
-                  <a
-                    href={menu.href}
-                    class="vertical-rl flex flex-row text-pampas"
-                  >
-                    <span class="horizontal-tb ml-2">({menu.number})</span>
-                    <span class="flex flex-col mt-8">
-                      <span class="text-taupe-gray font-serif-en">
-                        {menu.en}
+        <div class="flex items-center flex-1">
+          <ul class="inline-flex flex-row-reverse gap-6 md:gap-12">
+            {
+              menus.map(menu => {
+                return (
+                  <li>
+                    <a href={menu.href} class="relative group">
+                      {/* original */}
+                      <span class="opacity-0">
+                        <MenuLink menu={menu} />
                       </span>
-                      <span class="text-4xl">{menu.text}</span>
-                    </span>
-                  </a>
-                </li>
-              );
-            })
-          }
-        </ul>
 
-        <ul class="mt-auto flex gap-8">
+                      {/* default */}
+                      <span
+                        style={{
+                          transitionTimingFunction:
+                            'cubic-bezier(0.16, 1, 0.3, 1)',
+                        }}
+                        class="transition-all duration-700 absolute top-0 left-0 group-hover:opacity-0 group-hover:-translate-x-1/2"
+                      >
+                        <MenuLink menu={menu} />
+                      </span>
+
+                      {/* hover */}
+                      <span
+                        style={{
+                          transitionTimingFunction:
+                            'cubic-bezier(0.16, 1, 0.3, 1)',
+                        }}
+                        class="transition-all duration-700 absolute top-0 left-0 opacity-0 translate-x-1/2 group-hover:translate-x-0 group-hover:opacity-100"
+                      >
+                        <MenuLink menu={menu} />
+                      </span>
+                    </a>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </div>
+
+        <ul class="mt-4 flex gap-8">
           {
             snsLinks.map(link => {
               return (
@@ -55,7 +72,7 @@ import Disc from '@/components/Disc.astro';
                   <a
                     href={link.href}
                     target={link.target}
-                    class="text-pampas font-serif-en text-xl"
+                    class="ts-text-link text-pampas font-serif-en text-xl"
                   >
                     {link.text}
                   </a>
@@ -72,15 +89,14 @@ import Disc from '@/components/Disc.astro';
 <style>
   .menu {
     position: fixed;
-    top: -50vh;
+    top: 0;
     left: 0;
     z-index: 1000;
     visibility: hidden;
     opacity: 0;
-    transition: all 0.5s;
+    transition: all 0.5s ease-in-out;
 
     &.is-open {
-      top: 0;
       opacity: 1;
       visibility: visible;
     }

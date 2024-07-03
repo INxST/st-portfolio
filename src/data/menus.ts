@@ -1,6 +1,6 @@
 import type { Link } from '@/types/Link';
 
-type Menu = Link & {
+export type Menu = Link & {
   number: string;
   en: string;
 };
