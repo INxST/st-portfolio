@@ -2,6 +2,7 @@
 import menus from '@/data/menus';
 import snsLinks from '@/data/snsLinks';
 import Disc from '@/components/Disc.astro';
+import MenuLink from '@/components/Header/MenuLink.astro';
 ---
 
 <div
@@ -28,16 +29,32 @@ import Disc from '@/components/Disc.astro';
               menus.map(menu => {
                 return (
                   <li>
-                    <a
-                      href={menu.href}
-                      class="vertical-rl flex flex-row text-pampas"
-                    >
-                      <span class="horizontal-tb ml-2">({menu.number})</span>
-                      <span class="flex flex-col mt-8">
-                        <span class="text-taupe-gray font-serif-en">
-                          {menu.en}
-                        </span>
-                        <span class="text-2xl md:text-4xl">{menu.text}</span>
+                    <a href={menu.href} class="relative group">
+                      {/* original */}
+                      <span class="opacity-0">
+                        <MenuLink menu={menu} />
+                      </span>
+
+                      {/* default */}
+                      <span
+                        style={{
+                          transitionTimingFunction:
+                            'cubic-bezier(0.16, 1, 0.3, 1)',
+                        }}
+                        class="transition-all duration-700 absolute top-0 left-0 group-hover:opacity-0 group-hover:-translate-x-1/2"
+                      >
+                        <MenuLink menu={menu} />
+                      </span>
+
+                      {/* hover */}
+                      <span
+                        style={{
+                          transitionTimingFunction:
+                            'cubic-bezier(0.16, 1, 0.3, 1)',
+                        }}
+                        class="transition-all duration-700 absolute top-0 left-0 opacity-0 translate-x-1/2 group-hover:translate-x-0 group-hover:opacity-100"
+                      >
+                        <MenuLink menu={menu} />
                       </span>
                     </a>
                   </li>
@@ -55,7 +72,7 @@ import Disc from '@/components/Disc.astro';
                   <a
                     href={link.href}
                     target={link.target}
-                    class="text-pampas font-serif-en text-xl"
+                    class="ts-text-link text-pampas font-serif-en text-xl"
                   >
                     {link.text}
                   </a>
