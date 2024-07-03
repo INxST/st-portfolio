@@ -6,12 +6,14 @@ const path = Astro.url.pathname;
 ---
 
 <header>
-  <div class="container max-w-[1760px] flex items-start py-[34px]">
-    <a href="/" class="font-serif-en text-2xl md:text-4xl text-gray"
+  <div class="container flex items-start py-5 md:py-10 px-5 md:px-20">
+    <a
+      href="/"
+      class="ts-text-link font-serif-en text-2xl md:text-4xl text-gray"
       >TAIKI SATO</a
     >
 
-    <ul class="flex ml-auto gap-8">
+    <ul class="ml-auto gap-8 hidden md:flex">
       {
         headerLinks.map(link => (
           <li class="relative">
@@ -22,7 +24,8 @@ const path = Astro.url.pathname;
             )}
             <a
               href={link.href}
-              class={`text-2xl md:text-lg vertical-rl ${link.href.includes(path) && 'text-gray'}`}
+              class={`ts-text-link text-2xl md:text-lg vertical-rl ${link.href.includes(path) && 'text-gray'}`}
+              data-vertical="rl"
             >
               {link.text}
             </a>
@@ -32,7 +35,7 @@ const path = Astro.url.pathname;
     </ul>
 
     <button
-      class="ts-menu-open font-serif-en border border-silver rounded-[30px] ml-14 py-[6px] px-4 flex gap-2 items-center"
+      class="ts-menu-open font-serif-en border border-silver rounded-[30px] ml-auto md:ml-14 py-[6px] px-4 flex gap-2 items-center group transition hover:bg-mine-shaft hover:text-pampas"
     >
       <span class="inline-block">Menu</span>
       <Disc />
