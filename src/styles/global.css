@@ -13,7 +13,7 @@ html {
 
   /* tablet, smartphone */
   @media (max-width: 767px) {
-    /* 16px(1rem) / 375px(アートボードサイズ) * 100 */
-    font-size: calc((16 / 375) * 100vw);
+    /* 14px(1rem) / 375px(アートボードサイズ) * 100 */
+    font-size: calc((14 / 375) * 100vw);
   }
 }

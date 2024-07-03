@@ -8,14 +8,14 @@ import Disc from '@/components/Disc.astro';
   id="menu"
   class="menu w-screen h-screen bg-mine-shaft bg-[url(/texture-for-black.png)] bg-repeat"
 >
-  <div class="p-10 h-full flex relative">
-    <picture class="mr-4 h-full max-w-[50%] flex items-center">
+  <div class="p-5 md:p-10 h-full flex relative">
+    <picture class="hidden md:flex mr-4 h-full max-w-[50%] items-center">
       <img src="https://placehold.jp/800x1000.png" alt="" class="max-h-full" />
     </picture>
 
     <div class="flex-1 flex flex-col">
       <button
-        class="ts-menu-close text-pampas font-serif-en border border-emperor rounded-[30px] py-[6px] px-4 flex gap-2 items-center absolute top-10 right-20"
+        class="ts-menu-close text-pampas font-serif-en border border-emperor rounded-[30px] py-[6px] px-4 flex gap-2 items-center absolute top-5 md:top-10 right-5 md:right-20"
       >
         <span class="inline-block">CLOSE</span>
         <Disc />
@@ -23,7 +23,7 @@ import Disc from '@/components/Disc.astro';
 
       <div class="py-10 flex-1 flex flex-col items-center">
         <div class="flex items-center flex-1">
-          <ul class="inline-flex flex-row-reverse gap-12">
+          <ul class="inline-flex flex-row-reverse gap-6 md:gap-12">
             {
               menus.map(menu => {
                 return (
@@ -37,7 +37,7 @@ import Disc from '@/components/Disc.astro';
                         <span class="text-taupe-gray font-serif-en">
                           {menu.en}
                         </span>
-                        <span class="text-4xl">{menu.text}</span>
+                        <span class="text-2xl md:text-4xl">{menu.text}</span>
                       </span>
                     </a>
                   </li>
