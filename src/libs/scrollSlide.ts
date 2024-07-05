@@ -4,8 +4,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 const scrollSlide = () => {
   gsap.registerPlugin(ScrollTrigger);
   const section = document.getElementById('scroll-slide');
+  const container = document.getElementById('scroll-slide-container');
   const slides = gsap.utils.toArray('.ts-scroll-slide-item');
-  const width = section?.offsetWidth;
+  const width = container?.clientWidth;
   console.log(width);
 
   gsap.to(slides, {

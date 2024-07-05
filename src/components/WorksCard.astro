@@ -14,14 +14,14 @@ const { items } = Astro.props;
   {
     items.map(item => {
       return (
-        <li class="w-[36rem] pt-5 pb-6 border-l peer-last:border-r last-of-type:border-r border-silver px-12">
+        <li class="w-72 md:w-[36rem] pt-5 pb-6 border-l peer-last:border-r last-of-type:border-r border-silver px-12">
           <a href={item.href}>
             <div class="flex">
               <picture class="flex-1">
                 <img src={item.image} alt={item.title} />
               </picture>
               <div class="vertical-rl flex font-serif-en ml-3">
-                <ul class="flex gap-4">
+                <ul class="flex flex-wrap gap-4">
                   {item.categories.map(category => {
                     return <li>{category}</li>;
                   })}
@@ -31,7 +31,7 @@ const { items } = Astro.props;
             </div>
             <div class="mt-4">
               <h2 class="font-semibold text-xl md:text-3xl">{item.title}</h2>
-              <ul class="flex gap-x-4 gap-y-2 font-serif-en mt-6 text-gray">
+              <ul class="flex flex-wrap gap-x-4 gap-y-2 font-serif-en mt-6 text-gray">
                 {item.tags.map(tag => {
                   return <li>{tag}</li>;
                 })}
