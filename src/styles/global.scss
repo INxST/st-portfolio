@@ -18,8 +18,10 @@ html {
   }
 }
 
+html,
 body {
   -webkit-text-size-adjust: 100%;
+  cursor: none;
 }
 
 .ts-text-link {
