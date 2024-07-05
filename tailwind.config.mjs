@@ -36,9 +36,11 @@ export default {
         },
         '.vertical-rl': {
           writingMode: 'vertical-rl',
+          whiteSpace: 'pre',
         },
         '.vertical-lr': {
           writingMode: 'vertical-lr',
+          whiteSpace: 'pre',
         },
       };
       addUtilities(newUtilities);

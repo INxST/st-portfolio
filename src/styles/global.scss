@@ -18,6 +18,10 @@ html {
   }
 }
 
+body {
+  -webkit-text-size-adjust: 100%;
+}
+
 .ts-text-link {
   $this: &;
   position: relative;
