@@ -5,7 +5,10 @@ import Menu from '@/components/Header/Menu.astro';
 const path = Astro.url.pathname;
 ---
 
-<header>
+<header
+  id="header"
+  class="fixed top-0 left-0 w-screen bg-quill-gray bg-opacity-70 bg-[url(/texture-for-gray.png)] bg-repeat z-[997]"
+>
   <div class="container flex items-start py-5 md:py-10 px-5 md:px-20">
     <a
       href="/"
@@ -13,7 +16,9 @@ const path = Astro.url.pathname;
       >TAIKI SATO</a
     >
 
-    <ul class="ml-auto gap-8 hidden md:flex">
+    <ul
+      class="ts-header-list ml-auto gap-8 hidden md:flex ease-in-out max-h-[var(--header-list-height)]"
+    >
       {
         headerLinks.map(link => (
           <li class="relative">
@@ -43,9 +48,28 @@ const path = Astro.url.pathname;
   </div>
 </header>
 
+<div class="h-[var(--header-height)]"></div>
+
 <Menu />
 
 <script>
+  import effect from './effect';
   import menuToggle from './menuToggle';
+  effect();
   menuToggle();
 </script>
+
+<style>
+  .ts-header-list {
+    transition: all 0.5s ease-in-out;
+  }
+
+  .is-scroll {
+    .ts-header-list {
+      transform: translateY(-1rem);
+      visibility: hidden;
+      opacity: 0;
+      max-height: 0;
+    }
+  }
+</style>
