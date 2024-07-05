@@ -1,11 +1,10 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import TitleVertical from '@/components/TitleVertical.astro';
 const title = '制作実績';
 const titleEn = 'WORKS';
 ---
 
 <Layout title={titleEn}>
-  <p>{title}</p>
-  <p class="font-serif-en">{titleEn}</p>
-  <a href="#" class="ts-text-link">横書きリンクテスト</a>
+  <TitleVertical jp={title} en={titleEn} />
 </Layout>

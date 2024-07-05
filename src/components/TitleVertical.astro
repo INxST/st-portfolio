@@ -1,0 +1,21 @@
+---
+interface Props {
+  jp: string;
+  en: string;
+}
+
+const { jp, en } = Astro.props;
+---
+
+<h1 class="pl-5 pr-20 md:px-60 pt-32">
+  <span
+    class="text-4xl md:text-5xl font-semibold leading-none vertical-rl align-top -mt-5"
+  >
+    <span>
+      {jp}
+    </span>
+  </span>
+  <span class="md:text-xl font-serif-en md:leading-none vertical-rl align-top">
+    ({en})
+  </span>
+</h1>
