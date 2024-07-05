@@ -1,10 +1,26 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import TitleVertical from '@/components/TitleVertical.astro';
+import WorksCard from '@/components/WorksCard.astro';
+import works from '@/data/works';
 const title = '制作実績';
 const titleEn = 'WORKS';
 ---
 
 <Layout title={titleEn}>
-  <TitleVertical jp={title} en={titleEn} />
+  <section id="scroll-slide">
+    <div class="flex flex-nowrap whitespace-nowrap">
+      <div class="ts-scroll-slide-item">
+        <TitleVertical jp={title} en={titleEn} />
+      </div>
+      <div class="ts-scroll-slide-item">
+        <WorksCard items={works} />
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<script>
+  import scrollSlide from '@/libs/scrollSlide';
+  scrollSlide();
+</script>
