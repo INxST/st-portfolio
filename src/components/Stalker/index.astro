@@ -1,11 +1,11 @@
 <div
   id="cursor"
-  class="cursor rounded-full w-[8px] h-[8px] pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 bg-silver z-[999]"
+  class="cursor rounded-full w-2 h-2 pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 bg-silver z-[999]"
 >
 </div>
 <div
   id="follower"
-  class="follower rounded-full w-[40px] h-[40px] pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 border-emperor bg-mine-shaft z-[999] transition-all duration-200 ease-linear mix-blend-overlay"
+  class="follower rounded-full w-10 h-10 pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 border-emperor bg-mine-shaft z-[999] transition-all duration-200 ease-linear mix-blend-overlay"
 >
   <div class="w-full h-full relative rounded-full">
     <span
@@ -28,8 +28,8 @@
   .follower {
     &.is-active {
       mix-blend-mode: normal;
-      width: 80px;
-      height: 80px;
+      width: 5rem;
+      height: 5rem;
 
       .follower__text {
         opacity: 1;

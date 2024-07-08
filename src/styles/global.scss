@@ -1,5 +1,5 @@
 html {
-  /* desctop */
+  /* desktop */
   @media (min-width: 1024px) {
     /* 16px(1rem) / 1920px(アートボードサイズ) * 100 */
     font-size: calc((16 / 1920) * 100vw);
@@ -27,7 +27,6 @@ body {
 .ts-text-link {
   $this: &;
   position: relative;
-  overflow: hidden;
 
   * {
     transition-duration: 0.8s;
@@ -37,6 +36,7 @@ body {
 
   &__original {
     opacity: 0;
+    padding: 0 0.1em;
   }
 
   &__clone {
@@ -48,6 +48,7 @@ body {
 
   &:not([data-vertical='rl']) {
     display: inline-flex;
+    overflow-y: hidden;
 
     #{$this}__clone {
       + #{$this}__clone {
@@ -73,6 +74,8 @@ body {
   }
 
   &[data-vertical='rl'] {
+    overflow-x: hidden;
+
     #{$this}__clone {
       + #{$this}__clone {
         span {
