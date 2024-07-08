@@ -8,25 +8,17 @@ const titleEn = 'WORKS';
 ---
 
 <Layout title={titleEn}>
-  <section id="scroll-slide" class="min-h-screen pt-[var(--header-height)]">
-    <div id="scroll-slide-container" class="flex flex-nowrap whitespace-nowrap">
-      <div class="ts-scroll-slide-item">
-        <TitleVertical jp={title} en={titleEn} />
-      </div>
-      <div
-        class="ts-scroll-slide-item flex flex-nowrap whitespace-nowrap items-center"
-      >
-        <WorksCard items={works} />
-        <a
-          href="/about"
-          class="ts-text-link text-2xl md:text-[2rem] vertical-rl font-semibold ml-24 md:ml-72 border-r pr-2"
-          data-vertical="rl"
-        >
-          <span>私について</span>
-        </a>
-      </div>
-    </div>
-  </section>
+  <WorksCard items={works}>
+    <TitleVertical jp={title} en={titleEn} slot="title" />
+    <a
+      href="/about"
+      class="ts-text-link text-2xl md:text-[2rem] vertical-rl font-semibold ml-24 md:ml-72 border-r pr-2"
+      data-vertical="rl"
+      slot="link"
+    >
+      <span>私について</span>
+    </a>
+  </WorksCard>
 </Layout>
 
 <script>
