@@ -1,11 +1,48 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import TitleVertical from '@/components/TitleVertical.astro';
+import WorksCard from '@/components/WorksCard.astro';
+import works from '@/data/works';
 const title = '制作実績';
 const titleEn = 'WORKS';
 ---
 
 <Layout title={titleEn}>
-  <p>{title}</p>
-  <p class="font-serif-en">{titleEn}</p>
-  <a href="#" class="ts-text-link">横書きリンクテスト</a>
+  <section id="scroll-slide" class="min-h-screen pt-[var(--header-height)]">
+    <div id="scroll-slide-container" class="flex flex-nowrap whitespace-nowrap">
+      <div class="ts-scroll-slide-item">
+        <TitleVertical jp={title} en={titleEn} />
+      </div>
+      <div
+        class="ts-scroll-slide-item flex flex-nowrap whitespace-nowrap items-center"
+      >
+        <WorksCard items={works} />
+        <a
+          href="/about"
+          class="ts-text-link text-2xl md:text-[2rem] vertical-rl font-semibold ml-24 md:ml-72 border-r pr-2"
+          data-vertical="rl"
+        >
+          <span>私について</span>
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<script>
+  import scrollSlide from '@/libs/scrollSlide';
+  scrollSlide();
+</script>
+
+<style>
+  .ts-text-link {
+    span {
+      justify-content: center;
+
+      gap: 0.2rem;
+      @media screen and (min-width: 768px) {
+        gap: 0.3rem;
+      }
+    }
+  }
+</style>

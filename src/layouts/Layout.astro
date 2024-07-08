@@ -6,6 +6,7 @@ import '@fontsource/marcellus';
 import { SEO } from 'astro-seo';
 import siteInfo from '@/data/siteInfo';
 import Header from '@/components/Header/index.astro';
+import Stalker from '@/components/Stalker/index.astro';
 import '@/styles/global.scss';
 interface Props {
   title?: string;
@@ -62,11 +63,12 @@ const meta = {
     class="font-serif text-black bg-quill-gray bg-[url(/texture-for-gray.png)] bg-repeat"
   >
     <Header />
-    <main class="container px-5 md:px-20">
+    <main class="container px-5 md:px-20 overflow-x-hidden">
       <slot />
     </main>
+    <Stalker />
     <script>
-      import hoverTextLink from '@/libs/hover-text-link';
+      import hoverTextLink from '@/libs/hoverTextLink';
       hoverTextLink();
     </script>
   </body>
