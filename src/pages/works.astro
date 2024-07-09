@@ -1,30 +1,17 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import TitleVertical from '@/components/TitleVertical.astro';
-import WorksCard from '@/components/WorksCard.astro';
+import WorksSlide from '@/components/WorksSlide';
 import works from '@/data/works';
 const title = '制作実績';
 const titleEn = 'WORKS';
 ---
 
 <Layout title={titleEn}>
-  <WorksCard items={works}>
-    <TitleVertical jp={title} en={titleEn} slot="title" />
-    <a
-      href="/about"
-      class="ts-text-link text-2xl md:text-[2rem] vertical-rl font-semibold ml-24 md:ml-72 border-r pr-2"
-      data-vertical="rl"
-      slot="link"
-    >
-      <span>私について</span>
-    </a>
-  </WorksCard>
+  <WorksSlide client:only items={works}>
+    <TitleVertical jp={title} en={titleEn} />
+  </WorksSlide>
 </Layout>
-
-<script>
-  import scrollSlide from '@/libs/scrollSlide';
-  scrollSlide();
-</script>
 
 <style>
   .ts-text-link {
