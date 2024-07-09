@@ -8,7 +8,7 @@ const titleEn = 'WORKS';
 ---
 
 <Layout title={titleEn}>
-  <WorksSlide client:only items={works}>
+  <WorksSlide items={works} client:only="react">
     <TitleVertical jp={title} en={titleEn} />
   </WorksSlide>
 </Layout>
