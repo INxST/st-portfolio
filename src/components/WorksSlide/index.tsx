@@ -24,15 +24,12 @@ const WorksSlide = ({ children, items }: Props) => {
 
   return (
     <section>
-      <div
-        ref={wrapper}
-        className="pt-[var(--header-height)]"
-      >
+      <div ref={wrapper} className="pt-[var(--header-height)]">
         <ul
           ref={container}
           className="flex flex-nowrap justify-start whitespace-nowrap"
         >
-          <li className="ts-scroll-slide-item whitespace-nowrap">{children}</li>
+          <li className="ts-scroll-slide-item">{children}</li>
           {items.map((item, i) => {
             return (
               <li
@@ -41,7 +38,7 @@ const WorksSlide = ({ children, items }: Props) => {
                 data-tags={item.tags.join(' ')}
                 data-hidden={
                   selectedOption !== 'All' &&
-                    !item.tags.includes(selectedOption)
+                  !item.tags.includes(selectedOption)
                     ? true
                     : null
                 }
@@ -58,7 +55,11 @@ const WorksSlide = ({ children, items }: Props) => {
                     <div className="vertical-rl flex font-serif-en ml-3">
                       <ul className="flex flex-wrap gap-4">
                         {item.categories.map((category, i) => {
-                          return <li key={`${item.href}-${category}-${i}`}>{category}</li>;
+                          return (
+                            <li key={`${item.href}-${category}-${i}`}>
+                              {category}
+                            </li>
+                          );
                         })}
                       </ul>
                       <span className="inline-block mt-auto">{item.year}</span>

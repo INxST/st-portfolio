@@ -20,19 +20,20 @@ const scrollSlide = ({ wrapper, container, progress }: Args) => {
 
       const slides = gsap.utils.toArray<HTMLElement>('.ts-scroll-slide-item');
       const width = container.current?.offsetWidth;
+
       gsap.to(container.current, {
-        xPercent: -100 * (slides.length - 1),
+        xPercent: -30 * (slides.length - 1),
         ease: 'none',
         scrollTrigger: {
           trigger: wrapper.current,
           pin: true,
           scrub: 1,
           start: 'top top',
-          end: `+=${width}`,
+          end: () => `+=${width}`,
           anticipatePin: 1,
           invalidateOnRefresh: true,
           onUpdate: self => {
-            progress.current!.style.width = `${(self.progress * 100).toFixed(2)}%`;
+            progress.current!.style.width = `${(self.progress * 100).toFixed(5)}%`;
           },
         },
       });
