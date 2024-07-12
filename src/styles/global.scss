@@ -24,6 +24,34 @@ body {
   cursor: none;
 }
 
+.cursor {
+  &.is-active {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.follower {
+  &.is-active {
+    mix-blend-mode: normal;
+    width: 5rem;
+    height: 5rem;
+
+    .follower__text {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &.is-bg-bright {
+    background-color: #dededa;
+
+    .follower__text {
+      color: #3d3d3d;
+    }
+  }
+}
+
 .ts-text-link {
   $this: &;
   position: relative;
