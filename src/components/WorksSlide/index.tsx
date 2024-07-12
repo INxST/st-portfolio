@@ -31,7 +31,7 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
       <div ref={wrapper} className="pt-[var(--header-height)]">
         <ul
           ref={container}
-          className="flex flex-nowrap justify-start whitespace-nowrap h-[calc(100dvh-calc(var(--header-height)+3.25rem))] md:h-[calc(100dvh-calc(var(--header-height)+var(--filter-height)))] pt-11 pb-20"
+          className="flex flex-nowrap justify-start whitespace-nowrap h-[calc(100vh-calc(var(--header-height)+3.25rem))] md:h-[calc(100dvh-calc(var(--header-height)+var(--filter-height)))] pt-11 pb-20 box"
         >
           <li className="ts-scroll-slide-item">
             <TitleVertical jp={title} en={titleEn} />
@@ -40,7 +40,11 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
             return (
               <li
                 key={`${item.href}-${i}`}
-                className="ts-scroll-slide-item h-full aspect-works-slide pt-5 pb-6 border-l peer-last:border-r last-of-type:border-r border-silver bg-quill-gray bg-[url(/texture-for-gray.png)] bg-repeat px-12 whitespace-nowrap transition-all duration-500 animate-text-focus-in data-[hidden]:animate-text-blur-out data-[hidden]:w-0 data-[hidden]:p-0"
+                className="ts-scroll-slide-item h-full aspect-works-slide 
+                pt-5 pb-6 border-l peer-last:border-r last-of-type:border-r border-silver 
+                bg-quill-gray bg-[url(/texture-for-gray.png)] bg-repeat px-12 whitespace-nowrap max-w-full
+                transition-all duration-700 animate-text-focus-in
+                data-[hidden]:animate-text-blur-out data-[hidden]:max-w-0 data-[hidden]:px-0"
                 data-tags={item.tags.join(' ')}
                 data-hidden={
                   selectedOption !== 'All' &&
