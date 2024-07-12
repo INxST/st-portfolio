@@ -66,10 +66,12 @@ export default {
         '.vertical-rl': {
           writingMode: 'vertical-rl',
           whiteSpace: 'pre',
+          fontFeatureSettings: '"vchw" 1',
         },
         '.vertical-lr': {
           writingMode: 'vertical-lr',
           whiteSpace: 'pre',
+          fontFeatureSettings: '"vchw" 1',
         },
       };
       addUtilities(newUtilities);
