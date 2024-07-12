@@ -1,5 +1,5 @@
 import type { Work } from '@/types/Work';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import scrollSlide from './scrollSlide';
 import filters from '@/data/filters';
 
@@ -68,7 +68,7 @@ const WorksSlide = ({ children, items }: Props) => {
                     </div>
                   </div>
                   <div className="mt-4">
-                    <h2 className="font-semibold text-xl md:text-3xl">
+                    <h2 className="font-semibold text-xl md:text-3xl whitespace-normal">
                       {item.title}
                     </h2>
                     <ul className="flex flex-wrap gap-x-4 gap-y-2 font-serif-en mt-6 text-gray">
@@ -131,7 +131,7 @@ const WorksSlide = ({ children, items }: Props) => {
                   key={`${filter}-${i}`}
                   data-checked={selectedOption === filter ? true : null}
                   className="transition-all w-0 h-0 opacity-0 invisible animate-text-blur-out md:w-auto md:h-auto md:opacity-100 md:visible md:animate-none 
-                  data-[checked]:w-auto data-[checked]:h-auto data-[checked]:visible data-[checked]:opacity-100 data-[checked]:animate-text-focus-in
+                  data-[checked]:w-auto data-[checked]:h-auto data-[checked]:visible data-[checked]:opacity-100 data-[checked]:animate-text-focus-in md:data-[checked]:animate-none
                   group-data-[open]:w-auto group-data-[open]:h-auto group-data-[open]:opacity-100 group-data-[open]:visible group-data-[open]:animate-text-focus-in"
                 >
                   <label className="font-serif-en flex items-center">

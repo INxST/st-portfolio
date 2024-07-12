@@ -20,10 +20,11 @@ const scrollSlide = ({ wrapper, container, progress, filter }: Args) => {
       didEffect.current = true;
 
       const slides = gsap.utils.toArray<HTMLElement>('.ts-scroll-slide-item');
-      const width = container.current?.offsetWidth;
+      const width = container.current?.clientWidth;
+      const magnification = document.body.clientWidth > 768 ? -30 : -110;
 
       gsap.to(container.current, {
-        xPercent: -30 * (slides.length - 1),
+        xPercent: magnification * (slides.length - 1),
         ease: 'none',
         scrollTrigger: {
           trigger: wrapper.current,
