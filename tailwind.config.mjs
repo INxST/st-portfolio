@@ -26,6 +26,35 @@ export default {
         pampas: '#F9F9F6',
         emperor: '#4F4F4F',
       },
+      animation: {
+        'text-focus-in':
+          'text-focus-in 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
+        'text-blur-out':
+          'text-blur-out 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
+      },
+      aspectRatio: {
+        'works-slide': '59/72',
+      },
+      keyframes: {
+        'text-focus-in': {
+          '0%': {
+            filter: 'blur(12px)',
+            opacity: '0',
+          },
+          to: {
+            filter: 'blur(0)',
+            opacity: '1',
+          },
+        },
+        'text-blur-out': {
+          '0%': {
+            filter: 'blur(.01)',
+          },
+          to: {
+            filter: 'blur(12px) opacity(0%)',
+          },
+        },
+      },
     },
   },
   plugins: [
