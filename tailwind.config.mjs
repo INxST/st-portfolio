@@ -32,6 +32,9 @@ export default {
         'text-blur-out':
           'text-blur-out 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
       },
+      aspectRatio: {
+        'works-slide': '59/72',
+      },
       keyframes: {
         'text-focus-in': {
           '0%': {

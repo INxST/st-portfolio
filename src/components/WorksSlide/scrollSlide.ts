@@ -7,9 +7,10 @@ type Args = {
   wrapper: MutableRefObject<HTMLElement | null>;
   container: MutableRefObject<HTMLElement | null>;
   progress: MutableRefObject<HTMLSpanElement | null>;
+  filter?: MutableRefObject<HTMLDivElement | null>;
 };
 
-const scrollSlide = ({ wrapper, container, progress }: Args) => {
+const scrollSlide = ({ wrapper, container, progress, filter }: Args) => {
   gsap.registerPlugin(ScrollTrigger);
 
   const didEffect = useRef(false);
@@ -38,7 +39,13 @@ const scrollSlide = ({ wrapper, container, progress }: Args) => {
         },
       });
     }
-  }, []);
+
+    const filterHeight = filter?.current?.offsetHeight;
+    document.documentElement.style.setProperty(
+      '--filter-height',
+      `${filterHeight}px`
+    );
+  }, [wrapper, container, progress, filter]);
 };
 
 export default scrollSlide;

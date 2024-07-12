@@ -1,5 +1,5 @@
 import type { Work } from '@/types/Work';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import scrollSlide from './scrollSlide';
 import filters from '@/data/filters';
 
@@ -13,6 +13,7 @@ const WorksSlide = ({ children, items }: Props) => {
   const wrapper = useRef<HTMLDivElement | null>(null);
   const container = useRef<HTMLUListElement | null>(null);
   const progress = useRef<HTMLDivElement | null>(null);
+  const filter = useRef<HTMLDivElement | null>(null);
 
   const handleOptionChange = (event: {
     target: { value: React.SetStateAction<string> };
@@ -20,21 +21,21 @@ const WorksSlide = ({ children, items }: Props) => {
     setSelectedOption(event.target.value);
   };
 
-  scrollSlide({ wrapper, container, progress });
+  scrollSlide({ wrapper, container, progress, filter });
 
   return (
     <section>
       <div ref={wrapper} className="pt-[var(--header-height)]">
         <ul
           ref={container}
-          className="flex flex-nowrap justify-start whitespace-nowrap"
+          className="flex flex-nowrap justify-start whitespace-nowrap h-[calc(100dvh-calc(var(--header-height)+var(--filter-height)))] pt-11 pb-20"
         >
           <li className="ts-scroll-slide-item">{children}</li>
           {items.map((item, i) => {
             return (
               <li
                 key={`${item.href}-${i}`}
-                className="ts-scroll-slide-item md:w-[calc(calc(590/16)*1rem)] pt-5 pb-6 border-l peer-last:border-r last-of-type:border-r border-silver bg-quill-gray bg-[url(/texture-for-gray.png)] bg-repeat px-12 whitespace-nowrap transition-all duration-500 animate-text-focus-in data-[hidden]:animate-text-blur-out data-[hidden]:w-0"
+                className="ts-scroll-slide-item h-full aspect-works-slide pt-5 pb-6 border-l peer-last:border-r last-of-type:border-r border-silver bg-quill-gray bg-[url(/texture-for-gray.png)] bg-repeat px-12 whitespace-nowrap transition-all duration-500 animate-text-focus-in data-[hidden]:animate-text-blur-out data-[hidden]:w-0"
                 data-tags={item.tags.join(' ')}
                 data-hidden={
                   selectedOption !== 'All' &&
@@ -45,7 +46,7 @@ const WorksSlide = ({ children, items }: Props) => {
               >
                 <a href={item.href} className="flex flex-col h-full">
                   <div className="flex flex-1">
-                    <picture className="flex-1 w-[calc(calc(247/14)*1rem)] md:w-[calc(calc(464/16)*1rem)] h-[calc(calc(368/14)*1rem)] md:h-[calc(calc(560/16)*1rem)]">
+                    <picture className="flex-1">
                       <img
                         src={item.image}
                         alt={item.title}
@@ -91,7 +92,7 @@ const WorksSlide = ({ children, items }: Props) => {
         </ul>
       </div>
 
-      <div className="fixed bottom-0 left-0 w-screen">
+      <div className="fixed bottom-0 left-0 w-screen" ref={filter}>
         <div className="w-full h-[1px] bg-silver">
           <div className="w-0 h-full bg-black" ref={progress} />
         </div>
