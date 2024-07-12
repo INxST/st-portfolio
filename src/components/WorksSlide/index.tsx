@@ -1,14 +1,16 @@
 import type { Work } from '@/types/Work';
 import React, { useState, useRef } from 'react';
+import TitleVertical from '../TitleVertical';
 import scrollSlide from './scrollSlide';
 import filters from '@/data/filters';
 
 type Props = {
-  children: React.ReactNode;
+  title: string;
+  titleEn: string;
   items: Work[];
 };
 
-const WorksSlide = ({ children, items }: Props) => {
+const WorksSlide = ({ title, titleEn, items }: Props) => {
   const [selectedOption, setSelectedOption] = useState('All');
   const [open, setOpen] = useState(false);
   const wrapper = useRef<HTMLDivElement | null>(null);
@@ -31,7 +33,9 @@ const WorksSlide = ({ children, items }: Props) => {
           ref={container}
           className="flex flex-nowrap justify-start whitespace-nowrap h-[calc(100dvh-calc(var(--header-height)+3.25rem))] md:h-[calc(100dvh-calc(var(--header-height)+var(--filter-height)))] pt-11 pb-20"
         >
-          <li className="ts-scroll-slide-item">{children}</li>
+          <li className="ts-scroll-slide-item">
+            <TitleVertical jp={title} en={titleEn} />
+          </li>
           {items.map((item, i) => {
             return (
               <li

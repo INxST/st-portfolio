@@ -1,6 +1,5 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import TitleVertical from '@/components/TitleVertical.astro';
 import WorksSlide from '@/components/WorksSlide';
 import works from '@/data/works';
 const title = '制作実績';
@@ -8,9 +7,7 @@ const titleEn = 'WORKS';
 ---
 
 <Layout title={titleEn}>
-  <WorksSlide items={works} client:only>
-    <TitleVertical jp={title} en={titleEn} />
-  </WorksSlide>
+  <WorksSlide title={title} titleEn={titleEn} items={works} client:only />
 </Layout>
 
 <style>
