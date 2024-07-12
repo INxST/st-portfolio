@@ -36,7 +36,7 @@ const WorksSlide = ({ children, items }: Props) => {
             return (
               <li
                 key={`${item.href}-${i}`}
-                className="ts-scroll-slide-item h-full aspect-works-slide pt-5 pb-6 border-l peer-last:border-r last-of-type:border-r border-silver bg-quill-gray bg-[url(/texture-for-gray.png)] bg-repeat px-12 whitespace-nowrap transition-all duration-500 animate-text-focus-in data-[hidden]:animate-text-blur-out data-[hidden]:w-0"
+                className="ts-scroll-slide-item h-full aspect-works-slide pt-5 pb-6 border-l peer-last:border-r last-of-type:border-r border-silver bg-quill-gray bg-[url(/texture-for-gray.png)] bg-repeat px-12 whitespace-nowrap transition-all duration-500 animate-text-focus-in data-[hidden]:animate-text-blur-out data-[hidden]:w-0 data-[hidden]:p-0"
                 data-tags={item.tags.join(' ')}
                 data-hidden={
                   selectedOption !== 'All' &&
@@ -124,7 +124,7 @@ const WorksSlide = ({ children, items }: Props) => {
               <path d="M5.90872 7.43347L-0.183594 1.78197L0.907946 0.769409L5.90872 5.43189L10.9095 0.792959L12.001 1.80552L5.90872 7.43347Z" />
             </svg>
           </button>
-          <ul className="flex flex-wrap items-center md:items-baseline ml-[7.5rem] gap-4 md:gap-6">
+          <ul className="flex flex-wrap items-center md:items-baseline ml-[7.5rem] gap-0 md:gap-6 group-data-[open]:gap-4">
             {filters.map((filter, i) => {
               return (
                 <li
