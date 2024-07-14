@@ -1,4 +1,4 @@
-const effect = () => {
+const animation = () => {
   const header = document.getElementById('header');
   const headerList = document.querySelector('.ts-header-list');
   const height = header?.clientHeight;
@@ -11,29 +11,33 @@ const effect = () => {
   const bgMineShaftTexture = document.querySelectorAll(
     ':scope main .bg-mine-shaft-texture'
   );
+  const bgGrayTexture = document.querySelectorAll(
+    ':scope main .bg-gray-texture'
+  );
   const open = document.querySelector<HTMLElement>('.ts-menu-open');
   const logo = document.querySelector<HTMLElement>('.ts-logo');
+
+  const changeDataset = (rect: DOMRect, value: 'dark' | 'bright') => {
+    if (header && open && logo) {
+      if (rect.top < height! && rect.bottom > 0) {
+        header.dataset.color = value;
+        open.dataset.color = value;
+        logo.dataset.color = value;
+      }
+    }
+  };
 
   const colorChenge = () => {
     bgMineShaftTexture.forEach(bg => {
       const rect = bg.getBoundingClientRect();
-      if (header && open && logo) {
-        if (rect.top < height! && rect.bottom > 0) {
-          header.dataset.color = 'dark';
-          open.dataset.color = 'dark';
-          logo.dataset.color = 'dark';
-        } else {
-          header.dataset.color = 'bright';
-          open.dataset.color = 'bright';
-          logo.dataset.color = 'bright';
-        }
-      }
+      changeDataset(rect, 'dark');
+    });
+
+    bgGrayTexture.forEach(bg => {
+      const rect = bg.getBoundingClientRect();
+      changeDataset(rect, 'bright');
     });
   };
-
-  window.addEventListener('load', () => {
-    colorChenge();
-  });
 
   window.addEventListener('scroll', () => {
     if (header) {
@@ -48,4 +52,4 @@ const effect = () => {
   });
 };
 
-export default effect;
+export default animation;

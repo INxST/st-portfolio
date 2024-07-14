@@ -12,8 +12,8 @@ const path = Astro.url.pathname;
 <header
   id="header"
   class="fixed top-0 left-0 w-screen
-  bg-gray-texture z-30
-  transition-all group-[header]
+  z-30 transition-all group-[header]
+  data-[color=bright]:bg-gray-texture
   data-[color=dark]:bg-transparent
   data-[color=dark]:bg-none
   data-[color=dark]:text-pampas"
@@ -68,9 +68,9 @@ const path = Astro.url.pathname;
 <Menu />
 
 <script>
-  import effect from './effect';
+  import animation from './animation';
   import menuToggle from './menuToggle';
-  effect();
+  animation();
   menuToggle();
 </script>
 
