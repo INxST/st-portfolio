@@ -25,6 +25,7 @@ export default {
         'quill-gray': '#DEDEDA',
         pampas: '#F9F9F6',
         emperor: '#4F4F4F',
+        'silver-chalice': '#A9A9A9',
       },
       animation: {
         'text-focus-in':
@@ -82,6 +83,22 @@ export default {
           backgroundColor: '#2F2F2F',
           backgroundImage: 'url(/texture-for-black.png)',
           backgroundRepeat: 'repeat',
+        },
+        '.contents-full': {
+          marginLeft: 'calc(((100vw - 100%) / 2) * -1)',
+          marginRight: 'calc(((100vw - 100%) / 2) * -1)',
+          paddingLeft: 'calc((100vw - 100%) / 2)',
+          paddingRight: 'calc((100vw - 100%) / 2)',
+        },
+        '.contents-left': {
+          marginLeft: 'calc(((100vw - 100%) / 2) * -1)',
+          marginRight: 'calc(((100vw - 100%) / 2) * -1)',
+          paddingRight: 'calc((100vw - 100%) / 2)',
+        },
+        '.contents-right': {
+          marginLeft: 'calc(((100vw - 100%) / 2) * -1)',
+          marginRight: 'calc(((100vw - 100%) / 2) * -1)',
+          paddingLeft: 'calc((100vw - 100%) / 2)',
         },
       };
       addUtilities(newUtilities);

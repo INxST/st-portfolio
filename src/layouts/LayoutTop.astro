@@ -1,0 +1,73 @@
+---
+import '@fontsource/zen-old-mincho/400.css';
+import '@fontsource/zen-old-mincho/500.css';
+import '@fontsource/zen-old-mincho/600.css';
+import '@fontsource/marcellus';
+import { SEO } from 'astro-seo';
+import siteInfo from '@/data/siteInfo';
+import Header from '@/components/Header/index.astro';
+import Main from '@/components/Main.astro';
+import Stalker from '@/components/Stalker';
+import '@/styles/global.scss';
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const meta = {
+  title: siteInfo.appName,
+  description: siteInfo.description,
+  author: siteInfo.author,
+  image: new URL('/images/common/og.png', Astro.url.origin).toString(),
+};
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="/logo.svg" sizes="any" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <SEO
+      charset="UTF-8"
+      title={meta.title}
+      description={meta.description}
+      openGraph={{
+        basic: {
+          title: meta.title,
+          type: 'website',
+          image: meta.image,
+        },
+        image: {
+          alt: meta.title,
+        },
+        optional: {
+          siteName: siteInfo.appName,
+          description: meta.description,
+          locale: 'ja_JP',
+        },
+      }}
+      twitter={{
+        card: 'summary',
+        site: siteInfo.x,
+        title: meta.title,
+        description: meta.description,
+        image: meta.image,
+        imageAlt: meta.title,
+        creator: siteInfo.x,
+      }}
+    />
+  </head>
+  <body class="font-serif text-black">
+    <Header />
+    <Main>
+      <slot />
+    </Main>
+    <Stalker client:only />
+    <script>
+      import hoverTextLink from '@/libs/hoverTextLink';
+      hoverTextLink();
+    </script>
+  </body>
+</html>

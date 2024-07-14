@@ -1,0 +1,45 @@
+---
+import Image from 'astro/components/Image.astro';
+import moon from '@/assets/moon.png';
+import siteInfo from '@/data/siteInfo';
+---
+
+<section id="hero">
+  <div
+    class="pt-[var(--header-height)] bg-mine-shaft-texture contents-full text-silver-chalice"
+  >
+    <div class="flex justify-center">
+      <div
+        class="relative inline-block overflow-hidden w-[37.5rem] h-[37.5rem]"
+      >
+        <picture class="w-full h-full">
+          <Image src={moon} alt="月" />
+          <span
+            id="mask"
+            class="absolute -top-[calc(var(--moon-mask-ajust-size)/2)] -left-[calc(100%+var(--moon-mask-ajust-size))] bg-mine-shaft-texture w-[calc(100%+var(--moon-mask-ajust-size))] h-[calc(100%+var(--moon-mask-ajust-size))] rounded-full"
+          ></span>
+        </picture>
+      </div>
+    </div>
+
+    <p>{siteInfo.description}</p>
+
+    <p>Web design / Graphic design / Art direction</p>
+
+    <h1 class="flex">
+      <span> TAIKI SATO </span>
+
+      <span class="flex">
+        <span>
+          <span>Portfolio</span>
+        </span>
+        <span>作品集</span>
+      </span>
+    </h1>
+  </div>
+</section>
+
+<script>
+  import animation from './animation';
+  animation();
+</script>
