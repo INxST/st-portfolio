@@ -22,7 +22,7 @@ const animation = () => {
   images.forEach(image => {
     const yPercent = yPercents[Math.floor(Math.random())];
     const scrub = scrubs[Math.floor(Math.random())];
-    gsap.set(image, { zIndex: yPercent, position: 'relative' });
+    gsap.set(image, { zIndex: yPercent / 100, position: 'relative' });
     gsap.fromTo(
       image,
       {
