@@ -73,6 +73,16 @@ export default {
           whiteSpace: 'pre',
           fontFeatureSettings: '"vchw" 1',
         },
+        '.bg-gray-texture': {
+          backgroundColor: '#DEDEDA',
+          backgroundImage: 'url(/texture-for-gray.png)',
+          backgroundRepeat: 'repeat',
+        },
+        '.bg-mine-shaft-texture': {
+          backgroundColor: '#2F2F2F',
+          backgroundImage: 'url(/texture-for-black.png)',
+          backgroundRepeat: 'repeat',
+        },
       };
       addUtilities(newUtilities);
     }),
