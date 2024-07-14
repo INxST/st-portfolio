@@ -1,0 +1,85 @@
+---
+import More from '../More.astro';
+---
+
+<section id="parallax-gallery">
+  <div
+    class="bg-mine-shaft-texture contents-full text-pampas relative py-44 h-screen"
+  >
+    <div class="flex justify-between">
+      <ul class="flex-1 flex flex-col items-start">
+        <li class="parallax-gallery-image w-[27rem]">
+          <picture class="w-full">
+            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
+          </picture>
+        </li>
+        <li class="parallax-gallery-image w-[14rem] mt-[15rem]">
+          <picture class="w-full">
+            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
+          </picture>
+        </li>
+        <li class="parallax-gallery-image w-[21rem] mt-[3.75rem]">
+          <picture class="w-full">
+            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
+          </picture>
+        </li>
+        <li class="parallax-gallery-image w-[21rem] mt-[7rem]">
+          <picture class="w-full">
+            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
+          </picture>
+        </li>
+      </ul>
+
+      <ul class="flex-1 flex flex-col items-end">
+        <li class="parallax-gallery-image w-[26rem] mt-[13rem]">
+          <picture class="w-full">
+            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
+          </picture>
+        </li>
+        <li class="parallax-gallery-image w-[12.5rem] mt-[6rem]">
+          <picture class="w-full">
+            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
+          </picture>
+        </li>
+        <li class="parallax-gallery-image w-[22rem] mt-[7.3rem]">
+          <picture class="w-full">
+            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
+          </picture>
+        </li>
+        <li class="parallax-gallery-image w-[30rem] mt-[7rem]">
+          <picture class="w-full">
+            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
+          </picture>
+        </li>
+      </ul>
+    </div>
+
+    <div
+      class="flex flex-col justify-center items-center w-screen h-screen
+      absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+    >
+      <h2 class="text-taupe-gray">
+        <a href="/about" class="flex flex-row-reverse gap-4">
+          <span class="text-lg leading-none font-medium vertical-rl -mt-6">
+            <span> （私について） </span>
+          </span>
+          <span class="text-[2.625rem] leading-none font-semibold">
+            <span class="vertical-rl flex flex-col gap-4">
+              <span>これまでのこと</span>
+              <span class="mt-[2.625rem]">嗜好と思考の話</span>
+            </span>
+          </span>
+        </a>
+      </h2>
+
+      <div class="mt-[5.5rem]">
+        <More color="bright" href="/about" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import animation from './animation';
+  animation();
+</script>
