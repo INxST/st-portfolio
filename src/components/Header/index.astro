@@ -5,29 +5,39 @@ import Menu from '@/components/Header/Menu.astro';
 const path = Astro.url.pathname;
 ---
 
-<header id="header" class="fixed top-0 left-0 w-screen bg-gray-texture z-30">
+<header
+  id="header"
+  class="fixed top-0 left-0 w-screen
+  bg-gray-texture z-30
+  transition-all group-[header]
+  data-[color=dark]:bg-mine-shaft-texture
+  data-[color=dark]:text-pampas"
+>
   <div class="container flex items-start py-5 md:py-10 px-5 md:px-20">
     <a
       href="/"
-      class="ts-text-link font-serif-en text-2xl md:text-4xl text-gray"
+      class="ts-text-link font-serif-en text-2xl md:text-4xl text-gray
+      transision-colors group-[header]:data-[color=dark]:text-pampas"
     >
       TAIKI&nbsp;SATO</a
     >
 
     <ul
-      class="ts-header-list ml-auto gap-8 hidden md:flex ease-in-out max-h-[var(--header-list-height)]"
+      class="ts-header-list ml-auto gap-8 hidden md:flex
+      ease-in-out max-h-[var(--header-list-height)]
+      transision-colors group-[header]:data-[color=dark]:text-pampas"
     >
       {
         headerLinks.map(link => (
           <li class="relative">
-            {link.href.includes(path) && (
+            {path !== '/' && link.href.includes(path) && (
               <span class="w-[6px] h-[6px] absolute -top-4 left-1/2 -translate-x-1/2">
                 <Disc />
               </span>
             )}
             <a
               href={link.href}
-              class={`ts-text-link text-2xl md:text-lg vertical-rl ${link.href.includes(path) && 'text-gray'}`}
+              class={`ts-text-link text-2xl md:text-lg vertical-rl ${path !== '/' && link.href.includes(path) && 'text-gray'}`}
               data-vertical="rl"
             >
               {link.text}
@@ -38,9 +48,12 @@ const path = Astro.url.pathname;
     </ul>
 
     <button
-      class="ts-menu-open font-serif-en border border-silver rounded-[30px] ml-auto md:ml-14 py-[6px] px-4 flex gap-2 items-center group transition hover:bg-mine-shaft hover:text-pampas"
+      class="ts-menu-open font-serif-en border border-silver
+      rounded-[30px] ml-auto md:ml-14 py-[6px] px-4 flex gap-2 items-center
+      group transition hover:bg-mine-shaft hover:text-pampas
+      data-[color=dark]:hover:bg-pampas data-[color=dark]:hover:text-mine-shaft"
     >
-      <span class="inline-block">Menu</span>
+      <span class="inline-block">MENU</span>
       <Disc />
     </button>
   </div>
