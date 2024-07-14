@@ -2,6 +2,10 @@
 import headerLinks from '@/data/headerLinks';
 import Disc from '@/components/Disc.astro';
 import Menu from '@/components/Header/Menu.astro';
+interface Astro {
+  color?: 'bright' | 'dark';
+}
+const { color } = Astro.props;
 const path = Astro.url.pathname;
 ---
 
@@ -12,6 +16,7 @@ const path = Astro.url.pathname;
   transition-all group-[header]
   data-[color=dark]:bg-mine-shaft-texture
   data-[color=dark]:text-pampas"
+  data-color={color}
 >
   <div class="container flex items-start py-5 md:py-10 px-5 md:px-20">
     <a
