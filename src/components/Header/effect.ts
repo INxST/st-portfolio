@@ -12,17 +12,20 @@ const effect = () => {
     ':scope main .bg-mine-shaft-texture'
   );
   const open = document.querySelector<HTMLElement>('.ts-menu-open');
+  const logo = document.querySelector<HTMLElement>('.ts-logo');
 
   const colorChenge = () => {
     bgMineShaftTexture.forEach(bg => {
       const rect = bg.getBoundingClientRect();
-      if (header && open) {
+      if (header && open && logo) {
         if (rect.top < height! && rect.bottom > 0) {
           header.dataset.color = 'dark';
           open.dataset.color = 'dark';
+          logo.dataset.color = 'dark';
         } else {
           header.dataset.color = 'bright';
           open.dataset.color = 'bright';
+          logo.dataset.color = 'bright';
         }
       }
     });
