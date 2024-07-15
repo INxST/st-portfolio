@@ -1,0 +1,108 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import TitleVertical from '@/components/TitleVertical';
+import Slider from '@/components/Slider/index.astro';
+import slides from '@/data/slides';
+import snsLinks from '@/data/snsLinks';
+import AboutSection from '@/components/AboutSection.astro';
+import Timeline from '@/components/Timeline/index.astro';
+import timelines from '@/data/timelines';
+const title = '私について';
+const titleEn = 'ABOUT';
+---
+
+<Layout title={titleEn} theme="dark" isFooter={true}>
+  <div class="text-taupe-gray pt-40">
+    <TitleVertical jp={title} en={titleEn} />
+  </div>
+
+  <div class="text-lg mt-36 w-8/12 ml-auto">
+    <p>
+      論理的思考と直感的思考、機能と情緒、静と動、これらのバランスをとりユーザーニーズや目的を叶える最適な視覚表現を模索し表現することが得意です。
+    </p>
+
+    <p class="mt-4">
+      デザインの可能性を信じ、そして情熱を持って取り組み、クリエイティビティと美しさを備えたユーザーに届くデザインを提供します。
+    </p>
+
+    <p class="font-serif-en mt-12 text-silver-chalice">
+      I am Taiki Sato, a visual designer.<br />
+      I am good at balancing logical and intuitive thinking, function and emotion,
+      stillness and movement,<br />
+      and seeking and expressing the best visual expression that fulfills user needs
+      and objectives.
+    </p>
+  </div>
+
+  <div id="about-slider-wrapper" class="h-screen">
+    <div id="about-slider" class="about-slider mt-[7.5rem] w-8/12 ml-auto">
+      <Slider items={slides} />
+    </div>
+  </div>
+
+  <AboutSection title="PROFILE">
+    <div class="flex justify-between items-center">
+      <picture>
+        <img src="https://placehold.jp/520x693.png" alt="" />
+      </picture>
+
+      <div class="flex-1 ml-60">
+        <p class="font-serif-en">TAIKI SATO</p>
+        <p class="text-[2rem] font-medium">佐藤 大輝</p>
+
+        <p class="text-silver-chalice font-serif-en text-lg mt-4">
+          Web design / Graphic design / Art direction
+        </p>
+
+        <p class="text-silver-chalice mt-8">
+          神奈川県出身。1999年生まれ。<br />
+          大学自体には服飾のインカレに所属し、デザインから縫製まで一から服を作成していた。その経験からものづくりやデザインに興味を持ち、独学でデザインを学んだのちに新卒でWeb制作会社に入社。<br
+          />
+          WEBデザインを中心に行いながら、アートディレクションやグラフィックデザインも手がける。
+        </p>
+
+        <ul class="mt-14 flex gap-8 text-lg font-serif-en">
+          {
+            snsLinks.map(item => {
+              return (
+                <li>
+                  <a href={item.href} target={item.target} class="ts-text-link">
+                    {item.text}
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
+    </div>
+  </AboutSection>
+
+  <AboutSection title="CAREER">
+    <Timeline items={timelines} />
+  </AboutSection>
+</Layout>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+  const wrapper = document.getElementById('about-slider-wrapper');
+  const slider = document.getElementById('about-slider');
+  const height = wrapper?.offsetHeight;
+
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: wrapper,
+        start: 'top top',
+        end: `+=${height}`,
+        scrub: true,
+        pin: true,
+      },
+    })
+    .to(slider, {
+      width: '100%',
+    });
+</script>
