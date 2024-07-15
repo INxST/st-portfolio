@@ -2,6 +2,7 @@ const changeBg = () => {
   const target = document.getElementById('works-gallery');
   const bg = document.getElementById('bg');
   const mores = document.querySelectorAll<HTMLElement>('.ts-more');
+  const menuOpen = document.querySelector<HTMLElement>('.ts-menu-open');
 
   const changeClass = () => {
     const rect = target?.getBoundingClientRect();
@@ -12,12 +13,14 @@ const changeBg = () => {
     if (triggerPoint < window.innerHeight && bottom > 0) {
       document.body.dataset.bgColor = 'bright';
       if (bg) bg.dataset.color = 'bright';
+      if (menuOpen) menuOpen.dataset.color = 'bright';
       mores.forEach(more => {
         if (more) more.dataset.color = 'dark';
       });
     } else {
       document.body.dataset.bgColor = 'dark';
       if (bg) bg.dataset.color = 'dark';
+      if (menuOpen) menuOpen.dataset.color = 'dark';
       mores.forEach(more => {
         if (more) more.dataset.color = 'bright';
       });
