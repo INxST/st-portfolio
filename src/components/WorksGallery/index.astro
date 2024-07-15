@@ -10,25 +10,8 @@ const newWorks = works.filter(work => work.isTop);
 
 <section
   id="works-gallery"
-  class="relative py-[17.5rem] contents-full text-taupe-gray [&.is-active]:text-black transition-colors duration-1000"
+  class="relative py-[17.5rem] contents-full text-current"
 >
-  <div
-    id="works-gallery-bg"
-    class="works-gallery-bg absolute -z-10 top-0 left-0 w-full h-full"
-    data-color="dark"
-  >
-    <div class="relative w-full h-full">
-      <div
-        class="works-gallery-bg__dark w-full h-full absolute top-0 left-0 bg-mine-shaft-texture"
-      >
-      </div>
-      <div
-        class="works-gallery-bg__bright w-full h-full absolute top-0 left-0 bg-gray-texture"
-      >
-      </div>
-    </div>
-  </div>
-
   <div class="flex justify-end pr-[20%]">
     <TopTitle sub="（制作実績）" title={['機能と情緒', '作品への想い']} />
   </div>
@@ -56,69 +39,12 @@ const newWorks = works.filter(work => work.isTop);
 </section>
 
 <script>
-  import animation from './animation';
   import handleHover from './handleHover';
-  animation();
   handleHover();
 </script>
 
 <style lang="scss">
   .is-disable-hover {
     pointer-events: none;
-  }
-
-  .works-gallery-bg {
-    $this: &;
-
-    &__dark,
-    &__bright {
-      animation-duration: 1s;
-      animation-fill-mode: forwards;
-      animation-timing-function: ease-in-out;
-    }
-
-    &[data-color='dark'] {
-      #{$this}__bright {
-        animation-name: bgAnimationRemove;
-      }
-      #{$this}__dark {
-        animation-name: bgAnimationAdd;
-      }
-    }
-
-    &[data-color='bright'] {
-      #{$this}__bright {
-        animation-name: bgAnimationAdd;
-      }
-      #{$this}__dark {
-        animation-name: bgAnimationRemove;
-      }
-    }
-  }
-
-  @keyframes bgAnimationAdd {
-    0% {
-      transform: translateX(100%);
-      opacity: 0;
-      visibility: hidden;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-      visibility: visivle;
-    }
-  }
-
-  @keyframes bgAnimationRemove {
-    0% {
-      transform: translateX(0);
-      opacity: 1;
-      visibility: visible;
-    }
-    100% {
-      transform: translateX(100%);
-      opacity: 0;
-      visibility: hidden;
-    }
   }
 </style>
