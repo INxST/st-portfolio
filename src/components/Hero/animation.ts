@@ -10,7 +10,8 @@ const animation = () => {
     `${moonMaskAjustSize}px`
   );
   const hero = document.getElementById('hero');
-  const mask = document.getElementById('mask');
+  const moonMask = document.getElementById('moon-mask');
+  const nextMask = document.getElementById('next-mask');
 
   gsap
     .timeline({
@@ -22,7 +23,16 @@ const animation = () => {
         pin: true,
       },
     })
-    .to(mask, { left: `-${moonMaskAjustSize / 2}px`, ease: 'Power4.out' });
+    .to(moonMask, { left: `-${moonMaskAjustSize / 2}px`, ease: 'Power4.out' })
+    .fromTo(
+      nextMask,
+      {
+        autoAlpha: 0,
+      },
+      {
+        autoAlpha: 1,
+      }
+    );
 };
 
 export default animation;
