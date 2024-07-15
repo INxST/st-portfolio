@@ -1,7 +1,4 @@
 ---
-import Image from 'astro/components/Image.astro';
-import moon from '@/assets/moon.png';
-import bg from '@/assets/hero-bg.png';
 import siteInfo from '@/data/siteInfo';
 ---
 
@@ -14,7 +11,7 @@ import siteInfo from '@/data/siteInfo';
         class="relative inline-block overflow-hidden w-[37.5rem] h-[37.5rem] col-start-2 z-0"
       >
         <picture class="w-full h-full">
-          <Image src={moon} alt="月" />
+          <img src="/moon.png" alt="月" />
           <span
             id="moon-mask"
             class="absolute -top-[calc(var(--moon-mask-ajust-size)/2)] -left-[calc(100%+var(--moon-mask-ajust-size))] bg-mine-shaft-texture w-[calc(100%+var(--moon-mask-ajust-size))] h-[calc(100%+var(--moon-mask-ajust-size))] rounded-full"
@@ -30,7 +27,11 @@ import siteInfo from '@/data/siteInfo';
     <picture
       class="absolute z-0 top-0 left-1/2 -translate-x-1/2 w-screen h-full overflow-hidden"
     >
-      <Image src={bg} alt="背景画像" class="w-full h-full object-cover" />
+      <img
+        src="/hero-bg.png"
+        alt="背景画像"
+        class="w-full h-full object-cover"
+      />
     </picture>
 
     <p class="mt-14 font-serif-en text-xl">
