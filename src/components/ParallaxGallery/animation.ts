@@ -3,11 +3,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const animation = () => {
   gsap.registerPlugin(ScrollTrigger);
-
+  const selectorImage = '.ts-parallax-gallery-image';
   const yPercents = [500, 1000, 1500];
   const scrubs = [1, 2, 3];
   const target = document.getElementById('parallax-gallery');
-  const images = gsap.utils.toArray<HTMLElement>('.parallax-gallery-image');
+  const images = gsap.utils.toArray<HTMLElement>(selectorImage);
+  const pictures = target?.querySelectorAll(`${selectorImage} picture`);
 
   gsap.timeline({
     scrollTrigger: {
@@ -39,6 +40,18 @@ const animation = () => {
         },
       }
     );
+
+    gsap.to(image, {
+      ease: 'none',
+      scrollTrigger: {
+        trigger: target,
+        start: 'bottom bottom',
+        toggleClass: {
+          targets: image,
+          className: 'is-active',
+        },
+      },
+    });
   });
 };
 
