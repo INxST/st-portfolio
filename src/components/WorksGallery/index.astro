@@ -1,0 +1,50 @@
+---
+import TopTitle from '../TopTitle.astro';
+import Item from './Item.astro';
+import works from '@/data/works';
+import kanjiNumber from '@/libs/kanjiNumber';
+import More from '../More.astro';
+
+const newWorks = works.filter(work => work.isTop);
+---
+
+<section
+  id="works-gallery"
+  class="relative py-[17.5rem] contents-full text-current"
+>
+  <div class="flex justify-end pr-[20%]">
+    <TopTitle sub="（制作実績）" title={['機能と情緒', '作品への想い']} />
+  </div>
+
+  <ul id="works-gallery-link" class="mt-24">
+    {
+      newWorks.map((work, i) => {
+        const kanji = kanjiNumber(i + 1);
+        return <Item number={`(${kanji})`} item={work} />;
+      })
+    }
+  </ul>
+
+  <div class="flex flex-col items-center mt-52">
+    <p class="vertical-rl font-medium text-[2rem] leading-none">
+      <span>全作品</span>
+    </p>
+    <span class="w-[1px] h-16 bg-black mt-6"></span>
+    <a
+      href="/works"
+      class="font-serif-en leading-none text-[6.5rem] mt-10 mb-10">ALL WORKS</a
+    >
+    <More href="works" color="dark" />
+  </div>
+</section>
+
+<script>
+  import handleHover from './handleHover';
+  handleHover();
+</script>
+
+<style lang="scss">
+  .is-disable-hover {
+    pointer-events: none;
+  }
+</style>

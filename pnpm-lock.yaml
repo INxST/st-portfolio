@@ -35,6 +35,9 @@ dependencies:
   astro-seo:
     specifier: ^0.8.4
     version: 0.8.4(prettier-plugin-astro@0.14.0)(prettier@3.3.2)(typescript@5.5.2)
+  clsx:
+    specifier: ^2.1.1
+    version: 2.1.1
   gsap:
     specifier: ^3.12.5
     version: 3.12.5
@@ -47,6 +50,9 @@ dependencies:
   sass:
     specifier: ^1.77.6
     version: 1.77.6
+  tailwind-merge:
+    specifier: ^2.4.0
+    version: 2.4.0
   tailwindcss:
     specifier: ^3.4.4
     version: 3.4.4
@@ -3682,6 +3688,10 @@ packages:
   /supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+    dev: false
+
+  /tailwind-merge@2.4.0:
+    resolution: {integrity: sha512-49AwoOQNKdqKPd9CViyH5wJoSKsCDjUlzL8DxuGp3P1FsGY36NJDAa18jLZcaHAUUuTj+JB8IAo8zWgBNvBF7A==}
     dev: false
 
   /tailwindcss@3.4.4:

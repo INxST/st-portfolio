@@ -42,7 +42,7 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
                 key={`${item.href}-${i}`}
                 className="ts-scroll-slide-item h-full aspect-works-slide 
                 pt-5 pb-6 border-l peer-last:border-r last-of-type:border-r border-silver 
-                bg-quill-gray bg-[url(/texture-for-gray.png)] bg-repeat px-12 whitespace-nowrap max-w-full
+                bg-gray-texture px-12 whitespace-nowrap max-w-full
                 transition-all duration-700 animate-text-focus-in
                 data-[hidden]:animate-text-blur-out data-[hidden]:max-w-0 data-[hidden]:px-0"
                 data-tags={item.tags.join(' ')}
@@ -112,7 +112,7 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
 
         <div className="md:hidden transition-all duration-500 fixed top-0 left-0 w-screen h-screen bg-[rgba(0,0,0,0.5)] opacity-0 invisible group-data-[open]:opacity-100 group-data-[open]:visible" />
 
-        <form className="flex items-start container px-5 md:px-20 py-[0.875rem] md:py-7 overflow-hidden bg-quill-gray bg-[url(/texture-for-gray.png)] bg-repeat relative group-data-[open]:z-40">
+        <form className="flex items-start container px-5 md:px-20 py-[0.875rem] md:py-7 overflow-hidden bg-gray-texture relative group-data-[open]:z-40">
           <button
             type="button"
             className="font-serif-en text-[1.375rem] leading-none flex items-center md:pointer-events-none"

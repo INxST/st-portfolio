@@ -1,0 +1,106 @@
+---
+import TopTitle from '../TopTitle.astro';
+import More from '../More.astro';
+---
+
+<section id="parallax-gallery">
+  <div
+    class="contents-full text-pampas relative py-44 h-screen overflow-hidden"
+  >
+    <div class="flex justify-between">
+      <ul class="flex-1 flex flex-col items-start">
+        <li class="ts-parallax-gallery-image sepia w-[27rem] ml-[10rem]">
+          <picture class="w-full">
+            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
+          </picture>
+        </li>
+        <li class="ts-parallax-gallery-image sepia w-[14rem] mt-[15rem]">
+          <picture class="w-full">
+            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
+          </picture>
+        </li>
+        <li
+          class="ts-parallax-gallery-image sepia w-[21rem] mt-[3.75rem] ml-[34rem]"
+        >
+          <picture class="w-full">
+            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
+          </picture>
+        </li>
+        <li
+          class="ts-parallax-gallery-image sepia w-[21rem] mt-[7rem] ml-[2.8rem]"
+        >
+          <picture class="w-full">
+            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
+          </picture>
+        </li>
+      </ul>
+
+      <ul class="flex-1 flex flex-col items-end">
+        <li
+          class="ts-parallax-gallery-image sepia w-[26rem] mt-[13rem] mr-[6rem]"
+        >
+          <picture class="w-full">
+            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
+          </picture>
+        </li>
+        <li class="ts-parallax-gallery-image sepia w-[12.5rem] mt-[6rem]">
+          <picture class="w-full">
+            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
+          </picture>
+        </li>
+        <li
+          class="ts-parallax-gallery-image sepia w-[22rem] mt-[7.3rem] mr-[24rem]"
+        >
+          <picture class="w-full">
+            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
+          </picture>
+        </li>
+        <li
+          class="ts-parallax-gallery-image sepia w-[30rem] mt-[7rem] -mr-[3rem]"
+        >
+          <picture class="w-full">
+            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
+          </picture>
+        </li>
+      </ul>
+    </div>
+
+    <div
+      class="flex flex-col justify-center items-center w-screen h-screen
+      absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
+    >
+      <div class="text-taupe-gray">
+        <TopTitle
+          sub="（私について）"
+          title={['これまでのこと', '嗜好と思考の話']}
+        />
+      </div>
+
+      <div class="mt-[5.5rem]">
+        <More color="bright" href="/about" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .ts-parallax-gallery-image {
+    transition: filter 0.5s ease;
+
+    $delay: 0.3s;
+    @for $i from 1 through 8 {
+      &:nth-child(#{$i}) {
+        transition-delay: calc($delay + calc($i * 0.1s)) * $i;
+      }
+    }
+
+    &.is-active {
+      filter: sepia(0);
+    }
+  }
+</style>
+
+<script>
+  import animation from './animation';
+  animation();
+</script>
