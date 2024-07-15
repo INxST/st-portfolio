@@ -5,10 +5,7 @@ import Disc from '@/components/Disc.astro';
 import MenuLink from '@/components/Header/MenuLink.astro';
 ---
 
-<div
-  id="menu"
-  class="menu w-screen h-screen bg-mine-shaft bg-[url(/texture-for-black.png)] bg-repeat z-30"
->
+<div id="menu" class="menu w-screen h-screen bg-mine-shaft-texture z-30">
   <div class="p-5 md:p-10 w-full h-full flex relative">
     <picture class="hidden md:flex md:mr-4 h-full max-w-[50%] items-center">
       <img src="https://placehold.jp/800x1000.png" alt="" class="max-h-full" />
@@ -25,7 +22,7 @@ import MenuLink from '@/components/Header/MenuLink.astro';
       <div class="w-full py-10 flex-1 flex flex-col items-center">
         <div class="w-full flex justify-center items-center flex-1">
           <ul
-            class="group max-w-[max(70vw,200px)] md:max-w-full w-full md:w-auto flex md:inline-flex flex-row-reverse justify-between md:justify-normal md:gap-12"
+            class="max-w-[max(70vw,200px)] md:max-w-full w-full md:w-auto flex md:inline-flex flex-row-reverse justify-between md:justify-normal md:gap-12"
           >
             {
               menus.map(menu => {

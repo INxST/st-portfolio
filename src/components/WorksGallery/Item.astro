@@ -1,0 +1,49 @@
+---
+import { type Work } from '@/types/Work';
+interface Props {
+  number: string;
+  item: Work;
+}
+const { item, number } = Astro.props;
+---
+
+<li class="[&:not(:first-child)]:mt-14 contents-right">
+  <a href={item.href} class="group flex gap-16 pl-[10%]">
+    <div class="flex-1 pt-3 border-t border-silver flex flex-col relative z-10">
+      <div class="flex justify-between">
+        <span>{number}</span>
+        <span class="font-serif-en">{item.year}</span>
+      </div>
+
+      <h3 class="font-semibold text-[1.75rem] mt-16">{item.title}</h3>
+
+      <ul class="mt-3 font-serif-en">
+        {item.categories.map(category => <li>{category}</li>)}
+      </ul>
+
+      <ul class="text-gray flex flex-col gap-2 mt-auto leading-none">
+        {item.tags.map(tag => <li>{tag}</li>)}
+      </ul>
+    </div>
+
+    <picture class="w-[75rem]">
+      <img
+        src={item.imageTop || item.image}
+        alt={item.title}
+        class="w-full object-contain"
+      />
+    </picture>
+
+    <picture
+      class="w-screen h-screen
+    fixed top-0 left-0 z-0 opacity-0 invisible
+    group-hover:opacity-100 group-hover:visible transition-all duration-300"
+    >
+      <img
+        src={item.imageTop || item.image}
+        alt={item.title}
+        class="w-full h-full object-cover"
+      />
+    </picture>
+  </a>
+</li>

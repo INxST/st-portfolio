@@ -62,7 +62,9 @@ const stalker = ({ cursor, follower }: Args) => {
           });
         });
 
-        const bgs = document.querySelectorAll<HTMLElement>('.bg-mine-shaft');
+        const bgs = document.querySelectorAll<HTMLElement>(
+          '.bg-mine-shaft-texture, [data-color=dark]'
+        );
         const bgClass = 'is-bg-bright';
 
         bgs.forEach(bg => {

@@ -16,6 +16,8 @@ html {
     /* 14px(1rem) / 375px(アートボードサイズ) * 100 */
     font-size: calc((14 / 375) * 100vw);
   }
+
+  scroll-behavior: smooth;
 }
 
 html,

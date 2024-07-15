@@ -1,0 +1,98 @@
+---
+import footerLinks from '@/data/footerLinks';
+import FooterDisk from './FooterDisk.astro';
+import snsLinks from '@/data/snsLinks';
+const path = Astro.url.pathname;
+const isHome = path === '/';
+---
+
+<footer
+  id="footer"
+  class="pt-[22rem] pb-5 text-pampas bg-mine-shaft-texture overflow-hidden"
+>
+  <div class="container px-5 md:px-20">
+    <ul class="flex flex-row-reverse gap-8 justify-center">
+      {
+        footerLinks.map(link => (
+          <li class="relative">
+            {!isHome && link.href.includes(path) ? (
+              <FooterDisk />
+            ) : (
+              isHome &&
+              link.href === '/' && (
+                <span class="w-[6px] h-[6px] absolute -top-2 left-1/2 -translate-x-1/2">
+                  <FooterDisk />
+                </span>
+              )
+            )}
+            <a
+              href={link.href}
+              target={link.target}
+              class={`ts-text-link vertical-rl text-xl leading-none ${isHome && link.href === '/' && 'text-silver-chalice'} ${!isHome && link.href.includes(path) && 'text-silver-chalice'}`}
+              data-vertical="rl"
+            >
+              {link.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="flex justify-end mt-[15.5rem]">
+      <a href="#" class="text-lg font-serif-en">BACK TO TOP</a>
+    </div>
+
+    <ul
+      class="font-serif-en flex gap-8 items-center pt-10 border-t border-emperor mt-6"
+    >
+      {
+        snsLinks.map(link => (
+          <li class="inline-block">
+            <a href={link.href} target={link.target} class="text-xl">
+              {link.text}
+            </a>
+          </li>
+        ))
+      }
+
+      <li class="inline-block ml-auto">
+        <small class="text-silver-chalice text-base">
+          &copy; 2024 Taiki Sato
+        </small>
+      </li>
+    </ul>
+  </div>
+
+  <div class="mt-10">
+    <ul class="contact flex flex-nowrap whitespace-nowrap">
+      {
+        Array.from({ length: 10 }).map(_ => (
+          <li class="mx-14">
+            <a
+              href="mailto:hoge@hoge.com?subject=お問い合わせ"
+              target="_blank"
+              class="text-[15rem] leading-none text-taupe-gray font-serif-en"
+            >
+              GET IN CONTACT
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</footer>
+
+<style lang="scss">
+  .contact {
+    animation: infiniteScroll 40s infinite linear 0.5s both;
+  }
+
+  @keyframes infiniteScroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+</style>

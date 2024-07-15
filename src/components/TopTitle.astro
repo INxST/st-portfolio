@@ -1,0 +1,22 @@
+---
+interface Props {
+  sub: string;
+  title: string[];
+}
+
+const { sub, title } = Astro.props;
+---
+
+<h2 class="text-current">
+  <a href="/about" class="flex flex-row-reverse gap-4">
+    <span class="text-lg leading-none font-medium vertical-rl -mt-6">
+      <span>{sub}</span>
+    </span>
+    <span class="text-[2.625rem] leading-none font-semibold">
+      <span class="vertical-rl flex flex-col gap-4">
+        <span>{title[0]}</span>
+        <span class="mt-[2.625rem]">{title[1]}</span>
+      </span>
+    </span>
+  </a>
+</h2>
