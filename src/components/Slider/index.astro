@@ -1,5 +1,6 @@
 ---
 import type { Slide } from '@/types/Slide';
+import updatePath from '@/libs/updatePath';
 
 interface Props {
   items: Slide[];
@@ -15,7 +16,7 @@ const { items } = Astro.props;
         <div class="swiper-slide">
           {item.type === 'video' ? (
             <video controls autoplay muted loop>
-              <source src={item.src} type="video/mp4" />
+              <source src={updatePath(item.src)} type="video/mp4" />
             </video>
           ) : (
             <img src={item.src} alt={item.alt} />
