@@ -1,4 +1,5 @@
 ---
+import TopTitle from '../TopTitle.astro';
 import More from '../More.astro';
 ---
 
@@ -68,19 +69,12 @@ import More from '../More.astro';
       class="flex flex-col justify-center items-center w-screen h-screen
       absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
     >
-      <h2 class="text-taupe-gray">
-        <a href="/about" class="flex flex-row-reverse gap-4">
-          <span class="text-lg leading-none font-medium vertical-rl -mt-6">
-            <span> （私について） </span>
-          </span>
-          <span class="text-[2.625rem] leading-none font-semibold">
-            <span class="vertical-rl flex flex-col gap-4">
-              <span>これまでのこと</span>
-              <span class="mt-[2.625rem]">嗜好と思考の話</span>
-            </span>
-          </span>
-        </a>
-      </h2>
+      <div class="text-taupe-gray">
+        <TopTitle
+          sub="（私について）"
+          title={['これまでのこと', '嗜好と思考の話']}
+        />
+      </div>
 
       <div class="mt-[5.5rem]">
         <More color="bright" href="/about" />
