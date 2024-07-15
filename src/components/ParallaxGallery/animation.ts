@@ -8,7 +8,6 @@ const animation = () => {
   const scrubs = [1, 2, 3];
   const target = document.getElementById('parallax-gallery');
   const images = gsap.utils.toArray<HTMLElement>(selectorImage);
-  const pictures = target?.querySelectorAll(`${selectorImage} picture`);
 
   gsap.timeline({
     scrollTrigger: {
