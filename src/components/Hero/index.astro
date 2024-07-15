@@ -1,5 +1,6 @@
 ---
 import siteInfo from '@/data/siteInfo';
+import updatePath from '@/libs/updatePath';
 ---
 
 <section id="hero" class="relative">
@@ -11,7 +12,7 @@ import siteInfo from '@/data/siteInfo';
         class="relative inline-block overflow-hidden w-[37.5rem] h-[37.5rem] col-start-2 z-0"
       >
         <picture class="w-full h-full">
-          <img src="/moon.png" alt="月" />
+          <img src={updatePath('/moon.png')} alt="月" />
           <span
             id="moon-mask"
             class="absolute -top-[calc(var(--moon-mask-ajust-size)/2)] -left-[calc(100%+var(--moon-mask-ajust-size))] bg-mine-shaft-texture w-[calc(100%+var(--moon-mask-ajust-size))] h-[calc(100%+var(--moon-mask-ajust-size))] rounded-full"
@@ -28,7 +29,7 @@ import siteInfo from '@/data/siteInfo';
       class="absolute z-0 top-0 left-1/2 -translate-x-1/2 w-screen h-full overflow-hidden"
     >
       <img
-        src="/hero-bg.png"
+        src={updatePath('/hero-bg.png')}
         alt="背景画像"
         class="w-full h-full object-cover"
       />
@@ -110,7 +111,7 @@ import siteInfo from '@/data/siteInfo';
       top: 0;
       opacity: 1;
     }
-    40%: {
+    40% {
       top: 50%;
       opacity: 0.5;
     }
