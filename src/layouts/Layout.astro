@@ -8,19 +8,31 @@ import siteInfo from '@/data/siteInfo';
 import Header from '@/components/Header/index.astro';
 import Main from '@/components/Main.astro';
 import Stalker from '@/components/Stalker';
+import Footer from '@/components/Footer/index.astro';
+import cn from '@/libs/cn';
 import '@/styles/global.scss';
 interface Props {
   title?: string;
   description?: string;
+  theme?: 'bright' | 'dark';
+  isFooter?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, theme = 'bright', isFooter = false } = Astro.props;
 const meta = {
   title: title ? `${title} | ${siteInfo.appName}` : siteInfo.appName,
   description: description || siteInfo.description,
   author: siteInfo.author,
   image: new URL('/images/common/og.png', Astro.url.origin).toString(),
 };
+const bodyClass = cn({
+  'font-serif': true,
+  'text-black': theme === 'bright',
+  'text-pampas': theme === 'dark',
+  'bg-gray-texture': theme === 'bright',
+  'bg-mine-shaft-texture': theme === 'dark',
+  'overflow-x-hidden': true,
+});
 ---
 
 <!doctype html>
@@ -60,11 +72,19 @@ const meta = {
       }}
     />
   </head>
-  <body class="font-serif text-black bg-gray-texture">
-    <Header />
+  <body class={bodyClass}>
+    <Header color={theme} />
     <Main>
       <slot />
     </Main>
+    {
+      isFooter && (
+        <>
+          <div class="h-[1px] w-screen bg-taupe-gray mt-72" />
+          <Footer />
+        </>
+      )
+    }
     <Stalker client:only="react" />
     <script>
       import hoverTextLink from '@/libs/hoverTextLink';

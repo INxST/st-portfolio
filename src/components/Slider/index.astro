@@ -1,0 +1,54 @@
+---
+import type { Slide } from '@/types/Slide';
+
+interface Props {
+  items: Slide[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="swiper aspect-video">
+  <div class="swiper-wrapper">
+    {
+      items.map(item => (
+        <div class="swiper-slide">
+          {item.type === 'video' ? (
+            <video controls autoplay muted loop>
+              <source src={item.src} type="video/mp4" />
+            </video>
+          ) : (
+            <img src={item.src} alt={item.alt} />
+          )}
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  import slider from './slider';
+  slider();
+</script>
+
+<style lang="scss">
+  .swiper {
+    width: 100%;
+
+    &-slide {
+      opacity: 0;
+      visibility: hidden;
+      &-active {
+        opacity: 1;
+        visibility: visible;
+
+        img,
+        video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+</style>
