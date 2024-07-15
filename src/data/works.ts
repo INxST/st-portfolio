@@ -8,6 +8,8 @@ const works: Work[] = [
     categories: ['Web Development'],
     tags: ['Fashion Design'],
     image: 'https://placehold.jp/464x560.png',
+    isTop: true,
+    imageTop: 'https://placehold.jp/1200x480.png',
   },
   {
     title: '医療従事者サイト 2',
@@ -16,6 +18,8 @@ const works: Work[] = [
     categories: ['Web Development'],
     tags: ['Art Direction', 'Web Design', 'Logo Design', 'Fashion Design'],
     image: 'https://placehold.jp/464x560.png',
+    isTop: true,
+    imageTop: 'https://placehold.jp/1200x480.png',
   },
   {
     title: '医療従事者サイト 3',
@@ -24,6 +28,8 @@ const works: Work[] = [
     categories: ['Web Development'],
     tags: ['Art Direction', 'Web Design', 'Graphic Design', 'Fashion Design'],
     image: 'https://placehold.jp/464x560.png',
+    isTop: true,
+    imageTop: 'https://placehold.jp/1200x480.png',
   },
   {
     title: '医療従事者サイト 4',
@@ -32,6 +38,8 @@ const works: Work[] = [
     categories: ['Web Development'],
     tags: ['Art Direction', 'Web Design', 'Graphic Design', 'Logo Design'],
     image: 'https://placehold.jp/464x560.png',
+    isTop: true,
+    imageTop: 'https://placehold.jp/1200x480.png',
   },
   {
     title: '医療従事者サイト 5',
@@ -46,6 +54,8 @@ const works: Work[] = [
       'Fashion Design',
     ],
     image: 'https://placehold.jp/464x560.png',
+    isTop: true,
+    imageTop: 'https://placehold.jp/1200x480.png',
   },
   {
     title: '医療従事者サイト 6',
