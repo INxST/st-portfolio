@@ -1,3 +1,5 @@
+import type { ThemeColor } from '@/types/ThemeColor';
+
 const animation = () => {
   const header = document.getElementById('header');
   const headerList = document.querySelector('.ts-header-list');
@@ -17,7 +19,7 @@ const animation = () => {
   const open = document.querySelector<HTMLElement>('.ts-menu-open');
   const logo = document.querySelector<HTMLElement>('.ts-logo');
 
-  const changeDataset = (rect: DOMRect, value: 'dark' | 'bright') => {
+  const changeDataset = (rect: DOMRect, value: ThemeColor) => {
     if (header && open && logo) {
       if (rect.top < height! && rect.bottom > 0) {
         header.dataset.color = value;
