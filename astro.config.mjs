@@ -16,4 +16,9 @@ export default defineConfig({
     prefetchAll: true,
   },
   integrations: [tailwind(), sitemap(), react()],
+  vite: {
+    optimizeDeps: {
+      exclude: ['fsevents'],
+    },
+  },
 });

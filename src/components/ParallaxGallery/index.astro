@@ -87,10 +87,9 @@ import More from '../More.astro';
   .ts-parallax-gallery-image {
     transition: filter 0.5s ease;
 
-    $delay: 0.3s;
     @for $i from 1 through 8 {
       &:nth-child(#{$i}) {
-        transition-delay: calc($delay + calc($i * 0.1s)) * $i;
+        transition-delay: calc(calc($i * 0.1s) * $i);
       }
     }
 
