@@ -16,14 +16,32 @@ html {
     /* 14px(1rem) / 375px(アートボードサイズ) * 100 */
     font-size: calc((14 / 375) * 100vw);
   }
-
-  scroll-behavior: smooth;
 }
 
 html,
 body {
   -webkit-text-size-adjust: 100%;
-  cursor: none;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
 .cursor {
