@@ -1,0 +1,14 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+
+<dl
+  class="flex gap-16 text-lg py-6 border-t border-silver last-of-type:border-b"
+>
+  <dt class="font-medium w-40">{title}</dt>
+  <dd class="flex-1">{description}</dd>
+</dl>

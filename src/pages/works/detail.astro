@@ -1,143 +1,161 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import DetailSection from '@/components/DetailSection.astro';
+import DescriptionList from '@/components/DescriptionList.astro';
+import DetailImage from '@/components/DetailImage.astro';
 const title = '医療従事者サイト';
 ---
 
 <Layout title={title}>
-  <section class="pt-[var(--header-height)] h-screen box-content">
-    <div class="flex whitespace-nowrap">
-      <section>
-        <h1>
-          <span>医療従事者サイト</span>
-          <span>Private Works </span>
+  <section
+    id="horizontal-scroll"
+    class="h-screen pt:[var(--header-height)] md:pt-0"
+  >
+    <div
+      id="horizontal-scroll-container"
+      class="flex items-center flex-nowrap whitespace-nowrap w-max h-full [&>*]:h-full"
+    >
+      <section
+        class="ts-horizontal-scroll-item md:mr-[41rem]
+      flex flex-col justify-end items-start md:pb-[7.5rem]"
+      >
+        <h1 class="w-1/2 flex flex-col gap-4">
+          <span class="text-5xl font-semibold">医療従事者サイト</span>
+          <span class="font-serif-en text-lg">PRIVATE WORKS</span>
         </h1>
 
-        <div class="">
-          <p>
-            <span>Role</span>
+        <div class="w-1/2 mt-24 flex gap-20">
+          <p class="flex flex-col gap-2">
+            <span class="text-gray">Role</span>
             <span>Art Direction, Web Design</span>
           </p>
 
-          <p>
-            <span>Year</span>
+          <p class="flex flex-col gap-2">
+            <span class="text-gray">Year</span>
             <span>2023</span>
           </p>
         </div>
       </section>
 
-      <picture>
-        <img src="https://placehold.jp/1600x1080.png" alt="" />
+      <picture class="ts-horizontal-scroll-item">
+        <img src="https://placehold.jp/1600x1080.png" alt="" class="h-full" />
       </picture>
 
       <p>SCROLL</p>
 
-      <section>
-        <div>
-          <h2>(Overview)</h2>
+      <DetailSection title="(Overview)">
+        <div class="text-lg flex flex-col gap-4">
           <p>
             テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
           </p>
           <p>
-            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
           </p>
 
-          <p>
-            <span>URL</span>
+          <p class="flex gap-12 font-serif-en mt-12">
+            <span class="text-gray">URL</span>
             <a
+              class="underline"
               href="https://taikisato.com/"
               target="_blank"
               rel="noopener noreferrer">https://taikisato.com/</a
             >
           </p>
         </div>
-        <picture>
-          <img src="https://placehold.jp/1080x1080.png" alt="" />
-        </picture>
+      </DetailSection>
+
+      <picture class="ts-horizontal-scroll-item">
+        <img src="https://placehold.jp/1080x1080.png" alt="" class="h-full" />
+      </picture>
+
+      <DetailSection title="(Description)" contentWidth="wide">
+        <DescriptionList
+          title="ターゲット"
+          description="テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。"
+        />
+        <DescriptionList
+          title="目的"
+          description="テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。"
+        />
+        <DescriptionList
+          title="情報設計"
+          description="テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。"
+        />
+        <DescriptionList
+          title="デザイン"
+          description="テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。"
+        />
+        <DescriptionList
+          title="制作範囲・期間"
+          description="テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。"
+        />
+      </DetailSection>
+
+      <div class="ts-horizontal-scroll-item">
+        <div class="py-[7.5rem] h-full">
+          <DetailImage>
+            <li>
+              <picture>
+                <img
+                  src="https://placehold.jp/824x840.png"
+                  alt=""
+                  class="h-full"
+                />
+              </picture>
+            </li>
+            <DetailImage column={2}>
+              <li>
+                <picture>
+                  <img src="https://placehold.jp/640x400.png" alt="" />
+                </picture>
+              </li>
+
+              <li>
+                <picture>
+                  <img src="https://placehold.jp/640x400.png" alt="" />
+                </picture>
+              </li>
+            </DetailImage>
+            <li>
+              <picture>
+                <img src="https://placehold.jp/824x840.png" alt="" />
+              </picture>
+            </li>
+          </DetailImage>
+        </div>
+      </div>
+
+      <section
+        class="ts-horizontal-scroll-item flex justify-end items-end pl-[34rem] pr-20 box-content"
+      >
+        <div class="py-[8.125rem]">
+          <p class="text-lg font-serif-en">(NEXT PROJECT)</p>
+          <h2 class="text-[2.625rem] font-semibold">
+            タイトル名タイトル名タイトル名
+            <br />
+            タイトル名タイトル名
+          </h2>
+        </div>
       </section>
 
-      <section>
-        <h2>(Description)</h2>
-
-        <dl>
-          <dt>ターゲット</dt>
-          <dd>
-            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-          </dd>
-        </dl>
-
-        <dl>
-          <dt>目的</dt>
-          <dd>
-            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-          </dd>
-        </dl>
-
-        <dl>
-          <dt>情報設計</dt>
-          <dd>
-            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-          </dd>
-        </dl>
-
-        <dl>
-          <dt>デザイン</dt>
-          <dd>
-            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-          </dd>
-        </dl>
-
-        <dl>
-          <dt>制作範囲・期間</dt>
-          <dd>
-            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-          </dd>
-        </dl>
-      </section>
-
-      <ul>
-        <li>
-          <picture>
-            <img src="https://placehold.jp/824x840.png" alt="" />
-          </picture>
-        </li>
-
-        <ul>
-          <li>
-            <picture>
-              <img src="https://placehold.jp/640x400.png" alt="" />
-            </picture>
-          </li>
-
-          <li>
-            <picture>
-              <img src="https://placehold.jp/640x400.png" alt="" />
-            </picture>
-          </li>
-        </ul>
-
-        <li>
-          <picture>
-            <img src="https://placehold.jp/824x840.png" alt="" />
-          </picture>
-        </li>
-      </ul>
-
-      <section>
-        <p>(NEXT PROJECT)</p>
-        <h2>タイトル名タイトル名タイトル名タイトル名タイトル名</h2>
-
-        <picture>
-          <a
-            href="/"
-            aria-label="タイトル名タイトル名タイトル名タイトル名タイトル名を見る"
-          >
-            <img
-              src="https://placehold.jp/895x1080.png"
-              alt="タイトル名タイトル名タイトル名タイトル名タイトル名を見る"
-            />
-          </a>
-        </picture>
-      </section>
+      <picture class="ts-horizontal-scroll-item">
+        <a
+          href="/"
+          aria-label="タイトル名タイトル名タイトル名タイトル名タイトル名を見る"
+          class="block h-full"
+        >
+          <img
+            src="https://placehold.jp/895x1080.png"
+            alt="タイトル名タイトル名タイトル名タイトル名タイトル名を見る"
+            class="h-full"
+          />
+        </a>
+      </picture>
     </div>
   </section>
 </Layout>
+
+<script>
+  import horizontalScroll from '@/libs/horizontalScroll';
+  horizontalScroll();
+</script>

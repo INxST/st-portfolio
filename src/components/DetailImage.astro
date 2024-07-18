@@ -1,0 +1,19 @@
+---
+import cn from '@/libs/cn';
+interface Props {
+  column?: number;
+}
+const { column } = Astro.props;
+const className = cn(
+  'h-full flex gap-10 [&_picture]:block [&_picture]:h-full [&_img]:h-full',
+  {
+    'flex-col': column,
+    '[&_li]:h-full': !column,
+    '[&_li]:h-[calc(50%-1.25rem)]': column === 2,
+  }
+);
+---
+
+<ul class={className}>
+  <slot />
+</ul>
