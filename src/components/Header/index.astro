@@ -2,8 +2,9 @@
 import headerLinks from '@/data/headerLinks';
 import Disc from '@/components/Disc.astro';
 import Menu from '@/components/Header/Menu.astro';
+import type { ThemeColor } from '@/types/ThemeColor';
 interface Props {
-  color?: 'bright' | 'dark';
+  color?: ThemeColor;
 }
 const { color } = Astro.props;
 const path = Astro.url.pathname;

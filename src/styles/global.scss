@@ -57,13 +57,22 @@ html.lenis body {
     width: 5rem;
     height: 5rem;
 
-    .follower__text {
-      opacity: 1;
-      visibility: visible;
+    &:not(.is-active-drag) {
+      .follower__text {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &.is-active-drag {
+      .follower__drag {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 
-  &.is-bg-bright {
+  &[data-stalker-color='bright'] {
     background-color: #dededa;
 
     .follower__text {

@@ -30,6 +30,7 @@ const isHome = path === '/';
               target={link.target}
               class={`ts-text-link vertical-rl text-xl leading-none ${isHome && link.href === '/' && 'text-silver-chalice'} ${!isHome && link.href.includes(path) && 'text-silver-chalice'}`}
               data-vertical="rl"
+              data-stalker-color="bright"
             >
               {link.text}
             </a>
@@ -39,7 +40,11 @@ const isHome = path === '/';
     </ul>
 
     <div class="flex justify-end mt-[15.5rem]">
-      <a href="#" class="ts-anchor text-lg font-serif-en">BACK TO TOP</a>
+      <a
+        href="#"
+        class="ts-anchor text-lg font-serif-en"
+        data-stalker-color="bright">BACK TO TOP</a
+      >
     </div>
 
     <ul
@@ -48,7 +53,12 @@ const isHome = path === '/';
       {
         snsLinks.map(link => (
           <li class="inline-block">
-            <a href={link.href} target={link.target} class="text-xl">
+            <a
+              href={link.href}
+              target={link.target}
+              class="text-xl"
+              data-stalker-color="bright"
+            >
               {link.text}
             </a>
           </li>
@@ -72,6 +82,7 @@ const isHome = path === '/';
               href="mailto:hoge@hoge.com?subject=お問い合わせ"
               target="_blank"
               class="text-[15rem] leading-none text-taupe-gray font-serif-en"
+              data-stalker-color="bright"
             >
               GET IN CONTACT
             </a>

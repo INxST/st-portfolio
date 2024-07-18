@@ -1,7 +1,8 @@
 ---
+import type { ThemeColor } from '@/types/ThemeColor';
 interface Props {
   href: string;
-  color: 'dark' | 'bright';
+  color: ThemeColor;
 }
 
 const { href, color } = Astro.props;

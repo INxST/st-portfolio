@@ -11,10 +11,11 @@ import Stalker from '@/components/Stalker';
 import Footer from '@/components/Footer/index.astro';
 import cn from '@/libs/cn';
 import '@/styles/global.scss';
+import type { ThemeColor } from '@/types/ThemeColor';
 interface Props {
   title?: string;
   description?: string;
-  theme?: 'bright' | 'dark';
+  theme?: ThemeColor;
   isFooter?: boolean;
 }
 
@@ -72,7 +73,7 @@ const bodyClass = cn({
       }}
     />
   </head>
-  <body class={bodyClass}>
+  <body class={bodyClass} data-bg-color={theme}>
     <Header color={theme} />
     <Main>
       <slot />
