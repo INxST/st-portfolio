@@ -21,7 +21,27 @@ html {
 html,
 body {
   -webkit-text-size-adjust: 100%;
-  cursor: none;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
 .cursor {
@@ -37,13 +57,22 @@ body {
     width: 5rem;
     height: 5rem;
 
-    .follower__text {
-      opacity: 1;
-      visibility: visible;
+    &:not(.is-active-drag) {
+      .follower__text {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &.is-active-drag {
+      .follower__drag {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 
-  &.is-bg-bright {
+  &[data-stalker-color='bright'] {
     background-color: #dededa;
 
     .follower__text {

@@ -6,6 +6,42 @@ type Args = {
   follower: MutableRefObject<HTMLDivElement | null>;
 };
 
+const activeStalker = (
+  target: HTMLElement,
+  cursor: HTMLDivElement | null,
+  follower: HTMLDivElement | null,
+  className: string[]
+) => {
+  cursor?.classList.add(...className);
+  follower?.classList.add(...className);
+  const bodyBgColor = document.body.dataset.bgColor;
+  const linkStalkerColor = target.dataset.stalkerColor;
+
+  if (follower && cursor) {
+    if (linkStalkerColor) {
+      cursor.dataset.stalkerColor = linkStalkerColor;
+      follower.dataset.stalkerColor = linkStalkerColor;
+    } else {
+      cursor.dataset.stalkerColor = bodyBgColor === 'dark' ? 'bright' : 'dark';
+      follower.dataset.stalkerColor =
+        bodyBgColor === 'dark' ? 'bright' : 'dark';
+    }
+  }
+};
+
+const removeStalker = (
+  cursor: HTMLDivElement | null,
+  follower: HTMLDivElement | null,
+  className: string[]
+) => {
+  if (follower && cursor) {
+    cursor.classList.remove(...className);
+    follower.classList.remove(...className);
+    cursor.dataset.stalkerColor = '';
+    follower.dataset.stalkerColor = '';
+  }
+};
+
 const stalker = ({ cursor, follower }: Args) => {
   const didEffect = useRef(false);
 
@@ -48,32 +84,28 @@ const stalker = ({ cursor, follower }: Args) => {
         });
 
         const links = document.querySelectorAll<HTMLLinkElement>('a');
-        const activeClass = 'is-active';
+        const activeClass = ['is-active'];
 
         links.forEach(link => {
           link.addEventListener('mouseenter', () => {
-            cursor.current?.classList.add(activeClass);
-            follower.current?.classList.add(activeClass);
+            activeStalker(link, cursor.current, follower.current, activeClass);
           });
 
           link.addEventListener('mouseleave', () => {
-            cursor.current?.classList.remove(activeClass);
-            follower.current?.classList.remove(activeClass);
+            removeStalker(cursor.current, follower.current, activeClass);
           });
         });
 
-        const bgs = document.querySelectorAll<HTMLElement>('.bg-mine-shaft');
-        const bgClass = 'is-bg-bright';
+        const drags = document.querySelectorAll<HTMLElement>('.ts-drag-scroll');
+        const dragClass = ['is-active-drag', 'is-active'];
 
-        bgs.forEach(bg => {
-          bg.addEventListener('mouseenter', () => {
-            cursor.current?.classList.add(bgClass);
-            follower.current?.classList.add(bgClass);
+        drags.forEach(drag => {
+          drag.addEventListener('mouseenter', () => {
+            activeStalker(drag, cursor.current, follower.current, dragClass);
           });
 
-          bg.addEventListener('mouseleave', () => {
-            cursor.current?.classList.remove(bgClass);
-            follower.current?.classList.remove(bgClass);
+          drag.addEventListener('mouseleave', () => {
+            removeStalker(cursor.current, follower.current, dragClass);
           });
         });
       } else {

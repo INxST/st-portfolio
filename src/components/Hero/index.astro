@@ -1,0 +1,127 @@
+---
+import siteInfo from '@/data/siteInfo';
+import updatePath from '@/libs/updatePath';
+---
+
+<section id="hero" class="relative">
+  <div
+    class="bg-mine-shaft-texture contents-full text-silver-chalice py-16 h-screen flex flex-col justify-center"
+  >
+    <div class="grid grid-cols-3 items-end">
+      <div
+        class="relative inline-block overflow-hidden w-[37.5rem] h-[37.5rem] col-start-2 z-0"
+      >
+        <picture class="w-full h-full">
+          <img src={updatePath('/moon.png')} alt="月" />
+          <span
+            id="moon-mask"
+            class="absolute -top-[calc(var(--moon-mask-ajust-size)/2)] -left-[calc(100%+var(--moon-mask-ajust-size))] bg-mine-shaft-texture w-[calc(100%+var(--moon-mask-ajust-size))] h-[calc(100%+var(--moon-mask-ajust-size))] rounded-full"
+          ></span>
+        </picture>
+      </div>
+
+      <p class="font-serif-en w-96 whitespace-pre-line">
+        {siteInfo.description}
+      </p>
+    </div>
+
+    <picture
+      class="absolute z-0 top-0 left-1/2 -translate-x-1/2 w-screen h-full overflow-hidden"
+    >
+      <img
+        src={updatePath('/hero-bg.png')}
+        alt="背景画像"
+        class="w-full h-full object-cover"
+      />
+    </picture>
+
+    <p class="mt-14 font-serif-en text-xl">
+      Web design / Graphic design / Art direction
+    </p>
+
+    <h1 class="flex items-end gap-10">
+      <span
+        class="text-[17.5rem] leading-none font-serif-en text-taupe-gray -mb-8"
+      >
+        TAIKI SATO
+      </span>
+
+      <span class="inline-flex flex-col vertical-rl text-taupe-gray">
+        <span class="font-serif-en text-lg leading-none whitespace-pre-line">
+          <span>Portfolio</span>
+        </span>
+        <span class="font-semibold text-5xl leading-none whitespace-pre-line">
+          <span>作品集</span>
+        </span>
+      </span>
+    </h1>
+  </div>
+
+  <div
+    id="next-mask"
+    class="absolute z-0 top-0 left-1/2 -translate-x-1/2 w-screen h-full bg-mine-shaft-texture opacity-0 invisible flex justify-center items-center"
+  >
+    <p
+      class="next-mask-text font-serif-en font-semibold text-9xl text-taupe-gray text-opacity-30"
+    >
+      SCROLL
+    </p>
+  </div>
+
+  <div
+    class="scroll-nav w-[1px] h-[17.5rem] bg-emperor absolute bottom-[5px] right-0 z-0"
+  >
+    <div class="relative w-full h-full">
+      <div
+        class="scroll-nav__inside w-full h-10 bg-silver-chalice absolute top-0 left-0"
+      >
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import animation from './animation';
+  animation();
+</script>
+
+<style>
+  .next-mask-text {
+    animation: nextMaskText 3s infinite;
+  }
+
+  .scroll-nav__inside {
+    animation: scrollNav 5s infinite;
+  }
+
+  @keyframes nextMaskText {
+    0% {
+      opacity: 0.2;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.2;
+    }
+  }
+
+  @keyframes scrollNav {
+    0% {
+      top: 0;
+      opacity: 1;
+    }
+    40% {
+      top: 50%;
+      opacity: 0.5;
+    }
+    80% {
+      top: 100%;
+      opacity: 0;
+    }
+    100% {
+      top: 0;
+      opacity: 0;
+    }
+  }
+</style>
