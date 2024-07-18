@@ -87,7 +87,9 @@ const bodyClass = cn({
     }
     <Stalker client:only="react" />
     <script>
+      import smoothScroll from '@/libs/smoothScroll';
       import hoverTextLink from '@/libs/hoverTextLink';
+      smoothScroll();
       hoverTextLink();
     </script>
   </body>
