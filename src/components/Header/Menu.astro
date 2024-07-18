@@ -13,7 +13,11 @@ import MenuLink from '@/components/Header/MenuLink.astro';
 
     <div class="w-full md:flex-1 flex flex-col">
       <button
-        class="ts-menu-close text-pampas font-serif-en border border-emperor rounded-[30px] py-[6px] px-4 flex gap-2 items-center absolute top-5 md:top-10 right-5 md:right-20 group transition-colors hover:bg-pampas hover:text-mine-shaft"
+        class="ts-menu-close text-pampas font-serif-en border border-emperor
+        rounded-[30px] py-[6px] px-4 flex gap-2 items-center
+        absolute top-5 md:top-10 right-5 md:right-20
+        group transition-colors hover:bg-pampas hover:text-mine-shaft"
+        data-stalker-color="bright"
       >
         <span class="inline-block">CLOSE</span>
         <Disc />
@@ -28,7 +32,11 @@ import MenuLink from '@/components/Header/MenuLink.astro';
               menus.map(menu => {
                 return (
                   <li class="leading-none flex">
-                    <a href={menu.href} class="relative group vertical-rl">
+                    <a
+                      href={menu.href}
+                      class="relative group vertical-rl"
+                      data-stalker-color="bright"
+                    >
                       {/* original */}
                       <span class="opacity-0">
                         <MenuLink menu={menu} />
@@ -72,6 +80,7 @@ import MenuLink from '@/components/Header/MenuLink.astro';
                     href={link.href}
                     target={link.target}
                     class="ts-text-link text-pampas font-serif-en text-xl"
+                    data-stalker-color="bright"
                   >
                     {link.text}
                   </a>
