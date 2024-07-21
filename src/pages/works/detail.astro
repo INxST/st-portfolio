@@ -7,27 +7,32 @@ import Scroll from '@/components/Scroll.astro';
 const title = '医療従事者サイト';
 ---
 
-<Layout title={title}>
+<Layout title={title} isContainer={false}>
   <Scroll />
 
   <section
     id="horizontal-scroll"
-    class="h-screen pt:[var(--header-height)] md:pt-0"
+    class="md:h-screen pt-[var(--header-height)] md:pt-0 w-full container md:px-20"
   >
     <div
       id="horizontal-scroll-container"
-      class="flex items-center flex-nowrap whitespace-nowrap w-max h-full [&>*]:h-full"
+      class="md:flex md:items-center md:flex-nowrap md:whitespace-nowrap w-full md:w-max md:h-full md:[&>*]:h-full"
     >
       <section
         class="ts-horizontal-scroll-item md:mr-[41rem]
-      flex flex-col justify-end items-start md:pb-[7.5rem]"
+      flex flex-col justify-end items-start md:pb-[7.5rem]
+      mt-28 md:mt-0 px-5 md:px-0"
       >
-        <h1 class="w-1/2 flex flex-col gap-4">
-          <span class="text-5xl font-semibold">医療従事者サイト</span>
-          <span class="font-serif-en text-lg">PRIVATE WORKS</span>
+        <h1 class="md:w-1/2 flex flex-col gap-4">
+          <span class="text-[2rem] md:text-5xl font-semibold"
+            >医療従事者サイト</span
+          >
+          <span class="font-serif-en md:text-lg">PRIVATE WORKS</span>
         </h1>
 
-        <div class="w-1/2 mt-24 flex gap-20">
+        <div
+          class="md:w-1/2 mt-16 md:mt-24 flex flex-col md:flex-row gap-4 md:gap-20"
+        >
           <p class="flex flex-col gap-2">
             <span class="text-gray">Role</span>
             <span>Art Direction, Web Design</span>
@@ -40,7 +45,8 @@ const title = '医療従事者サイト';
         </div>
       </section>
 
-      <picture class="ts-horizontal-scroll-item">
+      <picture class="ts-horizontal-scroll-item mt-9 md:mt-0
+      block">
         <img
           src="https://placehold.jp/1600x1080.png"
           alt=""
@@ -49,7 +55,7 @@ const title = '医療従事者サイト';
       </picture>
 
       <DetailSection title="(Overview)">
-        <div class="text-lg flex flex-col gap-4">
+        <div class="md:text-lg flex flex-col gap-4">
           <p>
             テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
           </p>
@@ -57,7 +63,7 @@ const title = '医療従事者サイト';
             テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
           </p>
 
-          <p class="flex gap-12 font-serif-en mt-12">
+          <p class="flex gap-4 md:gap-12 font-serif-en mt-12">
             <span class="text-gray">URL</span>
             <a
               class="underline"
@@ -101,7 +107,7 @@ const title = '医療従事者サイト';
       </DetailSection>
 
       <div class="ts-horizontal-scroll-item">
-        <div class="py-[7.5rem] h-full">
+        <div class="md:py-[7.5rem] h-full px-5 md:px-0">
           <DetailImage>
             <li>
               <picture>
@@ -147,11 +153,11 @@ const title = '医療従事者サイト';
       </div>
 
       <section
-        class="ts-horizontal-scroll-item flex justify-end items-end pl-[34rem] pr-20 box-content"
+        class="ts-horizontal-scroll-item flex justify-end items-end md:pl-[34rem] md:pr-20 box-content"
       >
-        <div class="py-[8.125rem]">
-          <p class="text-lg font-serif-en">(NEXT PROJECT)</p>
-          <h2 class="text-[2.625rem] font-semibold">
+        <div class="pt-24 md:py-[8.125rem] px-5 md:px-0">
+          <p class="md:text-lg font-serif-en">(NEXT PROJECT)</p>
+          <h2 class="text-[2rem] md:text-[2.625rem] font-semibold">
             タイトル名タイトル名タイトル名
             <br />
             タイトル名タイトル名
@@ -159,17 +165,33 @@ const title = '医療従事者サイト';
         </div>
       </section>
 
-      <picture class="ts-horizontal-scroll-item">
+      <picture class="ts-horizontal-scroll-item block mt-9 md:mt-0">
         <a
           href="/"
           aria-label="タイトル名タイトル名タイトル名タイトル名タイトル名を見る"
-          class="block h-full"
+          class="block h-full relative"
         >
           <img
             src="https://placehold.jp/895x1080.png"
             alt="タイトル名タイトル名タイトル名タイトル名タイトル名を見る"
             class="ts-image-white-in h-full"
           />
+
+          <span
+            class="bg-mine-shaft flex md:hidden justify-center items-center absolute bottom-[20px] right-5 rounded-full w-[40px] h-[40px]"
+          >
+            <svg
+              width="14"
+              height="10"
+              viewBox="0 0 14 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.91412 0.679339C6.91412 0.679339 7.99884 2.63402 8.2563 4.37282L0.731445 4.7742V5.34764L8.24902 5.74902C7.96468 7.46346 6.78603 9.32056 6.78603 9.32056C6.78603 9.32056 10.3661 5.54406 13.6435 5.05602C10.3758 4.56308 6.91412 0.679199 6.91412 0.679199V0.679339Z"
+                class="fill-taupe-gray"></path>
+            </svg>
+          </span>
         </a>
       </picture>
     </div>

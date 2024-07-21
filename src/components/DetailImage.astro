@@ -5,11 +5,11 @@ interface Props {
 }
 const { column } = Astro.props;
 const className = cn(
-  'h-full flex gap-10 [&_picture]:block [&_picture]:h-full [&_img]:h-full',
+  'md:h-full flex flex-col gap-4 md:gap-10 [&_picture]:block [&_picture]:h-full [&_img]:h-full',
   {
-    'flex-col': column,
-    '[&>li]:h-full': !column,
-    '[&>li]:h-[calc(50%-1.25rem)]': column === 2,
+    'md:flex-col': column,
+    'md:[&>li]:h-full': !column,
+    'md:[&>li]:h-[calc(50%-1.25rem)]': column === 2,
   }
 );
 ---
