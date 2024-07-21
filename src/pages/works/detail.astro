@@ -41,7 +41,11 @@ const title = '医療従事者サイト';
       </section>
 
       <picture class="ts-horizontal-scroll-item">
-        <img src="https://placehold.jp/1600x1080.png" alt="" class="h-full" />
+        <img
+          src="https://placehold.jp/1600x1080.png"
+          alt=""
+          class="ts-image-white-in h-full"
+        />
       </picture>
 
       <DetailSection title="(Overview)">
@@ -66,7 +70,11 @@ const title = '医療従事者サイト';
       </DetailSection>
 
       <picture class="ts-horizontal-scroll-item">
-        <img src="https://placehold.jp/1080x1080.png" alt="" class="h-full" />
+        <img
+          src="https://placehold.jp/1080x1080.png"
+          alt=""
+          class="ts-image-white-in h-full"
+        />
       </picture>
 
       <DetailSection title="(Description)" contentWidth="wide">
@@ -100,26 +108,38 @@ const title = '医療従事者サイト';
                 <img
                   src="https://placehold.jp/824x840.png"
                   alt=""
-                  class="h-full"
+                  class="ts-image-white-in h-full"
                 />
               </picture>
             </li>
             <DetailImage column={2}>
               <li>
                 <picture>
-                  <img src="https://placehold.jp/640x400.png" alt="" />
+                  <img
+                    src="https://placehold.jp/640x400.png"
+                    alt=""
+                    class="ts-image-white-in"
+                  />
                 </picture>
               </li>
 
               <li>
                 <picture>
-                  <img src="https://placehold.jp/640x400.png" alt="" />
+                  <img
+                    src="https://placehold.jp/640x400.png"
+                    alt=""
+                    class="ts-image-white-in"
+                  />
                 </picture>
               </li>
             </DetailImage>
             <li>
               <picture>
-                <img src="https://placehold.jp/824x840.png" alt="" />
+                <img
+                  src="https://placehold.jp/824x840.png"
+                  alt=""
+                  class="ts-image-white-in"
+                />
               </picture>
             </li>
           </DetailImage>
@@ -148,7 +168,7 @@ const title = '医療従事者サイト';
           <img
             src="https://placehold.jp/895x1080.png"
             alt="タイトル名タイトル名タイトル名タイトル名タイトル名を見る"
-            class="h-full"
+            class="ts-image-white-in h-full"
           />
         </a>
       </picture>
@@ -158,5 +178,7 @@ const title = '医療従事者サイト';
 
 <script>
   import horizontalScroll from '@/libs/horizontalScroll';
+  import imageWhiteIn from '@/libs/imageWhiteIn';
   horizontalScroll();
+  imageWhiteIn();
 </script>
