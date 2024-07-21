@@ -19,10 +19,15 @@ const Stalker = () => {
       >
         <div className="w-full h-full relative rounded-full">
           <span
-            className="follower__text vertical-rl text-taupe-gray font-medium leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 invisible transition-all"
+            className="follower__inside vertical-rl text-taupe-gray font-medium leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 invisible transition-all"
             aria-hidden="true"
           >
-            <span>見る</span>
+            <span className="follower__text hidden" data-type="image">
+              閲覧
+            </span>
+            <span className="follower__text hidden" data-type="crossing">
+              次項
+            </span>
           </span>
           <span
             className="follower__drag absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 invisible transition-all inline-flex gap-3 items-center p-5"

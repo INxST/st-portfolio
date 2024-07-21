@@ -4,6 +4,7 @@ import DetailSection from '@/components/DetailSection.astro';
 import DescriptionList from '@/components/DescriptionList.astro';
 import DetailImage from '@/components/DetailImage.astro';
 import Scroll from '@/components/Scroll.astro';
+import Stalker from '@/components/Stalker';
 const title = '医療従事者サイト';
 ---
 
@@ -169,7 +170,7 @@ const title = '医療従事者サイト';
         <a
           href="/"
           aria-label="タイトル名タイトル名タイトル名タイトル名タイトル名を見る"
-          class="block h-full relative"
+          class="ts-crossing-link block h-full relative"
         >
           <img
             src="https://placehold.jp/895x1080.png"
@@ -196,6 +197,8 @@ const title = '医療従事者サイト';
       </picture>
     </div>
   </section>
+
+  <Stalker client:only="react" />
 </Layout>
 
 <script>
