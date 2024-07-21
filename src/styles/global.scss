@@ -54,17 +54,44 @@ html.lenis body {
 .follower {
   &.is-active {
     mix-blend-mode: normal;
-    width: 5rem;
-    height: 5rem;
 
-    &:not(.is-active-drag) {
-      .follower__text {
+    &-link {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    &-drag,
+    &-image,
+    &-crossing {
+      width: 5rem;
+      height: 5rem;
+    }
+
+    &-image,
+    &-crossing {
+      .follower__inside {
         opacity: 1;
         visibility: visible;
       }
     }
 
-    &.is-active-drag {
+    &-image {
+      .follower__text {
+        &[data-type='image'] {
+          display: block;
+        }
+      }
+    }
+
+    &-crossing {
+      .follower__text {
+        &[data-type='crossing'] {
+          display: block;
+        }
+      }
+    }
+
+    &-drag {
       .follower__drag {
         opacity: 1;
         visibility: visible;
@@ -75,7 +102,7 @@ html.lenis body {
   &[data-stalker-color='bright'] {
     background-color: #dededa;
 
-    .follower__text {
+    .follower__inside {
       color: #3d3d3d;
     }
   }
