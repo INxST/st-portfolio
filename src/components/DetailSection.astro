@@ -1,0 +1,26 @@
+---
+import cn from '@/libs/cn';
+interface Props {
+  title: string;
+  contentWidth?: 'narrow' | 'wide';
+}
+const { title, contentWidth } = Astro.props;
+const contentClass = cn(
+  {
+    'md:w-[40rem]': !contentWidth || contentWidth === 'narrow',
+    'md:w-[60rem]': contentWidth === 'wide',
+  },
+  'md:px-[13.75rem] box-content'
+);
+---
+
+<section
+  class="ts-horizontal-scroll-item flex items-center py-24 md:py-0 px-5 md:px-0"
+>
+  <div class={contentClass}>
+    <h2 class="font-serif-en text-lg md:text-xl mb-9 md:mb-10">{title}</h2>
+    <div class="whitespace-normal">
+      <slot />
+    </div>
+  </div>
+</section>

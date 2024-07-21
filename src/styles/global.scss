@@ -156,3 +156,14 @@ html.lenis body {
     }
   }
 }
+
+.ts-image-white-in {
+  transition: all 0.5s;
+  filter: blur(20px);
+  opacity: 0;
+
+  &.is-active {
+    filter: blur(0);
+    opacity: 1;
+  }
+}

@@ -16,10 +16,17 @@ interface Props {
   title?: string;
   description?: string;
   theme?: ThemeColor;
+  isContainer?: boolean;
   isFooter?: boolean;
 }
 
-const { title, description, theme = 'bright', isFooter = false } = Astro.props;
+const {
+  title,
+  description,
+  theme = 'bright',
+  isContainer = true,
+  isFooter = false,
+} = Astro.props;
 const meta = {
   title: title ? `${title} | ${siteInfo.appName}` : siteInfo.appName,
   description: description || siteInfo.description,
@@ -75,7 +82,7 @@ const bodyClass = cn({
   </head>
   <body class={bodyClass} data-bg-color={theme}>
     <Header color={theme} />
-    <Main>
+    <Main isContainer={isContainer}>
       <slot />
     </Main>
     {
