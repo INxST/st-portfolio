@@ -8,7 +8,7 @@ const isHome = path === '/';
 
 <footer
   id="footer"
-  class="pt-[22rem] pb-5 text-pampas bg-mine-shaft-texture overflow-hidden"
+  class="pt-[9rem] md:pt-[22rem] pb-5 text-pampas bg-mine-shaft-texture overflow-hidden"
 >
   <div class="container px-5 md:px-20">
     <ul class="flex flex-row-reverse gap-8 justify-center">
@@ -39,7 +39,7 @@ const isHome = path === '/';
       }
     </ul>
 
-    <div class="flex justify-end mt-[15.5rem]">
+    <div class="hidden md:flex justify-end mt-[15.5rem]">
       <a
         href="#"
         class="ts-anchor text-lg font-serif-en"
@@ -48,7 +48,9 @@ const isHome = path === '/';
     </div>
 
     <ul
-      class="font-serif-en flex gap-8 items-center pt-10 border-t border-emperor mt-6"
+      class="font-serif-en flex flex-wrap gap-y-4 gap-x-7 md:gap-8
+      items-center justify-center md:justify-between
+      pt-10 border-t border-emperor mt-28 md:mt-6"
     >
       {
         snsLinks.map(link => (
@@ -56,7 +58,7 @@ const isHome = path === '/';
             <a
               href={link.href}
               target={link.target}
-              class="text-xl"
+              class="md:text-xl"
               data-stalker-color="bright"
             >
               {link.text}
@@ -65,7 +67,7 @@ const isHome = path === '/';
         ))
       }
 
-      <li class="inline-block ml-auto">
+      <li class="inline-block md:ml-auto w-full md:w-auto text-center">
         <small class="text-silver-chalice text-base">
           &copy; 2024 Taiki Sato
         </small>
@@ -73,15 +75,15 @@ const isHome = path === '/';
     </ul>
   </div>
 
-  <div class="mt-10">
+  <div class="mt-9 md:mt-10">
     <ul class="contact flex flex-nowrap whitespace-nowrap">
       {
         Array.from({ length: 10 }).map(_ => (
-          <li class="mx-14">
+          <li class="mx-10 md:mx-14">
             <a
               href="mailto:hoge@hoge.com?subject=お問い合わせ"
               target="_blank"
-              class="text-[15rem] leading-none text-taupe-gray font-serif-en"
+              class="text-8xl md:text-[15rem] leading-none text-taupe-gray font-serif-en"
               data-stalker-color="bright"
             >
               GET IN CONTACT

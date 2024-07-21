@@ -7,26 +7,46 @@ interface Props {
 const { item, number } = Astro.props;
 ---
 
-<li class="[&:not(:first-child)]:mt-14 contents-right">
-  <a href={item.href} class="group flex gap-16 pl-[10%]">
-    <div class="flex-1 pt-3 border-t border-silver flex flex-col relative z-10">
-      <div class="flex justify-between">
+<li
+  class="[&:not(:first-child)]:mt-9 md:[&:not(:first-child)]:mt-14 md:contents-right"
+>
+  <a
+    href={item.href}
+    class="group flex flex-col md:flex-row gap-4 md:gap-16 md:pl-[10%] border-t md:border-none border-silver"
+  >
+    <div class="flex md:hidden justify-between pt-3">
+      <span>{number}</span>
+      <span class="font-serif-en">{item.year}</span>
+    </div>
+
+    <div
+      class="flex-1 md:pt-3 md:border-t border-silver
+    flex flex-col relative z-10
+    order-2 md:order-1"
+    >
+      <div class="hidden md:flex justify-between">
         <span>{number}</span>
         <span class="font-serif-en">{item.year}</span>
       </div>
 
-      <h3 class="font-semibold text-[1.75rem] mt-16">{item.title}</h3>
+      <h3
+        class="hidden md:block font-semibold text-[1.4rem] md:text-[1.75rem] mt-4 md:mt-16"
+      >
+        {item.title}
+      </h3>
 
       <ul class="mt-3 font-serif-en">
         {item.categories.map(category => <li>{category}</li>)}
       </ul>
 
-      <ul class="text-gray flex flex-col gap-2 mt-auto leading-none">
+      <ul
+        class="text-gray flex md:flex-col flex-wrap gap-y-2 gap-x-3 leading-none mt-7 md:mt-auto"
+      >
         {item.tags.map(tag => <li>{tag}</li>)}
       </ul>
     </div>
 
-    <picture class="w-[75rem]">
+    <picture class="md:w-[75rem] order-1 md:order-2">
       <img
         src={item.imageTop || item.image}
         alt={item.title}
@@ -35,7 +55,7 @@ const { item, number } = Astro.props;
     </picture>
 
     <picture
-      class="w-screen h-screen
+      class="w-screen h-screen order-3 hidden md:block
     fixed top-0 left-0 z-0 opacity-0 invisible
     group-hover:opacity-100 group-hover:visible transition-all duration-300"
     >
