@@ -9,7 +9,7 @@ const TitleVertical = ({ jp, en }: Props) => {
       <span className="text-4xl md:text-5xl font-semibold leading-none vertical-rl align-top -mt-5">
         <span>{jp}</span>
       </span>
-      <span className="md:text-xl font-serif-en md:leading-none vertical-rl align-top">
+      <span className="-mt-5 ml-2 md:ml-4 md:text-xl font-serif-en md:leading-none vertical-rl align-top">
         ({en})
       </span>
     </h1>
