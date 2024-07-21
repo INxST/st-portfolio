@@ -83,21 +83,32 @@ const stalker = ({ cursor, follower }: Args) => {
           followerSetY(pos.y);
         });
 
-        const links = document.querySelectorAll<HTMLLinkElement>('a');
+        const dragSelector = '.ts-drag-scroll';
+        const imageLinkSelector = '.ts-image-link';
+        const crossingLinkSelector = '.ts-crossing-link';
+        const links = document.querySelectorAll<HTMLLinkElement>(
+          `a:not(${dragSelector}, ${imageLinkSelector}, ${crossingLinkSelector})`
+        );
         const activeClass = ['is-active'];
+        const linkClass = ['is-active-link', ...activeClass];
+        const drags = document.querySelectorAll<HTMLElement>(dragSelector);
+        const dragClass = ['is-active-drag', ...activeClass];
+        const imageLinks =
+          document.querySelectorAll<HTMLLinkElement>(imageLinkSelector);
+        const imageClass = ['is-active-image', ...activeClass];
+        const crossingLinks =
+          document.querySelectorAll<HTMLLinkElement>(crossingLinkSelector);
+        const crossingClass = ['is-active-crossing', ...activeClass];
 
         links.forEach(link => {
           link.addEventListener('mouseenter', () => {
-            activeStalker(link, cursor.current, follower.current, activeClass);
+            activeStalker(link, cursor.current, follower.current, linkClass);
           });
 
           link.addEventListener('mouseleave', () => {
-            removeStalker(cursor.current, follower.current, activeClass);
+            removeStalker(cursor.current, follower.current, linkClass);
           });
         });
-
-        const drags = document.querySelectorAll<HTMLElement>('.ts-drag-scroll');
-        const dragClass = ['is-active-drag', 'is-active'];
 
         drags.forEach(drag => {
           drag.addEventListener('mouseenter', () => {
@@ -106,6 +117,36 @@ const stalker = ({ cursor, follower }: Args) => {
 
           drag.addEventListener('mouseleave', () => {
             removeStalker(cursor.current, follower.current, dragClass);
+          });
+        });
+
+        imageLinks.forEach(imageLink => {
+          imageLink.addEventListener('mouseenter', () => {
+            activeStalker(
+              imageLink,
+              cursor.current,
+              follower.current,
+              imageClass
+            );
+          });
+
+          imageLink.addEventListener('mouseleave', () => {
+            removeStalker(cursor.current, follower.current, imageClass);
+          });
+        });
+
+        crossingLinks.forEach(crossingLink => {
+          crossingLink.addEventListener('mouseenter', () => {
+            activeStalker(
+              crossingLink,
+              cursor.current,
+              follower.current,
+              crossingClass
+            );
+          });
+
+          crossingLink.addEventListener('mouseleave', () => {
+            removeStalker(cursor.current, follower.current, crossingClass);
           });
         });
       } else {

@@ -8,7 +8,6 @@ import siteInfo from '@/data/siteInfo';
 import Header from '@/components/Header/index.astro';
 import Footer from '@/components/Footer/index.astro';
 import Main from '@/components/Main.astro';
-import Stalker from '@/components/Stalker';
 import '@/styles/global.scss';
 interface Props {
   title?: string;
@@ -85,7 +84,6 @@ const meta = {
       <slot />
     </Main>
     <Footer />
-    <Stalker client:only="react" />
 
     <style lang="scss">
       .bg {

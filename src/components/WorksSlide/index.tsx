@@ -53,7 +53,10 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
                     : null
                 }
               >
-                <a href={item.href} className="flex flex-col h-full">
+                <a
+                  href={item.href}
+                  className="ts-image-link flex flex-col h-full"
+                >
                   <div className="flex flex-1">
                     <picture className="flex-1">
                       <img
@@ -92,7 +95,7 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
           <li className="ts-scroll-slide-item pr-10 flex items-center">
             <a
               href="/about"
-              className="ts-text-link text-2xl md:text-[2rem] vertical-rl font-semibold ml-24 md:ml-72 border-r pr-2"
+              className="ts-text-link ts-crossing-link text-2xl md:text-[2rem] vertical-rl font-semibold ml-24 md:ml-72 border-r pr-2"
               data-vertical="rl"
             >
               <span>私について</span>

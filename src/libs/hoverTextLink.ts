@@ -1,6 +1,6 @@
 const hoverTextLink = () => {
   const links = document.querySelectorAll<HTMLElement>('.ts-text-link');
-  const delay = 10;
+  const delay = 50;
   links.forEach(link => {
     // 一文字ずつ分割して複製し、spanタグで囲む
     const text = link.textContent;

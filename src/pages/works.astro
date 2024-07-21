@@ -2,12 +2,19 @@
 import Layout from '@/layouts/Layout.astro';
 import WorksSlide from '@/components/WorksSlide';
 import works from '@/data/works';
+import Stalker from '@/components/Stalker';
 const title = '制作実績';
 const titleEn = 'WORKS';
 ---
 
 <Layout title={titleEn}>
-  <WorksSlide title={title} titleEn={titleEn} items={works} client:only />
+  <WorksSlide
+    title={title}
+    titleEn={titleEn}
+    items={works}
+    client:only="react"
+  />
+  <Stalker client:only="react" />
 </Layout>
 
 <style>
