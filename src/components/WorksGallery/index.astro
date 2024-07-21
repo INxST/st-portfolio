@@ -10,13 +10,13 @@ const newWorks = works.filter(work => work.isTop);
 
 <section
   id="works-gallery"
-  class="relative py-[17.5rem] contents-full text-current"
+  class="relative py-24 md:py-[17.5rem] contents-full text-current"
 >
-  <div class="flex justify-end pr-[20%]">
+  <div class="flex md:justify-end ml:pr-[20%]">
     <TopTitle sub="（制作実績）" title={['機能と情緒', '作品への想い']} />
   </div>
 
-  <ul id="works-gallery-link" class="mt-24">
+  <ul id="works-gallery-link" class="mt-9 md:mt-24">
     {
       newWorks.map((work, i) => {
         const kanji = kanjiNumber(i + 1);
@@ -25,14 +25,15 @@ const newWorks = works.filter(work => work.isTop);
     }
   </ul>
 
-  <div class="flex flex-col items-center mt-52">
-    <p class="vertical-rl font-medium text-[2rem] leading-none">
+  <div class="flex flex-col items-center mt-24 md:mt-52">
+    <p class="vertical-rl font-medium text-3xl md:text-[2rem] leading-none">
       <span>全作品</span>
     </p>
-    <span class="w-[1px] h-16 bg-black mt-6"></span>
+    <span class="w-[1px] h-7 md:h-16 bg-black mt-4 md:mt-6"></span>
     <a
       href="/works"
-      class="font-serif-en leading-none text-[6.5rem] mt-10 mb-10">ALL WORKS</a
+      class="font-serif-en leading-none text-6xl md:text-[6.5rem] mt-8 md:mt-10 mb-8 md:mb-10"
+      >ALL WORKS</a
     >
     <More href="works" color="dark" />
   </div>

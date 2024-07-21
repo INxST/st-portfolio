@@ -7,9 +7,9 @@ import updatePath from '@/libs/updatePath';
   <div
     class="bg-mine-shaft-texture contents-full text-silver-chalice py-16 h-screen flex flex-col justify-center"
   >
-    <div class="grid grid-cols-3 items-end">
+    <div class="grid grid-cols-1 md:grid-cols-3 items-end justify-center">
       <div
-        class="relative inline-block overflow-hidden w-[37.5rem] h-[37.5rem] col-start-2 z-0"
+        class="relative inline-block overflow-hidden w-72 md:w-[37.5rem] h-72 md:h-[37.5rem] md:col-start-2 z-0 mx-auto md:mx-0"
       >
         <picture class="w-full h-full">
           <img src={updatePath('/moon.png')} alt="月" />
@@ -20,7 +20,7 @@ import updatePath from '@/libs/updatePath';
         </picture>
       </div>
 
-      <p class="font-serif-en w-96 whitespace-pre-line">
+      <p class="font-serif-en w-96 whitespace-pre-line hidden md:block">
         {siteInfo.description}
       </p>
     </div>
@@ -35,22 +35,26 @@ import updatePath from '@/libs/updatePath';
       />
     </picture>
 
-    <p class="mt-14 font-serif-en text-xl">
+    <p class="mt-14 font-serif-en md:text-xl">
       Web design / Graphic design / Art direction
     </p>
 
-    <h1 class="flex items-end gap-10">
+    <h1 class="flex items-end gap-4 md:gap-10">
       <span
-        class="text-[17.5rem] leading-none font-serif-en text-taupe-gray -mb-8"
+        class="text-9xl md:text-[17.5rem] leading-none font-serif-en text-taupe-gray -mb-8"
       >
         TAIKI SATO
       </span>
 
       <span class="inline-flex flex-col vertical-rl text-taupe-gray">
-        <span class="font-serif-en text-lg leading-none whitespace-pre-line">
+        <span
+          class="font-serif-en text-sm md:text-lg leading-none whitespace-pre-line"
+        >
           <span>Portfolio</span>
         </span>
-        <span class="font-semibold text-5xl leading-none whitespace-pre-line">
+        <span
+          class="font-semibold text-[2rem] md:text-5xl leading-none whitespace-pre-line"
+        >
           <span>作品集</span>
         </span>
       </span>
@@ -62,14 +66,14 @@ import updatePath from '@/libs/updatePath';
     class="absolute z-0 top-0 left-1/2 -translate-x-1/2 w-screen h-full bg-mine-shaft-texture opacity-0 invisible flex justify-center items-center"
   >
     <p
-      class="next-mask-text font-serif-en font-semibold text-9xl text-taupe-gray text-opacity-30"
+      class="next-mask-text font-serif-en font-semibold text-3xl md:text-9xl text-taupe-gray text-opacity-30"
     >
       SCROLL
     </p>
   </div>
 
   <div
-    class="scroll-nav w-[1px] h-[17.5rem] bg-emperor absolute bottom-[5px] right-0 z-0"
+    class="scroll-nav w-[1px] h-[17.5rem] bg-emperor absolute bottom-[5px] right-0 z-0 hidden md:block"
   >
     <div class="relative w-full h-full">
       <div
