@@ -33,7 +33,7 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
           ref={container}
           className="flex flex-nowrap justify-start whitespace-nowrap h-[calc(100vh-calc(var(--header-height)+3.25rem))] md:h-[calc(100dvh-calc(var(--header-height)+var(--filter-height)))] pt-11 pb-20 box"
         >
-          <li className="ts-scroll-slide-item">
+          <li className="ts-scroll-slide-item mr-20 md:mr-60">
             <TitleVertical jp={title} en={titleEn} />
           </li>
           {items.map((item, i) => {
@@ -43,7 +43,7 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
                 className="ts-scroll-slide-item h-full aspect-works-slide 
                 pt-5 pb-6 border-l peer-last:border-r last-of-type:border-r border-silver 
                 bg-gray-texture px-12 whitespace-nowrap max-w-full
-                transition-all duration-700 animate-text-focus-in
+                transition-all duration-[1500ms] animate-text-focus-in
                 data-[hidden]:animate-text-blur-out data-[hidden]:max-w-0 data-[hidden]:px-0"
                 data-tags={item.tags.join(' ')}
                 data-hidden={

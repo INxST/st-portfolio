@@ -20,11 +20,18 @@ const scrollSlide = ({ wrapper, container, progress, filter }: Args) => {
       didEffect.current = true;
 
       const slides = gsap.utils.toArray<HTMLElement>('.ts-scroll-slide-item');
-      const width = container.current?.clientWidth;
-      const magnification = document.body.clientWidth > 768 ? -30 : -110;
+      // slideの最後から3つの幅を引いた値を取得
+      const width =
+        container.current?.clientWidth! -
+        (document.body.clientWidth > 768
+          ? slides[0].clientWidth +
+            slides[slides.length - 3].clientWidth +
+            slides[slides.length - 2].clientWidth +
+            slides[slides.length - 1].clientWidth
+          : 0);
 
       gsap.to(container.current, {
-        xPercent: magnification * (slides.length - 1),
+        xPercent: -100 * (slides.length - 1),
         ease: 'none',
         scrollTrigger: {
           trigger: wrapper.current,
