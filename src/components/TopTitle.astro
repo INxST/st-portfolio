@@ -1,21 +1,42 @@
 ---
+import cn from '@/libs/cn';
 interface Props {
   sub: string;
   title: string[];
+  href: string;
+  isSpHorizontal?: boolean;
 }
 
-const { sub, title } = Astro.props;
+const { sub, title, href, isSpHorizontal } = Astro.props;
+const classNameWrapper = cn('flex md:flex-row-reverse gap-2 md:gap-4', {
+  'flex-row-reverse': !isSpHorizontal,
+  'flex-col': isSpHorizontal,
+});
+const classNameSub = cn(
+  'md:text-lg leading-none font-medium md:vertical-rl md:-mt-6',
+  {
+    'vertical-rl': !isSpHorizontal,
+    '-mt-6': !isSpHorizontal,
+  }
+);
+const classNameMain = cn(
+  'md:vertical-rl flex flex-col gap-2 md:gap-4 md:[&>span:nth-child(n+2)]:mt-[2.625rem]',
+  {
+    'vertical-rl': !isSpHorizontal,
+    '[&>span:nth-child(n+2)]:mt-[2.625rem]': !isSpHorizontal,
+  }
+);
 ---
 
 <h2 class="text-current">
-  <a href="/about" class="flex flex-row-reverse gap-2 md:gap-4">
-    <span class="md:text-lg leading-none font-medium vertical-rl -mt-6">
+  <a href={href} class={classNameWrapper}>
+    <span class={classNameSub}>
       <span>{sub}</span>
     </span>
     <span class="text-[2rem] md:text-[2.625rem] leading-none font-semibold">
-      <span class="vertical-rl flex flex-col gap-2 md:gap-4">
+      <span class={classNameMain}>
         <span>{title[0]}</span>
-        <span class="mt-[2.625rem]">{title[1]}</span>
+        <span>{title[1]}</span>
       </span>
     </span>
   </a>
