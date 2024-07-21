@@ -8,19 +8,39 @@ import siteInfo from '@/data/siteInfo';
 import Header from '@/components/Header/index.astro';
 import Main from '@/components/Main.astro';
 import Stalker from '@/components/Stalker';
+import Footer from '@/components/Footer/index.astro';
+import cn from '@/libs/cn';
 import '@/styles/global.scss';
+import type { ThemeColor } from '@/types/ThemeColor';
 interface Props {
   title?: string;
   description?: string;
+  theme?: ThemeColor;
+  isContainer?: boolean;
+  isFooter?: boolean;
 }
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description,
+  theme = 'bright',
+  isContainer = true,
+  isFooter = false,
+} = Astro.props;
 const meta = {
   title: title ? `${title} | ${siteInfo.appName}` : siteInfo.appName,
   description: description || siteInfo.description,
   author: siteInfo.author,
   image: new URL('/images/common/og.png', Astro.url.origin).toString(),
 };
+const bodyClass = cn({
+  'font-serif': true,
+  'text-black': theme === 'bright',
+  'text-pampas': theme === 'dark',
+  'bg-gray-texture': theme === 'bright',
+  'bg-mine-shaft-texture': theme === 'dark',
+  'overflow-x-hidden': true,
+});
 ---
 
 <!doctype html>
@@ -60,14 +80,24 @@ const meta = {
       }}
     />
   </head>
-  <body class="font-serif text-black bg-gray-texture">
-    <Header />
-    <Main>
+  <body class={bodyClass} data-bg-color={theme}>
+    <Header color={theme} />
+    <Main isContainer={isContainer}>
       <slot />
     </Main>
+    {
+      isFooter && (
+        <>
+          <div class="h-[1px] w-screen bg-taupe-gray mt-32 md:mt-72" />
+          <Footer />
+        </>
+      )
+    }
     <Stalker client:only="react" />
     <script>
+      import smoothScroll from '@/libs/smoothScroll';
       import hoverTextLink from '@/libs/hoverTextLink';
+      smoothScroll();
       hoverTextLink();
     </script>
   </body>
