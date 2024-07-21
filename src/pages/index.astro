@@ -3,6 +3,7 @@ import LayoutTop from '@/layouts/LayoutTop.astro';
 import Hero from '@/components/Hero/index.astro';
 import ParallaxGallery from '@/components/ParallaxGallery/index.astro';
 import WorksGallery from '@/components/WorksGallery/index.astro';
+import Stalker from '@/components/Stalker';
 ---
 
 <LayoutTop>
@@ -11,4 +12,6 @@ import WorksGallery from '@/components/WorksGallery/index.astro';
   <ParallaxGallery />
 
   <WorksGallery />
+
+  <Stalker client:only="react" />
 </LayoutTop>

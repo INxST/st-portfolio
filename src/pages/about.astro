@@ -7,6 +7,7 @@ import snsLinks from '@/data/snsLinks';
 import AboutSection from '@/components/AboutSection.astro';
 import Timeline from '@/components/Timeline/index.astro';
 import timelines from '@/data/timelines';
+import Stalker from '@/components/Stalker';
 const title = '私について';
 const titleEn = 'ABOUT';
 ---
@@ -86,6 +87,8 @@ const titleEn = 'ABOUT';
   <AboutSection title="CAREER">
     <Timeline items={timelines} />
   </AboutSection>
+
+  <Stalker client:only="react" />
 </Layout>
 
 <script>

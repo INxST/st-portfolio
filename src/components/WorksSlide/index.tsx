@@ -53,7 +53,10 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
                     : null
                 }
               >
-                <a href={item.href} className="flex flex-col h-full">
+                <a
+                  href={item.href}
+                  className="ts-image-link flex flex-col h-full"
+                >
                   <div className="flex flex-1">
                     <picture className="flex-1">
                       <img

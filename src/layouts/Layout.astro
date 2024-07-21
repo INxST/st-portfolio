@@ -7,7 +7,6 @@ import { SEO } from 'astro-seo';
 import siteInfo from '@/data/siteInfo';
 import Header from '@/components/Header/index.astro';
 import Main from '@/components/Main.astro';
-import Stalker from '@/components/Stalker';
 import Footer from '@/components/Footer/index.astro';
 import cn from '@/libs/cn';
 import '@/styles/global.scss';
@@ -93,7 +92,7 @@ const bodyClass = cn({
         </>
       )
     }
-    <Stalker client:only="react" />
+
     <script>
       import smoothScroll from '@/libs/smoothScroll';
       import hoverTextLink from '@/libs/hoverTextLink';
