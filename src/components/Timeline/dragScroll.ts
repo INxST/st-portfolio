@@ -1,6 +1,8 @@
 const dragScroll = () => {
-  const scrollContainer =
-    document.querySelector<HTMLElement>('.ts-drag-scroll');
+  const scroll = document.querySelector<HTMLElement>('.ts-drag-scroll');
+  const scrollContainer = scroll?.querySelector<HTMLElement>(
+    '.ts-drag-scroll-container'
+  );
 
   let isDragging = false;
   let startX: number;

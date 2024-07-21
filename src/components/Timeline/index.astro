@@ -7,8 +7,10 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<div class="ts-drag-scroll w-full relative overflow-x-hidden">
-  <ul class="flex flex-nowrap whitespace-nowrap pt-[calc(0.75rem/2)]">
+<div class="ts-drag-scroll w-full relative">
+  <ul
+    class="ts-drag-scroll-container flex flex-nowrap whitespace-nowrap pt-[calc(0.75rem/2)] overflow-x-scroll md:overflow-x-hidden"
+  >
     {
       items.map(item => {
         return (
