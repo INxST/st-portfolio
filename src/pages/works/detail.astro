@@ -3,10 +3,13 @@ import Layout from '@/layouts/Layout.astro';
 import DetailSection from '@/components/DetailSection.astro';
 import DescriptionList from '@/components/DescriptionList.astro';
 import DetailImage from '@/components/DetailImage.astro';
+import Scroll from '@/components/Scroll.astro';
 const title = '医療従事者サイト';
 ---
 
 <Layout title={title}>
+  <Scroll />
+
   <section
     id="horizontal-scroll"
     class="h-screen pt:[var(--header-height)] md:pt-0"
@@ -40,8 +43,6 @@ const title = '医療従事者サイト';
       <picture class="ts-horizontal-scroll-item">
         <img src="https://placehold.jp/1600x1080.png" alt="" class="h-full" />
       </picture>
-
-      <p>SCROLL</p>
 
       <DetailSection title="(Overview)">
         <div class="text-lg flex flex-col gap-4">

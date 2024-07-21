@@ -1,0 +1,50 @@
+<div
+  id="scroll"
+  class="h-screen fixed top-0 right-0 z-20
+inline-flex items-center text-pampas font-serif-en
+transition-all duration-700 [&.is-invisible]:invisible
+[&.is-invisible]:opacity-0 [&.is-invisible]:-translate-y-3"
+>
+  <p>SCROLL</p>
+  <div class="scroll__nav w-16 h-[1px] bg-silver ml-4">
+    <div class="relative w-full h-full">
+      <div class="scroll__inside w-4 h-full bg-pampas absolute top-0 right-0">
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .scroll__inside {
+    animation: scrollNav 3s infinite;
+  }
+
+  @keyframes scrollNav {
+    0% {
+      right: 0;
+      opacity: 1;
+    }
+    80% {
+      right: 100%;
+      opacity: 0;
+    }
+    100% {
+      right: 0;
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  // 1度scrollしたらfadeoutする
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const scroll = document.getElementById('scroll');
+    const className = 'is-invisible';
+    if (scrollY > 0) {
+      scroll?.classList.add(className);
+    } else {
+      scroll?.classList.remove(className);
+    }
+  });
+</script>
