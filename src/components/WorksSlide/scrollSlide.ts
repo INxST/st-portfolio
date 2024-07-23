@@ -19,31 +19,29 @@ const scrollSlide = ({ wrapper, container, progress, filter }: Args) => {
     if (!didEffect.current) {
       didEffect.current = true;
 
-      const slides = gsap.utils.toArray<HTMLElement>('.ts-scroll-slide-item');
-      // slideの最後から3つの幅を引いた値を取得
-      const width =
-        container.current?.clientWidth! -
-        (document.body.clientWidth > 768
-          ? slides[0].clientWidth +
-            slides[slides.length - 3].clientWidth +
-            slides[slides.length - 2].clientWidth +
-            slides[slides.length - 1].clientWidth
-          : 0);
+      const getOverflow = (el: HTMLElement | null) => {
+        if (!el) return 0;
+        return el.scrollWidth - window.innerWidth;
+      };
 
-      gsap.to(container.current, {
-        xPercent: -100 * (slides.length - 1),
+      const x = window.matchMedia('(min-width: 768px)').matches ? -4 : -1.05;
+
+      const anime = gsap.to(container.current, {
+        x: getOverflow(container.current) * x,
         ease: 'none',
-        scrollTrigger: {
-          trigger: wrapper.current,
-          pin: true,
-          scrub: 1,
-          start: 'top top',
-          end: () => `+=${width}`,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          onUpdate: self => {
-            progress.current!.style.width = `${(self.progress * 100).toFixed(5)}%`;
-          },
+      });
+
+      ScrollTrigger.create({
+        trigger: wrapper.current,
+        pin: true,
+        scrub: 1,
+        start: 'top top',
+        end: () => `+=${getOverflow(container.current)}`,
+        animation: anime,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        onUpdate: self => {
+          progress.current!.style.width = `${(self.progress * 100).toFixed(5)}%`;
         },
       });
     }

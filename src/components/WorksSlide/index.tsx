@@ -31,16 +31,16 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
       <div ref={wrapper} className="pt-[var(--header-height)]">
         <ul
           ref={container}
-          className="flex flex-nowrap justify-start whitespace-nowrap h-[calc(100vh-calc(var(--header-height)+3.25rem))] md:h-[calc(100dvh-calc(var(--header-height)+var(--filter-height)))] pt-11 pb-20 box"
+          className="flex flex-nowrap justify-start whitespace-nowrap h-[calc(100vh-calc(var(--header-height)+3.25rem))] md:h-[calc(100dvh-calc(var(--header-height)+var(--filter-height)))] pt-11 pb-20"
         >
-          <li className="ts-scroll-slide-item mr-20 md:mr-60">
+          <li className="mr-20 md:mr-60">
             <TitleVertical jp={title} en={titleEn} />
           </li>
           {items.map((item, i) => {
             return (
               <li
                 key={`${item.href}-${i}`}
-                className="ts-scroll-slide-item h-full aspect-works-slide 
+                className="h-full aspect-works-slide 
                 pt-5 pb-6 border-l peer-last:border-r last-of-type:border-r border-silver 
                 bg-gray-texture px-12 whitespace-nowrap max-w-full
                 transition-all duration-[1500ms] animate-text-focus-in
@@ -92,7 +92,7 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
               </li>
             );
           })}
-          <li className="ts-scroll-slide-item pr-10 flex items-center">
+          <li className="pr-10 flex items-center">
             <a
               href="/about"
               className="ts-text-link ts-crossing-link text-2xl md:text-[2rem] vertical-rl font-semibold ml-24 md:ml-72 border-r pr-2"
