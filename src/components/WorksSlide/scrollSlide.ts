@@ -2,6 +2,7 @@ import { useRef, useLayoutEffect } from 'react';
 import type { MutableRefObject } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import getOverflow from '@/libs/getOverflow';
 
 type Args = {
   wrapper: MutableRefObject<HTMLElement | null>;
@@ -18,11 +19,6 @@ const scrollSlide = ({ wrapper, container, progress, filter }: Args) => {
   useLayoutEffect(() => {
     if (!didEffect.current) {
       didEffect.current = true;
-
-      const getOverflow = (el: HTMLElement | null) => {
-        if (!el) return 0;
-        return el.scrollWidth - window.innerWidth;
-      };
 
       const x = window.matchMedia('(min-width: 768px)').matches ? -4 : -1.05;
 
