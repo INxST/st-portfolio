@@ -2,16 +2,20 @@
 import cn from '@/libs/cn';
 interface Props {
   isContainer?: boolean;
+  maxW?: boolean;
 }
-const { isContainer = true } = Astro.props;
+const { isContainer = true, maxW = false } = Astro.props;
 
-const className = cn({
-  container: isContainer,
-  'px-5': isContainer,
-  'md:px-20': isContainer,
-  'overflow-hidden': isContainer,
-  'mx-auto': !isContainer,
-});
+const className = cn(
+  {
+    container: isContainer,
+    'px-5': isContainer,
+    'md:px-20': isContainer,
+    'overflow-hidden': isContainer,
+    'mx-auto': !isContainer,
+  },
+  `${maxW && 'md:max-w-[calc(1360px+10rem)]'}`
+);
 ---
 
 <main id="main" class={className}>

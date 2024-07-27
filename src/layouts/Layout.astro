@@ -16,6 +16,7 @@ interface Props {
   description?: string;
   theme?: ThemeColor;
   isContainer?: boolean;
+  maxW?: boolean;
   isFooter?: boolean;
 }
 
@@ -24,6 +25,7 @@ const {
   description,
   theme = 'bright',
   isContainer = true,
+  maxW = false,
   isFooter = false,
 } = Astro.props;
 const meta = {
@@ -81,7 +83,7 @@ const bodyClass = cn({
   </head>
   <body class={bodyClass} data-bg-color={theme}>
     <Header color={theme} />
-    <Main isContainer={isContainer}>
+    <Main isContainer={isContainer} maxW={maxW}>
       <slot />
     </Main>
     {
