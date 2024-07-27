@@ -1,6 +1,9 @@
 type Slide = {
   type: 'image' | 'video';
-  src: string;
+  src: {
+    pc: string;
+    sp?: string;
+  };
   alt?: string;
 };
 

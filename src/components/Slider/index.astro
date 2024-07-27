@@ -9,17 +9,28 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<div class="swiper aspect-video">
+<div class="swiper md:aspect-video h-full">
   <div class="swiper-wrapper">
     {
       items.map(item => (
         <div class="swiper-slide">
           {item.type === 'video' ? (
             <video controls autoplay muted loop>
-              <source src={updatePath(item.src)} type="video/mp4" />
+              <source
+                src={updatePath(item.src.pc)}
+                type="video/mp4"
+                media="(min-width: 768px)"
+              />
+              <source
+                src={updatePath(item.src.sp || item.src.pc)}
+                type="video/mp4"
+              />
             </video>
           ) : (
-            <img src={item.src} alt={item.alt} />
+            <picture>
+              <source srcset={item.src.pc} media="(min-width: 768px)" />
+              <img src={item.src.sp || item.src.pc} alt={item.alt} />
+            </picture>
           )}
         </div>
       ))
