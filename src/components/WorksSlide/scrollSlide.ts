@@ -20,7 +20,7 @@ const scrollSlide = ({ wrapper, container, progress, filter }: Args) => {
     if (!didEffect.current) {
       didEffect.current = true;
 
-      const x = window.matchMedia('(min-width: 768px)').matches ? -4 : -1.05;
+      const x = window.matchMedia('(min-width: 768px)').matches ? -5 : -1.05;
 
       const anime = gsap.to(container.current, {
         x: getOverflow(container.current) * x,
