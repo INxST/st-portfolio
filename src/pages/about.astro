@@ -12,7 +12,7 @@ const title = '私について';
 const titleEn = 'ABOUT';
 ---
 
-<Layout title={titleEn} theme="dark" isFooter={true}>
+<Layout title={titleEn} theme="dark" maxW={true} isFooter={true}>
   <div class="text-taupe-gray pt-40">
     <TitleVertical jp={title} en={titleEn} />
   </div>
@@ -35,12 +35,11 @@ const titleEn = 'ABOUT';
     </p>
   </div>
 
-  <div id="about-slider-wrapper" class="h-screen">
-    <div
-      id="about-slider"
-      class="about-slider mt-16 md:mt-[7.5rem] w-8/12 ml-auto"
-    >
-      <Slider items={slides} />
+  <div class="mt-16 md:mt-[7.5rem]">
+    <div id="about-slider-wrapper" class="h-screen w-full relative">
+      <div id="about-slider" class="about-slider w-8/12 absolute top-0 right-0">
+        <Slider items={slides} />
+      </div>
     </div>
   </div>
 
@@ -111,6 +110,11 @@ const titleEn = 'ABOUT';
       },
     })
     .to(slider, {
-      width: '100%',
+      width: '100vw',
+      height: '100vh',
+      right: '50%',
+      x: '50%',
     });
 </script>
+
+<style></style>

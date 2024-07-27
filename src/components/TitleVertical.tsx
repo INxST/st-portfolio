@@ -5,7 +5,7 @@ type Props = {
 
 const TitleVertical = ({ jp, en }: Props) => {
   return (
-    <h1 className="pl-5 pr-16 md:pr-20 md:px-60 pt-16 md:pt-32">
+    <h1 className="pt-16 md:pt-32">
       <span className="text-4xl md:text-5xl font-semibold leading-none vertical-rl align-top -mt-5">
         <span>{jp}</span>
       </span>
