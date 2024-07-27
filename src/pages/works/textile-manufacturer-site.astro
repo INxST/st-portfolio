@@ -5,6 +5,8 @@ import DescriptionList from '@/components/DescriptionList.astro';
 import DetailImage from '@/components/DetailImage.astro';
 import Scroll from '@/components/Scroll.astro';
 import Stalker from '@/components/Stalker';
+import Video from '@/components/Video.astro';
+import updatePath from '@/libs/updatePath';
 const title = '繊維メーカーサイト';
 ---
 
@@ -123,14 +125,86 @@ const title = '繊維メーカーサイト';
         <div class="md:py-[7.5rem] h-full px-5 md:px-0">
           <DetailImage>
             <li>
-              <picture>
-                <img
-                  src="https://placehold.jp/824x840.png"
-                  alt=""
-                  class="ts-image-white-in h-full"
-                />
-              </picture>
+              <video controls muted loop>
+                <source src={updatePath('/sample-5s.mp4')} type="video/mp4" />
+              </video>
             </li>
+            <li>
+              <Video>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/M7lc1UVf-VE?si=Ug3Er7-fsYQu6bfP"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen></iframe>
+              </Video>
+            </li>
+            <DetailImage column={2}>
+              <li>
+                <video controls muted loop>
+                  <source src={updatePath('/sample-5s.mp4')} type="video/mp4" />
+                </video>
+              </li>
+
+              <li>
+                <picture>
+                  <img
+                    src="https://placehold.jp/640x400.png"
+                    alt=""
+                    class="ts-image-white-in"
+                  />
+                </picture>
+              </li>
+            </DetailImage>
+            <DetailImage column={2}>
+              <li>
+                <Video>
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/M7lc1UVf-VE?si=Ug3Er7-fsYQu6bfP"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen></iframe>
+                </Video>
+              </li>
+
+              <li>
+                <picture>
+                  <img
+                    src="https://placehold.jp/640x400.png"
+                    alt=""
+                    class="ts-image-white-in"
+                  />
+                </picture>
+              </li>
+            </DetailImage>
+            <DetailImage column={2}>
+              <li>
+                <Video>
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/M7lc1UVf-VE?si=Ug3Er7-fsYQu6bfP"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen></iframe>
+                </Video>
+              </li>
+
+              <li>
+                <video controls muted loop>
+                  <source src={updatePath('/sample-5s.mp4')} type="video/mp4" />
+                </video>
+              </li>
+            </DetailImage>
             <DetailImage column={2}>
               <li>
                 <picture>
