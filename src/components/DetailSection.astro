@@ -18,9 +18,11 @@ const contentClass = cn(
   class="ts-horizontal-scroll-item flex items-center py-24 md:py-0 px-5 md:px-0"
 >
   <div class={contentClass}>
-    <h2 class="font-serif-en text-lg md:text-xl mb-9 md:mb-10">{title}</h2>
-    <div class="whitespace-normal">
-      <slot />
+    <div class="md:py-[calc(var(--header-height)+7.5rem)]">
+      <h2 class="font-serif-en text-lg md:text-xl mb-9 md:mb-10">{title}</h2>
+      <div class="whitespace-normal">
+        <slot />
+      </div>
     </div>
   </div>
 </section>
