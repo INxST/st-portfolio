@@ -79,7 +79,7 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
                     </div>
                   </div>
                   <div className="mt-4">
-                    <h2 className="font-semibold text-xl md:text-3xl whitespace-normal">
+                    <h2 className="font-medium text-xl md:text-3xl whitespace-normal">
                       {item.title}
                     </h2>
                     <ul className="flex flex-wrap gap-x-4 gap-y-2 font-serif-en mt-6 text-gray">
@@ -95,7 +95,7 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
           <li className="pr-10 flex items-center">
             <a
               href="/about"
-              className="ts-text-link ts-crossing-link text-2xl md:text-[2rem] vertical-rl font-semibold ml-24 md:ml-72 border-r pr-2"
+              className="ts-text-link ts-crossing-link text-2xl md:text-[2rem] vertical-rl font-medium ml-24 md:ml-72 border-r pr-2"
               data-vertical="rl"
             >
               <span>私について</span>
