@@ -6,18 +6,21 @@ interface Props {
   item: ParallaxGalleryItem;
 }
 const { item } = Astro.props;
-const itemClass = cn('ts-parallax-gallery-image sepia', item.class);
+const itemClass = cn('ts-parallax-gallery-image', item.class);
 ---
 
 <li class={itemClass}>
-  <picture class="w-full">
+  <picture class="w-full block">
     <img src={updatePath(item.src)} alt={item.alt} class="w-full" />
   </picture>
 </li>
 
 <style lang="scss">
   .ts-parallax-gallery-image {
-    transition: filter 0.5s ease;
+    &,
+    img {
+      transition: filter 0.5s ease;
+    }
 
     @for $i from 1 through 8 {
       &:nth-child(#{$i}) {
@@ -25,8 +28,20 @@ const itemClass = cn('ts-parallax-gallery-image sepia', item.class);
       }
     }
 
+    &:not(.is-active) {
+      filter: sepia(65%);
+
+      img {
+        filter: grayscale(100%);
+      }
+    }
+
     &.is-active {
       filter: sepia(0);
+
+      img {
+        filter: grayscale(0);
+      }
     }
   }
 </style>
