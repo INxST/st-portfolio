@@ -25,15 +25,24 @@ import updatePath from '@/libs/updatePath';
       </p>
     </div>
 
-    <picture
-      class="absolute z-0 top-0 left-1/2 -translate-x-1/2 w-screen h-full overflow-hidden"
+    <div
+      class="absolute z-0 top-0 left-1/2 -translate-x-1/2 w-screen h-full overflow-hidden opacity-50 mix-blend-multiply"
     >
-      <img
-        src={updatePath('/top/hero/hero-bg.png')}
-        alt="背景画像"
+      <video
+        poster={updatePath('/top/hero/shadow-image.png')}
+        webkit-playsinline
+        playsinline
+        muted
+        autoplay
+        loop
         class="w-full h-full object-cover"
-      />
-    </picture>
+      >
+        <source
+          src={updatePath('/top/hero/shadow-movie.mp4')}
+          type="video/mp4"
+        />
+      </video>
+    </div>
 
     <p class="mt-14 font-serif-en md:text-xl">
       Web design / Graphic design / Art direction
