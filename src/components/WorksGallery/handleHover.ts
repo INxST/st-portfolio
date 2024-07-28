@@ -1,22 +1,17 @@
 const handleHover = () => {
-  let timer: NodeJS.Timeout;
-  const disableClass = 'is-disable-hover';
-  const wrapper = document.getElementById('works-gallery-link');
+  const items = document.querySelectorAll('.ts-image-link');
+  const className = 'is-hover';
 
-  window.addEventListener(
-    'scroll',
-    () => {
-      clearTimeout(timer);
-      if (!wrapper?.classList.contains(disableClass)) {
-        wrapper?.classList.add(disableClass);
-      }
+  items.forEach(item => {
+    const link = item.querySelector(':scope > a');
+    link?.addEventListener('mouseover', () => {
+      item.classList.add(className);
+    });
 
-      timer = setTimeout(() => {
-        wrapper?.classList.remove(disableClass);
-      }, 200);
-    },
-    false
-  );
+    link?.addEventListener('mouseout', () => {
+      item.classList.remove(className);
+    });
+  });
 };
 
 export default handleHover;

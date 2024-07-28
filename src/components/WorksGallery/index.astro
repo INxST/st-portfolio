@@ -21,7 +21,7 @@ const newWorks = works.filter(work => work.isTop);
     />
   </div>
 
-  <ul id="works-gallery-link" class="mt-9 md:mt-24">
+  <ul class="mt-9 md:mt-24">
     {
       newWorks.map((work, i) => {
         const kanji = kanjiNumber(i + 1);
@@ -48,9 +48,3 @@ const newWorks = works.filter(work => work.isTop);
   import handleHover from './handleHover';
   handleHover();
 </script>
-
-<style lang="scss">
-  .is-disable-hover {
-    pointer-events: none;
-  }
-</style>

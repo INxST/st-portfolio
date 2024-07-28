@@ -8,11 +8,11 @@ const { item, number } = Astro.props;
 ---
 
 <li
-  class="[&:not(:first-child)]:mt-9 md:[&:not(:first-child)]:mt-14 md:contents-right"
+  class="ts-image-link group [&:not(:first-child)]:mt-9 md:[&:not(:first-child)]:mt-14 md:contents-right"
 >
   <a
     href={item.href}
-    class="ts-image-link group flex flex-col md:flex-row gap-4 md:gap-16 md:pl-[10%] border-t md:border-none border-silver"
+    class="flex flex-col md:flex-row gap-4 md:gap-16 md:pl-[10%] border-t md:border-none border-silver"
   >
     <div class="flex md:hidden justify-between pt-3">
       <span>{number}</span>
@@ -53,17 +53,17 @@ const { item, number } = Astro.props;
         class="w-full object-contain"
       />
     </picture>
-
-    <picture
-      class="w-screen h-screen order-3 hidden md:block
-    fixed top-0 left-0 z-0 opacity-0 invisible
-    group-hover:opacity-100 group-hover:visible transition-all duration-300"
-    >
-      <img
-        src={item.imageTop || item.image}
-        alt={item.title}
-        class="w-full h-full object-cover"
-      />
-    </picture>
   </a>
+
+  <picture
+    class="w-screen h-screen order-3 hidden md:block
+    fixed top-0 left-0 z-0 opacity-0 invisible
+    group-[.is-hover]:opacity-100 group-[.is-hover]:visible transition-all duration-300"
+  >
+    <img
+      src={item.imageTop || item.image}
+      alt={item.title}
+      class="w-full h-full object-cover"
+    />
+  </picture>
 </li>
