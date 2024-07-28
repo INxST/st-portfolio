@@ -3,6 +3,7 @@ import menus from '@/data/menus';
 import snsLinks from '@/data/snsLinks';
 import Disc from '@/components/Disc.astro';
 import MenuLink from '@/components/Header/MenuLink.astro';
+import updatePath from '@/libs/updatePath';
 ---
 
 <div id="menu" class="menu w-screen h-screen bg-mine-shaft-texture z-30">
@@ -33,7 +34,7 @@ import MenuLink from '@/components/Header/MenuLink.astro';
                 return (
                   <li class="leading-none flex">
                     <a
-                      href={menu.href}
+                      href={updatePath(menu.href)}
                       class="relative group vertical-rl"
                       data-stalker-color="bright"
                     >

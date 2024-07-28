@@ -1,4 +1,5 @@
 ---
+import updatePath from '@/libs/updatePath';
 import footerLinks from '@/data/footerLinks';
 import FooterDisk from './FooterDisk.astro';
 import snsLinks from '@/data/snsLinks';
@@ -26,7 +27,7 @@ const isHome = path === '/';
               )
             )}
             <a
-              href={link.href}
+              href={updatePath(link.href)}
               target={link.target}
               class={`ts-text-link vertical-rl text-xl leading-none ${isHome && link.href === '/' && 'text-silver-chalice'} ${!isHome && link.href.includes(path) && 'text-silver-chalice'}`}
               data-vertical="rl"

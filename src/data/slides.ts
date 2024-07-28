@@ -28,8 +28,8 @@ const slides: Slide[] = [
   {
     type: 'video',
     src: {
-      pc: '/sample-5s.mp4',
-      sp: '/sample-5s.mp4',
+      pc: '/detail/sample-5s.mp4',
+      sp: '/detail/sample-5s.mp4',
     },
   },
 ];
