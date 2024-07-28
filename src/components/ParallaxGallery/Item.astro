@@ -1,0 +1,32 @@
+---
+import updatePath from '@/libs/updatePath';
+import cn from '@/libs/cn';
+import type { ParallaxGalleryItem } from '@/types/ParallaxGalleryItem';
+interface Props {
+  item: ParallaxGalleryItem;
+}
+const { item } = Astro.props;
+const itemClass = cn('ts-parallax-gallery-image sepia', item.class);
+---
+
+<li class={itemClass}>
+  <picture class="w-full">
+    <img src={updatePath(item.src)} alt={item.alt} class="w-full" />
+  </picture>
+</li>
+
+<style lang="scss">
+  .ts-parallax-gallery-image {
+    transition: filter 0.5s ease;
+
+    @for $i from 1 through 8 {
+      &:nth-child(#{$i}) {
+        transition-delay: calc(calc($i * 0.1s) * $i);
+      }
+    }
+
+    &.is-active {
+      filter: sepia(0);
+    }
+  }
+</style>
