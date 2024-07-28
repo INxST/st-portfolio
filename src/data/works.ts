@@ -19,7 +19,7 @@ const works: Work[] = [
     tags: ['Art Direction', 'Web Design'],
     image: 'https://placehold.jp/464x560.png',
     isTop: true,
-    imageTop: 'https://placehold.jp/1200x480.png',
+    imageTop: 'https://placehold.jp/ff0000/ffffff/1200x480.png',
   },
   {
     title: '医療従事者サイト 2',
@@ -29,7 +29,7 @@ const works: Work[] = [
     tags: ['Art Direction', 'Web Design', 'Logo Design', 'Fashion Design'],
     image: 'https://placehold.jp/464x560.png',
     isTop: true,
-    imageTop: 'https://placehold.jp/1200x480.png',
+    imageTop: 'https://placehold.jp/3d4070/ffffff/1200x480.png',
   },
   {
     title: '医療従事者サイト 3',

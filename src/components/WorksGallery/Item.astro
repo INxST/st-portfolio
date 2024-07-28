@@ -8,7 +8,7 @@ const { item, number } = Astro.props;
 ---
 
 <li
-  class="ts-image-link group [&:not(:first-child)]:mt-9 md:[&:not(:first-child)]:mt-14 md:contents-right"
+  class="ts-image-link image-link [&:not(:first-child)>a]:pt-9 md:[&:not(:first-child)>a]:pt-14 md:contents-right"
 >
   <a
     href={item.href}
@@ -56,9 +56,10 @@ const { item, number } = Astro.props;
   </a>
 
   <picture
-    class="w-screen h-screen order-3 hidden md:block
+    class="image-link__bg w-screen h-screen order-3 hidden md:block
     fixed top-0 left-0 z-0 opacity-0 invisible
-    group-[.is-hover]:opacity-100 group-[.is-hover]:visible transition-all duration-300"
+    transition-all duration-300 pointer-events-none"
+    aria-hidden="true"
   >
     <img
       src={item.imageTop || item.image}
@@ -67,3 +68,14 @@ const { item, number } = Astro.props;
     />
   </picture>
 </li>
+
+<style lang="scss">
+  .image-link {
+    &.is-hover {
+      .image-link__bg {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+</style>
