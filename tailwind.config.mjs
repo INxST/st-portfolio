@@ -76,12 +76,12 @@ export default {
         },
         '.bg-gray-texture': {
           backgroundColor: '#DEDEDA',
-          backgroundImage: 'url(/texture-for-gray.png)',
+          backgroundImage: 'url(/common/texture-for-gray.png)',
           backgroundRepeat: 'repeat',
         },
         '.bg-mine-shaft-texture': {
           backgroundColor: '#2F2F2F',
-          backgroundImage: 'url(/texture-for-black.png)',
+          backgroundImage: 'url(/common/texture-for-black.png)',
           backgroundRepeat: 'repeat',
         },
         '.contents-full': {

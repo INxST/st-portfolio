@@ -45,6 +45,7 @@ const animation = () => {
       scrollTrigger: {
         trigger: target,
         start: 'bottom bottom',
+        once: true,
         toggleClass: {
           targets: image,
           className: 'is-active',

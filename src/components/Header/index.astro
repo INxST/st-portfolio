@@ -3,6 +3,7 @@ import headerLinks from '@/data/headerLinks';
 import Disc from '@/components/Disc.astro';
 import Menu from '@/components/Header/Menu.astro';
 import type { ThemeColor } from '@/types/ThemeColor';
+import updatePath from '@/libs/updatePath';
 interface Props {
   color?: ThemeColor;
 }
@@ -19,7 +20,7 @@ const path = Astro.url.pathname;
 >
   <div class="container flex items-start py-5 md:py-10 px-5 md:px-20">
     <a
-      href="/"
+      href={updatePath('/')}
       class="ts-text-link ts-logo font-serif-en text-2xl md:text-4xl text-gray
       transision-colors data-[color=dark]:text-silver-chalice"
     >
@@ -40,7 +41,7 @@ const path = Astro.url.pathname;
               </span>
             )}
             <a
-              href={link.href}
+              href={updatePath(link.href)}
               class={`ts-text-link text-2xl md:text-lg vertical-rl ${path !== '/' && link.href.includes(path) && 'text-gray'}`}
               data-vertical="rl"
             >
