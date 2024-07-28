@@ -13,7 +13,7 @@ const animation = () => {
     scrollTrigger: {
       trigger: target,
       start: 'top top',
-      end: () => `+=${target?.clientHeight}`,
+      end: () => `+=${target?.clientHeight! - 250}`,
       scrub: true,
       pin: true,
     },
