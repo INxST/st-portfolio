@@ -9,15 +9,19 @@ import updatePath from '@/libs/updatePath';
   >
     <div class="grid grid-cols-1 md:grid-cols-3 items-end justify-center">
       <div
-        class="relative inline-block overflow-hidden w-72 md:w-[37.5rem] h-72 md:h-[37.5rem] md:col-start-2 z-0 mx-auto md:mx-0"
+        class="relative flex justify-center items-center overflow-hidden rounded-[50%] w-72 md:w-[37.5rem] h-72 md:h-[37.5rem] md:col-start-2 z-0 mx-auto md:mx-0"
       >
-        <picture class="w-full h-full">
-          <img src={updatePath('/top/hero/moon.png')} alt="月" />
-          <span
-            id="moon-mask"
-            class="absolute -top-[calc(var(--moon-mask-ajust-size)/2)] -left-[calc(100%+var(--moon-mask-ajust-size))] bg-mine-shaft-texture w-[calc(100%+var(--moon-mask-ajust-size))] h-[calc(100%+var(--moon-mask-ajust-size))] rounded-full"
-          ></span>
-        </picture>
+        <div
+          id="moon"
+          class="block w-full h-full absolute top-1/2 -translate-y-1/2 right-0 rounded-[50%] overflow-hidden bg-[url('/top/hero/moon.jpg')] bg-cover border-4 border-mine-shaft"
+        >
+        </div>
+
+        <div
+          id="moon-mask"
+          class="absolute top-1/2 -translate-y-1/2 bg-mine-shaft-texture rounded-[50%]"
+        >
+        </div>
       </div>
 
       <p class="font-serif-en w-96 whitespace-pre-line hidden md:block">
