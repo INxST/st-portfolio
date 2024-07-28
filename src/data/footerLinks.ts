@@ -7,11 +7,11 @@ export const footerLinks: Link[] = [
   },
   {
     text: '私について',
-    href: '/about',
+    href: '/about/',
   },
   {
     text: '制作実績',
-    href: '/works',
+    href: '/works/',
   },
   {
     text: 'お問い合わせ',
