@@ -16,19 +16,19 @@ const menus: Menu[] = [
     number: '二',
     en: 'ABOUT',
     text: '私について',
-    href: '/about',
+    href: '/about/',
   },
   {
     number: '三',
     en: 'WORKS',
     text: '制作実績',
-    href: '/works',
+    href: '/works/',
   },
   {
     number: '四',
     en: 'CONTACT',
     text: 'お問い合わせ',
-    href: '/contact',
+    href: '/contact/',
   },
 ];
 
