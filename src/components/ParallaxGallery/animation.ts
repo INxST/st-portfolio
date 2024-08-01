@@ -39,18 +39,18 @@ const animation = () => {
         },
       }
     );
+  });
 
-    gsap.to(image, {
-      ease: 'none',
-      scrollTrigger: {
-        trigger: target,
-        start: 'bottom bottom',
-        once: true,
-        toggleClass: {
-          targets: image,
-          className: 'is-active',
-        },
-      },
+  window.addEventListener('scroll', () => {
+    const scroll = window.scrollY;
+    const windowHeight = window.innerHeight;
+
+    images.forEach(image => {
+      const targetPos = image.getBoundingClientRect().top + scroll;
+
+      if (scroll > targetPos - windowHeight) {
+        image.classList.add('is-active');
+      }
     });
   });
 };

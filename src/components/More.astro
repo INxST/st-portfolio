@@ -10,11 +10,15 @@ const { href, color } = Astro.props;
 
 <a
   href={href}
-  class="ts-more inline-block font-serif-en md:text-lg leading-none
-border rounded-[50%] py-5 md:py-6 px-10 md:px-12 transition-colors duration-1000
-data-[color='bright']:border-silver-chalice data-[color='bright']:text-pampas
-data-[color='dark']:border-gray data-[color='dark']:text-black"
+  class="ts-more group inline-block font-serif-en md:text-lg leading-none relative
+border rounded-[50%] py-5 md:py-6 px-10 md:px-12 transition-colors duration-1000 overflow-hidden
+data-[color='bright']:border-silver-chalice data-[color='bright']:text-pampas data-[color='bright']:hover:border-black data-[color='bright']:hover:text-black
+data-[color='dark']:border-gray data-[color='dark']:text-black data-[color='dark']:hover:border-pampas data-[color='dark']:hover:text-pampas"
   data-color={color}
 >
-  MORE
+  <span
+    class="data-[color='bright']:bg-pampas data-[color='dark']:bg-black transition-all duration-1000 rounded-[50%]
+  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-0 h-0 z-0 group-hover:w-full group-hover:h-full"
+    data-color={color}></span>
+  <span class="relative z-0">MORE</span>
 </a>
