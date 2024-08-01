@@ -10,29 +10,20 @@ const animation = () => {
     `${moonMaskAjustSize}px`
   );
   const hero = document.getElementById('hero');
+  const height = hero?.clientHeight;
   const moonMask = document.getElementById('moon-mask');
-  const nextMask = document.getElementById('next-mask');
 
   gsap
     .timeline({
       scrollTrigger: {
         trigger: hero,
         start: 'top top',
-        end: '+=1400',
+        end: () => `+=${height}`,
         scrub: true,
-        pin: true,
       },
     })
-    .to(moonMask, { left: `-${moonMaskAjustSize / 2}px`, ease: 'Power4.out' })
-    .fromTo(
-      nextMask,
-      {
-        autoAlpha: 0,
-      },
-      {
-        autoAlpha: 1,
-      }
-    );
+    .to(moonMask, { right: 150, ease: 'Power4.out' })
+    .to(hero, { autoAlpha: 0, scale: 1.1, ease: 'Power4.out' }, '<');
 };
 
 export default animation;
