@@ -1,5 +1,6 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import getOverflow from '@/libs/getOverflow';
 
 const horizontalScroll = () => {
   if (window.matchMedia('(min-width: 768px)').matches) {
@@ -7,22 +8,21 @@ const horizontalScroll = () => {
 
     const wrapper = document.getElementById('horizontal-scroll');
     const container = document.getElementById('horizontal-scroll-container');
-    const items = gsap.utils.toArray<HTMLElement>('.ts-horizontal-scroll-item');
-    const width = container?.clientWidth;
-    console.log('width', width);
 
-    gsap.to(container, {
-      xPercent: -100 * (items.length - 1),
+    const anime = gsap.to(container, {
+      x: getOverflow(container) * -1,
       ease: 'none',
-      scrollTrigger: {
-        trigger: wrapper,
-        pin: true,
-        scrub: 1,
-        start: 'top top',
-        end: () => `+=${width}`,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      },
+    });
+
+    ScrollTrigger.create({
+      trigger: wrapper,
+      pin: true,
+      scrub: 1,
+      start: 'top top',
+      end: () => `+=${getOverflow(container)}`,
+      animation: anime,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
     });
   }
 };

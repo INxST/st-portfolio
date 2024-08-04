@@ -1,0 +1,65 @@
+---
+import updatePath from '@/libs/updatePath';
+import cn from '@/libs/cn';
+import type { ParallaxGalleryItem } from '@/types/ParallaxGalleryItem';
+interface Props {
+  item: ParallaxGalleryItem;
+}
+const { item } = Astro.props;
+const itemClass = cn(
+  'ts-parallax-gallery-image relative overflow-hidden',
+  item.class
+);
+---
+
+<li class={itemClass}>
+  <picture class="w-full block mix-blend-multiply">
+    <img src={updatePath(item.src)} alt={item.alt} class="w-full" />
+  </picture>
+  <div
+    class="bg-layer absolute -bottom-1/2 left-0 w-full h-[200%] bg-taupe-gray -z-10"
+  >
+  </div>
+</li>
+
+<style lang="scss">
+  .ts-parallax-gallery-image {
+    transition: filter 0.5s ease;
+
+    img,
+    .bg-layer {
+      transition: all 1s ease;
+    }
+
+    @for $i from 1 through 8 {
+      &:nth-child(#{$i}) {
+        &,
+        img,
+        .bg-layer {
+          transition-delay: calc(calc($i * 0.1s) * $i);
+        }
+
+        .bg-layer {
+          transform: skewY(#{if($i % 2 == 0, 10, -10)}deg);
+        }
+      }
+    }
+
+    &:not(.is-active) {
+      img {
+        filter: grayscale(100%);
+      }
+    }
+
+    &.is-active {
+      img {
+        filter: grayscale(0);
+      }
+
+      .bg-layer {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+    }
+  }
+</style>

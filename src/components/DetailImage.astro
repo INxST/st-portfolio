@@ -5,7 +5,7 @@ interface Props {
 }
 const { column } = Astro.props;
 const className = cn(
-  'md:h-full flex flex-col gap-4 md:gap-10 [&_picture]:block [&_picture]:h-full [&_img]:h-full',
+  'md:h-full flex flex-col flex-wrap [&>li]:w-full md:[&>li]:w-auto gap-4 md:gap-10 [&_picture]:block md:[&_picture]:h-full md:[&_img]:h-full md:[&_video]:h-full',
   {
     'md:flex-col': column,
     'md:[&>li]:h-full': !column,

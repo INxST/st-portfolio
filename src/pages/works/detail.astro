@@ -25,9 +25,7 @@ const title = '医療従事者サイト';
       mt-28 md:mt-0 px-5 md:px-0"
       >
         <h1 class="md:w-1/2 flex flex-col gap-4">
-          <span class="text-[2rem] md:text-5xl font-semibold"
-            >医療従事者サイト</span
-          >
+          <span class="text-[2rem] md:text-5xl font-semibold">{title}</span>
           <span class="font-serif-en md:text-lg">PRIVATE WORKS</span>
         </h1>
 
@@ -35,23 +33,22 @@ const title = '医療従事者サイト';
           class="md:w-1/2 mt-16 md:mt-24 flex flex-col md:flex-row gap-4 md:gap-20"
         >
           <p class="flex flex-col gap-2">
-            <span class="text-gray">Role</span>
-            <span>Art Direction, Web Design</span>
+            <span class="text-gray">ROLE</span>
+            <span>ART DIRECTION, WEB DESIGN</span>
           </p>
 
           <p class="flex flex-col gap-2">
-            <span class="text-gray">Year</span>
+            <span class="text-gray">YEAR</span>
             <span>2023</span>
           </p>
         </div>
       </section>
 
-      <picture class="ts-horizontal-scroll-item mt-9 md:mt-0
-      block">
+      <picture class="ts-horizontal-scroll-item mt-9 md:mt-0 block">
         <img
           src="https://placehold.jp/1600x1080.png"
           alt=""
-          class="ts-image-white-in h-full"
+          class="ts-image-white-in md:h-full"
         />
       </picture>
 
@@ -80,31 +77,45 @@ const title = '医療従事者サイト';
         <img
           src="https://placehold.jp/1080x1080.png"
           alt=""
-          class="ts-image-white-in h-full"
+          class="ts-image-white-in md:h-full"
         />
       </picture>
 
       <DetailSection title="(Description)" contentWidth="wide">
-        <DescriptionList
-          title="ターゲット"
-          description="テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。"
-        />
-        <DescriptionList
-          title="目的"
-          description="テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。"
-        />
-        <DescriptionList
-          title="情報設計"
-          description="テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。"
-        />
-        <DescriptionList
-          title="デザイン"
-          description="テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。"
-        />
-        <DescriptionList
-          title="制作範囲・期間"
-          description="テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。"
-        />
+        <DescriptionList>
+          <span slot="title">ターゲット</span>
+          <span slot="description"
+            >テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</span
+          >
+        </DescriptionList>
+
+        <DescriptionList>
+          <span slot="title">目的</span>
+          <span slot="description"
+            >テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</span
+          >
+        </DescriptionList>
+
+        <DescriptionList>
+          <span slot="title">情報設計</span>
+          <span slot="description"
+            >テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</span
+          >
+        </DescriptionList>
+
+        <DescriptionList>
+          <span slot="title">デザイン</span>
+          <span slot="description"
+            >テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</span
+          >
+        </DescriptionList>
+
+        <DescriptionList>
+          <span slot="title">制作範囲・期間</span>
+          <span slot="description"
+            >テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</span
+          >
+        </DescriptionList>
       </DetailSection>
 
       <div class="ts-horizontal-scroll-item">
@@ -115,7 +126,7 @@ const title = '医療従事者サイト';
                 <img
                   src="https://placehold.jp/824x840.png"
                   alt=""
-                  class="ts-image-white-in h-full"
+                  class="ts-image-white-in md:h-full"
                 />
               </picture>
             </li>
@@ -158,7 +169,7 @@ const title = '医療従事者サイト';
       >
         <div class="pt-24 md:py-[8.125rem] px-5 md:px-0">
           <p class="md:text-lg font-serif-en">(NEXT PROJECT)</p>
-          <h2 class="text-[2rem] md:text-[2.625rem] font-semibold">
+          <h2 class="text-[2rem] md:text-[2.625rem] font-medium">
             タイトル名タイトル名タイトル名
             <br />
             タイトル名タイトル名
@@ -175,7 +186,7 @@ const title = '医療従事者サイト';
           <img
             src="https://placehold.jp/895x1080.png"
             alt="タイトル名タイトル名タイトル名タイトル名タイトル名を見る"
-            class="ts-image-white-in h-full"
+            class="ts-image-white-in md:h-full"
           />
 
           <span

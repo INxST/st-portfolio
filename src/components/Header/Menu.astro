@@ -3,13 +3,21 @@ import menus from '@/data/menus';
 import snsLinks from '@/data/snsLinks';
 import Disc from '@/components/Disc.astro';
 import MenuLink from '@/components/Header/MenuLink.astro';
+import updatePath from '@/libs/updatePath';
 ---
 
 <div id="menu" class="menu w-screen h-screen bg-mine-shaft-texture z-30">
   <div class="p-5 md:p-10 w-full h-full flex relative">
-    <picture class="hidden md:flex md:mr-4 h-full max-w-[50%] items-center">
-      <img src="https://placehold.jp/800x1000.png" alt="" class="max-h-full" />
-    </picture>
+    <video
+      class="hidden md:flex md:mr-4 h-full max-w-[50%] items-center"
+      webkit-playsinline
+      playsinline
+      muted
+      autoplay
+      loop
+    >
+      <source src={updatePath('/common/menu.mp4')} type="video/mp4" />
+    </video>
 
     <div class="w-full md:flex-1 flex flex-col">
       <button
@@ -33,7 +41,7 @@ import MenuLink from '@/components/Header/MenuLink.astro';
                 return (
                   <li class="leading-none flex">
                     <a
-                      href={menu.href}
+                      href={updatePath(menu.href)}
                       class="relative group vertical-rl"
                       data-stalker-color="bright"
                     >
