@@ -8,6 +8,7 @@ import AboutSection from '@/components/AboutSection.astro';
 import Timeline from '@/components/Timeline/index.astro';
 import timelines from '@/data/timelines';
 import Stalker from '@/components/Stalker';
+import updatePath from '@/libs/updatePath';
 const title = '私について';
 const titleEn = 'ABOUT';
 ---
@@ -47,8 +48,11 @@ const titleEn = 'ABOUT';
     <div
       class="flex justify-between items-center flex-col md:flex-row gap-9 md:gap-60"
     >
-      <picture class="max-w-80 md:max-w-full">
-        <img src="https://placehold.jp/520x693.png" alt="" />
+      <picture class="max-w-80 md:max-w-[32.5rem]">
+        <img
+          src={updatePath('/about/profile.jpg')}
+          alt="佐藤 大輝のプロフィール画像"
+        />
       </picture>
 
       <div class="flex-1">
