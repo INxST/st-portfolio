@@ -4,33 +4,79 @@ const slides: Slide[] = [
   {
     type: 'image',
     src: {
-      pc: 'https://placehold.jp/3d4070/ffffff/840x473.png',
-      sp: 'https://placehold.jp/3d4070/ffffff/375x667.png',
+      pc: '/about/mv/about_mv1.jpg',
     },
     alt: 'image 1',
   },
   {
     type: 'image',
     src: {
-      pc: 'https://placehold.jp/3d4070/ffffff/840x473.png',
-      sp: 'https://placehold.jp/3d4070/ffffff/375x667.png',
+      pc: '/about/mv/about_mv2.jpg',
     },
     alt: 'image 2',
   },
   {
     type: 'image',
     src: {
-      pc: 'https://placehold.jp/3d4070/ffffff/840x473.png',
-      sp: 'https://placehold.jp/3d4070/ffffff/375x667.png',
+      pc: '/about/mv/about_mv3.jpg',
     },
     alt: 'image 3',
   },
   {
-    type: 'video',
+    type: 'image',
     src: {
-      pc: '/detail/sample-5s.mp4',
-      sp: '/detail/sample-5s.mp4',
+      pc: '/about/mv/about_mv4.jpg',
     },
+    alt: 'image 4',
+  },
+  {
+    type: 'image',
+    src: {
+      pc: '/about/mv/about_mv5.jpg',
+    },
+    alt: 'image 5',
+  },
+  {
+    type: 'image',
+    src: {
+      pc: '/about/mv/about_mv6.jpg',
+    },
+    alt: 'image 6',
+  },
+  {
+    type: 'image',
+    src: {
+      pc: '/about/mv/about_mv7.jpg',
+    },
+    alt: 'image 7',
+  },
+  {
+    type: 'image',
+    src: {
+      pc: '/about/mv/about_mv8.jpg',
+    },
+    alt: 'image 8',
+  },
+  {
+    type: 'image',
+    src: {
+      pc: '/about/mv/about_mv9.jpg',
+    },
+    alt: 'image 9',
+  },
+  {
+    type: 'image',
+    src: {
+      pc: '/about/mv/about_mv10.jpg',
+    },
+    alt: 'image 10',
+  },
+  {
+    type: 'image',
+    src: {
+      pc: '/about/mv/about_mv11.jpg',
+    },
+    alt: 'image 11',
   },
 ];
 
