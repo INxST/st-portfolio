@@ -48,12 +48,22 @@ const titleEn = 'ABOUT';
     <div
       class="flex justify-between items-center flex-col md:flex-row gap-9 md:gap-60"
     >
-      <picture class="max-w-80 md:max-w-[32.5rem]">
-        <img
-          src={updatePath('/about/profile.jpg')}
-          alt="佐藤 大輝のプロフィール画像"
-        />
-      </picture>
+      <div
+        class="ts-profile-image max-w-80 md:max-w-[32.5rem] relative overflow-hidden"
+      >
+        <picture class="block w-full mix-blend-multiply">
+          <img
+            src={updatePath('/about/profile.jpg')}
+            alt="佐藤 大輝のプロフィール画像"
+            class="w-full"
+          />
+        </picture>
+
+        <div
+          class="bg-layer absolute -bottom-1/2 left-0 w-full h-[200%] bg-taupe-gray -z-10"
+        >
+        </div>
+      </div>
 
       <div class="flex-1">
         <p class="font-serif-en text-sm md:text-base">TAIKI SATO</p>
@@ -119,6 +129,46 @@ const titleEn = 'ABOUT';
       right: '50%',
       x: '50%',
     });
+
+  gsap.to('.ts-profile-image', {
+    scrollTrigger: {
+      trigger: '.ts-profile-image',
+      start: 'top center',
+      toggleClass: 'is-active',
+      once: true,
+    },
+  });
 </script>
 
-<style></style>
+<style lang="scss">
+  .ts-profile-image {
+    &,
+    img,
+    .bg-layer {
+      transition: all 1.5s ease;
+    }
+
+    .bg-layer {
+      transform: skewY(10deg);
+    }
+
+    &:not(.is-active) {
+      img {
+        filter: grayscale(100%);
+      }
+    }
+
+    &.is-active {
+      background-color: #fff;
+
+      img {
+        filter: grayscale(0);
+      }
+
+      .bg-layer {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+    }
+  }
+</style>
