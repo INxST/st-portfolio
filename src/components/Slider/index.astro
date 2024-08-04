@@ -28,8 +28,14 @@ const { items } = Astro.props;
             </video>
           ) : (
             <picture>
-              <source srcset={item.src.pc} media="(min-width: 768px)" />
-              <img src={item.src.sp || item.src.pc} alt={item.alt} />
+              <source
+                srcset={updatePath(item.src.pc)}
+                media="(min-width: 768px)"
+              />
+              <img
+                src={updatePath(item.src.sp || item.src.pc)}
+                alt={item.alt}
+              />
             </picture>
           )}
         </div>
