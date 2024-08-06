@@ -8,6 +8,7 @@ import AboutSection from '@/components/AboutSection.astro';
 import Timeline from '@/components/Timeline/index.astro';
 import timelines from '@/data/timelines';
 import Stalker from '@/components/Stalker';
+import updatePath from '@/libs/updatePath';
 const title = '私について';
 const titleEn = 'ABOUT';
 ---
@@ -17,7 +18,7 @@ const titleEn = 'ABOUT';
     <TitleVertical jp={title} en={titleEn} />
   </div>
 
-  <div class="md:text-lg mt-16 md:mt-36 w-8/12 ml-auto">
+  <div id="about-text" class="md:text-lg mt-16 md:mt-36 w-9/12 ml-auto">
     <p>
       論理的思考と直感的思考、機能と情緒、静と動、これらのバランスをとりユーザーニーズや目的を叶える最適な視覚表現を模索し表現することが得意です。
     </p>
@@ -35,11 +36,15 @@ const titleEn = 'ABOUT';
     </p>
   </div>
 
-  <div class="mt-16 md:mt-[7.5rem]">
-    <div id="about-slider-wrapper" class="h-screen w-full relative">
-      <div id="about-slider" class="about-slider w-8/12 absolute top-0 right-0">
-        <Slider items={slides} />
-      </div>
+  <div
+    id="about-slider-wrapper"
+    class="h-screen w-full relative pt-16 md:pt-[7.5rem]"
+  >
+    <div
+      id="about-slider"
+      class="about-slider absolute top-16 md:top-[7.5rem] right-0 h-40 md:h-auto"
+    >
+      <Slider items={slides} />
     </div>
   </div>
 
@@ -47,19 +52,30 @@ const titleEn = 'ABOUT';
     <div
       class="flex justify-between items-center flex-col md:flex-row gap-9 md:gap-60"
     >
-      <picture class="max-w-80 md:max-w-full">
-        <img src="https://placehold.jp/520x693.png" alt="" />
-      </picture>
+      <div
+        class="ts-profile-image max-w-80 md:max-w-[32.5rem] relative overflow-hidden"
+      >
+        <picture class="block w-full mix-blend-multiply">
+          <img
+            src={updatePath('/about/profile.jpg')}
+            alt="佐藤 大輝のプロフィール画像"
+            class="w-full"
+          />
+        </picture>
+
+        <div
+          class="bg-layer absolute -bottom-1/2 left-0 w-full h-[200%] bg-taupe-gray -z-10"
+        >
+        </div>
+      </div>
 
       <div class="flex-1">
-        <p class="font-serif-en text-sm md:text-base">TAIKI SATO</p>
-        <p class="text-2xl md:text-[2rem] font-medium">佐藤 大輝</p>
-
-        <p class="text-silver-chalice font-serif-en text-lg mt-3 md:mt-4">
-          Web design / Graphic design / Art direction
+        <p class="font-serif-en text-sm md:text-base text-taupe-gray">
+          TAIKI SATO
         </p>
+        <p class="text-2xl md:text-[2rem] font-medium mt-2">佐藤 大輝</p>
 
-        <p class="text-silver-chalice mt-7 md:mt-8">
+        <p class="text-silver-chalice mt-7 md:mt-10">
           神奈川県出身。1999年生まれ。<br />
           大学自体には服飾のインカレに所属し、デザインから縫製まで一から服を作成していた。その経験からものづくりやデザインに興味を持ち、独学でデザインを学んだのちに新卒でWeb制作会社に入社。<br
           />
@@ -98,6 +114,11 @@ const titleEn = 'ABOUT';
   const wrapper = document.getElementById('about-slider-wrapper');
   const slider = document.getElementById('about-slider');
   const height = wrapper?.offsetHeight;
+  const text = document.getElementById('about-text');
+  const width = text?.offsetWidth;
+
+  gsap.set(text, { width: width });
+  gsap.set(slider, { width: width });
 
   gsap
     .timeline({
@@ -112,9 +133,50 @@ const titleEn = 'ABOUT';
     .to(slider, {
       width: '100vw',
       height: '100vh',
+      top: 0,
       right: '50%',
       x: '50%',
     });
+
+  gsap.to('.ts-profile-image', {
+    scrollTrigger: {
+      trigger: '.ts-profile-image',
+      start: 'top center',
+      toggleClass: 'is-active',
+      once: true,
+    },
+  });
 </script>
 
-<style></style>
+<style lang="scss">
+  .ts-profile-image {
+    &,
+    img,
+    .bg-layer {
+      transition: all 1.5s ease;
+    }
+
+    .bg-layer {
+      transform: skewY(10deg);
+    }
+
+    &:not(.is-active) {
+      img {
+        filter: grayscale(100%);
+      }
+    }
+
+    &.is-active {
+      background-color: #fff;
+
+      img {
+        filter: grayscale(0);
+      }
+
+      .bg-layer {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+    }
+  }
+</style>
