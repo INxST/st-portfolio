@@ -36,11 +36,15 @@ const titleEn = 'ABOUT';
     </p>
   </div>
 
-  <div class="mt-16 md:mt-[7.5rem]">
-    <div id="about-slider-wrapper" class="h-screen w-full relative">
-      <div id="about-slider" class="about-slider w-8/12 absolute top-0 right-0">
-        <Slider items={slides} />
-      </div>
+  <div
+    id="about-slider-wrapper"
+    class="h-screen w-full relative pt-16 md:pt-[7.5rem]"
+  >
+    <div
+      id="about-slider"
+      class="about-slider w-8/12 absolute top-16 md:top-[7.5rem] right-0"
+    >
+      <Slider items={slides} />
     </div>
   </div>
 
@@ -126,6 +130,7 @@ const titleEn = 'ABOUT';
     .to(slider, {
       width: '100vw',
       height: '100vh',
+      top: 0,
       right: '50%',
       x: '50%',
     });
