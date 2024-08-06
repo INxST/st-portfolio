@@ -1,29 +1,17 @@
-import Swiper from 'swiper';
-import { Autoplay, EffectFade } from 'swiper/modules';
-import 'swiper/swiper-bundle.css';
-
 const slider = () => {
-  Swiper.use([Autoplay, EffectFade]);
-  const slider = document.querySelector<HTMLElement>('.swiper');
-  const slides = document.querySelectorAll<HTMLElement>('.swiper-slide');
-  const loop = slides.length > 1;
-  const autoplayOption =
-    slides.length > 1
-      ? {
-          delay: 1000,
-          disableOnInteraction: false,
-        }
-      : false;
+  const sliders = document.querySelectorAll('.ts-slider');
 
-  slider &&
-    new Swiper(slider, {
-      loop: loop,
-      slidesPerView: 1,
-      autoplay: autoplayOption,
-      speed: 1000,
-      effect: 'fade',
-      allowTouchMove: false,
-    });
+  sliders.forEach(slider => {
+    const items = slider.querySelectorAll<HTMLElement>('.ts-slider-item');
+    items[0].classList.add('is-active');
+    let number = 0;
+    const changeItem = () => {
+      items[number].classList.remove('is-active');
+      number = (number + 1) % items.length;
+      items[number].classList.add('is-active');
+    };
+    setInterval(changeItem, 1500);
+  });
 };
 
 export default slider;
