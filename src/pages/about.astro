@@ -18,7 +18,7 @@ const titleEn = 'ABOUT';
     <TitleVertical jp={title} en={titleEn} />
   </div>
 
-  <div class="md:text-lg mt-16 md:mt-36 w-8/12 ml-auto">
+  <div id="about-text" class="md:text-lg mt-16 md:mt-36 w-9/12 ml-auto">
     <p>
       論理的思考と直感的思考、機能と情緒、静と動、これらのバランスをとりユーザーニーズや目的を叶える最適な視覚表現を模索し表現することが得意です。
     </p>
@@ -42,7 +42,7 @@ const titleEn = 'ABOUT';
   >
     <div
       id="about-slider"
-      class="about-slider w-8/12 absolute top-16 md:top-[7.5rem] right-0"
+      class="about-slider absolute top-16 md:top-[7.5rem] right-0 h-40 md:h-auto"
     >
       <Slider items={slides} />
     </div>
@@ -116,6 +116,11 @@ const titleEn = 'ABOUT';
   const wrapper = document.getElementById('about-slider-wrapper');
   const slider = document.getElementById('about-slider');
   const height = wrapper?.offsetHeight;
+  const text = document.getElementById('about-text');
+  const width = text?.offsetWidth;
+
+  gsap.set(text, { width: width });
+  gsap.set(slider, { width: width });
 
   gsap
     .timeline({
