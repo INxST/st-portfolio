@@ -15,16 +15,11 @@ const isHome = path === '/';
     <ul class="flex flex-row-reverse gap-8 justify-center">
       {
         footerLinks.map(link => (
-          <li class="relative">
+          <li class="relative flex flex-col items-center">
             {!isHome && link.href.includes(path) ? (
               <FooterDisk />
             ) : (
-              isHome &&
-              link.href === '/' && (
-                <span class="w-[6px] h-[6px] absolute -top-2 left-1/2 -translate-x-1/2">
-                  <FooterDisk />
-                </span>
-              )
+              isHome && link.href === '/' && <FooterDisk />
             )}
             <a
               href={updatePath(link.href)}
