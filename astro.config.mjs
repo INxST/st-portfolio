@@ -10,6 +10,7 @@ const base = env.TARGET === 'gh-pages' ? '/st-portfolio' : '';
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'hybrid',
   site: site,
   base: base,
   prefetch: {
