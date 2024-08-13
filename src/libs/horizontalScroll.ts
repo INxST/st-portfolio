@@ -10,7 +10,7 @@ const horizontalScroll = () => {
     const container = document.getElementById('horizontal-scroll-container');
 
     const anime = gsap.to(container, {
-      x: getOverflow(container) * -1,
+      x: () => getOverflow(container) * -1,
       ease: 'none',
     });
 
