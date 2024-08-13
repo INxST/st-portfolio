@@ -13,7 +13,8 @@
 
 ### Node.jsのバージョンを変更する
 
-バージョン管理ツールインストール後、Node.jsのバージョンを[.node-version](.node-version)指定の`20.9.0`に変更してください。
+バージョン管理ツールインストール後、Node.jsのバージョン
+を[.node-version](.node-version)指定の`20.9.0`に変更してください。
 
 ### pnpmをinstallする
 
@@ -49,22 +50,23 @@ pnpm build
 
 ## 更新方法
 
-| 対象箇所 | 更新方法 |
-| ---- | ---- |
-| ヘッダーリンク ![ヘッダーリンク](/docs/header.png) | [/src/data/headerLinks.ts](/src/data/headerLinks.ts)の内容を変更する |
-| メニューリンク ![メニューリンク](/docs/menu.png) | [/src/data/menus.ts](/src/data/menus.ts)の内容を変更する |
-| フッターリンク ![フッターリンク](/docs/footer.png) | [/src/data/footerLinks.ts](/src/data/footerLinks.ts)の内容を変更する |
-| SNSリンク(メニュー・フッター・私について > PROFILE) ![メニュー > SNSリンク](/docs/sns-menu.png)![フッター > SNSリンク](/docs/sns-footer.png)![私について > PROFILE > SNSリンク](/docs/sns-about.png) | [/src/data/snsLinks.ts](/src/data/snsLinks.ts)の内容を変更する |
-| TOP 私について 画像 ![TOP 私について 画像](/docs/top-about.png) | [/src/data/parallaxGalleryItems.ts](/src/data/parallaxGalleryItems.ts)の内容を変更する |
-| 私について スライド画像 ![私について スライド画像](/docs/about-slide.png) | [/src/data/slides.ts](/src/data/slides.ts)の内容を変更する |
-| 私について CAREER ![私について CAREER](/docs/about-career.png) | [/src/data/timelines.ts](/src/data/timelines.ts)の内容を変更する |
-| 制作実績 FILTER ![制作実績 FILTER](/docs/works-filter.png) | [/src/data/filters.ts](/src/data/filters.ts)の内容を変更する |
+| 対象箇所                                                                                                                                                                                             | 更新方法                                                                               |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| ヘッダーリンク ![ヘッダーリンク](/docs/header.png)                                                                                                                                                   | [/src/data/headerLinks.ts](/src/data/headerLinks.ts)の内容を変更する                   |
+| メニューリンク ![メニューリンク](/docs/menu.png)                                                                                                                                                     | [/src/data/menus.ts](/src/data/menus.ts)の内容を変更する                               |
+| フッターリンク ![フッターリンク](/docs/footer.png)                                                                                                                                                   | [/src/data/footerLinks.ts](/src/data/footerLinks.ts)の内容を変更する                   |
+| SNSリンク(メニュー・フッター・私について > PROFILE) ![メニュー > SNSリンク](/docs/sns-menu.png)![フッター > SNSリンク](/docs/sns-footer.png)![私について > PROFILE > SNSリンク](/docs/sns-about.png) | [/src/data/snsLinks.ts](/src/data/snsLinks.ts)の内容を変更する                         |
+| TOP 私について 画像 ![TOP 私について 画像](/docs/top-about.png)                                                                                                                                      | [/src/data/parallaxGalleryItems.ts](/src/data/parallaxGalleryItems.ts)の内容を変更する |
+| 私について スライド画像 ![私について スライド画像](/docs/about-slide.png)                                                                                                                            | [/src/data/slides.ts](/src/data/slides.ts)の内容を変更する                             |
+| 私について CAREER ![私について CAREER](/docs/about-career.png)                                                                                                                                       | [/src/data/timelines.ts](/src/data/timelines.ts)の内容を変更する                       |
+| 制作実績 FILTER ![制作実績 FILTER](/docs/works-filter.png)                                                                                                                                           | [/src/data/filters.ts](/src/data/filters.ts)の内容を変更する                           |
 
 ### 実績の更新について
 
 #### 実績の追加
 
-[/src/pages/works配下](/src/pages/works/)に拡張子`astro`でファイルを作成することでページが追加されます。
+[/src/pages/works配下](/src/pages/works/)に拡張子`astro`でファイルを作成すること
+でページが追加されます。
 
 #### 一覧での表示設定
 
