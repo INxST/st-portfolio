@@ -3,15 +3,15 @@ import React, { useState, useRef } from 'react';
 import TitleVertical from '../TitleVertical';
 import scrollSlide from './scrollSlide';
 import filters from '@/data/filters';
-import updatePath from '@/libs/updatePath';
 
 type Props = {
   title: string;
   titleEn: string;
   items: Work[];
+  path: string;
 };
 
-const WorksSlide = ({ title, titleEn, items }: Props) => {
+const WorksSlide = ({ title, titleEn, items, path }: Props) => {
   const [selectedOption, setSelectedOption] = useState('ALL');
   const [open, setOpen] = useState(false);
   const wrapper = useRef<HTMLDivElement | null>(null);
@@ -55,13 +55,13 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
                 }
               >
                 <a
-                  href={updatePath(`/works/${item.slug}/`)}
+                  href={`${path}/works/${item.slug}/`}
                   className="ts-image-link flex flex-col h-full"
                 >
                   <div className="flex flex-1">
                     <picture className="flex-1">
                       <img
-                        src={updatePath(item.image)}
+                        src={`${path}${item.image}`}
                         alt={item.title}
                         className="w-full h-full object-cover"
                       />
