@@ -9,8 +9,8 @@ import updatePath from '@/libs/updatePath';
 import getWork from '@/libs/getWork';
 import NextWork from '@/components/NextWork.astro';
 import DetailInfo from '@/components/DetailInfo.astro';
-const slug = Astro.url.pathname.replace('/works/', '').replace('/', '');
-const { work, nextWork } = getWork(slug);
+const pathname = Astro.url.pathname;
+const { work, nextWork } = getWork(pathname);
 ---
 
 <Layout title={work?.title} isContainer={false}>
@@ -38,7 +38,7 @@ const { work, nextWork } = getWork(slug);
 
       <picture class="ts-horizontal-scroll-item">
         <img
-          src={updatePath(`/detail/${slug}/1.jpg`)}
+          src={updatePath(`/detail/${work?.slug}/1.jpg`)}
           alt=""
           class="ts-image-white-in md:h-full"
         />
@@ -87,7 +87,7 @@ const { work, nextWork } = getWork(slug);
             <li>
               <picture>
                 <img
-                  src={updatePath(`/detail/${slug}/2.jpg`)}
+                  src={updatePath(`/detail/${work?.slug}/2.jpg`)}
                   alt=""
                   class="ts-image-white-in"
                 />
@@ -96,7 +96,7 @@ const { work, nextWork } = getWork(slug);
             <li>
               <picture>
                 <img
-                  src={updatePath(`/detail/${slug}/3.jpg`)}
+                  src={updatePath(`/detail/${work?.slug}/3.jpg`)}
                   alt=""
                   class="ts-image-white-in"
                 />
@@ -105,7 +105,7 @@ const { work, nextWork } = getWork(slug);
             <li>
               <picture>
                 <img
-                  src={updatePath(`/detail/${slug}/4.jpg`)}
+                  src={updatePath(`/detail/${work?.slug}/4.jpg`)}
                   alt=""
                   class="ts-image-white-in"
                 />

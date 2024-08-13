@@ -8,8 +8,8 @@ import Stalker from '@/components/Stalker';
 import getWork from '@/libs/getWork';
 import NextWork from '@/components/NextWork.astro';
 import DetailInfo from '@/components/DetailInfo.astro';
-const slug = Astro.url.pathname.replace('/works/', '').replace('/', '');
-const { work, nextWork } = getWork(slug);
+const pathname = Astro.url.pathname;
+const { work, nextWork } = getWork(pathname);
 ---
 
 <Layout title={work?.title} isContainer={false}>

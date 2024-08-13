@@ -1,4 +1,5 @@
 ---
+import updatePath from '@/libs/updatePath';
 import type { Work } from '@/types/Work';
 interface Props {
   work?: Work;
@@ -47,9 +48,13 @@ mt-28 md:mt-0 px-5 md:px-0"
 <picture class="ts-horizontal-scroll-item mt-9 md:mt-0
 block">
   <source
-    srcset={work?.mv}
+    srcset={updatePath(work?.mv)}
     media="(min-width: 768px)"
     class="ts-image-white-in md:h-full"
   />
-  <img src={work?.mvSp} alt="" class="ts-image-white-in md:h-full" />
+  <img
+    src={updatePath(work?.mvSp)}
+    alt=""
+    class="ts-image-white-in md:h-full"
+  />
 </picture>
