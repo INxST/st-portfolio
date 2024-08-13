@@ -12,10 +12,10 @@ import updatePath from '@/libs/updatePath';
         class="relative inline-block overflow-hidden w-72 md:w-[37.5rem] h-72 md:h-[37.5rem] md:col-start-2 z-0 mx-auto md:mx-0"
       >
         <picture class="w-full h-full">
-          <img src={updatePath('/moon.png')} alt="月" />
+          <img src={updatePath('/top/hero/moon.png')} alt="月" />
           <span
             id="moon-mask"
-            class="absolute -top-[calc(var(--moon-mask-ajust-size)/2)] -left-[calc(100%+var(--moon-mask-ajust-size))] bg-mine-shaft-texture w-[calc(100%+var(--moon-mask-ajust-size))] h-[calc(100%+var(--moon-mask-ajust-size))] rounded-full"
+            class="absolute -top-[calc(var(--moon-mask-ajust-size)/2)] -right-[calc(100%+var(--moon-mask-ajust-size))] bg-mine-shaft-texture w-[calc(100%+var(--moon-mask-ajust-size))] h-[calc(100%+var(--moon-mask-ajust-size))] rounded-full"
           ></span>
         </picture>
       </div>
@@ -25,15 +25,24 @@ import updatePath from '@/libs/updatePath';
       </p>
     </div>
 
-    <picture
-      class="absolute z-0 top-0 left-1/2 -translate-x-1/2 w-screen h-full overflow-hidden"
+    <div
+      class="absolute z-0 top-0 left-1/2 -translate-x-1/2 w-screen h-full overflow-hidden opacity-50 mix-blend-multiply"
     >
-      <img
-        src={updatePath('/hero-bg.png')}
-        alt="背景画像"
+      <video
+        poster={updatePath('/top/hero/shadow-image.png')}
+        webkit-playsinline
+        playsinline
+        muted
+        autoplay
+        loop
         class="w-full h-full object-cover"
-      />
-    </picture>
+      >
+        <source
+          src={updatePath('/top/hero/shadow-movie.mp4')}
+          type="video/mp4"
+        />
+      </video>
+    </div>
 
     <p class="mt-14 font-serif-en md:text-xl">
       Web design / Graphic design / Art direction
@@ -53,23 +62,12 @@ import updatePath from '@/libs/updatePath';
           <span>Portfolio</span>
         </span>
         <span
-          class="font-semibold text-[2rem] md:text-5xl leading-none whitespace-pre-line"
+          class="font-medium text-[2rem] md:text-5xl leading-none whitespace-pre-line"
         >
           <span>作品集</span>
         </span>
       </span>
     </h1>
-  </div>
-
-  <div
-    id="next-mask"
-    class="absolute z-0 top-0 left-1/2 -translate-x-1/2 w-screen h-full bg-mine-shaft-texture opacity-0 invisible flex justify-center items-center"
-  >
-    <p
-      class="next-mask-text font-serif-en font-semibold text-3xl md:text-9xl text-taupe-gray text-opacity-30"
-    >
-      SCROLL
-    </p>
   </div>
 
   <div

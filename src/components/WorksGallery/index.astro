@@ -12,7 +12,7 @@ const newWorks = works.filter(work => work.isTop);
   id="works-gallery"
   class="relative py-24 md:py-[17.5rem] contents-full text-current"
 >
-  <div class="flex md:justify-end ml:pr-[20%]">
+  <div class="flex md:justify-end md:pr-[20%]">
     <TopTitle
       sub="（制作実績）"
       title={['機能と情緒', '作品への想い']}
@@ -21,7 +21,7 @@ const newWorks = works.filter(work => work.isTop);
     />
   </div>
 
-  <ul id="works-gallery-link" class="mt-9 md:mt-24">
+  <ul class="mt-9 md:mt-24">
     {
       newWorks.map((work, i) => {
         const kanji = kanjiNumber(i + 1);
@@ -48,9 +48,3 @@ const newWorks = works.filter(work => work.isTop);
   import handleHover from './handleHover';
   handleHover();
 </script>
-
-<style lang="scss">
-  .is-disable-hover {
-    pointer-events: none;
-  }
-</style>

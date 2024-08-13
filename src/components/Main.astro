@@ -3,8 +3,13 @@ import cn from '@/libs/cn';
 interface Props {
   isContainer?: boolean;
   maxW?: boolean;
+  isOverflowXHidden?: boolean;
 }
-const { isContainer = true, maxW = false } = Astro.props;
+const {
+  isContainer = true,
+  maxW = false,
+  isOverflowXHidden = true,
+} = Astro.props;
 
 const className = cn(
   {
@@ -12,6 +17,7 @@ const className = cn(
     'px-5': isContainer,
     'md:px-20': isContainer,
     'mx-auto': !isContainer,
+    'overflow-x-hidden': isOverflowXHidden,
   },
   `${maxW && 'md:max-w-[calc(1360px+10rem)]'}`
 );

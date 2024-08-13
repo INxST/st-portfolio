@@ -8,36 +8,30 @@ interface Props {
 }
 
 const { sub, title, href, isSpHorizontal } = Astro.props;
-const classNameWrapper = cn('flex md:flex-row-reverse gap-2 md:gap-4', {
-  'flex-row-reverse': !isSpHorizontal,
-  'flex-col': isSpHorizontal,
+const classNameWrapper = cn('text-current flex');
+const classNameContainer = cn('md:vertical-rl grid gap-2 md:gap-4', {
+  'vertical-rl': !isSpHorizontal,
 });
-const classNameSub = cn(
-  'md:text-lg leading-none font-medium md:vertical-rl md:-mt-6',
-  {
-    'vertical-rl': !isSpHorizontal,
-    '-mt-6': !isSpHorizontal,
-  }
-);
+const classNameSub = cn('md:text-lg leading-none font-medium md:-mt-6', {
+  '-mt-6': !isSpHorizontal,
+});
 const classNameMain = cn(
-  'md:vertical-rl flex flex-col gap-2 md:gap-4 md:[&>span:nth-child(n+2)]:mt-[2.625rem]',
+  'flex flex-col gap-2 md:gap-4 md:[&>span:nth-child(n+2)]:mt-[2.625rem] text-[2rem] md:text-[2.625rem] leading-none font-medium',
   {
-    'vertical-rl': !isSpHorizontal,
     '[&>span:nth-child(n+2)]:mt-[2.625rem]': !isSpHorizontal,
   }
 );
 ---
 
-<h2 class="text-current">
-  <a href={href} class={classNameWrapper}>
+<h2 class={classNameWrapper}>
+  <a href={href} class={classNameContainer}>
     <span class={classNameSub}>
       <span>{sub}</span>
     </span>
-    <span class="text-[2rem] md:text-[2.625rem] leading-none font-semibold">
-      <span class={classNameMain}>
-        <span>{title[0]}</span>
-        <span>{title[1]}</span>
-      </span>
+
+    <span class={classNameMain}>
+      <span>{title[0]}</span>
+      <span>{title[1]}</span>
     </span>
   </a>
 </h2>

@@ -1,6 +1,8 @@
 ---
 import TopTitle from '../TopTitle.astro';
 import More from '../More.astro';
+import parallaxGalleryItems from '@/data/parallaxGalleryItems';
+import Item from './Item.astro';
 ---
 
 <section id="parallax-gallery">
@@ -9,65 +11,11 @@ import More from '../More.astro';
   >
     <div class="flex justify-between">
       <ul class="flex-1 flex flex-col items-start">
-        <li
-          class="ts-parallax-gallery-image sepia w-40 md:w-[27rem] md:ml-[10rem]"
-        >
-          <picture class="w-full">
-            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
-          </picture>
-        </li>
-        <li
-          class="ts-parallax-gallery-image sepia w-24 md:w-[14rem] mt-28 md:mt-[15rem] -ml-12 md:ml-0"
-        >
-          <picture class="w-full">
-            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
-          </picture>
-        </li>
-        <li
-          class="ts-parallax-gallery-image sepia w-40 md:w-[21rem] mt-40 md:mt-[3.75rem] ml-14 md:ml-[34rem]"
-        >
-          <picture class="w-full">
-            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
-          </picture>
-        </li>
-        <li
-          class="ts-parallax-gallery-image sepia w-28 md:w-[21rem] mt-7 md:mt-[7rem] -ml-3 md:ml-[2.8rem]"
-        >
-          <picture class="w-full">
-            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
-          </picture>
-        </li>
+        {parallaxGalleryItems.left.map(item => <Item item={item} />)}
       </ul>
 
       <ul class="flex-1 flex flex-col items-end">
-        <li
-          class="ts-parallax-gallery-image sepia w-32 md:w-[26rem] mt-20 md:mt-[13rem] -mr-10 md:mr-[6rem]"
-        >
-          <picture class="w-full">
-            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
-          </picture>
-        </li>
-        <li
-          class="ts-parallax-gallery-image sepia w-24 md:w-[12.5rem] mt-20 md:mt-[6rem]"
-        >
-          <picture class="w-full">
-            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
-          </picture>
-        </li>
-        <li
-          class="ts-parallax-gallery-image sepia w-28 md:w-[22rem] mt-6 md:mt-[7.3rem] mr-3 md:mr-[24rem]"
-        >
-          <picture class="w-full">
-            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
-          </picture>
-        </li>
-        <li
-          class="ts-parallax-gallery-image sepia w-36 md:w-[30rem] mt-20 md:mt-[7rem] -mr-8 md:-mr-[3rem]"
-        >
-          <picture class="w-full">
-            <img src="https://placehold.jp/150x150.png" alt="" class="w-full" />
-          </picture>
-        </li>
+        {parallaxGalleryItems.right.map(item => <Item item={item} />)}
       </ul>
     </div>
 
@@ -89,22 +37,6 @@ import More from '../More.astro';
     </div>
   </div>
 </section>
-
-<style lang="scss">
-  .ts-parallax-gallery-image {
-    transition: filter 0.5s ease;
-
-    @for $i from 1 through 8 {
-      &:nth-child(#{$i}) {
-        transition-delay: calc(calc($i * 0.1s) * $i);
-      }
-    }
-
-    &.is-active {
-      filter: sepia(0);
-    }
-  }
-</style>
 
 <script>
   import animation from './animation';

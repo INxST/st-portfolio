@@ -13,7 +13,7 @@ const animation = () => {
     scrollTrigger: {
       trigger: target,
       start: 'top top',
-      end: () => `+=${target?.clientHeight}`,
+      end: () => `+=${target?.clientHeight! - 250}`,
       scrub: true,
       pin: true,
     },
@@ -39,17 +39,18 @@ const animation = () => {
         },
       }
     );
+  });
 
-    gsap.to(image, {
-      ease: 'none',
-      scrollTrigger: {
-        trigger: target,
-        start: 'bottom bottom',
-        toggleClass: {
-          targets: image,
-          className: 'is-active',
-        },
-      },
+  window.addEventListener('scroll', () => {
+    const scroll = window.scrollY;
+    const windowHeight = window.innerHeight;
+
+    images.forEach(image => {
+      const targetPos = image.getBoundingClientRect().top + scroll;
+
+      if (scroll > targetPos - windowHeight) {
+        image.classList.add('is-active');
+      }
     });
   });
 };
