@@ -10,8 +10,8 @@ import Video from '@/components/Video.astro';
 import NextWork from '@/components/NextWork.astro';
 import DetailInfo from '@/components/DetailInfo.astro';
 import getWork from '@/libs/getWork';
-const slug = Astro.url.pathname.replace('/works/', '').replace('/', '');
-const { work, nextWork } = getWork(slug);
+const pathname = Astro.url.pathname;
+const { work, nextWork } = getWork(pathname);
 ---
 
 <Layout title={work?.title} isContainer={false}>
