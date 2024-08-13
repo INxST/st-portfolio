@@ -1,5 +1,6 @@
 ---
 import type { Work } from '@/types/Work';
+import updatePath from '@/libs/updatePath';
 
 interface Props {
   work: Work;
@@ -20,12 +21,12 @@ const { work } = Astro.props;
 
 <picture class="ts-horizontal-scroll-item block mt-9 md:mt-0">
   <a
-    href={`/works/${work.slug}/`}
+    href={updatePath(`/works/${work.slug}/`)}
     aria-label={`${work.title}を見る`}
     class="ts-crossing-link block h-full relative"
   >
     <img
-      src={work.image}
+      src={updatePath(work.image)}
       aria-label={`${work.title}を見る`}
       class="ts-image-white-in md:h-full"
     />
