@@ -1,7 +1,6 @@
 type Work = {
   slug: string;
   title: string;
-  href: string;
   year: string;
   categories: string[];
   tags: string[];

@@ -4,7 +4,6 @@ const works: Work[] = [
   {
     slug: 'textile-manufacturer-site',
     title: '繊維メーカー',
-    href: '/works/textile-manufacturer-site/',
     year: '2024',
     categories: ['PRIVATE WORKS'],
     tags: ['ART DIRECTION', 'WEB DESIGN'],
@@ -15,7 +14,6 @@ const works: Work[] = [
   {
     slug: 'misia-forest',
     title: 'MISIAの森',
-    href: '/works/misia-forest/',
     year: '2023',
     categories: ['PRIVATE WORKS'],
     tags: ['ART DIRECTION', 'WEB DESIGN', 'GRAPHIC DESIGN'],
@@ -26,7 +24,6 @@ const works: Work[] = [
   {
     slug: 'sato-noodle-factory',
     title: '佐藤製麺所',
-    href: '/works/sato-noodle-factory/',
     year: '2022',
     categories: ['CLIENT WORKS'],
     tags: ['GRAPHIC DESIGN'],
@@ -37,7 +34,6 @@ const works: Work[] = [
   {
     slug: 'burst-of-mana',
     title: 'Burst of Mana',
-    href: '/works/burst-of-mana/',
     year: '2024',
     categories: ['CLIENT WORKS'],
     tags: ['GRAPHIC DESIGN'],
@@ -48,7 +44,6 @@ const works: Work[] = [
   {
     slug: 'clinical-diagnostic-reagents-company',
     title: '臨床検査薬企業',
-    href: '/works/clinical-diagnostic-reagents-company/',
     year: '2023',
     categories: ['PRIVATE WORKS'],
     tags: ['ART DIRECTION', 'WEB DESIGN'],
@@ -57,7 +52,6 @@ const works: Work[] = [
   {
     slug: '5days',
     title: '僕のとある五日間ともう一つの日々の話',
-    href: '/works/5days/',
     year: '2023',
     categories: ['PRIVATE WORKS'],
     tags: ['ART DIRECTION', 'WEB DESIGN', 'LOGO DESIGN', 'GRAPHIC DESIGN'],
@@ -66,7 +60,6 @@ const works: Work[] = [
   {
     slug: 'ceramics',
     title: '陶磁器ブランド',
-    href: '/works/ceramics/',
     year: '2022',
     categories: ['PRIVATE WORKS'],
     tags: ['WEB DESIGN', 'CODING'],
@@ -75,7 +68,6 @@ const works: Work[] = [
   {
     slug: 'keio-fashion-creator',
     title: 'Keio Fashion Creator',
-    href: '/works/keio-fashion-creator/',
     year: '2023',
     categories: ['PRIVATE WORKS'],
     tags: ['FASHION DESIGN'],

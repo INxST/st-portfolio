@@ -11,7 +11,7 @@ const { item, number } = Astro.props;
   class="ts-image-link image-link [&:not(:last-child)>a]:pb-9 md:[&:not(:last-child)>a]:pb-0 md:[&:not(:first-child)>a]:pt-14 md:contents-right"
 >
   <a
-    href={item.href}
+    href={`/works/${item.slug}/`}
     class="flex flex-col md:flex-row gap-4 md:gap-16 md:pl-[10%] border-t md:border-none border-silver"
   >
     <div class="flex md:hidden justify-between pt-3">

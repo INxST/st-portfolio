@@ -74,21 +74,13 @@ pnpm build
 
 ```ts
   {
-    title: '医療従事者サイト 1',
-    href: '/works/detail/',
+    slug: 'textile-manufacturer-site',
+    title: '繊維メーカー',
     year: '2021',
-    categories: ['Web Development'],
-    tags: ['Fashion Design'],
-    image: 'https://placehold.jp/464x560.png', // 制作実績用画像
+    categories: ['PRIVATE WORKS'],
+    tags: ['ART DIRECTION', 'WEB DESIGN'],
+    image: '/detail/textile-manufacturer-site/sample.jpg', // 制作実績用画像
     isTop: true, // `true`の場合TOPページに表示
-    imageTop: 'https://placehold.jp/1200x480.png', // TOPページ表示用画像
+    imageTop: '/detail/textile-manufacturer-site/sample.jpg', // TOPページ表示用画像
   },
 ```
-
-##### 制作実績での出力イメージ
-
-![制作実績での出力イメージ](/docs/works.png)
-
-##### TOPページでの出力イメージ
-
-![TOPページでの出力イメージ](/docs/top-works.png)
