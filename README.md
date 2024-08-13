@@ -80,6 +80,8 @@ pnpm build
     categories: ['PRIVATE WORKS'],
     tags: ['ART DIRECTION', 'WEB DESIGN'],
     image: '/detail/textile-manufacturer-site/sample.jpg', // 制作実績用画像
+    mv: '/detail/textile-manufacturer-site/sample.jpg', // 詳細用画像
+    mvSp: '/detail/textile-manufacturer-site/sample.jpg', // 詳細用画像(SP)
     isTop: true, // `true`の場合TOPページに表示
     imageTop: '/detail/textile-manufacturer-site/sample.jpg', // TOPページ表示用画像
   },

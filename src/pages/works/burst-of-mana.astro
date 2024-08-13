@@ -5,6 +5,7 @@ import DescriptionList from '@/components/DescriptionList.astro';
 import DetailImage from '@/components/DetailImage.astro';
 import Scroll from '@/components/Scroll.astro';
 import Stalker from '@/components/Stalker';
+import updatePath from '@/libs/updatePath';
 import getWork from '@/libs/getWork';
 import NextWork from '@/components/NextWork.astro';
 import DetailInfo from '@/components/DetailInfo.astro';
@@ -28,25 +29,17 @@ const { work, nextWork } = getWork(slug);
       <DetailSection title="(Overview)">
         <div class="md:text-lg flex flex-col gap-4">
           <p>
-            自主制作として、繊維メーカーのWebデザインを制作しました。<br />
-            高品質な製品で人体や環境に配慮され、世界シェアでもトップを誇る繊維メーカーの企業を設定し、そちらの提案としてWebサイトのアートディレクションとデザインを行いました。
-          </p>
-
-          <p class="flex gap-4 md:gap-12 font-serif-en mt-12">
-            <span class="text-gray">URL</span>
-            <a
-              class="underline"
-              href="https://taikisato.com/"
-              target="_blank"
-              rel="noopener noreferrer">https://taikisato.com/</a
-            >
+            Burst of
+            Mana（バーストオブマナ）というボードゲームのフライヤーデザインを行いました。<br
+            />
+            ボードゲームの世界観に関して様々な情報のヒアリングを行った上で、マナの背景やゲームルールなどをもとにビジュアル方向性を定め、らしさのあるデザインを意識し作成いたしました。
           </p>
         </div>
       </DetailSection>
 
       <picture class="ts-horizontal-scroll-item">
         <img
-          src="https://placehold.jp/1080x1080.png"
+          src={updatePath(`/detail/${work?.slug}/1.jpg`)}
           alt=""
           class="ts-image-white-in md:h-full"
         />
@@ -56,38 +49,32 @@ const { work, nextWork } = getWork(slug);
         <DescriptionList>
           <span slot="title">ターゲット</span>
           <span slot="description"
-            >自動車業界において部品の設計・製造担当者、求職者など</span
+            >頭を使うゲームが好きな方、Burst of Manaに興味を持っている方</span
           >
         </DescriptionList>
         <DescriptionList>
           <span slot="title">目的</span>
           <span slot="description"
-            >企業としての取り組みや想いを伝え、知名度、信用度を向上させるため</span
+            >販促物として店頭に置いたり手配りなどで世界観やルールを簡単に知ってもらい、Burst
+            of Manaで遊んでいただくため</span
           >
         </DescriptionList>
         <DescriptionList>
           <span slot="title">情報設計</span>
-          <span slot="description"
-            >ユーザーに対して企業の強みを訴求できるように、企業の特長ページへの遷移導線をファーストビューに設置しています。<br
-            />
-            トップでは重要なところに動画やモーションなども使用することでユーザーの視線いくように設計しております。<br
-            />
-            また、製品詳細やソリューションページでは詳細な情報も見やすく迷わないようにアンカーリンクを設けるなど、ユーザーが使いやすく見やすい設計を意識しております。</span
-          >
+          <span slot="description">
+            表面では一目で興味を引くような魅せるビジュアル、裏面では端的にルールや世界観を伝えられるような情報整理を意識して行いました。特に裏面は情報量も多いため、ユーザーが心地よく視線を巡らせるような情報の優先度やレイアウトを意識しました。
+          </span>
         </DescriptionList>
         <DescriptionList>
           <span slot="title">デザイン</span>
-          <span slot="description"
-            >製品だけではなくその人体や環境に配慮された製品が紡いでいく”未来”といったところを表現する「繊維が紡ぐ人と地球の未来」というコンセプトを策定しました。<br
-            />
-            このコンセプトをもとにクリアで洗練されたような印象を与えるデザインに展開し、グラデーションやトーンの高い画像などで未来を表現しました。<br
-            />
-            環境に配慮された地球であったり紡がれていく繋がりの表現として円を、繊維のモチーフとして線を活用し、らしさのあるデザインを意識しました。</span
-          >
+          <span slot="description">
+            ゲームルールや世界観をビジュアル化することを強く意識しております。バーストモードという駒を裏返すと強化されるルールから、画面中央を切り裂いて裏面や内側の凶暴さが見えるようなイメージで作成しました。また、実際にプレイしている盤面を俯瞰的に見ているような駒の配置や、儚い存在であるマナの特性から崩れるようなタイポグラフィなどというように、ビジュアルからBurst
+            of Manaらしさを感じるようなデザインを行いました。
+          </span>
         </DescriptionList>
         <DescriptionList>
           <span slot="title">制作範囲</span>
-          <span slot="description">Webデザイン/Web構成要素</span>
+          <span slot="description"> フライヤー </span>
         </DescriptionList>
       </DetailSection>
 
@@ -97,9 +84,9 @@ const { work, nextWork } = getWork(slug);
             <li>
               <picture>
                 <img
-                  src="https://placehold.jp/824x840.png"
+                  src={updatePath(`/detail/${work?.slug}/2.jpg`)}
                   alt=""
-                  class="ts-image-white-in md:h-full"
+                  class="ts-image-white-in"
                 />
               </picture>
             </li>
@@ -107,17 +94,16 @@ const { work, nextWork } = getWork(slug);
               <li>
                 <picture>
                   <img
-                    src="https://placehold.jp/640x400.png"
+                    src={updatePath(`/detail/${work?.slug}/3.jpg`)}
                     alt=""
                     class="ts-image-white-in"
                   />
                 </picture>
               </li>
-
               <li>
                 <picture>
                   <img
-                    src="https://placehold.jp/640x400.png"
+                    src={updatePath(`/detail/${work?.slug}/4.jpg`)}
                     alt=""
                     class="ts-image-white-in"
                   />
@@ -127,7 +113,7 @@ const { work, nextWork } = getWork(slug);
             <li>
               <picture>
                 <img
-                  src="https://placehold.jp/824x840.png"
+                  src={updatePath(`/detail/${work?.slug}/5.jpg`)}
                   alt=""
                   class="ts-image-white-in"
                 />

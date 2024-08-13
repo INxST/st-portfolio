@@ -5,6 +5,8 @@ type Work = {
   categories: string[];
   tags: string[];
   image: string;
+  mv: string;
+  mvSp: string;
   // TOPページに表示するかどうか
   isTop?: boolean;
   imageTop?: string;
