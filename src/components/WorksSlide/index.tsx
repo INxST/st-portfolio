@@ -11,7 +11,7 @@ type Props = {
 };
 
 const WorksSlide = ({ title, titleEn, items }: Props) => {
-  const [selectedOption, setSelectedOption] = useState('All');
+  const [selectedOption, setSelectedOption] = useState('ALL');
   const [open, setOpen] = useState(false);
   const wrapper = useRef<HTMLDivElement | null>(null);
   const container = useRef<HTMLUListElement | null>(null);
@@ -47,7 +47,7 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
                 data-[hidden]:animate-text-blur-out data-[hidden]:max-w-0 data-[hidden]:px-0"
                 data-tags={item.tags.join(' ')}
                 data-hidden={
-                  selectedOption !== 'All' &&
+                  selectedOption !== 'ALL' &&
                   !item.tags.includes(selectedOption)
                     ? true
                     : null
