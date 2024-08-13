@@ -3,6 +3,7 @@ import React, { useState, useRef } from 'react';
 import TitleVertical from '../TitleVertical';
 import scrollSlide from './scrollSlide';
 import filters from '@/data/filters';
+import updatePath from '@/libs/updatePath';
 
 type Props = {
   title: string;
@@ -54,13 +55,13 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
                 }
               >
                 <a
-                  href={`/works/${item.slug}/`}
+                  href={updatePath(`/works/${item.slug}/`)}
                   className="ts-image-link flex flex-col h-full"
                 >
                   <div className="flex flex-1">
                     <picture className="flex-1">
                       <img
-                        src={item.image}
+                        src={updatePath(item.image)}
                         alt={item.title}
                         className="w-full h-full object-cover"
                       />
