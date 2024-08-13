@@ -11,7 +11,7 @@ type Props = {
 };
 
 const WorksSlide = ({ title, titleEn, items }: Props) => {
-  const [selectedOption, setSelectedOption] = useState('All');
+  const [selectedOption, setSelectedOption] = useState('ALL');
   const [open, setOpen] = useState(false);
   const wrapper = useRef<HTMLDivElement | null>(null);
   const container = useRef<HTMLUListElement | null>(null);
@@ -39,7 +39,7 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
           {items.map((item, i) => {
             return (
               <li
-                key={`${item.href}-${i}`}
+                key={`${item.slug}-${i}`}
                 className="h-full aspect-works-slide 
                 pt-5 pb-6 border-l peer-last:border-r last-of-type:border-r border-silver 
                 bg-gray-texture px-12 whitespace-nowrap max-w-full
@@ -47,14 +47,14 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
                 data-[hidden]:animate-text-blur-out data-[hidden]:max-w-0 data-[hidden]:px-0"
                 data-tags={item.tags.join(' ')}
                 data-hidden={
-                  selectedOption !== 'All' &&
+                  selectedOption !== 'ALL' &&
                   !item.tags.includes(selectedOption)
                     ? true
                     : null
                 }
               >
                 <a
-                  href={item.href}
+                  href={`/works/${item.slug}/`}
                   className="ts-image-link flex flex-col h-full"
                 >
                   <div className="flex flex-1">
@@ -69,7 +69,7 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
                       <ul className="flex flex-wrap gap-4">
                         {item.categories.map((category, i) => {
                           return (
-                            <li key={`${item.href}-${category}-${i}`}>
+                            <li key={`${item.slug}-${category}-${i}`}>
                               {category}
                             </li>
                           );
@@ -84,7 +84,7 @@ const WorksSlide = ({ title, titleEn, items }: Props) => {
                     </h2>
                     <ul className="flex flex-wrap gap-x-4 gap-y-2 font-serif-en mt-6 text-gray">
                       {item.tags.map((tag, i) => {
-                        return <li key={`${item.href}-${tag}-${i}`}>{tag}</li>;
+                        return <li key={`${item.slug}-${tag}-${i}`}>{tag}</li>;
                       })}
                     </ul>
                   </div>
