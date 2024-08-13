@@ -1,0 +1,276 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import DetailSection from '@/components/DetailSection.astro';
+import DescriptionList from '@/components/DescriptionList.astro';
+import DetailImage from '@/components/DetailImage.astro';
+import Scroll from '@/components/Scroll.astro';
+import Stalker from '@/components/Stalker';
+import updatePath from '@/libs/updatePath';
+import Video from '@/components/Video.astro';
+import NextWork from '@/components/NextWork.astro';
+import DetailInfo from '@/components/DetailInfo.astro';
+import getWork from '@/libs/getWork';
+const slug = Astro.url.pathname.replace('/works/', '').replace('/', '');
+const { work, nextWork } = getWork(slug);
+---
+
+<Layout title={work?.title} isContainer={false}>
+  <Scroll />
+
+  <section
+    id="horizontal-scroll"
+    class="md:h-screen pt-[var(--header-height)] md:pt-0 w-full container md:px-20"
+  >
+    <div
+      id="horizontal-scroll-container"
+      class="md:flex md:items-center md:flex-nowrap md:whitespace-nowrap w-full md:w-max md:h-full md:[&>*]:h-full"
+    >
+      <DetailInfo work={work} />
+
+      <DetailSection title="(Overview)">
+        <div class="md:text-lg flex flex-col gap-4">
+          <p>
+            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+          </p>
+          <p>
+            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+          </p>
+
+          <p class="flex gap-4 md:gap-12 font-serif-en mt-12">
+            <span class="text-gray">URL</span>
+            <a
+              class="underline"
+              href="https://taikisato.com/"
+              target="_blank"
+              rel="noopener noreferrer">https://taikisato.com/</a
+            >
+          </p>
+        </div>
+      </DetailSection>
+
+      <picture class="ts-horizontal-scroll-item">
+        <img
+          src="https://placehold.jp/1080x1080.png"
+          alt=""
+          class="ts-image-white-in md:h-full"
+        />
+      </picture>
+
+      <DetailSection title="(Description)" contentWidth="wide">
+        <DescriptionList>
+          <span slot="title">ターゲット</span>
+          <span slot="description"
+            >テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</span
+          >
+        </DescriptionList>
+
+        <DescriptionList>
+          <span slot="title">目的</span>
+          <span slot="description"
+            >テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</span
+          >
+        </DescriptionList>
+
+        <DescriptionList>
+          <span slot="title">情報設計</span>
+          <span slot="description"
+            >テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</span
+          >
+        </DescriptionList>
+
+        <DescriptionList>
+          <span slot="title">デザイン</span>
+          <span slot="description"
+            >テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</span
+          >
+        </DescriptionList>
+
+        <DescriptionList>
+          <span slot="title">制作範囲・期間</span>
+          <span slot="description"
+            >テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</span
+          >
+        </DescriptionList>
+      </DetailSection>
+
+      <div class="ts-horizontal-scroll-item">
+        <div class="md:py-[7.5rem] h-full px-5 md:px-0">
+          <DetailImage>
+            <li>
+              <picture>
+                <img
+                  src="https://placehold.jp/824x840.png"
+                  alt=""
+                  class="ts-image-white-in md:h-full"
+                />
+              </picture>
+            </li>
+            <DetailImage row={2}>
+              <li>
+                <picture>
+                  <img
+                    src="https://placehold.jp/640x400.png"
+                    alt=""
+                    class="ts-image-white-in"
+                  />
+                </picture>
+              </li>
+
+              <li>
+                <picture>
+                  <img
+                    src="https://placehold.jp/640x400.png"
+                    alt=""
+                    class="ts-image-white-in"
+                  />
+                </picture>
+              </li>
+            </DetailImage>
+            <li>
+              <picture>
+                <img
+                  src="https://placehold.jp/824x840.png"
+                  alt=""
+                  class="ts-image-white-in"
+                />
+              </picture>
+            </li>
+            <DetailImage>
+              <li>
+                <video controls muted loop>
+                  <source
+                    src={updatePath('/detail/sample-5s.mp4')}
+                    type="video/mp4"
+                  />
+                </video>
+              </li>
+              <li>
+                <Video>
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/M7lc1UVf-VE?si=Ug3Er7-fsYQu6bfP"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen></iframe>
+                </Video>
+              </li>
+              <DetailImage row={2}>
+                <li>
+                  <video controls muted loop>
+                    <source
+                      src={updatePath('/detail/sample-5s.mp4')}
+                      type="video/mp4"
+                    />
+                  </video>
+                </li>
+
+                <li>
+                  <picture>
+                    <img
+                      src="https://placehold.jp/640x400.png"
+                      alt=""
+                      class="ts-image-white-in"
+                    />
+                  </picture>
+                </li>
+              </DetailImage>
+              <DetailImage row={2}>
+                <li>
+                  <Video>
+                    <iframe
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/M7lc1UVf-VE?si=Ug3Er7-fsYQu6bfP"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen></iframe>
+                  </Video>
+                </li>
+
+                <li>
+                  <picture>
+                    <img
+                      src="https://placehold.jp/640x400.png"
+                      alt=""
+                      class="ts-image-white-in"
+                    />
+                  </picture>
+                </li>
+              </DetailImage>
+              <DetailImage row={2}>
+                <li>
+                  <Video>
+                    <iframe
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/M7lc1UVf-VE?si=Ug3Er7-fsYQu6bfP"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen></iframe>
+                  </Video>
+                </li>
+
+                <li>
+                  <video controls muted loop>
+                    <source
+                      src={updatePath('/sample-5s.mp4')}
+                      type="video/mp4"
+                    />
+                  </video>
+                </li>
+              </DetailImage>
+              <DetailImage row={2}>
+                <li>
+                  <picture>
+                    <img
+                      src="https://placehold.jp/640x400.png"
+                      alt=""
+                      class="ts-image-white-in"
+                    />
+                  </picture>
+                </li>
+
+                <li>
+                  <picture>
+                    <img
+                      src="https://placehold.jp/640x400.png"
+                      alt=""
+                      class="ts-image-white-in"
+                    />
+                  </picture>
+                </li>
+              </DetailImage>
+              <li>
+                <picture>
+                  <img
+                    src="https://placehold.jp/824x840.png"
+                    alt=""
+                    class="ts-image-white-in"
+                  />
+                </picture>
+              </li>
+            </DetailImage>
+          </DetailImage>
+        </div>
+      </div>
+
+      <NextWork work={nextWork} />
+    </div>
+  </section>
+
+  <Stalker client:only="react" />
+</Layout>
+
+<script>
+  import horizontalScroll from '@/libs/horizontalScroll';
+  import imageWhiteIn from '@/libs/imageWhiteIn';
+  horizontalScroll();
+  imageWhiteIn();
+</script>

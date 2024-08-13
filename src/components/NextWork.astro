@@ -1,0 +1,49 @@
+---
+import type { Work } from '@/types/Work';
+
+interface Props {
+  work: Work;
+}
+const { work } = Astro.props;
+---
+
+<section
+  class="ts-horizontal-scroll-item flex justify-end items-end md:pl-[34rem] md:pr-20 box-content"
+>
+  <div class="pt-24 md:py-[8.125rem] px-5 md:px-0">
+    <p class="md:text-lg font-serif-en">(NEXT PROJECT)</p>
+    <h2 class="text-[2rem] md:text-[2.625rem] font-medium">
+      {work.title}
+    </h2>
+  </div>
+</section>
+
+<picture class="ts-horizontal-scroll-item block mt-9 md:mt-0">
+  <a
+    href={`/works/${work.slug}/`}
+    aria-label={`${work.title}を見る`}
+    class="ts-crossing-link block h-full relative"
+  >
+    <img
+      src={work.image}
+      aria-label={`${work.title}を見る`}
+      class="ts-image-white-in md:h-full"
+    />
+
+    <span
+      class="bg-mine-shaft flex md:hidden justify-center items-center absolute bottom-[20px] right-5 rounded-full w-[40px] h-[40px]"
+    >
+      <svg
+        width="14"
+        height="10"
+        viewBox="0 0 14 10"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6.91412 0.679339C6.91412 0.679339 7.99884 2.63402 8.2563 4.37282L0.731445 4.7742V5.34764L8.24902 5.74902C7.96468 7.46346 6.78603 9.32056 6.78603 9.32056C6.78603 9.32056 10.3661 5.54406 13.6435 5.05602C10.3758 4.56308 6.91412 0.679199 6.91412 0.679199V0.679339Z"
+          class="fill-taupe-gray"></path>
+      </svg>
+    </span>
+  </a>
+</picture>
