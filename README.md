@@ -62,7 +62,7 @@ pnpm build
 
 ### 実績の更新について
 
-### 実績の追加
+#### 実績の追加
 
 [/src/pages/works配下](/src/pages/works/)に拡張子`astro`でファイルを作成することでページが追加されます。
 
