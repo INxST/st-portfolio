@@ -18,7 +18,7 @@ const isHome = path === '/';
 >
   <footer
     id="footer"
-    class="absolute -top-[110%] left-0 w-full pt-[9rem] md:pt-[22rem] pb-5 text-pampas bg-mine-shaft-texture overflow-hidden"
+    class="absolute bottom-[110%] left-0 w-full pt-[9rem] md:pt-[22rem] pb-5 text-pampas bg-mine-shaft-texture overflow-hidden"
   >
     <div class="container px-5 md:px-20">
       <ul class="flex flex-row-reverse gap-8 justify-center">
@@ -136,5 +136,5 @@ const isHome = path === '/';
         scrub: true,
       },
     })
-    .to(footer, { top: 0, ease: 'Power4.out' });
+    .to(footer, { bottom: 0, ease: 'Power4.out' });
 </script>
