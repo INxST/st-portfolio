@@ -1,0 +1,60 @@
+---
+import updatePath from '@/libs/updatePath';
+import type { Work } from '@/types/Work';
+interface Props {
+  work?: Work;
+}
+const { work } = Astro.props;
+---
+
+<section
+  class="ts-horizontal-scroll-item md:mr-[41rem]
+flex flex-col justify-end items-start md:pb-[7.5rem]
+mt-28 md:mt-0 px-5 md:px-0"
+>
+  <h1 class="md:w-1/2 flex flex-col gap-4">
+    <span class="text-[2rem] md:text-5xl font-semibold">{work?.title}</span>
+    {
+      work?.categories.map(category => (
+        <span class="font-serif-en md:text-lg">{category}</span>
+      ))
+    }
+  </h1>
+
+  <div
+    class="md:w-1/2 mt-16 md:mt-24 flex flex-col md:flex-row gap-4 md:gap-20"
+  >
+    <p class="flex flex-col gap-2">
+      <span class="text-gray">ROLE</span>
+      <span>
+        {
+          work?.tags.map((tag, i) => (
+            <span class="-ml-1">
+              {i !== 0 && i < work.tags.length && <span>&comma;&nbsp;</span>}
+              {tag}
+            </span>
+          ))
+        }
+      </span>
+    </p>
+
+    <p class="flex flex-col gap-2">
+      <span class="text-gray">YEAR</span>
+      <span>{work?.year}</span>
+    </p>
+  </div>
+</section>
+
+<picture class="ts-horizontal-scroll-item mt-9 md:mt-0
+block">
+  <source
+    srcset={updatePath(work?.mv)}
+    media="(min-width: 768px)"
+    class="ts-image-white-in md:h-full"
+  />
+  <img
+    src={updatePath(work?.mvSp)}
+    alt=""
+    class="ts-image-white-in md:h-full"
+  />
+</picture>

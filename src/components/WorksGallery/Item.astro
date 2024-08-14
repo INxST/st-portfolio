@@ -1,5 +1,6 @@
 ---
 import { type Work } from '@/types/Work';
+import updatePath from '@/libs/updatePath';
 interface Props {
   number: string;
   item: Work;
@@ -11,7 +12,7 @@ const { item, number } = Astro.props;
   class="ts-image-link image-link [&:not(:last-child)>a]:pb-9 md:[&:not(:last-child)>a]:pb-0 md:[&:not(:first-child)>a]:pt-14 md:contents-right"
 >
   <a
-    href={item.href}
+    href={updatePath(`/works/${item.slug}/`)}
     class="flex flex-col md:flex-row gap-4 md:gap-16 md:pl-[10%] border-t md:border-none border-silver"
   >
     <div class="flex md:hidden justify-between pt-3">
@@ -48,7 +49,7 @@ const { item, number } = Astro.props;
 
     <picture class="md:w-[75rem] order-1 md:order-2">
       <img
-        src={item.imageTop || item.image}
+        src={updatePath(item.imageTop || item.image)}
         alt={item.title}
         class="w-full object-contain"
       />
@@ -62,7 +63,7 @@ const { item, number } = Astro.props;
     aria-hidden="true"
   >
     <img
-      src={item.imageTop || item.image}
+      src={updatePath(item.imageTop || item.image)}
       alt={item.title}
       class="w-full h-full object-cover"
     />

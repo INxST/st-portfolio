@@ -1,0 +1,130 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import DetailSection from '@/components/DetailSection.astro';
+import DescriptionList from '@/components/DescriptionList.astro';
+import DetailImage from '@/components/DetailImage.astro';
+import Scroll from '@/components/Scroll.astro';
+import Stalker from '@/components/Stalker';
+import updatePath from '@/libs/updatePath';
+import getWork from '@/libs/getWork';
+import NextWork from '@/components/NextWork.astro';
+import DetailInfo from '@/components/DetailInfo.astro';
+const pathname = Astro.url.pathname;
+const { work, nextWork } = getWork(pathname);
+---
+
+<Layout title={work?.title} isContainer={false}>
+  <Scroll />
+
+  <section
+    id="horizontal-scroll"
+    class="md:h-screen pt-[var(--header-height)] md:pt-0 w-full container md:px-20"
+  >
+    <div
+      id="horizontal-scroll-container"
+      class="md:flex md:items-center md:flex-nowrap md:whitespace-nowrap w-full md:w-max md:h-full md:[&>*]:h-full"
+    >
+      <DetailInfo work={work} />
+
+      <DetailSection title="(Overview)">
+        <div class="md:text-lg flex flex-col gap-4">
+          <p>
+            自主制作として、医療従事者をターゲットとした難病に対する臨床検査薬の企業のWebデザインを制作しました。<br
+            />
+            医療従事者に向けた疾患の判別に関する情報発信サイトとコーポレートの2面性をもつサイトとして設定し、そちらの提案としてWebサイトのアートディレクションとデザインを行いました。
+          </p>
+        </div>
+      </DetailSection>
+
+      <picture class="ts-horizontal-scroll-item">
+        <img
+          src={updatePath(`/detail/${work?.slug}/1.jpg`)}
+          alt=""
+          class="ts-image-white-in md:h-full"
+        />
+      </picture>
+
+      <DetailSection title="(Description)" contentWidth="wide">
+        <DescriptionList>
+          <span slot="title">ターゲット</span>
+          <span slot="description"
+            >30～60代の糖尿病内科、脳神経内科、耳鼻咽喉科の臨床専門医</span
+          >
+        </DescriptionList>
+        <DescriptionList>
+          <span slot="title">目的</span>
+          <span slot="description"
+            >ミッションと何を特徴とした会社なのかを第三者へわかりやすく伝えるため</span
+          >
+        </DescriptionList>
+        <DescriptionList>
+          <span slot="title">情報設計</span>
+          <span slot="description">
+            ファーストビューの段階で、疾患別のそれぞれの情報への導線を設けることで目的の情報に素早く迷わずに辿り着けるように設計しました。<br
+            />
+            疾患の判別に関する情報発信サイトとしての側面もあるため、情報を疾患や症状ごとに絞り込みできるようにし情報を探しやすいようにしました。
+          </span>
+        </DescriptionList>
+        <DescriptionList>
+          <span slot="title">デザイン</span>
+          <span slot="description">
+            メインユーザーである医療従事者だけでなくその先にいる難病患者まで考えたデザインコンセプトとして「人」と策定しました。<br
+            />
+            コンセプトをもとに誰にでも直感的に操作しやすい優しいデザイン設計を行い、曲線を軸とすることでやわらかさや、やさしい雰囲気を演出し人の温かみのあるポジティブな感情を表現しています。<br
+            />
+            また、全体的に白と青で信頼感やクリーンな印象を表現しつつ、ファーストビューではカテゴリごとに色分けすることで直感的に目的の要素を探し当てることが出来るデザイン設計を行い、ポイントでイラストを使用することで特定の誰かではなく多くの人に寄り添うという意図を表現しています。
+          </span>
+        </DescriptionList>
+        <DescriptionList>
+          <span slot="title">制作範囲</span>
+          <span slot="description"> Webデザイン/Web構成要素 </span>
+        </DescriptionList>
+      </DetailSection>
+
+      <div class="ts-horizontal-scroll-item">
+        <div class="md:py-[7.5rem] h-full px-5 md:px-0">
+          <DetailImage>
+            <li>
+              <picture>
+                <img
+                  src={updatePath(`/detail/${work?.slug}/2.jpg`)}
+                  alt=""
+                  class="ts-image-white-in"
+                />
+              </picture>
+            </li>
+            <li>
+              <picture>
+                <img
+                  src={updatePath(`/detail/${work?.slug}/3.jpg`)}
+                  alt=""
+                  class="ts-image-white-in"
+                />
+              </picture>
+            </li>
+            <li>
+              <picture>
+                <img
+                  src={updatePath(`/detail/${work?.slug}/4.jpg`)}
+                  alt=""
+                  class="ts-image-white-in"
+                />
+              </picture>
+            </li>
+          </DetailImage>
+        </div>
+      </div>
+
+      <NextWork work={nextWork} />
+    </div>
+  </section>
+
+  <Stalker client:only="react" />
+</Layout>
+
+<script>
+  import horizontalScroll from '@/libs/horizontalScroll';
+  import imageWhiteIn from '@/libs/imageWhiteIn';
+  horizontalScroll();
+  imageWhiteIn();
+</script>

@@ -5,12 +5,14 @@ import DescriptionList from '@/components/DescriptionList.astro';
 import DetailImage from '@/components/DetailImage.astro';
 import Scroll from '@/components/Scroll.astro';
 import Stalker from '@/components/Stalker';
-import Video from '@/components/Video.astro';
-import updatePath from '@/libs/updatePath';
-const title = '繊維メーカーサイト';
+import getWork from '@/libs/getWork';
+import NextWork from '@/components/NextWork.astro';
+import DetailInfo from '@/components/DetailInfo.astro';
+const pathname = Astro.url.pathname;
+const { work, nextWork } = getWork(pathname);
 ---
 
-<Layout title={title} isContainer={false}>
+<Layout title={work?.title} isContainer={false}>
   <Scroll />
 
   <section
@@ -21,39 +23,7 @@ const title = '繊維メーカーサイト';
       id="horizontal-scroll-container"
       class="md:flex md:items-center md:flex-nowrap md:whitespace-nowrap w-full md:w-max md:h-full md:[&>*]:h-full"
     >
-      <section
-        class="ts-horizontal-scroll-item md:mr-[41rem]
-      flex flex-col justify-end items-start md:pb-[7.5rem]
-      mt-28 md:mt-0 px-5 md:px-0"
-      >
-        <h1 class="md:w-1/2 flex flex-col gap-4">
-          <span class="text-[2rem] md:text-5xl font-semibold">{title}</span>
-          <span class="font-serif-en md:text-lg">PRIVATE WORKS</span>
-        </h1>
-
-        <div
-          class="md:w-1/2 mt-16 md:mt-24 flex flex-col md:flex-row gap-4 md:gap-20"
-        >
-          <p class="flex flex-col gap-2">
-            <span class="text-gray">ROLE</span>
-            <span>ART DIRECTION, WEB DESIGN</span>
-          </p>
-
-          <p class="flex flex-col gap-2">
-            <span class="text-gray">YEAR</span>
-            <span>2023</span>
-          </p>
-        </div>
-      </section>
-
-      <picture class="ts-horizontal-scroll-item mt-9 md:mt-0
-      block">
-        <img
-          src="https://placehold.jp/1600x1080.png"
-          alt=""
-          class="ts-image-white-in md:h-full"
-        />
-      </picture>
+      <DetailInfo work={work} />
 
       <DetailSection title="(Overview)">
         <div class="md:text-lg flex flex-col gap-4">
@@ -125,93 +95,15 @@ const title = '繊維メーカーサイト';
         <div class="md:py-[7.5rem] h-full px-5 md:px-0">
           <DetailImage>
             <li>
-              <video controls muted loop>
-                <source
-                  src={updatePath('/detail/sample-5s.mp4')}
-                  type="video/mp4"
+              <picture>
+                <img
+                  src="https://placehold.jp/824x840.png"
+                  alt=""
+                  class="ts-image-white-in md:h-full"
                 />
-              </video>
+              </picture>
             </li>
-            <li>
-              <Video>
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/M7lc1UVf-VE?si=Ug3Er7-fsYQu6bfP"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen></iframe>
-              </Video>
-            </li>
-            <DetailImage column={2}>
-              <li>
-                <video controls muted loop>
-                  <source
-                    src={updatePath('/detail/sample-5s.mp4')}
-                    type="video/mp4"
-                  />
-                </video>
-              </li>
-
-              <li>
-                <picture>
-                  <img
-                    src="https://placehold.jp/640x400.png"
-                    alt=""
-                    class="ts-image-white-in"
-                  />
-                </picture>
-              </li>
-            </DetailImage>
-            <DetailImage column={2}>
-              <li>
-                <Video>
-                  <iframe
-                    width="560"
-                    height="315"
-                    src="https://www.youtube.com/embed/M7lc1UVf-VE?si=Ug3Er7-fsYQu6bfP"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen></iframe>
-                </Video>
-              </li>
-
-              <li>
-                <picture>
-                  <img
-                    src="https://placehold.jp/640x400.png"
-                    alt=""
-                    class="ts-image-white-in"
-                  />
-                </picture>
-              </li>
-            </DetailImage>
-            <DetailImage column={2}>
-              <li>
-                <Video>
-                  <iframe
-                    width="560"
-                    height="315"
-                    src="https://www.youtube.com/embed/M7lc1UVf-VE?si=Ug3Er7-fsYQu6bfP"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen></iframe>
-                </Video>
-              </li>
-
-              <li>
-                <video controls muted loop>
-                  <source src={updatePath('/sample-5s.mp4')} type="video/mp4" />
-                </video>
-              </li>
-            </DetailImage>
-            <DetailImage column={2}>
+            <DetailImage row={2}>
               <li>
                 <picture>
                   <img
@@ -245,48 +137,7 @@ const title = '繊維メーカーサイト';
         </div>
       </div>
 
-      <section
-        class="ts-horizontal-scroll-item flex justify-end items-end md:pl-[34rem] md:pr-20 box-content"
-      >
-        <div class="pt-24 md:py-[8.125rem] px-5 md:px-0">
-          <p class="md:text-lg font-serif-en">(NEXT PROJECT)</p>
-          <h2 class="text-[2rem] md:text-[2.625rem] font-medium">
-            タイトル名タイトル名タイトル名
-            <br />
-            タイトル名タイトル名
-          </h2>
-        </div>
-      </section>
-
-      <picture class="ts-horizontal-scroll-item block mt-9 md:mt-0">
-        <a
-          href="/"
-          aria-label="タイトル名タイトル名タイトル名タイトル名タイトル名を見る"
-          class="ts-crossing-link block h-full relative"
-        >
-          <img
-            src="https://placehold.jp/895x1080.png"
-            alt="タイトル名タイトル名タイトル名タイトル名タイトル名を見る"
-            class="ts-image-white-in md:h-full"
-          />
-
-          <span
-            class="bg-mine-shaft flex md:hidden justify-center items-center absolute bottom-[20px] right-5 rounded-full w-[40px] h-[40px]"
-          >
-            <svg
-              width="14"
-              height="10"
-              viewBox="0 0 14 10"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6.91412 0.679339C6.91412 0.679339 7.99884 2.63402 8.2563 4.37282L0.731445 4.7742V5.34764L8.24902 5.74902C7.96468 7.46346 6.78603 9.32056 6.78603 9.32056C6.78603 9.32056 10.3661 5.54406 13.6435 5.05602C10.3758 4.56308 6.91412 0.679199 6.91412 0.679199V0.679339Z"
-                class="fill-taupe-gray"></path>
-            </svg>
-          </span>
-        </a>
-      </picture>
+      <NextWork work={nextWork} />
     </div>
   </section>
 

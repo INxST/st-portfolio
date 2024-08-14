@@ -1,0 +1,187 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import DetailSection from '@/components/DetailSection.astro';
+import DescriptionList from '@/components/DescriptionList.astro';
+import DetailImage from '@/components/DetailImage.astro';
+import Scroll from '@/components/Scroll.astro';
+import Stalker from '@/components/Stalker';
+import updatePath from '@/libs/updatePath';
+import getWork from '@/libs/getWork';
+import NextWork from '@/components/NextWork.astro';
+import DetailInfo from '@/components/DetailInfo.astro';
+const pathname = Astro.url.pathname;
+const { work, nextWork } = getWork(pathname);
+---
+
+<Layout title={work?.title} isContainer={false}>
+  <Scroll />
+
+  <section
+    id="horizontal-scroll"
+    class="md:h-screen pt-[var(--header-height)] md:pt-0 w-full container md:px-20"
+  >
+    <div
+      id="horizontal-scroll-container"
+      class="md:flex md:items-center md:flex-nowrap md:whitespace-nowrap w-full md:w-max md:h-full md:[&>*]:h-full"
+    >
+      <DetailInfo work={work} />
+
+      <DetailSection title="(Overview)">
+        <div class="md:text-lg flex flex-col gap-4">
+          <p>
+            大学時代に所属していたKeio Fashion
+            Creatorという服飾のインカレで作成した作品です。<br />
+            自ら考えた世界観にあったデザインを作り、自分でパターンを引いて布の選定から裁断や縫製まで手作業で行いました。<br
+            />
+            そして年に一度行われる当団体が開催するファッションショーでモデルさんに着用していただき、披露するような活動を行なっておりました。
+          </p>
+        </div>
+      </DetailSection>
+
+      <picture class="ts-horizontal-scroll-item">
+        <img
+          src={updatePath(`/detail/${work?.slug}/1.jpg`)}
+          alt=""
+          class="ts-image-white-in md:h-full"
+        />
+      </picture>
+
+      <DetailSection title="(Description)" contentWidth="wide">
+        <DescriptionList>
+          <span slot="title">ルック概要</span>
+          <span slot="description"
+            >毎年ファッションショーのコンセプトがあり、それに対してデザイナーが皆それぞれの解釈をし、意図を込めてデザインから縫製まで自身で行い、ルックを作成します。<br
+            />
+            私はインカレに所属している間に計5つのルックを作成しましたが、その中でも「辿る」というコンセプトをもとに作成した2体のルックはクラシックバレエの演目「くるみ割り人形」からインスピレーションを受け作成したものになります。<br
+            />
+            「辿る」というコンセプトに対し、私はその当時行っていた表現の手段として服飾というものがありましたが、自分の人生を辿ったときに叔母の影響で3歳の頃から10年間続けたクラシックバレエが自分の中の表現の原点であると考え、過去行っていた表現を当時行っていた服飾という媒体で表現するということを行いました。そして、クラシックバレエを表現するにあたり、最も思い出がある演目である「くるみ割り人形」を服で表現しました。<br
+            />
+            私が辿ったのは、”表現”。「表現を辿る」という軸から2つのルックを作成しました。</span
+          >
+        </DescriptionList>
+        <DescriptionList>
+          <span slot="title">制作範囲</span>
+          <span slot="description"> 服飾デザイン/パターン、裁断、縫製 </span>
+        </DescriptionList>
+      </DetailSection>
+
+      <div class="ts-horizontal-scroll-item">
+        <div class="md:py-[7.5rem] h-full px-5 md:px-0">
+          <DetailImage>
+            <DetailImage columnSp={2}>
+              <li>
+                <picture>
+                  <img
+                    src={updatePath(`/detail/${work?.slug}/2.jpg`)}
+                    alt=""
+                    class="ts-image-white-in"
+                  />
+                </picture>
+              </li>
+              <li>
+                <picture>
+                  <img
+                    src={updatePath(`/detail/${work?.slug}/3.jpg`)}
+                    alt=""
+                    class="ts-image-white-in"
+                  />
+                </picture>
+              </li>
+            </DetailImage>
+            <DetailImage columnSp={2}>
+              <li>
+                <picture>
+                  <img
+                    src={updatePath(`/detail/${work?.slug}/4.jpg`)}
+                    alt=""
+                    class="ts-image-white-in"
+                  />
+                </picture>
+              </li>
+              <li>
+                <picture>
+                  <img
+                    src={updatePath(`/detail/${work?.slug}/5.jpg`)}
+                    alt=""
+                    class="ts-image-white-in"
+                  />
+                </picture>
+              </li>
+            </DetailImage>
+            <DetailImage columnSp={2}>
+              <li>
+                <picture>
+                  <img
+                    src={updatePath(`/detail/${work?.slug}/6.jpg`)}
+                    alt=""
+                    class="ts-image-white-in"
+                  />
+                </picture>
+              </li>
+              <li>
+                <picture>
+                  <img
+                    src={updatePath(`/detail/${work?.slug}/7.jpg`)}
+                    alt=""
+                    class="ts-image-white-in"
+                  />
+                </picture>
+              </li>
+            </DetailImage>
+            <DetailImage columnSp={2}>
+              <li>
+                <picture>
+                  <img
+                    src={updatePath(`/detail/${work?.slug}/8.jpg`)}
+                    alt=""
+                    class="ts-image-white-in"
+                  />
+                </picture>
+              </li>
+              <li>
+                <picture>
+                  <img
+                    src={updatePath(`/detail/${work?.slug}/9.jpg`)}
+                    alt=""
+                    class="ts-image-white-in"
+                  />
+                </picture>
+              </li>
+            </DetailImage>
+            <DetailImage columnSp={2}>
+              <li>
+                <picture>
+                  <img
+                    src={updatePath(`/detail/${work?.slug}/10.jpg`)}
+                    alt=""
+                    class="ts-image-white-in"
+                  />
+                </picture>
+              </li>
+              <li>
+                <picture>
+                  <img
+                    src={updatePath(`/detail/${work?.slug}/11.jpg`)}
+                    alt=""
+                    class="ts-image-white-in"
+                  />
+                </picture>
+              </li>
+            </DetailImage>
+          </DetailImage>
+        </div>
+      </div>
+
+      <NextWork work={nextWork} />
+    </div>
+  </section>
+
+  <Stalker client:only="react" />
+</Layout>
+
+<script>
+  import horizontalScroll from '@/libs/horizontalScroll';
+  import imageWhiteIn from '@/libs/imageWhiteIn';
+  horizontalScroll();
+  imageWhiteIn();
+</script>

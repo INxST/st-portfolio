@@ -1,15 +1,19 @@
 ---
 import cn from '@/libs/cn';
 interface Props {
-  column?: number;
+  row?: number;
+  columnSp?: number;
 }
-const { column } = Astro.props;
+const { row, columnSp } = Astro.props;
 const className = cn(
-  'md:h-full flex flex-col flex-wrap [&>li]:w-full md:[&>li]:w-auto gap-4 md:gap-10 [&_picture]:block md:[&_picture]:h-full md:[&_img]:h-full md:[&_video]:h-full',
+  'md:h-full flex flex-wrap md:[&>li]:w-auto gap-4 md:gap-10 [&_picture]:block md:[&_picture]:h-full md:[&_img]:h-full md:[&_video]:h-full',
   {
-    'md:flex-col': column,
-    'md:[&>li]:h-full': !column,
-    'md:[&>li]:h-[calc(50%-1.25rem)]': column === 2,
+    'md:flex-col': row,
+    'md:[&>li]:h-full': !row,
+    'md:[&>li]:h-[calc(50%-1.25rem)]': row === 2,
+    'flex-col': !columnSp,
+    '[&>li]:w-full': !columnSp,
+    '[&>li]:w-[calc(50%-0.5rem)]': columnSp === 2,
   }
 );
 ---

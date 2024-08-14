@@ -1,57 +1,88 @@
-# Astro Starter Kit: Basics
+# ST Portfolio
 
-```sh
-npm create astro@latest -- --template basics
+本リポジトリでは`Taiki Sato`のポートフォリオのベースソースを管理しています。
+
+## Setup
+
+### Node.js　バージョン管理ツールをインストールする
+
+下記などのツールをインストールします。
+
+- https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script
+- https://github.com/hokaccha/nodebrew?tab=readme-ov-file#install
+
+### Node.jsのバージョンを変更する
+
+バージョン管理ツールインストール後、Node.jsのバージョン
+を[.node-version](.node-version)指定の`20.9.0`に変更してください。
+
+### pnpmをinstallする
+
+```bash
+npm install -g pnpm
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 各種コマンド
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### 依存インストール
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+pnpm install --frozen-lockfile
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page
-is exposed as a route based on its file name.
+### 開発サーバー起動
 
-There's nothing special about `src/components/`, but that's where we like to put
-any Astro/React/Vue/Svelte/Preact components.
+```bash
+pnpm dev
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+### コード整形
 
-## 🧞 Commands
+```bash
+pnpm format
+```
 
-All commands are run from the root of the project, from a terminal:
+### ビルド
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```bash
+pnpm build
+```
 
-## 👀 Want to learn more?
+## 更新方法
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into
-our [Discord server](https://astro.build/chat).
+| 対象箇所                                                                                                                                                                                             | 更新方法                                                                               |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| ヘッダーリンク ![ヘッダーリンク](/docs/header.png)                                                                                                                                                   | [/src/data/headerLinks.ts](/src/data/headerLinks.ts)の内容を変更する                   |
+| メニューリンク ![メニューリンク](/docs/menu.png)                                                                                                                                                     | [/src/data/menus.ts](/src/data/menus.ts)の内容を変更する                               |
+| フッターリンク ![フッターリンク](/docs/footer.png)                                                                                                                                                   | [/src/data/footerLinks.ts](/src/data/footerLinks.ts)の内容を変更する                   |
+| SNSリンク(メニュー・フッター・私について > PROFILE) ![メニュー > SNSリンク](/docs/sns-menu.png)![フッター > SNSリンク](/docs/sns-footer.png)![私について > PROFILE > SNSリンク](/docs/sns-about.png) | [/src/data/snsLinks.ts](/src/data/snsLinks.ts)の内容を変更する                         |
+| TOP 私について 画像 ![TOP 私について 画像](/docs/top-about.png)                                                                                                                                      | [/src/data/parallaxGalleryItems.ts](/src/data/parallaxGalleryItems.ts)の内容を変更する |
+| 私について スライド画像 ![私について スライド画像](/docs/about-slide.png)                                                                                                                            | [/src/data/slides.ts](/src/data/slides.ts)の内容を変更する                             |
+| 私について CAREER ![私について CAREER](/docs/about-career.png)                                                                                                                                       | [/src/data/timelines.ts](/src/data/timelines.ts)の内容を変更する                       |
+| 制作実績 FILTER ![制作実績 FILTER](/docs/works-filter.png)                                                                                                                                           | [/src/data/filters.ts](/src/data/filters.ts)の内容を変更する                           |
+
+### 実績の更新について
+
+#### 実績の追加
+
+[/src/pages/works配下](/src/pages/works/)に拡張子`astro`でファイルを作成すること
+でページが追加されます。
+
+#### 一覧での表示設定
+
+[/src/data/works.ts](/src/data/works.ts)の内容を更新することで設定できます。
+
+```ts
+  {
+    slug: 'textile-manufacturer-site',
+    title: '繊維メーカー',
+    year: '2021',
+    categories: ['PRIVATE WORKS'],
+    tags: ['ART DIRECTION', 'WEB DESIGN'],
+    image: '/detail/textile-manufacturer-site/sample.jpg', // 制作実績用画像
+    mv: '/detail/textile-manufacturer-site/sample.jpg', // 詳細用画像
+    mvSp: '/detail/textile-manufacturer-site/sample.jpg', // 詳細用画像(SP)
+    isTop: true, // `true`の場合TOPページに表示
+    imageTop: '/detail/textile-manufacturer-site/sample.jpg', // TOPページ表示用画像
+  },
+```
