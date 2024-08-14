@@ -4,7 +4,7 @@ import footerLinks from '@/data/footerLinks';
 import FooterDisk from './FooterDisk.astro';
 import snsLinks from '@/data/snsLinks';
 interface Props {
-  start: string;
+  start: 'bottom' | 'center';
 }
 const { start } = Astro.props;
 const path = Astro.url.pathname;
@@ -18,9 +18,9 @@ const isHome = path === '/';
 >
   <footer
     id="footer"
-    class="absolute bottom-[110%] left-0 w-full pt-[9rem] md:pt-[22rem] pb-5 text-pampas bg-mine-shaft-texture overflow-hidden"
+    class="absolute -top-1/2 -translate-y-1/2 left-0 w-full text-pampas bg-mine-shaft-texture overflow-hidden"
   >
-    <div class="container px-5 md:px-20">
+    <div class="container px-5 md:px-20 pt-[9rem] md:pt-[22rem]">
       <ul class="flex flex-row-reverse gap-8 justify-center">
         {
           footerLinks.map(link => (
@@ -80,7 +80,7 @@ const isHome = path === '/';
       </ul>
     </div>
 
-    <div class="mt-9 md:mt-10">
+    <div class="mt-9 md:mt-10 pb-5">
       <ul class="contact flex flex-nowrap whitespace-nowrap">
         {
           Array.from({ length: 10 }).map(_ => (
@@ -123,18 +123,21 @@ const isHome = path === '/';
 
   const footer = document.getElementById('footer');
   const wrapper = document.getElementById('footer-wrapper');
-  const height = footer?.getBoundingClientRect().height;
-  if (wrapper) wrapper.style.height = `${height}px`;
-  const start = wrapper?.dataset.start;
+  if (footer && wrapper) {
+    const height = footer.clientHeight;
+    if (wrapper) wrapper.style.height = `${height}px`;
+    const start = wrapper?.dataset.start;
+    const startValue = start === 'top' ? 'top bottom' : 'top center';
 
-  gsap
-    .timeline({
-      scrollTrigger: {
-        trigger: wrapper,
-        start: () => `${start}`,
-        end: () => `+=${height! * 0.9}`,
-        scrub: true,
-      },
-    })
-    .to(footer, { bottom: 0, ease: 'Power4.out' });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: wrapper,
+          start: () => `${startValue}`,
+          end: () => `+=${height * 0.9}`,
+          scrub: true,
+        },
+      })
+      .to(footer, { top: '50%', ease: 'Power4.out' });
+  }
 </script>
