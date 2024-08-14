@@ -4,9 +4,9 @@ import footerLinks from '@/data/footerLinks';
 import FooterDisk from './FooterDisk.astro';
 import snsLinks from '@/data/snsLinks';
 interface Props {
-  trigger?: 'top' | 'bottom';
+  start?: string;
 }
-const { trigger = 'top' } = Astro.props;
+const { start = 'top bottom' } = Astro.props;
 const path = Astro.url.pathname;
 const isHome = path === '/';
 ---
@@ -14,7 +14,7 @@ const isHome = path === '/';
 <div
   id="footer-wrapper"
   class="relative overflow-hidden w-full"
-  data-trigger={trigger}
+  data-start={start}
 >
   <footer
     id="footer"
@@ -125,14 +125,14 @@ const isHome = path === '/';
   const wrapper = document.getElementById('footer-wrapper');
   const height = footer?.getBoundingClientRect().height;
   if (wrapper) wrapper.style.height = `${height}px`;
-  const trigger = wrapper?.dataset.trigger;
+  const start = wrapper?.dataset.start;
 
   gsap
     .timeline({
       scrollTrigger: {
         trigger: wrapper,
-        start: `top ${trigger}`,
-        end: () => `+=${height}`,
+        start: () => `${start}`,
+        end: () => `+=${height! * 0.8}`,
         scrub: true,
       },
     })
