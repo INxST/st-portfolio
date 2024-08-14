@@ -3,93 +3,103 @@ import updatePath from '@/libs/updatePath';
 import footerLinks from '@/data/footerLinks';
 import FooterDisk from './FooterDisk.astro';
 import snsLinks from '@/data/snsLinks';
+interface Props {
+  trigger?: 'top' | 'bottom';
+}
+const { trigger = 'top' } = Astro.props;
 const path = Astro.url.pathname;
 const isHome = path === '/';
 ---
 
-<footer
-  id="footer"
-  class="pt-[9rem] md:pt-[22rem] pb-5 text-pampas bg-mine-shaft-texture overflow-hidden"
+<div
+  id="footer-wrapper"
+  class="relative overflow-hidden w-full"
+  data-trigger={trigger}
 >
-  <div class="container px-5 md:px-20">
-    <ul class="flex flex-row-reverse gap-8 justify-center">
-      {
-        footerLinks.map(link => (
-          <li class="relative flex flex-col items-center">
-            {!isHome && link.href.includes(path) ? (
-              <FooterDisk />
-            ) : (
-              isHome && link.href === '/' && <FooterDisk />
-            )}
-            <a
-              href={updatePath(link.href)}
-              target={link.target}
-              class={`ts-text-link vertical-rl text-xl leading-none ${isHome && link.href === '/' && 'text-silver-chalice'} ${!isHome && link.href.includes(path) && 'text-silver-chalice'}`}
-              data-vertical="rl"
-              data-stalker-color="bright"
-            >
-              {link.text}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+  <footer
+    id="footer"
+    class="absolute -top-[110%] left-0 w-full pt-[9rem] md:pt-[22rem] pb-5 text-pampas bg-mine-shaft-texture overflow-hidden"
+  >
+    <div class="container px-5 md:px-20">
+      <ul class="flex flex-row-reverse gap-8 justify-center">
+        {
+          footerLinks.map(link => (
+            <li class="relative flex flex-col items-center">
+              {!isHome && link.href.includes(path) ? (
+                <FooterDisk />
+              ) : (
+                isHome && link.href === '/' && <FooterDisk />
+              )}
+              <a
+                href={updatePath(link.href)}
+                target={link.target}
+                class={`ts-text-link vertical-rl text-xl leading-none ${isHome && link.href === '/' && 'text-silver-chalice'} ${!isHome && link.href.includes(path) && 'text-silver-chalice'}`}
+                data-vertical="rl"
+                data-stalker-color="bright"
+              >
+                {link.text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
 
-    <div class="hidden md:flex justify-end mt-[15.5rem]">
-      <a
-        href="#"
-        class="ts-text-link ts-anchor text-lg font-serif-en"
-        data-stalker-color="bright">BACK TO TOP</a
-      >
-    </div>
+      <div class="hidden md:flex justify-end mt-[15.5rem]">
+        <a
+          href="#"
+          class="ts-text-link ts-anchor text-lg font-serif-en"
+          data-stalker-color="bright">BACK TO TOP</a
+        >
+      </div>
 
-    <ul
-      class="font-serif-en flex flex-wrap gap-y-4 gap-x-7 md:gap-8
+      <ul
+        class="font-serif-en flex flex-wrap gap-y-4 gap-x-7 md:gap-8
       items-center justify-center md:justify-between
       pt-10 border-t border-emperor mt-28 md:mt-6"
-    >
-      {
-        snsLinks.map(link => (
-          <li class="inline-block">
-            <a
-              href={link.href}
-              target={link.target}
-              class="ts-text-link md:text-xl"
-              data-stalker-color="bright"
-            >
-              {link.text}
-            </a>
-          </li>
-        ))
-      }
+      >
+        {
+          snsLinks.map(link => (
+            <li class="inline-block">
+              <a
+                href={link.href}
+                target={link.target}
+                class="ts-text-link md:text-xl"
+                data-stalker-color="bright"
+              >
+                {link.text}
+              </a>
+            </li>
+          ))
+        }
 
-      <li class="inline-block md:ml-auto w-full md:w-auto text-center">
-        <small class="text-silver-chalice text-base">
-          &copy; 2024 Taiki Sato
-        </small>
-      </li>
-    </ul>
-  </div>
+        <li class="inline-block md:ml-auto w-full md:w-auto text-center">
+          <small class="text-silver-chalice text-base">
+            &copy; 2024 Taiki Sato
+          </small>
+        </li>
+      </ul>
+    </div>
 
-  <div class="mt-9 md:mt-10">
-    <ul class="contact flex flex-nowrap whitespace-nowrap">
-      {
-        Array.from({ length: 10 }).map(_ => (
-          <li class="mx-10 md:mx-14">
-            <a
-              href="mailto:hoge@hoge.com?subject=お問い合わせ"
-              target="_blank"
-              class="ts-text-link text-8xl md:text-[15rem] leading-none text-taupe-gray font-serif-en"
-              data-stalker-color="bright"
-            >
-              GET IN CONTACT
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-</footer>
+    <div class="mt-9 md:mt-10">
+      <ul class="contact flex flex-nowrap whitespace-nowrap">
+        {
+          Array.from({ length: 10 }).map(_ => (
+            <li class="mx-10 md:mx-14">
+              <a
+                href="mailto:hoge@hoge.com?subject=お問い合わせ"
+                target="_blank"
+                class="ts-text-link text-8xl md:text-[15rem] leading-none text-taupe-gray font-serif-en"
+                data-stalker-color="bright"
+              >
+                GET IN CONTACT
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </footer>
+</div>
 
 <style lang="scss">
   .contact {
@@ -105,3 +115,26 @@ const isHome = path === '/';
     }
   }
 </style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const footer = document.getElementById('footer');
+  const wrapper = document.getElementById('footer-wrapper');
+  const height = footer?.getBoundingClientRect().height;
+  if (wrapper) wrapper.style.height = `${height}px`;
+  const trigger = wrapper?.dataset.trigger;
+
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: wrapper,
+        start: `top ${trigger}`,
+        end: () => `+=${height}`,
+        scrub: true,
+      },
+    })
+    .to(footer, { top: 0, ease: 'Power4.out' });
+</script>

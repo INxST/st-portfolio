@@ -9,6 +9,9 @@ import Item from './Item.astro';
   <div
     class="contents-full text-pampas relative py-[4.6rem] md:py-44 h-screen overflow-hidden"
   >
+    <div class="bg-mine-shaft-texture absolute top-0 left-0 w-full h-full">
+    </div>
+
     <div class="flex justify-between">
       <ul class="flex-1 flex flex-col items-start">
         {parallaxGalleryItems.left.map(item => <Item item={item} />)}
@@ -31,7 +34,9 @@ import Item from './Item.astro';
         />
       </div>
 
-      <div class="mt-16 md:mt-[5.5rem]">
+      <div
+        class="ts-focus-in data-[active='true']:animate-text-focus-in mt-16 md:mt-[5.5rem]"
+      >
         <More color="bright" href="/about" />
       </div>
     </div>

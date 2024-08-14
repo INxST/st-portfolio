@@ -12,6 +12,7 @@ const animation = () => {
   const hero = document.getElementById('hero');
   const height = hero?.clientHeight;
   const moonMask = document.getElementById('moon-mask');
+  const container = document.getElementById('hero-container');
 
   gsap
     .timeline({
@@ -23,7 +24,11 @@ const animation = () => {
       },
     })
     .to(moonMask, { right: 150, ease: 'Power4.out' })
-    .to(hero, { autoAlpha: 0, scale: 1.1, ease: 'Power4.out' }, '<');
+    .to(
+      container,
+      { transform: 'translate3d(0, 20rem, 0)', ease: 'Power4.out' },
+      '<'
+    );
 };
 
 export default animation;

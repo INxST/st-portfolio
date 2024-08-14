@@ -8,7 +8,9 @@ interface Props {
 }
 
 const { sub, title, href, isSpHorizontal } = Astro.props;
-const classNameWrapper = cn('text-current flex');
+const classNameWrapper = cn(
+  'ts-focus-in data-[active="true"]:animate-text-focus-in text-current flex'
+);
 const classNameContainer = cn('md:vertical-rl grid gap-2 md:gap-4', {
   'vertical-rl': !isSpHorizontal,
 });
