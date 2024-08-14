@@ -4,9 +4,9 @@ import footerLinks from '@/data/footerLinks';
 import FooterDisk from './FooterDisk.astro';
 import snsLinks from '@/data/snsLinks';
 interface Props {
-  start?: string;
+  start: string;
 }
-const { start = 'top bottom' } = Astro.props;
+const { start } = Astro.props;
 const path = Astro.url.pathname;
 const isHome = path === '/';
 ---
@@ -132,7 +132,7 @@ const isHome = path === '/';
       scrollTrigger: {
         trigger: wrapper,
         start: () => `${start}`,
-        end: () => `+=${height! * 0.8}`,
+        end: () => `+=${height! * 0.9}`,
         scrub: true,
       },
     })
