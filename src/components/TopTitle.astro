@@ -9,7 +9,7 @@ interface Props {
 
 const { sub, title, href, isSpHorizontal } = Astro.props;
 const classNameWrapper = cn(
-  'ts-top-title text-current flex data-[active="true"]:animate-text-focus-in'
+  'ts-focus-in data-[active="true"]:animate-text-focus-in text-current flex'
 );
 const classNameContainer = cn('md:vertical-rl grid gap-2 md:gap-4', {
   'vertical-rl': !isSpHorizontal,
@@ -37,18 +37,3 @@ const classNameMain = cn(
     </span>
   </a>
 </h2>
-
-<script>
-  const targets = document.querySelectorAll('.ts-top-title');
-  // 表示領域に入ったらdata-activeをtrueにする
-  targets.forEach(target => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          target.setAttribute('data-active', 'true');
-        }
-      });
-    });
-    observer.observe(target);
-  });
-</script>
