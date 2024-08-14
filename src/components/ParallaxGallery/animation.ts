@@ -19,9 +19,10 @@ const animation = () => {
     },
   });
 
-  images.forEach(image => {
-    const yPercent = yPercents[Math.floor(Math.random())];
-    const scrub = scrubs[Math.floor(Math.random())];
+  images.forEach((image, i) => {
+    // iの値によってyPercentとscrubの値を変える
+    const yPercent = yPercents[i % yPercents.length];
+    const scrub = scrubs[i % scrubs.length];
     gsap.set(image, { zIndex: yPercent / 100, position: 'relative' });
     gsap.fromTo(
       image,
@@ -48,7 +49,7 @@ const animation = () => {
     images.forEach(image => {
       const targetPos = image.getBoundingClientRect().top + scroll;
 
-      if (scroll > targetPos - windowHeight) {
+      if (scroll > targetPos - windowHeight / 2) {
         image.classList.add('is-active');
       }
     });

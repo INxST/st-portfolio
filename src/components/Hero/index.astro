@@ -4,79 +4,81 @@ import updatePath from '@/libs/updatePath';
 ---
 
 <section id="hero" class="relative">
-  <div
-    class="bg-mine-shaft-texture contents-full text-silver-chalice py-16 h-screen flex flex-col justify-center"
-  >
-    <div class="grid grid-cols-1 md:grid-cols-3 items-end justify-center">
-      <div
-        class="relative inline-block overflow-hidden w-72 md:w-[37.5rem] h-72 md:h-[37.5rem] md:col-start-2 z-0 mx-auto md:mx-0"
-      >
-        <picture class="w-full h-full">
-          <img src={updatePath('/top/hero/moon.png')} alt="月" />
-          <span
-            id="moon-mask"
-            class="absolute -top-[calc(var(--moon-mask-ajust-size)/2)] -right-[calc(100%+var(--moon-mask-ajust-size))] bg-mine-shaft-texture w-[calc(100%+var(--moon-mask-ajust-size))] h-[calc(100%+var(--moon-mask-ajust-size))] rounded-full"
-          ></span>
-        </picture>
+  <div id="hero-container" class="">
+    <div
+      class="overflow-y-hidden bg-mine-shaft-texture contents-full text-silver-chalice py-16 h-screen flex flex-col justify-center"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-3 items-end justify-center">
+        <div
+          class="relative inline-block overflow-hidden w-72 md:w-[37.5rem] h-72 md:h-[37.5rem] md:col-start-2 z-0 mx-auto md:mx-0"
+        >
+          <picture class="w-full h-full">
+            <img src={updatePath('/top/hero/moon.png')} alt="月" />
+            <span
+              id="moon-mask"
+              class="absolute -top-[calc(var(--moon-mask-ajust-size)/2)] -right-[calc(100%+var(--moon-mask-ajust-size))] bg-mine-shaft-texture w-[calc(100%+var(--moon-mask-ajust-size))] h-[calc(100%+var(--moon-mask-ajust-size))] rounded-full"
+            ></span>
+          </picture>
+        </div>
+
+        <p class="font-serif-en w-96 whitespace-pre-line hidden md:block">
+          {siteInfo.description}
+        </p>
       </div>
 
-      <p class="font-serif-en w-96 whitespace-pre-line hidden md:block">
-        {siteInfo.description}
+      <div
+        class="absolute z-0 top-0 left-1/2 -translate-x-1/2 w-screen h-full overflow-hidden opacity-50 mix-blend-multiply"
+      >
+        <video
+          poster={updatePath('/top/hero/shadow-image.png')}
+          webkit-playsinline
+          playsinline
+          muted
+          autoplay
+          loop
+          class="w-full h-full object-cover"
+        >
+          <source
+            src={updatePath('/top/hero/shadow-movie.mp4')}
+            type="video/mp4"
+          />
+        </video>
+      </div>
+
+      <p class="mt-14 font-serif-en md:text-xl">
+        Web design / Graphic design / Art direction
       </p>
+
+      <h1 class="flex items-end gap-4 md:gap-10">
+        <span
+          class="text-9xl md:text-[17.5rem] leading-none font-serif-en text-taupe-gray -mb-8"
+        >
+          TAIKI SATO
+        </span>
+
+        <span class="inline-flex flex-col vertical-rl text-taupe-gray">
+          <span
+            class="font-serif-en text-sm md:text-lg leading-none whitespace-pre-line"
+          >
+            <span>Portfolio</span>
+          </span>
+          <span
+            class="font-medium text-[2rem] md:text-5xl leading-none whitespace-pre-line"
+          >
+            <span>作品集</span>
+          </span>
+        </span>
+      </h1>
     </div>
 
     <div
-      class="absolute z-0 top-0 left-1/2 -translate-x-1/2 w-screen h-full overflow-hidden opacity-50 mix-blend-multiply"
+      class="scroll-nav w-[1px] h-[17.5rem] bg-emperor absolute bottom-[5px] right-0 z-0 hidden md:block"
     >
-      <video
-        poster={updatePath('/top/hero/shadow-image.png')}
-        webkit-playsinline
-        playsinline
-        muted
-        autoplay
-        loop
-        class="w-full h-full object-cover"
-      >
-        <source
-          src={updatePath('/top/hero/shadow-movie.mp4')}
-          type="video/mp4"
-        />
-      </video>
-    </div>
-
-    <p class="mt-14 font-serif-en md:text-xl">
-      Web design / Graphic design / Art direction
-    </p>
-
-    <h1 class="flex items-end gap-4 md:gap-10">
-      <span
-        class="text-9xl md:text-[17.5rem] leading-none font-serif-en text-taupe-gray -mb-8"
-      >
-        TAIKI SATO
-      </span>
-
-      <span class="inline-flex flex-col vertical-rl text-taupe-gray">
-        <span
-          class="font-serif-en text-sm md:text-lg leading-none whitespace-pre-line"
+      <div class="relative w-full h-full">
+        <div
+          class="scroll-nav__inside w-full h-10 bg-silver-chalice absolute top-0 left-0"
         >
-          <span>Portfolio</span>
-        </span>
-        <span
-          class="font-medium text-[2rem] md:text-5xl leading-none whitespace-pre-line"
-        >
-          <span>作品集</span>
-        </span>
-      </span>
-    </h1>
-  </div>
-
-  <div
-    class="scroll-nav w-[1px] h-[17.5rem] bg-emperor absolute bottom-[5px] right-0 z-0 hidden md:block"
-  >
-    <div class="relative w-full h-full">
-      <div
-        class="scroll-nav__inside w-full h-10 bg-silver-chalice absolute top-0 left-0"
-      >
+        </div>
       </div>
     </div>
   </div>
