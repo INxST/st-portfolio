@@ -48,7 +48,7 @@ const animation = () => {
     images.forEach(image => {
       const targetPos = image.getBoundingClientRect().top + scroll;
 
-      if (scroll > targetPos - windowHeight) {
+      if (scroll > targetPos - windowHeight / 2) {
         image.classList.add('is-active');
       }
     });
