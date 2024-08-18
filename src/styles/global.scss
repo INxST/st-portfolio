@@ -32,6 +32,16 @@ html.lenis body {
   scroll-behavior: auto !important;
 }
 
+body {
+  &.is-no-scroll {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
 .lenis.lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
 }

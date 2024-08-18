@@ -1,10 +1,19 @@
 ---
+import PageLoader from '@/components/PageLoader/index.astro';
 import siteInfo from '@/data/siteInfo';
 import updatePath from '@/libs/updatePath';
 ---
 
+<PageLoader isOpening={true} />
+<div
+  id="opening-bg"
+  class="bg-mine-shaft-texture w-screen h-screen transision-all duration-700
+fixed top-0 left-0 z-50
+[&.is-hidden]:opacity-0 [&.is-hidden]:invisible"
+>
+</div>
 <section id="hero" class="relative">
-  <div id="hero-container" class="">
+  <div id="hero-container">
     <div
       class="overflow-y-hidden bg-mine-shaft-texture contents-full text-silver-chalice py-16 h-screen flex flex-col justify-center"
     >
@@ -27,7 +36,11 @@ import updatePath from '@/libs/updatePath';
       </div>
 
       <div
-        class="absolute z-0 top-0 left-1/2 -translate-x-1/2 w-screen h-full overflow-hidden opacity-50 mix-blend-multiply"
+        id="hero-video"
+        class="absolute z-0 top-0 left-1/2 -translate-x-1/2
+        w-screen h-full overflow-hidden opacity-50
+        mix-blend-multiply transision-all duration-700
+        is-loading [&.is-loading]:z-50"
       >
         <video
           poster={updatePath('/top/hero/shadow-image.png')}
@@ -50,11 +63,9 @@ import updatePath from '@/libs/updatePath';
       </p>
 
       <h1 class="flex items-end gap-4 md:gap-10">
-        <span
-          class="text-9xl md:text-[17.5rem] leading-none font-serif-en text-taupe-gray -mb-8"
-        >
-          TAIKI SATO
-        </span>
+        <picture class="relative z-50 max-w-[20rem] md:max-w-[85rem] flex-1">
+          <img src={updatePath('/top/hero/fv-moving.png')} alt="TAIKI SATO" />
+        </picture>
 
         <span class="inline-flex flex-col vertical-rl text-taupe-gray">
           <span
@@ -85,7 +96,9 @@ import updatePath from '@/libs/updatePath';
 </section>
 
 <script>
+  import loading from './loading';
   import animation from './animation';
+  loading();
   animation();
 </script>
 
