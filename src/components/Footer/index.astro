@@ -31,7 +31,11 @@ const isHome = path === '/';
                 isHome && link.href === '/' && <FooterDisk />
               )}
               <a
-                href={updatePath(link.href)}
+                href={
+                  link.href.includes('mailto:')
+                    ? link.href
+                    : updatePath(link.href)
+                }
                 target={link.target}
                 class={`ts-text-link vertical-rl text-xl leading-none ${isHome && link.href === '/' && 'text-silver-chalice'} ${!isHome && link.href.includes(path) && 'text-silver-chalice'}`}
                 data-vertical="rl"
