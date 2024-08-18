@@ -1,11 +1,13 @@
 const loading = () => {
+  const loader = document.querySelector<HTMLElement>('.ts-page-loader');
+  const isOpening = loader?.dataset.opening === 'true';
   // DOMの読み込みが完了したら実行
   document.addEventListener('DOMContentLoaded', () => {
-    const loader = document.querySelector('.ts-page-loader');
-
-    setTimeout(() => {
-      loader?.classList.add('is-hidden');
-    }, 500);
+    if (!isOpening) {
+      setTimeout(() => {
+        loader?.classList.add('is-hidden');
+      }, 500);
+    }
   });
 };
 
