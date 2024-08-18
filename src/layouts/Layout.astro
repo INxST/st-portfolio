@@ -6,6 +6,7 @@ import '@fontsource/marcellus';
 import type { Meta } from '@/types/Meta';
 import CommonHead from '@/components/CommonHead.astro';
 import siteInfo from '@/data/siteInfo';
+import PageLoader from '@/components/PageLoader/index.astro';
 import Header from '@/components/Header/index.astro';
 import Main from '@/components/Main.astro';
 import Footer from '@/components/Footer/index.astro';
@@ -53,6 +54,7 @@ const bodyClass = cn({
     <CommonHead meta={meta} />
   </head>
   <body class={bodyClass} data-bg-color={theme}>
+    <PageLoader />
     <Header color={theme} />
     <Main
       isContainer={isContainer}
