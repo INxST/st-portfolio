@@ -1,4 +1,5 @@
 import type { Link } from '@/types/Link';
+import mail from './mail';
 
 export const footerLinks: Link[] = [
   {
@@ -15,7 +16,7 @@ export const footerLinks: Link[] = [
   },
   {
     text: 'お問い合わせ',
-    href: 'mailto:hoge@hoge.com?subject=お問い合わせ',
+    href: mail,
     target: '_blank',
   },
 ];
