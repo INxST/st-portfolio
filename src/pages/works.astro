@@ -3,7 +3,8 @@ import Layout from '@/layouts/Layout.astro';
 import WorksSlide from '@/components/WorksSlide';
 import works from '@/data/works';
 import Stalker from '@/components/Stalker';
-const path = import.meta.env.TARGET === 'gh-pages' ? '/st-portfolio' : '';
+import updatePath from '@/libs/updatePath';
+const path = updatePath();
 const title = '制作実績';
 const titleEn = 'WORKS';
 ---

@@ -8,7 +8,12 @@ const site =
   env.TARGET === 'gh-pages'
     ? 'https://inxst.github.io'
     : 'https://taikisato.com';
-const base = env.TARGET === 'gh-pages' ? '/st-portfolio' : '';
+const base =
+  env.TARGET === 'gh-pages'
+    ? '/st-portfolio'
+    : env.SUB_DIR
+      ? `/${env.SUB_DIR}`
+      : '';
 
 // https://astro.build/config
 export default defineConfig({
