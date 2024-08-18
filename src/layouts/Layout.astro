@@ -3,7 +3,8 @@ import '@fontsource/zen-old-mincho/400.css';
 import '@fontsource/zen-old-mincho/500.css';
 import '@fontsource/zen-old-mincho/600.css';
 import '@fontsource/marcellus';
-import { SEO } from 'astro-seo';
+import type { Meta } from '@/types/Meta';
+import CommonHead from '@/components/CommonHead.astro';
 import siteInfo from '@/data/siteInfo';
 import Header from '@/components/Header/index.astro';
 import Main from '@/components/Main.astro';
@@ -30,7 +31,7 @@ const {
   isOverflowXHidden = true,
   isFooter = false,
 } = Astro.props;
-const meta = {
+const meta: Meta = {
   title: title ? `${title} | ${siteInfo.appName}` : siteInfo.appName,
   description: description || siteInfo.description,
   author: siteInfo.author,
@@ -49,39 +50,7 @@ const bodyClass = cn({
 <!doctype html>
 <html lang="ja">
   <head>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="icon" href="/common/logo.svg" sizes="any" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/common/apple-touch-icon.png" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <SEO
-      charset="UTF-8"
-      title={meta.title}
-      description={meta.description}
-      openGraph={{
-        basic: {
-          title: meta.title,
-          type: 'website',
-          image: meta.image,
-        },
-        image: {
-          alt: meta.title,
-        },
-        optional: {
-          siteName: siteInfo.appName,
-          description: meta.description,
-          locale: 'ja_JP',
-        },
-      }}
-      twitter={{
-        card: 'summary',
-        site: siteInfo.x,
-        title: meta.title,
-        description: meta.description,
-        image: meta.image,
-        imageAlt: meta.title,
-        creator: siteInfo.x,
-      }}
-    />
+    <CommonHead meta={meta} />
   </head>
   <body class={bodyClass} data-bg-color={theme}>
     <Header color={theme} />

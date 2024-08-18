@@ -1,0 +1,43 @@
+---
+import { SEO } from 'astro-seo';
+import type { Meta } from '@/types/Meta';
+import siteInfo from '@/data/siteInfo';
+interface Props {
+  meta: Meta;
+}
+const { meta } = Astro.props;
+---
+
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" href="/common/logo.svg" sizes="any" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/common/apple-touch-icon.png" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<SEO
+  charset="UTF-8"
+  title={meta.title}
+  description={meta.description}
+  openGraph={{
+    basic: {
+      title: meta.title,
+      type: 'website',
+      image: meta.image,
+    },
+    image: {
+      alt: meta.title,
+    },
+    optional: {
+      siteName: siteInfo.appName,
+      description: meta.description,
+      locale: 'ja_JP',
+    },
+  }}
+  twitter={{
+    card: 'summary',
+    site: siteInfo.x,
+    title: meta.title,
+    description: meta.description,
+    image: meta.image,
+    imageAlt: meta.title,
+    creator: siteInfo.x,
+  }}
+/>
