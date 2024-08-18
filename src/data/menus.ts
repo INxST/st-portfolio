@@ -1,4 +1,5 @@
 import type { Link } from '@/types/Link';
+import mail from './mail';
 
 export type Menu = Link & {
   number: string;
@@ -28,7 +29,8 @@ const menus: Menu[] = [
     number: '四',
     en: 'CONTACT',
     text: 'お問い合わせ',
-    href: '/contact/',
+    href: mail,
+    target: '_blank',
   },
 ];
 

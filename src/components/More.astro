@@ -1,5 +1,6 @@
 ---
 import type { ThemeColor } from '@/types/ThemeColor';
+import updatePath from '@/libs/updatePath';
 interface Props {
   href: string;
   color: ThemeColor;
@@ -9,7 +10,7 @@ const { href, color } = Astro.props;
 ---
 
 <a
-  href={href}
+  href={updatePath(href)}
   class="ts-more group inline-block font-serif-en md:text-lg leading-none relative
 border rounded-[50%] py-5 md:py-6 px-10 md:px-12 transition-colors duration-1000 overflow-hidden
 data-[color='bright']:border-silver-chalice data-[color='bright']:text-pampas data-[color='bright']:hover:border-black data-[color='bright']:hover:text-black

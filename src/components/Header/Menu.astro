@@ -41,7 +41,12 @@ import updatePath from '@/libs/updatePath';
                 return (
                   <li class="leading-none flex">
                     <a
-                      href={updatePath(menu.href)}
+                      href={
+                        menu.href.includes('mailto:')
+                          ? menu.href
+                          : updatePath(menu.href)
+                      }
+                      target={menu.target}
                       class="relative group vertical-rl"
                       data-stalker-color="bright"
                     >

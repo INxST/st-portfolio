@@ -1,9 +1,11 @@
 import type { Link } from '@/types/Link';
+import mail from './mail';
 
 const headerLinks: Link[] = [
   {
     text: 'お問い合わせ',
-    href: '/contact/',
+    href: mail,
+    target: '_blank',
   },
   {
     text: '制作実績',

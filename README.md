@@ -36,6 +36,12 @@ pnpm install --frozen-lockfile
 pnpm dev
 ```
 
+### 開発サーバー起動　サブディレクトリ指定
+
+```bash
+SUB_DIR=dir pnpm dev
+```
+
 ### コード整形
 
 ```bash
@@ -46,6 +52,12 @@ pnpm format
 
 ```bash
 pnpm build
+```
+
+### ビルド　サブディレクトリ指定
+
+```bash
+SUB_DIR=dir pnpm build
 ```
 
 ## 更新方法
