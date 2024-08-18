@@ -5,7 +5,9 @@ import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 const env = loadEnv(process.env.NODE_ENV, process.cwd(), '');
 const site =
-  env.TARGET === 'gh-pages' ? 'https://inxst.github.io' : 'https://hoge.com';
+  env.TARGET === 'gh-pages'
+    ? 'https://inxst.github.io'
+    : 'https://taikisato.com';
 const base = env.TARGET === 'gh-pages' ? '/st-portfolio' : '';
 
 // https://astro.build/config
