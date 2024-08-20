@@ -8,6 +8,7 @@ import Stalker from '@/components/Stalker';
 import getWork from '@/libs/getWork';
 import NextWork from '@/components/NextWork.astro';
 import DetailInfo from '@/components/DetailInfo.astro';
+import updatePath from '@/libs/updatePath';
 const pathname = Astro.url.pathname;
 const { work, nextWork } = getWork(pathname);
 ---
@@ -28,25 +29,16 @@ const { work, nextWork } = getWork(pathname);
       <DetailSection title="(Overview)">
         <div class="md:text-lg flex flex-col gap-4">
           <p>
-            自主制作として、繊維メーカーのWebデザインを制作しました。<br />
-            高品質な製品で人体や環境に配慮され、世界シェアでもトップを誇る繊維メーカーの企業を設定し、そちらの提案としてWebサイトのアートディレクションとデザインを行いました。
-          </p>
-
-          <p class="flex gap-4 md:gap-12 font-serif-en mt-12">
-            <span class="text-gray">URL</span>
-            <a
-              class="underline"
-              href="https://taikisato.com/"
-              target="_blank"
-              rel="noopener noreferrer">https://taikisato.com/</a
-            >
+            自主制作として、繊維メーカーのロゴ・名刺・Webデザインを行いました。
+            高品質な製品で人体や環境に配慮され、世界シェアでもトップを誇る繊維メーカーの企業を設定し、そちらの提案として「らしさ」を表現すべく、製品だけではなく、人体や環境に配慮された製品が紡いでいく”未来”といったところを表現する「繊維が紡ぐ人と地球の未来」というコンセプトを策定しました。
+            このコンセプトを元に一貫したブランディングを行うべくWebサイトやロゴのアートディレクションとデザインを行いました。
           </p>
         </div>
       </DetailSection>
 
       <picture class="ts-horizontal-scroll-item">
         <img
-          src="https://placehold.jp/1080x1080.png"
+          src={updatePath(`/detail/${work?.slug}/1.jpg`)}
           alt=""
           class="ts-image-white-in md:h-full"
         />
@@ -68,9 +60,7 @@ const { work, nextWork } = getWork(pathname);
         <DescriptionList>
           <span slot="title">情報設計</span>
           <span slot="description"
-            >ユーザーに対して企業の強みを訴求できるように、企業の特長ページへの遷移導線をファーストビューに設置しています。<br
-            />
-            トップでは重要なところに動画やモーションなども使用することでユーザーの視線いくように設計しております。<br
+            >Webサイトでは、ユーザーに対して企業の強みを訴求できるように、企業の特長ページへの遷移導線をファーストビューに設置しています。そしてトップページでは重要なコンテンツとなる箇所に動画やモーションなども使用することでユーザーの視線いくように設計しております。<br
             />
             また、製品詳細やソリューションページでは詳細な情報も見やすく迷わないようにアンカーリンクを設けるなど、ユーザーが使いやすく見やすい設計を意識しております。</span
           >
@@ -78,16 +68,16 @@ const { work, nextWork } = getWork(pathname);
         <DescriptionList>
           <span slot="title">デザイン</span>
           <span slot="description"
-            >製品だけではなくその人体や環境に配慮された製品が紡いでいく”未来”といったところを表現する「繊維が紡ぐ人と地球の未来」というコンセプトを策定しました。<br
+            >定めたデザインコンセプトをもとにクリアで洗練されたような印象を与えるデザインに展開し、しなやかな強さを表現することで業界を引っ張っていく企業としての力強さを表しました。<br
             />
-            このコンセプトをもとにクリアで洗練されたような印象を与えるデザインに展開し、グラデーションやトーンの高い画像などで未来を表現しました。<br
+            ロゴはAvenir Nextをベースとし、文字同士をくっつけたり巻き付くような形をにより未来へ紡いでいく、という想いを表現しております。そして特徴的な「O」の形をサインとしても展開し、様々な用途に活用することで、ロゴの印象訴求をおこなっております。<br
             />
-            環境に配慮された地球であったり紡がれていく繋がりの表現として円を、繊維のモチーフとして線を活用し、らしさのあるデザインを意識しました。</span
+            また、Webサイトではグラデーションやトーンの高い画像などで未来を表現し、環境に配慮された地球であったり紡がれていく繋がりの表現として円、そして繊維のモチーフとして線を活用し、らしさのあるデザインを意識しました。採用ページ側では、トップの印象を残しつつグラデーションの色味調整やアクセントとしてオレンジを使用することでよりダイナミックな雰囲気を追加し、企業の活動的な特色を色濃く反映させております。</span
           >
         </DescriptionList>
         <DescriptionList>
           <span slot="title">制作範囲</span>
-          <span slot="description">Webデザイン/Web構成要素</span>
+          <span slot="description">ロゴ/名刺/Webデザイン/Web構成要素</span>
         </DescriptionList>
       </DetailSection>
 
@@ -97,7 +87,16 @@ const { work, nextWork } = getWork(pathname);
             <li>
               <picture>
                 <img
-                  src="https://placehold.jp/824x840.png"
+                  src={updatePath(`/detail/${work?.slug}/2.jpg`)}
+                  alt=""
+                  class="ts-image-white-in md:h-full"
+                />
+              </picture>
+            </li>
+            <li>
+              <picture>
+                <img
+                  src={updatePath(`/detail/${work?.slug}/3.jpg`)}
                   alt=""
                   class="ts-image-white-in md:h-full"
                 />
@@ -107,7 +106,7 @@ const { work, nextWork } = getWork(pathname);
               <li>
                 <picture>
                   <img
-                    src="https://placehold.jp/640x400.png"
+                    src={updatePath(`/detail/${work?.slug}/4.jpg`)}
                     alt=""
                     class="ts-image-white-in"
                   />
@@ -117,7 +116,7 @@ const { work, nextWork } = getWork(pathname);
               <li>
                 <picture>
                   <img
-                    src="https://placehold.jp/640x400.png"
+                    src={updatePath(`/detail/${work?.slug}/5.jpg`)}
                     alt=""
                     class="ts-image-white-in"
                   />
@@ -127,9 +126,30 @@ const { work, nextWork } = getWork(pathname);
             <li>
               <picture>
                 <img
-                  src="https://placehold.jp/824x840.png"
+                  src={updatePath(`/detail/${work?.slug}/6.jpg`)}
                   alt=""
                   class="ts-image-white-in"
+                />
+              </picture>
+            </li>
+            <li>
+              <picture>
+                <img
+                  src={updatePath(`/detail/${work?.slug}/7.jpg`)}
+                  alt=""
+                  class="ts-image-white-in"
+                />
+              </picture>
+            </li>
+            <li>
+              <picture>
+                <source
+                  srcset={updatePath(`/detail/${work?.slug}/concept-pc.jpg`)}
+                  media="(min-width: 768px)"
+                />
+                <img
+                  src={updatePath(`/detail/${work?.slug}/concept-sp.jpg`)}
+                  alt=""
                 />
               </picture>
             </li>
