@@ -8,7 +8,7 @@ const snsLinks: Link[] = [
   },
   {
     text: 'INSTAGRAM',
-    href: '#',
+    href: 'https://www.instagram.com/taikisato_/',
     target: '_blank',
   },
 ];
