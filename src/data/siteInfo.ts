@@ -1,7 +1,7 @@
 const siteInfo = {
-  appName: 'EXPLORING the Ideas OF TAIKI SATO',
-  description: `I am Taiki Sato, a visual designer.
-I am good at balancing logical and intuitive thinking, function and emotion, stillness and movement, and seeking and expressing the best visual expression that fulfills user needs and objectives.`,
+  appName: 'TAIKI SATO Portfolio',
+  description:
+    '論理的思考と直感的思考、機能と情緒、静と動、これらのバランスをとりユーザーニーズや目的を叶える最適な視覚表現を模索し表現することが得意です。デザインの可能性を信じ、そして情熱を持って取り組み、クリエイティビティと美しさを備えたユーザーに届くデザインを提供します。',
   author: 'TAIKI SATO',
   x: '@0521taiki1',
 };
