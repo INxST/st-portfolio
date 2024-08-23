@@ -10,6 +10,7 @@ import Header from '@/components/Header/index.astro';
 import Footer from '@/components/Footer/index.astro';
 import Main from '@/components/Main.astro';
 import '@/styles/global.scss';
+import updatePath from '@/libs/updatePath';
 interface Props {
   title?: string;
   description?: string;
@@ -26,6 +27,24 @@ const meta: Meta = {
 <!doctype html>
 <html lang="ja">
   <head>
+    <link
+      rel="preload"
+      as="image"
+      href={updatePath('/top/hero/fv-moving.png')}
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href={updatePath('/top/hero/moon.png')}
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href={updatePath('/top/hero/shadow-image.png')}
+      fetchpriority="high"
+    />
     <CommonHead meta={meta} />
   </head>
   <body
