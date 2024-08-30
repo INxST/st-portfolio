@@ -26,6 +26,18 @@ const works: Work[] = [
     imageTop: '/detail/misia-forest/mv-pc.jpg',
   },
   {
+    slug: 'sauna1f',
+    title: 'SAUNA1/f',
+    year: '2024',
+    categories: ['PRIVATE WORKS'],
+    tags: ['ART DIRECTION', 'GRAPHIC DESIGN'],
+    image: '/detail/sauna1f/mv-vertical.jpg',
+    mv: '/detail/sauna1f/mv-pc.jpg',
+    mvSp: '/detail/sauna1f/mv-sp.jpg',
+    isTop: true,
+    imageTop: '/detail/sauna1f/mv-pc.jpg',
+  },
+  {
     slug: 'sato-noodle',
     title: '佐藤製麺所',
     year: '2022',
