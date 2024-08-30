@@ -47,6 +47,7 @@ fixed top-0 left-0 z-50
         <video
           poster={updatePath('/top/hero/shadow-image.png')}
           webkit-playsinline
+          preload="auto"
           playsinline
           muted
           autoplay
@@ -104,9 +105,22 @@ fixed top-0 left-0 z-50
   animation();
 </script>
 
-<style>
-  .next-mask-text {
-    animation: nextMaskText 3s infinite;
+<style lang="scss">
+  video {
+    &::-webkit-media-controls-panel {
+      display: none !important;
+      -webkit-appearance: none;
+    }
+
+    &:state(webkit-media-controls-play-button) {
+      display: none !important;
+      -webkit-appearance: none;
+    }
+
+    &::-webkit-media-controls-start-playback-button {
+      display: none !important;
+      -webkit-appearance: none;
+    }
   }
 
   .scroll-nav__inside {
