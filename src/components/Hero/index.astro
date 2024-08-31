@@ -16,20 +16,17 @@ fixed top-0 left-0 z-50
     <div
       class="overflow-y-hidden bg-mine-shaft-texture contents-full text-silver-chalice py-16 h-screen flex flex-col justify-center"
     >
-      <div class="grid grid-cols-1 md:grid-cols-3 items-end justify-center">
+      <div
+        class="flex flex-col lg:grid lg:grid-cols-3 lg:items-end justify-center"
+      >
         <div
-          class="relative inline-block overflow-hidden w-72 md:w-[37.5rem] h-72 md:h-[37.5rem] md:col-start-2 z-0 mx-auto md:mx-0"
+          class="relative inline-block overflow-hidden w-72 md:w-[50vw] lg:w-[34rem] h-72 md:h-[50vw] lg:h-[34rem] md:col-start-2 z-0 mx-auto lg:mx-0"
         >
-          <picture class="w-full h-full">
-            <img src={updatePath('/top/hero/moon.png')} alt="月" />
-            <span
-              id="moon-mask"
-              class="absolute -top-[calc(var(--moon-mask-ajust-size)/2)] -right-[calc(100%+var(--moon-mask-ajust-size))] bg-mine-shaft-texture w-[calc(100%+var(--moon-mask-ajust-size))] h-[calc(100%+var(--moon-mask-ajust-size))] rounded-full"
-            ></span>
-          </picture>
+          <canvas id="moon" class="w-full h-full" width="600" height="600"
+          ></canvas>
         </div>
 
-        <p class="font-serif-en w-96 hidden md:block">
+        <p class="font-serif-en ml-auto mt-4 lg:m-0 w-96 hidden md:block">
           I am Taiki Sato, a visual designer. <br />I am good at balancing
           logical and intuitive thinking, function and emotion, stillness and
           movement, and seeking and expressing the best visual expression that
