@@ -20,6 +20,7 @@ interface Props {
   isContainer?: boolean;
   maxW?: boolean;
   isOverflowXHidden?: boolean;
+  isOverflowYHidden?: boolean;
   isFooter?: boolean;
 }
 
@@ -30,6 +31,7 @@ const {
   isContainer = true,
   maxW = false,
   isOverflowXHidden = true,
+  isOverflowYHidden = false,
   isFooter = false,
 } = Astro.props;
 const meta: Meta = {
@@ -45,6 +47,7 @@ const bodyClass = cn({
   'bg-gray-texture': theme === 'bright',
   'bg-mine-shaft-texture': theme === 'dark',
   'overflow-x-hidden': true,
+  'overflow-y-hidden': isOverflowYHidden,
 });
 ---
 

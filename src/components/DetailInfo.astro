@@ -8,12 +8,14 @@ const { work } = Astro.props;
 ---
 
 <section
-  class="ts-horizontal-scroll-item md:mr-[41rem]
+  class="ts-horizontal-scroll-item md:mr-[23.75rem]
 flex flex-col justify-end items-start md:pb-[7.5rem]
-mt-28 md:mt-0 px-5 md:px-0"
+mt-28 md:mt-0 px-5 md:px-0 md:w-[40rem]"
 >
-  <h1 class="md:w-1/2 flex flex-col gap-4">
-    <span class="text-[2rem] md:text-5xl font-semibold">{work?.title}</span>
+  <h1 class="w-full flex flex-col gap-4 whitespace-normal">
+    <span class="text-[2rem] md:text-5xl font-medium block w-full"
+      >{work?.title}</span
+    >
     {
       work?.categories.map(category => (
         <span class="font-serif-en md:text-lg">{category}</span>
@@ -22,7 +24,7 @@ mt-28 md:mt-0 px-5 md:px-0"
   </h1>
 
   <div
-    class="md:w-1/2 mt-16 md:mt-24 flex flex-col md:flex-row gap-4 md:gap-20"
+    class="w-full mt-16 md:mt-24 flex flex-col md:flex-row gap-4 md:gap-20 whitespace-normal"
   >
     <p class="flex flex-col gap-2">
       <span class="text-gray">ROLE</span>
@@ -50,11 +52,11 @@ block">
   <source
     srcset={updatePath(work?.mv)}
     media="(min-width: 768px)"
-    class="ts-image-white-in md:h-full"
+    class="md:h-full"
   />
   <img
     src={updatePath(work?.mvSp)}
-    alt=""
-    class="ts-image-white-in md:h-full"
+    alt={`${work?.title}のメインイメージ`}
+    class="md:h-full"
   />
 </picture>
