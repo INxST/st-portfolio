@@ -9,9 +9,11 @@ const loading = () => {
     if (!isOpening) {
       setTimeout(() => {
         loader?.classList.add('is-hidden');
-        body.classList.remove(classLoading);
       }, 500);
     }
+    setTimeout(() => {
+      body.classList.remove(classLoading);
+    }, 500);
   });
 };
 
