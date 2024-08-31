@@ -2,6 +2,7 @@
 import updatePath from '@/libs/updatePath';
 import footerLinks from '@/data/footerLinks';
 import FooterDisk from './FooterDisk.astro';
+import Contact from './Contact.astro';
 import snsLinks from '@/data/snsLinks';
 interface Props {
   start: 'bottom' | 'center';
@@ -85,22 +86,17 @@ const isHome = path === '/';
     </div>
 
     <div class="mt-9 md:mt-10 pb-5">
-      <ul class="contact flex flex-nowrap whitespace-nowrap">
-        {
-          Array.from({ length: 10 }).map(_ => (
-            <li class="mx-8 md:mx-9">
-              <a
-                href="mailto:hoge@hoge.com?subject=お問い合わせ"
-                target="_blank"
-                class="ts-text-link text-8xl md:text-[15rem] leading-none text-taupe-gray font-serif-en"
-                data-stalker-color="bright"
-              >
-                GET&nbsp;IN&nbsp;CONTACT
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+      <div class="contact">
+        <a
+          href="mailto:hoge@hoge.com?subject=お問い合わせ"
+          target="_blank"
+          class="flex flex-nowrap whitespace-nowrap group"
+          data-stalker-color="bright"
+          aria-label="GET IN CONTACT"
+        >
+          {Array.from({ length: 10 }).map(_ => <Contact />)}
+        </a>
+      </div>
     </div>
   </footer>
 </div>
