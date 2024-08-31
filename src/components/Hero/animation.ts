@@ -10,21 +10,13 @@ const animation = () => {
   const container = document.getElementById('hero-container');
 
   const frameCount = 133;
+  const path = location.pathname.split('/')[1];
   const urls = new Array(frameCount)
     .fill(null)
-    .map((_o, i) => `/top/moon/moon_${i.toString().padStart(3, '0')}.png`);
-
-  // 1枚目の画像にリクエストを送り、存在するかを確認
-  const img = new Image();
-  img.src = urls[0];
-  // 画像が存在しない場合は画像のパスに第一ディレクトリを追加
-  if (!img.complete) {
-    const path = location.pathname.split('/')[1];
-    console.log(path);
-    urls.forEach((url, i) => {
-      urls[i] = `/${path}${url}`;
-    });
-  }
+    .map(
+      (_o, i) =>
+        `${path ? path : ''}/top/moon/moon_${i.toString().padStart(3, '0')}.png`
+    );
 
   imageSequence({
     urls,
