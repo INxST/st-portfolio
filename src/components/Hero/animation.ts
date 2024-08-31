@@ -1,7 +1,6 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import imageSequence from './imageSequence';
-import updatePath from '@/libs/updatePath';
 
 const animation = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -11,14 +10,13 @@ const animation = () => {
   const container = document.getElementById('hero-container');
 
   const frameCount = 133;
+  const path = location.pathname.split('/')[1];
   const urls = new Array(frameCount)
     .fill(null)
     .map(
       (_o, i) =>
-        `${updatePath('/top/moon')}/moon_${i.toString().padStart(3, '0')}.png`
+        `${path ? path : ''}/top/moon/moon_${i.toString().padStart(3, '0')}.png`
     );
-
-  console.log(height);
 
   imageSequence({
     urls,
