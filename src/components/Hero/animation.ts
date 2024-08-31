@@ -18,8 +18,6 @@ const animation = () => {
         `${updatePath('/top/moon')}/moon_${i.toString().padStart(3, '0')}.png`
     );
 
-  console.log(height);
-
   imageSequence({
     urls,
     canvas: '#moon',
