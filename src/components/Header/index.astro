@@ -1,5 +1,6 @@
 ---
 import headerLinks from '@/data/headerLinks';
+import Logo from './Logo.astro';
 import Disc from '@/components/Disc.astro';
 import Menu from '@/components/Header/Menu.astro';
 import type { ThemeColor } from '@/types/ThemeColor';
@@ -21,12 +22,11 @@ const path = Astro.url.pathname;
   <div class="container flex items-start py-5 md:py-10 px-5 md:px-20">
     <a
       href={updatePath('/')}
-      class="ts-text-link ts-logo font-serif-en text-2xl md:text-4xl text-gray
-      transision-colors data-[color=dark]:text-silver-chalice"
+      class="ts-logo transision-colors [&_svg]:fill-silver-chalice hover:opacity-30 transition-opacity"
+      aria-label="TAIKI SATO"
     >
-      TAIKI&nbsp;SATO</a
-    >
-
+      <Logo />
+    </a>
     <ul
       class="ts-header-list ml-auto gap-8 hidden md:flex
       ease-in-out max-h-[var(--header-list-height)]

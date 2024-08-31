@@ -67,16 +67,16 @@ const stalker = ({ cursor, follower }: Args) => {
         const followerSetX = gsap.quickSetter(follower.current, 'x', 'px');
         const followerSetY = gsap.quickSetter(follower.current, 'y', 'px');
 
-        document.addEventListener('mousemove', function (event) {
+        document.addEventListener('mousemove', event => {
           mouse.x = event.pageX;
-          mouse.y = event.pageY;
+          mouse.y = event.pageY - window.scrollY;
         });
 
-        gsap.ticker.add(function () {
+        gsap.ticker.add(() => {
           const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
 
           pos.x += (mouse.x - pos.x) * dt;
-          pos.y += (mouse.y - pos.y) * dt;
+          pos.y += (mouse.y - pos.y + window.scrollY) * dt;
           cursorSetX(pos.x);
           cursorSetY(pos.y);
           followerSetX(pos.x);

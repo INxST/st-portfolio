@@ -40,6 +40,12 @@ body {
     left: 0;
     width: 100%;
   }
+
+  &.is-loading,
+  &.is-menu-open {
+    overflow: hidden;
+    height: 100%;
+  }
 }
 
 .lenis.lenis-smooth [data-lenis-prevent] {

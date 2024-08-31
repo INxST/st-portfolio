@@ -32,7 +32,7 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
       <div ref={wrapper} className="pt-[var(--header-height)]">
         <ul
           ref={container}
-          className="flex flex-nowrap justify-start whitespace-nowrap h-[calc(100vh-calc(var(--header-height)+3.25rem))] md:h-[calc(100dvh-calc(var(--header-height)+var(--filter-height)))] pt-11 pb-20"
+          className="flex flex-nowrap justify-start whitespace-nowrap h-[calc(100vh-calc(var(--header-height)+3.25rem))] md:h-[calc(100vh-calc(var(--header-height)+var(--filter-height)))] pb-20"
         >
           <li className="mr-20 md:mr-60">
             <TitleVertical jp={title} en={titleEn} />
@@ -58,7 +58,7 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
                   href={`${path}/works/${item.slug}/`}
                   className="ts-image-link flex flex-col h-full"
                 >
-                  <div className="flex flex-1">
+                  <div className="flex">
                     <picture className="flex-1">
                       <img
                         src={`${path}${item.image}`}
@@ -79,11 +79,18 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
                       <span className="inline-block mt-auto">{item.year}</span>
                     </div>
                   </div>
-                  <div className="mt-4">
-                    <h2 className="font-medium text-xl md:text-3xl whitespace-normal">
+                  <div className="mt-4 flex-1">
+                    <h2
+                      className="font-medium text-xl md:text-[1.75rem] whitespace-normal overflow-hidden text-ellipsis"
+                      style={{
+                        display: '-webkit-box',
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: 'vertical',
+                      }}
+                    >
                       {item.title}
                     </h2>
-                    <ul className="flex flex-wrap gap-x-4 gap-y-2 font-serif-en mt-6 text-gray">
+                    <ul className="flex flex-wrap gap-x-4 gap-y-[0.2rem] font-serif-en mt-6 text-gray min-h-[2.2rem]">
                       {item.tags.map((tag, i) => {
                         return <li key={`${item.slug}-${tag}-${i}`}>{tag}</li>;
                       })}

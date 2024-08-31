@@ -14,7 +14,7 @@
 ### Node.jsのバージョンを変更する
 
 バージョン管理ツールインストール後、Node.jsのバージョン
-を[.node-version](.node-version)指定の`20.9.0`に変更してください。
+を[.node-version](.node-version)指定の`22.7.0`に変更してください。
 
 ### pnpmをinstallする
 
