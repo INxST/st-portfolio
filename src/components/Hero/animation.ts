@@ -10,12 +10,11 @@ const animation = () => {
   const container = document.getElementById('hero-container');
 
   const frameCount = 133;
-  const path = location.pathname.split('/')[1];
   const urls = new Array(frameCount)
     .fill(null)
     .map(
       (_o, i) =>
-        `${path ? path : ''}/top/moon/moon_${i.toString().padStart(3, '0')}.png`
+        `${location.href}/top/moon/moon_${i.toString().padStart(3, '0')}.png`
     );
 
   imageSequence({
