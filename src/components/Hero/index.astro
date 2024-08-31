@@ -65,9 +65,16 @@ fixed top-0 left-0 z-50
         Web design / Graphic design / Art direction
       </p>
 
-      <h1 class="flex items-end gap-4 md:gap-10">
+      <h1 class="flex items-end gap-4 md:gap-10 mt-3 md:mt-0">
         <picture class="relative z-50 max-w-[20rem] md:max-w-[85rem] flex-1">
-          <img src={updatePath('/top/hero/fv-moving.png')} alt="TAIKI SATO" />
+          <source
+            srcset={updatePath('/top/hero/fv-moving.png')}
+            media="(min-width: 768px)"
+          />
+          <img
+            src={updatePath('/top/hero/fv-moving-sp.png')}
+            alt="TAIKI SATO"
+          />
         </picture>
 
         <span class="inline-flex flex-col vertical-rl text-taupe-gray">
