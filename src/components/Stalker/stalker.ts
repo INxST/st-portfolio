@@ -67,20 +67,23 @@ const stalker = ({ cursor, follower }: Args) => {
         const followerSetX = gsap.quickSetter(follower.current, 'x', 'px');
         const followerSetY = gsap.quickSetter(follower.current, 'y', 'px');
 
-        document.addEventListener('mousemove', event => {
-          mouse.x = event.pageX;
-          mouse.y = event.pageY - window.scrollY;
-        });
+        const handleMouseMove = (event: MouseEvent) => {
+          mouse.x = event.clientX;
+          mouse.y = event.clientY;
+        };
+
+        document.addEventListener('mousemove', handleMouseMove);
 
         gsap.ticker.add(() => {
           const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
 
           pos.x += (mouse.x - pos.x) * dt;
-          pos.y += (mouse.y - pos.y + window.scrollY) * dt;
+          pos.y += (mouse.y - pos.y) * dt;
+
           cursorSetX(pos.x);
-          cursorSetY(pos.y);
+          cursorSetY(pos.y + window.scrollY);
           followerSetX(pos.x);
-          followerSetY(pos.y);
+          followerSetY(pos.y + window.scrollY);
         });
 
         const dragSelector = '.ts-drag-scroll';
