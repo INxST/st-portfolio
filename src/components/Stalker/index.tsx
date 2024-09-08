@@ -15,7 +15,7 @@ const Stalker = () => {
       ></div>
       <div
         ref={follower}
-        className="follower rounded-full w-10 h-10 pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 border-emperor bg-mine-shaft z-[999] transition-all duration-200 ease-linear mix-blend-overlay"
+        className="follower rounded-full w-10 h-10 pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 border-emperor bg-mine-shaft z-[999] mix-blend-overlay transition-[mix-blend-mode,width,height] duration-300 ease-linear"
       >
         <div className="w-full h-full relative rounded-full">
           <span
