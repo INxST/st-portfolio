@@ -10,6 +10,7 @@ import Video from '@/components/Video.astro';
 import NextWork from '@/components/NextWork.astro';
 import DetailInfo from '@/components/DetailInfo.astro';
 import getWork from '@/libs/getWork';
+import BackToList from '@/components/BackToList.astro';
 const pathname = Astro.url.pathname;
 const { work, nextWork } = getWork(pathname);
 ---
@@ -258,6 +259,7 @@ const { work, nextWork } = getWork(pathname);
         </div>
       </div>
 
+      <BackToList />
       <NextWork work={nextWork} />
     </div>
   </section>
