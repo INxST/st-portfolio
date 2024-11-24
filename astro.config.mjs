@@ -3,6 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import { loadEnv } from 'vite';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
+import partytown from '@astrojs/partytown';
 const env = loadEnv(process.env.NODE_ENV, process.cwd(), '');
 const site =
   env.TARGET === 'gh-pages'
@@ -22,7 +23,16 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true,
   },
-  integrations: [tailwind(), sitemap(), react()],
+  integrations: [
+    tailwind(),
+    sitemap(),
+    react(),
+    partytown({
+      config: {
+        forward: ['dataLayer.push'],
+      },
+    }),
+  ],
   vite: {
     optimizeDeps: {
       exclude: ['fsevents'],

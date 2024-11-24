@@ -24,7 +24,7 @@ import updatePath from '@/libs/updatePath';
         class="ts-menu-close text-pampas font-serif-en border border-emperor
         rounded-[30px] py-[6px] px-4 flex gap-2 items-center
         absolute top-5 md:top-10 right-5 md:right-20
-        group transition-colors duration-700 hover:bg-pampas hover:text-mine-shaft"
+        group transition-colors duration-[0.6s] hover:bg-pampas hover:text-mine-shaft"
         data-stalker-color="bright"
       >
         <span class="inline-block">CLOSE</span>
@@ -34,7 +34,7 @@ import updatePath from '@/libs/updatePath';
       <div class="w-full py-10 flex-1 flex flex-col items-center">
         <div class="w-full flex justify-center items-center flex-1">
           <ul
-            class="max-w-[85%] md:max-w-full w-full md:w-auto flex md:inline-flex flex-row-reverse justify-between md:justify-normal md:gap-12"
+            class="max-w-[85%] md:max-w-full w-full h-full max-h-[22.2rem] md:max-h-[30rem] md:w-auto flex flex-row-reverse justify-between md:justify-normal md:gap-12"
           >
             {
               menus.map(menu => {
@@ -47,35 +47,10 @@ import updatePath from '@/libs/updatePath';
                           : updatePath(menu.href)
                       }
                       target={menu.target}
-                      class="relative group vertical-rl"
+                      class="relative group vertical-rl hover:opacity-70 duration-[0.6s]"
                       data-stalker-color="bright"
                     >
-                      {/* original */}
-                      <span class="md:opacity-0">
-                        <MenuLink menu={menu} />
-                      </span>
-
-                      {/* default */}
-                      <span
-                        style={{
-                          transitionTimingFunction:
-                            'cubic-bezier(0.16, 1, 0.3, 1)',
-                        }}
-                        class="hidden md:block transition-all duration-700 absolute top-0 left-0 group-hover:opacity-0 group-hover:-translate-x-1/2"
-                      >
-                        <MenuLink menu={menu} />
-                      </span>
-
-                      {/* hover */}
-                      <span
-                        style={{
-                          transitionTimingFunction:
-                            'cubic-bezier(0.16, 1, 0.3, 1)',
-                        }}
-                        class="hidden md:block transition-all duration-700 absolute top-0 left-0 opacity-0 translate-x-1/2 group-hover:translate-x-0 group-hover:opacity-100"
-                      >
-                        <MenuLink menu={menu} />
-                      </span>
+                      <MenuLink menu={menu} />
                     </a>
                   </li>
                 );
