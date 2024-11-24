@@ -9,6 +9,7 @@ import updatePath from '@/libs/updatePath';
 import getWork from '@/libs/getWork';
 import NextWork from '@/components/NextWork.astro';
 import DetailInfo from '@/components/DetailInfo.astro';
+import BackToList from '@/components/BackToList.astro';
 const pathname = Astro.url.pathname;
 const { work, nextWork } = getWork(pathname);
 ---
@@ -52,8 +53,9 @@ const { work, nextWork } = getWork(pathname);
       <DetailSection title="(Description)" contentWidth="wide">
         <DescriptionList>
           <span slot="title">コンセプト</span>
-          <span slot="description"
-            > 「ゆらぎを見つめる」<br />都会にいながら喧騒から離れた隔離した空間で、<br />
+          <span slot="description">
+            「ゆらぎを見つめる」<br
+            />都会にいながら喧騒から離れた隔離した空間で、<br />
             サウナによる深いリラックス状態を通して自分を見つめる時間に重きを置いた場所。<br
             />
             水面のゆらぎ、蒸気のゆらぎ、そして自我のゆらぎ。<br />
@@ -159,6 +161,7 @@ const { work, nextWork } = getWork(pathname);
         </div>
       </div>
 
+      <BackToList />
       <NextWork work={nextWork} />
     </div>
   </section>
