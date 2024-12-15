@@ -12,8 +12,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
     "set-nodebrew": "nodebrew use $(cat .node-version)",
     "set-nvm": "nvm use $(cat .node-version)"
   },
