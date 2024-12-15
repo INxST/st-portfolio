@@ -1,4 +1,4 @@
-name: 'Astro Check'
+name: 'Test'
 
 on:
   pull_request:
@@ -22,5 +22,7 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Check with Prettier
+        run: pnpm run format:check
       - name: Check with Astro
         run: pnpm run check
