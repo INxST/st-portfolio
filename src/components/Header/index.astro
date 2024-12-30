@@ -22,7 +22,7 @@ const path = Astro.url.pathname;
   <div class="container flex items-start py-5 md:py-10 px-5 md:px-20">
     <a
       href={updatePath('/')}
-      class="ts-logo transision-colors [&_svg]:fill-silver-chalice hover:opacity-30 transition-opacity"
+      class="ts-logo transition-all [&_svg]:fill-silver-chalice hover:opacity-30"
       aria-label="TAIKI SATO"
     >
       <Logo />
@@ -30,7 +30,7 @@ const path = Astro.url.pathname;
     <ul
       class="ts-header-list ml-auto gap-8 hidden md:flex
       ease-in-out max-h-[var(--header-list-height)]
-      transision-colors group-[header]:data-[color=dark]:text-pampas"
+      transition-colors group-[header]:data-[color=dark]:text-pampas"
     >
       {
         headerLinks.map(link => (
