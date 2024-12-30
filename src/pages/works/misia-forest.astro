@@ -137,11 +137,11 @@ const { work, nextWork } = getWork(pathname);
         </div>
       </div>
 
+      <BackToList />
       <NextWork work={nextWork} />
     </div>
   </section>
 
-  <BackToList />
   <Stalker client:only="react" />
 </Layout>
 
