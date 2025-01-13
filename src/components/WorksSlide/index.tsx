@@ -42,8 +42,9 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
               <li
                 key={`${item.slug}-${i}`}
                 className="h-full aspect-works-slide 
-                pt-5 pb-6 border-l peer-last:border-r last-of-type:border-r border-silver 
-                px-12 whitespace-nowrap max-w-full
+                p-[1.4rem] md:pt-5 md:pb-6 md:px-12 
+                border-l peer-last:border-r last-of-type:border-r border-silver 
+                whitespace-nowrap max-w-full
                 transition-all duration-[1500ms] animate-text-focus-in
                 data-[hidden]:animate-text-blur-out data-[hidden]:max-w-0 data-[hidden]:px-0"
                 data-tags={item.tags.join(' ')}
@@ -79,7 +80,7 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
                       <span className="inline-block mt-auto">{item.year}</span>
                     </div>
                   </div>
-                  <div className="mt-4 flex-1">
+                  <div className="mt-4 flex-1 pr-8">
                     <h2
                       className="font-medium text-xl md:text-[1.75rem] whitespace-normal overflow-hidden text-ellipsis"
                       style={{
@@ -121,9 +122,18 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
           <div className="w-0 h-full bg-black" ref={progress} />
         </div>
 
-        <div className="md:hidden transition-all duration-500 fixed top-0 left-0 w-screen h-screen bg-[rgba(0,0,0,0.5)] opacity-0 invisible group-data-[open]:opacity-100 group-data-[open]:visible" />
+        <div
+          className="md:hidden transition-all duration-500 fixed top-0 left-0 w-screen h-screen
+        bg-[rgba(0,0,0,0.5)] opacity-0 invisible group-data-[open]:opacity-100 group-data-[open]:visible"
+          onClick={() => {
+            setOpen(!open);
+          }}
+        />
 
-        <form className="flex items-start container px-5 md:px-20 py-[0.875rem] md:py-7 overflow-hidden relative group-data-[open]:z-40">
+        <form
+          className="flex items-start container px-5 md:px-20 py-[0.875rem] md:py-7
+        overflow-hidden relative group-data-[open]:z-40 bg-gray-texture"
+        >
           <button
             type="button"
             className="font-serif-en text-[1.375rem] leading-none flex items-center md:pointer-events-none"
