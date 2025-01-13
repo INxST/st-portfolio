@@ -9,7 +9,8 @@ const { item, number } = Astro.props;
 ---
 
 <li
-  class="ts-image-link image-link [&:not(:last-child)>a]:pb-9 md:[&:not(:last-child)>a]:pb-0 md:[&:not(:first-child)>a]:pt-14 md:contents-right"
+  class="ts-image-link image-link [&:not(:last-child)>a]:pb-9 md:[&:not(:last-child)>a]:pb-0 md:[&:not(:first-child)>a]:pt-14 md:contents-right
+  [&.is-opacity]:opacity-30 transition-opacity duration-300"
 >
   <a
     href={updatePath(`/works/${item.slug}/`)}
