@@ -115,6 +115,7 @@ const titleEn = 'ABOUT';
 <script>
   import { gsap } from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import getIsMobile from '@/libs/getIsMobile';
 
   gsap.registerPlugin(ScrollTrigger);
   const wrapper = document.getElementById('about-slider-wrapper');
@@ -122,8 +123,7 @@ const titleEn = 'ABOUT';
   const height = wrapper?.offsetHeight;
   const text = document.getElementById('about-text');
   const width = text?.offsetWidth;
-  const ua = navigator.userAgent;
-  const isMobile = /iPhone|iPad|iPod|Android|Mobile/i.test(ua);
+  const isMobile = getIsMobile();
   const mobilePercentage = '20%';
   gsap.set(text, { width: width });
   gsap.set(slider, { width: width });
