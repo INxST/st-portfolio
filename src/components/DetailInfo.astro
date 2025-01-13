@@ -12,7 +12,7 @@ const { work } = Astro.props;
 flex flex-col justify-end items-start md:pb-[7.5rem]
 mt-28 md:mt-0 px-5 md:px-0 md:w-[40rem]"
 >
-  <h1 class="w-full flex flex-col gap-4 whitespace-normal">
+  <h1 class="w-full flex flex-col gap-[0.2rem] md:gap-4 whitespace-normal">
     <span class="text-[2rem] md:text-5xl font-medium block w-full"
       >{work?.title}</span
     >
@@ -47,12 +47,13 @@ mt-28 md:mt-0 px-5 md:px-0 md:w-[40rem]"
   </div>
 </section>
 
-<picture class="ts-horizontal-scroll-item mt-9 md:mt-0
-block">
+<picture
+  class="ts-horizontal-scroll-item ts-parallax mt-9 md:mt-0 block w-screen md:h-screen"
+>
   <source
     srcset={updatePath(work?.mv)}
     media="(min-width: 768px)"
-    class="md:h-full"
+    class="md:h-full md:max-w-[80%] object-cover"
   />
   <img
     src={updatePath(work?.mvSp)}
