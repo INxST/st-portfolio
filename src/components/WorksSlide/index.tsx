@@ -122,9 +122,18 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
           <div className="w-0 h-full bg-black" ref={progress} />
         </div>
 
-        <div className="md:hidden transition-all duration-500 fixed top-0 left-0 w-screen h-screen bg-[rgba(0,0,0,0.5)] opacity-0 invisible group-data-[open]:opacity-100 group-data-[open]:visible" />
+        <div
+          className="md:hidden transition-all duration-500 fixed top-0 left-0 w-screen h-screen
+        bg-[rgba(0,0,0,0.5)] opacity-0 invisible group-data-[open]:opacity-100 group-data-[open]:visible"
+          onClick={() => {
+            setOpen(!open);
+          }}
+        />
 
-        <form className="flex items-start container px-5 md:px-20 py-[0.875rem] md:py-7 overflow-hidden relative group-data-[open]:z-40">
+        <form
+          className="flex items-start container px-5 md:px-20 py-[0.875rem] md:py-7
+        overflow-hidden relative group-data-[open]:z-40 bg-gray-texture"
+        >
           <button
             type="button"
             className="font-serif-en text-[1.375rem] leading-none flex items-center md:pointer-events-none"
