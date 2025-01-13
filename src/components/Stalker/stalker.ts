@@ -2,27 +2,22 @@ import { useLayoutEffect, useRef, type MutableRefObject } from 'react';
 import { gsap } from 'gsap';
 
 type Args = {
-  cursor: MutableRefObject<HTMLDivElement | null>;
   follower: MutableRefObject<HTMLDivElement | null>;
 };
 
 const activeStalker = (
   target: HTMLElement,
-  cursor: HTMLDivElement | null,
   follower: HTMLDivElement | null,
   className: string[]
 ) => {
-  cursor?.classList.add(...className);
   follower?.classList.add(...className);
   const bodyBgColor = document.body.dataset.bgColor;
   const linkStalkerColor = target.dataset.stalkerColor;
 
-  if (follower && cursor) {
+  if (follower) {
     if (linkStalkerColor) {
-      cursor.dataset.stalkerColor = linkStalkerColor;
       follower.dataset.stalkerColor = linkStalkerColor;
     } else {
-      cursor.dataset.stalkerColor = bodyBgColor === 'dark' ? 'bright' : 'dark';
       follower.dataset.stalkerColor =
         bodyBgColor === 'dark' ? 'bright' : 'dark';
     }
@@ -30,19 +25,17 @@ const activeStalker = (
 };
 
 const removeStalker = (
-  cursor: HTMLDivElement | null,
   follower: HTMLDivElement | null,
   className: string[]
 ) => {
-  if (follower && cursor) {
-    cursor.classList.remove(...className);
+  if (follower) {
     follower.classList.remove(...className);
-    cursor.dataset.stalkerColor = '';
+
     follower.dataset.stalkerColor = '';
   }
 };
 
-const stalker = ({ cursor, follower }: Args) => {
+const stalker = ({ follower }: Args) => {
   const didEffect = useRef(false);
 
   useLayoutEffect(() => {
@@ -61,9 +54,6 @@ const stalker = ({ cursor, follower }: Args) => {
         const mouse = { x: pos.x, y: pos.y };
         const speed = 0.5;
 
-        const cursorSetX = gsap.quickSetter(cursor.current, 'x', 'px');
-        const cursorSetY = gsap.quickSetter(cursor.current, 'y', 'px');
-
         const followerSetX = gsap.quickSetter(follower.current, 'x', 'px');
         const followerSetY = gsap.quickSetter(follower.current, 'y', 'px');
 
@@ -80,8 +70,6 @@ const stalker = ({ cursor, follower }: Args) => {
           pos.x += (mouse.x - pos.x) * dt;
           pos.y += (mouse.y - pos.y) * dt;
 
-          cursorSetX(pos.x);
-          cursorSetY(pos.y + window.scrollY);
           followerSetX(pos.x);
           followerSetY(pos.y + window.scrollY);
         });
@@ -105,55 +93,44 @@ const stalker = ({ cursor, follower }: Args) => {
 
         links.forEach(link => {
           link.addEventListener('mouseenter', () => {
-            activeStalker(link, cursor.current, follower.current, linkClass);
+            activeStalker(link, follower.current, linkClass);
           });
 
           link.addEventListener('mouseleave', () => {
-            removeStalker(cursor.current, follower.current, linkClass);
+            removeStalker(follower.current, linkClass);
           });
         });
 
         drags.forEach(drag => {
           drag.addEventListener('mouseenter', () => {
-            activeStalker(drag, cursor.current, follower.current, dragClass);
+            activeStalker(drag, follower.current, dragClass);
           });
 
           drag.addEventListener('mouseleave', () => {
-            removeStalker(cursor.current, follower.current, dragClass);
+            removeStalker(follower.current, dragClass);
           });
         });
 
         imageLinks.forEach(imageLink => {
           imageLink.addEventListener('mouseenter', () => {
-            activeStalker(
-              imageLink,
-              cursor.current,
-              follower.current,
-              imageClass
-            );
+            activeStalker(imageLink, follower.current, imageClass);
           });
 
           imageLink.addEventListener('mouseleave', () => {
-            removeStalker(cursor.current, follower.current, imageClass);
+            removeStalker(follower.current, imageClass);
           });
         });
 
         crossingLinks.forEach(crossingLink => {
           crossingLink.addEventListener('mouseenter', () => {
-            activeStalker(
-              crossingLink,
-              cursor.current,
-              follower.current,
-              crossingClass
-            );
+            activeStalker(crossingLink, follower.current, crossingClass);
           });
 
           crossingLink.addEventListener('mouseleave', () => {
-            removeStalker(cursor.current, follower.current, crossingClass);
+            removeStalker(follower.current, crossingClass);
           });
         });
       } else {
-        cursor.current?.remove();
         follower.current?.remove();
       }
     }
