@@ -10,6 +10,7 @@ import getWork from '@/libs/getWork';
 import NextWork from '@/components/NextWork.astro';
 import DetailInfo from '@/components/DetailInfo.astro';
 import BackToList from '@/components/BackToList.astro';
+import ParallaxImage from '@/components/ParallaxImage.astro';
 const pathname = Astro.url.pathname;
 const { work, nextWork } = getWork(pathname);
 ---
@@ -47,13 +48,10 @@ const { work, nextWork } = getWork(pathname);
         </div>
       </DetailSection>
 
-      <picture class="ts-horizontal-scroll-item">
-        <img
-          src={updatePath(`/detail/${work?.slug}/1.jpg`)}
-          alt=""
-          class="ts-image-white-in md:h-full"
-        />
-      </picture>
+      <ParallaxImage
+        src={updatePath(`/detail/${work?.slug}/1.jpg`)}
+        alt={`${work?.title}のイメージ画像`}
+      />
 
       <DetailSection title="(Description)" contentWidth="wide">
         <DescriptionList>
