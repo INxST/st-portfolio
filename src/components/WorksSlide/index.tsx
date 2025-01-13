@@ -131,7 +131,7 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
               setOpen(!open);
             }}
           >
-            Filter
+            FILTER
             <svg
               width="12"
               height="8"
