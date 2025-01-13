@@ -42,8 +42,9 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
               <li
                 key={`${item.slug}-${i}`}
                 className="h-full aspect-works-slide 
-                pt-5 pb-6 border-l peer-last:border-r last-of-type:border-r border-silver 
-                px-12 whitespace-nowrap max-w-full
+                p-[1.4rem] md:pt-5 md:pb-6 md:px-12 
+                border-l peer-last:border-r last-of-type:border-r border-silver 
+                whitespace-nowrap max-w-full
                 transition-all duration-[1500ms] animate-text-focus-in
                 data-[hidden]:animate-text-blur-out data-[hidden]:max-w-0 data-[hidden]:px-0"
                 data-tags={item.tags.join(' ')}
