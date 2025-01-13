@@ -7,8 +7,9 @@ import type { ThemeColor } from '@/types/ThemeColor';
 import updatePath from '@/libs/updatePath';
 interface Props {
   color?: ThemeColor;
+  mixBlendMode?: boolean;
 }
-const { color } = Astro.props;
+const { color, mixBlendMode = false } = Astro.props;
 const path = Astro.url.pathname;
 ---
 
@@ -16,8 +17,9 @@ const path = Astro.url.pathname;
   id="header"
   class="fixed top-0 left-0 w-screen
   z-30 transition-all group-[header]
-  data-[color=dark]:text-pampas mix-blend-difference"
+  data-[color=dark]:text-pampas data-[mix-blend-mode=true]:mix-blend-difference"
   data-color={color}
+  data-mix-blend-mode={mixBlendMode ? 'true' : 'false'}
 >
   <div class="container flex items-start py-5 md:py-10 px-5 md:px-20">
     <a
