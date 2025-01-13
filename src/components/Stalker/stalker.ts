@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, type MutableRefObject } from 'react';
 import { gsap } from 'gsap';
+import getIsMobile from '@/libs/getIsMobile';
 
 type Args = {
   follower: MutableRefObject<HTMLDivElement | null>;
@@ -42,14 +43,7 @@ const stalker = ({ follower }: Args) => {
     if (!didEffect.current) {
       didEffect.current = true;
 
-      const ua = navigator.userAgent;
-
-      if (
-        ua.indexOf('iPhone') < 0 &&
-        ua.indexOf('iPod') < 0 &&
-        ua.indexOf('Android') < 0 &&
-        ua.indexOf('Mobile') < 0
-      ) {
+      if (!getIsMobile()) {
         const pos = { x: 0, y: 0 };
         const mouse = { x: pos.x, y: pos.y };
         const speed = 0.5;
