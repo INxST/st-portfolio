@@ -1,16 +1,20 @@
 ---
+import type { ThemeColor } from '@/types/ThemeColor';
+
 interface Props {
   isOpening?: boolean; // Opening Animation
+  color?: ThemeColor;
 }
-const { isOpening = false } = Astro.props;
+const { isOpening = false, color } = Astro.props;
 ---
 
 <div
-  class="ts-page-loader w-screen h-dvh
-bg-transparent backdrop-blur fixed
+  class="ts-page-loader w-screen h-dvh backdrop-blur fixed
 top-0 left-0 z-50 transition-all duration-700
-[&.is-hidden]:opacity-0 [&.is-hidden]:invisible"
+bg-transparent data-[color=dark]:bg-mine-shaft-texture data-[color=bright]:bg-gray-texture
+[&.is-hidden]:opacity-0 [&.is-hidden]:invisible [&.is-hidden]:bg-transparent"
   data-opening={isOpening ? 'true' : 'false'}
+  data-color={color}
 >
 </div>
 
