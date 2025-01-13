@@ -59,7 +59,7 @@ const bodyClass = cn({
   <body class={bodyClass} data-bg-color={theme}>
     {
       theme === 'bright' && (
-        <div class="bg-gray-texture w-screen h-screen fixed top-0 left-0" />
+        <div class="bg-gray-texture w-screen h-screen fixed top-0 left-0 -z-10" />
       )
     }
     <PageLoader color={theme} />
