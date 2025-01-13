@@ -80,7 +80,7 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
                       <span className="inline-block mt-auto">{item.year}</span>
                     </div>
                   </div>
-                  <div className="mt-4 flex-1">
+                  <div className="mt-4 flex-1 pr-8">
                     <h2
                       className="font-medium text-xl md:text-[1.75rem] whitespace-normal overflow-hidden text-ellipsis"
                       style={{
