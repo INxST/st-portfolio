@@ -178,10 +178,10 @@ const { work, nextWork } = getWork(pathname);
 
       <BackToList />
       <NextWork work={nextWork} />
-
-      <Stalker client:only="react" />
     </div>
   </section>
+
+  <Stalker client:only="react" />
 </Layout>
 
 <script>
