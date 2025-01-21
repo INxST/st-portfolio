@@ -104,10 +104,32 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
           <li className="pr-10 flex items-center">
             <a
               href="/about"
-              className="ts-text-link ts-crossing-link text-2xl md:text-[2rem] vertical-rl font-medium ml-24 md:ml-72 border-r pr-2"
-              data-vertical="rl"
+              className="group text-2xl md:text-[2rem] font-medium ml-24 md:ml-72"
             >
-              <span>私について</span>
+              <span className="vertical-rl">
+                <span>私について</span>
+              </span>
+              <span
+                className="border border-black text-black
+                group-hover:bg-black group-hover:text-white
+                  mt-6 md:mt-9 mx-auto transition-colors duration-700
+                  rounded-full flex justify-center items-center
+                  w-[1.5rem] md:w-[2rem] h-[1.5rem] md:h-[2rem]"
+                aria-hidden="true"
+              >
+                <svg
+                  width="12"
+                  height="8"
+                  viewBox="0 0 12 8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.92843 0.296874C5.92843 0.296874 6.85821 1.97234 7.07889 3.46277L0.628906 3.80681L0.628906 4.29834L7.07265 4.64238C6.82893 6.11193 5.81863 7.70375 5.81863 7.70375C5.81863 7.70375 8.88732 4.4667 11.6966 4.04838C8.8956 3.62585 5.92843 0.296754 5.92843 0.296754L5.92843 0.296874Z"
+                    className="fill-current"
+                  />
+                </svg>
+              </span>
             </a>
           </li>
         </ul>
