@@ -1,6 +1,13 @@
 const reload = () => {
+  let width = window.innerWidth;
+
   window.addEventListener('resize', () => {
-    window.location.reload();
+    if (width === window.innerWidth) {
+      return;
+    } else {
+      width = window.innerWidth;
+      window.location.reload();
+    }
   });
 };
 
