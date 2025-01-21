@@ -2,7 +2,6 @@
 import Layout from '@/layouts/Layout.astro';
 import WorksSlide from '@/components/WorksSlide';
 import works from '@/data/works';
-import Stalker from '@/components/Stalker';
 import updatePath from '@/libs/updatePath';
 const path = updatePath();
 const title = '制作実績';
@@ -17,7 +16,6 @@ const titleEn = 'WORKS';
     path={path}
     client:only="react"
   />
-  <Stalker client:only="react" />
 </Layout>
 
 <style>
