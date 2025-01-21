@@ -1,7 +1,11 @@
 import cn from '@/libs/cn';
 
 const buttonClass = cn(
-  'font-serif-en border rounded-[30px] py-[6px] px-4 flex gap-2 items-center group transition duration-700'
+  `font-serif-en border rounded-[30px]
+  md:pt-[6px] md:pb-[5px] md:px-4
+  pt-[4px] pb-[3px] px-[12px]
+  flex gap-2 items-center
+  group transition duration-700`
 );
 
 const buttonOpenClass = cn(
