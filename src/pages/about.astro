@@ -115,6 +115,7 @@ const titleEn = 'ABOUT';
 <script>
   import { gsap } from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import getIsMobile from '@/libs/getIsMobile';
 
   gsap.registerPlugin(ScrollTrigger);
   const wrapper = document.getElementById('about-slider-wrapper');
@@ -122,7 +123,8 @@ const titleEn = 'ABOUT';
   const height = wrapper?.offsetHeight;
   const text = document.getElementById('about-text');
   const width = text?.offsetWidth;
-
+  const isMobile = getIsMobile();
+  const mobilePercentage = '20%';
   gsap.set(text, { width: width });
   gsap.set(slider, { width: width });
 
@@ -130,7 +132,7 @@ const titleEn = 'ABOUT';
     .timeline({
       scrollTrigger: {
         trigger: wrapper,
-        start: 'top top',
+        start: `${isMobile ? `top ${mobilePercentage}` : 'top top'}`,
         end: `+=${height}`,
         scrub: true,
         pin: true,
@@ -142,6 +144,7 @@ const titleEn = 'ABOUT';
       top: 0,
       right: '50%',
       x: '50%',
+      y: `${isMobile ? `-${mobilePercentage}` : '0'}`,
     });
 
   gsap.to('.ts-profile-image', {

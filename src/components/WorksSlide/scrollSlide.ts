@@ -3,6 +3,7 @@ import type { MutableRefObject } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import getOverflow from '@/libs/getOverflow';
+import getIsMobile from '@/libs/getIsMobile';
 
 type Args = {
   wrapper: MutableRefObject<HTMLElement | null>;
@@ -20,14 +21,7 @@ const scrollSlide = ({ wrapper, container, progress, filter }: Args) => {
     if (!didEffect.current) {
       didEffect.current = true;
 
-      const ua = navigator.userAgent;
-
-      if (
-        ua.indexOf('iPhone') < 0 &&
-        ua.indexOf('iPod') < 0 &&
-        ua.indexOf('Android') < 0 &&
-        ua.indexOf('Mobile') < 0
-      ) {
+      if (!getIsMobile()) {
         const anime = gsap.to(container.current, {
           x: () => getOverflow(container.current) * -1.3,
           ease: 'none',
