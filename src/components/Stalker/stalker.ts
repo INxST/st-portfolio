@@ -74,8 +74,12 @@ const stalker = ({ follower }: Args) => {
         const links = document.querySelectorAll<HTMLLinkElement>(
           `a:not(${dragSelector}, ${imageLinkSelector}, ${crossingLinkSelector})`
         );
+        const buttons = document.querySelectorAll<HTMLButtonElement>(
+          '.ts-menu-open, .ts-menu-close'
+        );
         const activeClass = ['is-active'];
         const linkClass = ['is-active-link', ...activeClass];
+        const buttonClass = ['is-active-button', ...activeClass];
         const drags = document.querySelectorAll<HTMLElement>(dragSelector);
         const dragClass = ['is-active-drag', ...activeClass];
         const imageLinks =
@@ -92,6 +96,16 @@ const stalker = ({ follower }: Args) => {
 
           link.addEventListener('mouseleave', () => {
             removeStalker(follower.current, linkClass);
+          });
+        });
+
+        buttons.forEach(button => {
+          button.addEventListener('mouseenter', () => {
+            activeStalker(button, follower.current, buttonClass);
+          });
+
+          button.addEventListener('mouseleave', () => {
+            removeStalker(follower.current, buttonClass);
           });
         });
 
