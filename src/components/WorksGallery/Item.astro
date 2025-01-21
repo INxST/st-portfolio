@@ -1,46 +1,53 @@
 ---
 import { type Work } from '@/types/Work';
 import updatePath from '@/libs/updatePath';
+import cn from '@/libs/cn';
 interface Props {
   number: string;
   item: Work;
 }
 const { item, number } = Astro.props;
+const opacityClass = cn([
+  'transition-opacity transition-colors duration-300 group-[.is-opacity]:opacity-50 group-[.is-opacity]:border-opacity-50',
+]);
 ---
 
 <li
-  class="ts-image-link image-link [&:not(:last-child)>a]:pb-9 md:[&:not(:last-child)>a]:pb-0 md:[&:not(:first-child)>a]:pt-14 md:contents-right
-  [&.is-opacity]:opacity-30 transition-opacity duration-300"
+  class="ts-image-link image-link group
+    [&:not(:last-child)>a]:pb-9 md:[&:not(:last-child)>a]:pb-0
+    md:[&:not(:first-child)>a]:pt-14 md:contents-right"
 >
   <a
     href={updatePath(`/works/${item.slug}/`)}
     class="flex flex-col md:flex-row gap-4 md:gap-16 md:pl-[10%] border-t md:border-none border-silver"
   >
-    <div class="flex md:hidden justify-between pt-3">
+    <div class=`flex md:hidden justify-between pt-3 ${opacityClass}`>
       <span>{number}</span>
       <span class="font-serif-en">{item.year}</span>
     </div>
 
     <div
-      class="flex-1 md:pt-3 md:border-t border-silver
-    flex flex-col relative z-10
-    order-2 md:order-1"
+      class=`flex-1 md:pt-3 md:border-t border-silver
+        flex flex-col relative z-10
+        order-2 md:order-1 ${opacityClass}`
     >
       <div class="hidden md:flex justify-between">
         <span>{number}</span>
         <span class="font-serif-en">{item.year}</span>
       </div>
 
-      <h3 class="font-medium text-[1.4rem] md:text-[1.75rem] md:mt-16">
+      <h3
+        class=`font-medium text-[1.4rem] md:text-[1.75rem] md:mt-16 ${opacityClass}`
+      >
         {item.title}
       </h3>
 
-      <ul class="mt-3 font-serif-en">
+      <ul class=`mt-3 font-serif-en ${opacityClass}`>
         {item.categories.map(category => <li>{category}</li>)}
       </ul>
 
       <ul
-        class="text-gray flex md:flex-col flex-wrap gap-y-2 gap-x-3 leading-none mt-7 md:mt-auto"
+        class=`text-gray flex md:flex-col flex-wrap gap-y-2 gap-x-3 leading-none mt-7 md:mt-auto ${opacityClass}`
       >
         {item.tags.map(tag => <li>{tag}</li>)}
       </ul>
@@ -57,8 +64,8 @@ const { item, number } = Astro.props;
 
   <picture
     class="image-link__bg w-screen h-screen order-3 hidden md:block
-    fixed top-0 left-0 z-0 opacity-0 invisible
-    transition-all duration-300 pointer-events-none"
+      fixed top-0 left-0 z-0 opacity-0 invisible
+      transition-all duration-300 pointer-events-none"
     aria-hidden="true"
   >
     <img
