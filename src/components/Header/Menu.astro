@@ -4,6 +4,7 @@ import snsLinks from '@/data/snsLinks';
 import Disc from '@/components/Disc.astro';
 import MenuLink from '@/components/Header/MenuLink.astro';
 import updatePath from '@/libs/updatePath';
+import { buttonCloseClass } from './buttonClass';
 ---
 
 <div id="menu" class="menu w-screen h-dvh bg-mine-shaft-texture z-30">
@@ -20,13 +21,7 @@ import updatePath from '@/libs/updatePath';
     </video>
 
     <div class="w-full md:flex-1 flex flex-col">
-      <button
-        class="ts-menu-close text-pampas font-serif-en border border-emperor
-        rounded-[30px] py-[6px] px-4 flex gap-2 items-center
-        absolute top-5 md:top-10 right-5 md:right-20
-        group transition-colors duration-[0.6s] hover:bg-pampas hover:text-mine-shaft"
-        data-stalker-color="bright"
-      >
+      <button class={buttonCloseClass} data-stalker-color="bright">
         <span class="inline-block">CLOSE</span>
         <Disc />
       </button>
