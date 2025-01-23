@@ -1,4 +1,6 @@
 html {
+  touch-action: manipulation;
+
   /* desktop */
   @media (min-width: 1024px) {
     /* 16px(1rem) / 1920px(アートボードサイズ) * 100 */
