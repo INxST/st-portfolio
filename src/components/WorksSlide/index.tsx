@@ -110,17 +110,18 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
             <li className="pr-10 flex items-center">
               <a
                 href="/about"
-                className="group text-2xl md:text-[2rem] font-medium ml-24 md:ml-72"
+                className="group text-2xl md:text-[2rem] font-medium ml-24 md:ml-72
+                  inline-flex flex-col items-center"
               >
                 <span className="vertical-rl">
                   <span>私について</span>
                 </span>
                 <span
                   className="border border-black text-black
-                group-hover:bg-black group-hover:text-white
-                  mt-6 md:mt-9 mx-auto transition-colors duration-700
-                  rounded-full flex justify-center items-center
-                  w-[1.5rem] md:w-[2rem] h-[1.5rem] md:h-[2rem]"
+                  group-hover:bg-black group-hover:text-white
+                    mt-6 md:mt-9 mx-auto transition-colors duration-700
+                    rounded-full flex justify-center items-center
+                    w-[1.5rem] md:w-[2rem] h-[1.5rem] md:h-[2rem]"
                   aria-hidden="true"
                 >
                   <svg
