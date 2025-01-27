@@ -2,14 +2,22 @@
 
 本リポジトリでは`Taiki Sato`のポートフォリオのベースソースを管理しています。
 
+URL: [taikisato.com](https://taikisato.com/)
+
+![月の満ち欠けアニメーション](/screenshot/moon.gif)
+
+![複数枚画像 パララックススクロールアニメーション](/screenshot/parallax-image.gif)
+
+![テキスト回転アニメーション](/screenshot/rotate-text.gif)
+
 ## Setup
 
 ### Node.js　バージョン管理ツールをインストールする
 
 下記などのツールをインストールします。
 
-- https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script
-- https://github.com/hokaccha/nodebrew?tab=readme-ov-file#install
+- [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script)
+- [nodebrew](https://github.com/hokaccha/nodebrew?tab=readme-ov-file#install)
 
 ### Node.jsのバージョンを変更する
 
