@@ -23,9 +23,6 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true,
   },
-  redirects: {
-    '/~partytown': '/partytown',
-  },
   integrations: [
     tailwind(),
     sitemap(),
@@ -33,6 +30,7 @@ export default defineConfig({
     partytown({
       config: {
         forward: ['dataLayer.push'],
+        lib: '/partytown/',
       },
     }),
   ],
