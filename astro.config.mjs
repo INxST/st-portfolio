@@ -23,6 +23,9 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true,
   },
+  redirects: {
+    '/~partytown': '/partytown',
+  },
   integrations: [
     tailwind(),
     sitemap(),
