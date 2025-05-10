@@ -38,7 +38,6 @@ const meta: Meta = {
   title: title ? `${title} | ${siteInfo.appName}` : siteInfo.appName,
   description: description || siteInfo.description,
   author: siteInfo.author,
-  image: new URL('/images/common/og.png', Astro.url.origin).toString(),
 };
 const bodyClass = cn({
   'font-serif': true,
