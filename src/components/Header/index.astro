@@ -16,36 +16,32 @@ const path = Astro.url.pathname;
 
 <header
   id="header"
-  class="fixed top-0 left-0 w-screen
-  z-30 transition-all group-[header]
-  data-[color=dark]:text-pampas"
+  class="group-[header] fixed left-0 top-0 z-30 w-screen transition-all data-[color=dark]:text-pampas"
   data-color={color}
   data-mix-blend-mode={mixBlendMode ? 'true' : 'false'}
 >
-  <div class="container flex items-start py-5 md:py-10 px-5 md:px-20">
+  <div class="container flex items-start px-5 py-5 md:px-20 md:py-10">
     <a
       href={updatePath('/')}
-      class="ts-logo transition-all [&_svg]:fill-silver-chalice hover:opacity-30"
+      class="ts-logo transition-all hover:opacity-30 [&_svg]:fill-silver-chalice"
       aria-label="TAIKI SATO"
     >
       <Logo />
     </a>
     <ul
-      class="ts-header-list ml-auto gap-8 hidden md:flex
-      ease-in-out max-h-[var(--header-list-height)]
-      transition-colors group-[header]:data-[color=dark]:text-pampas"
+      class="ts-header-list ml-auto hidden max-h-[var(--header-list-height)] gap-8 transition-colors ease-in-out group-[header]:data-[color=dark]:text-pampas md:flex"
     >
       {
         headerLinks.map(link => (
           <li class="relative">
             {path !== '/' && link.href.includes(path) && (
-              <span class="w-[6px] h-[6px] absolute -top-4 left-1/2 -translate-x-1/2">
+              <span class="absolute -top-4 left-1/2 h-[6px] w-[6px] -translate-x-1/2">
                 <Disc />
               </span>
             )}
             <a
               href={updatePath(link.href)}
-              class={`ts-text-link text-2xl md:text-lg vertical-rl ${path !== '/' && link.href.includes(path) && 'text-gray'}`}
+              class={`ts-text-link text-2xl vertical-rl md:text-lg ${path !== '/' && link.href.includes(path) && 'text-gray'}`}
               data-vertical="rl"
             >
               {link.text}

@@ -10,11 +10,11 @@ const Stalker = () => {
     <>
       <div
         ref={follower}
-        className="follower rounded-full w-10 h-10 pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 border-emperor bg-mine-shaft z-[999] mix-blend-overlay transition-[mix-blend-mode,width,height] duration-300 ease-linear"
+        className="follower pointer-events-none absolute left-0 top-0 z-[999] h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full border-emperor bg-mine-shaft mix-blend-overlay transition-[mix-blend-mode,width,height] duration-300 ease-linear"
       >
-        <div className="w-full h-full relative rounded-full">
+        <div className="relative h-full w-full rounded-full">
           <span
-            className="follower__inside vertical-rl text-taupe-gray font-medium leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 invisible transition-all"
+            className="follower__inside invisible absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-medium leading-none text-taupe-gray opacity-0 transition-all vertical-rl"
             aria-hidden="true"
           >
             <span className="follower__text hidden" data-type="image">
@@ -25,7 +25,7 @@ const Stalker = () => {
             </span>
           </span>
           <span
-            className="follower__drag absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 invisible transition-all inline-flex gap-3 items-center p-5"
+            className="follower__drag invisible absolute left-1/2 top-1/2 inline-flex -translate-x-1/2 -translate-y-1/2 items-center gap-3 p-5 opacity-0 transition-all"
             aria-hidden="true"
           >
             <svg

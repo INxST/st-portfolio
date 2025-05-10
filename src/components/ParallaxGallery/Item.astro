@@ -13,11 +13,11 @@ const itemClass = cn(
 ---
 
 <li class={itemClass}>
-  <picture class="w-full block mix-blend-multiply">
+  <picture class="block w-full mix-blend-multiply">
     <img src={updatePath(item.src)} alt={item.alt} class="w-full" />
   </picture>
   <div
-    class="bg-layer absolute -bottom-1/2 left-0 w-full h-[200%] bg-taupe-gray -z-10"
+    class="bg-layer absolute -bottom-1/2 left-0 -z-10 h-[200%] w-full bg-taupe-gray"
   >
   </div>
 </li>

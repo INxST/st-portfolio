@@ -19,16 +19,16 @@ const { work, nextWork } = getWork(pathname);
 
   <section
     id="horizontal-scroll"
-    class="md:h-screen pt-[var(--header-height)] md:pt-0 w-full container md:px-20"
+    class="container w-full pt-[var(--header-height)] md:h-screen md:px-20 md:pt-0"
   >
     <div
       id="horizontal-scroll-container"
-      class="md:flex md:items-center md:flex-nowrap md:whitespace-nowrap w-full md:w-max md:h-full md:[&>*]:h-full"
+      class="w-full md:flex md:h-full md:w-max md:flex-nowrap md:items-center md:whitespace-nowrap md:[&>*]:h-full"
     >
       <DetailInfo work={work} />
 
       <DetailSection title="(Overview)">
-        <div class="md:text-lg flex flex-col gap-4">
+        <div class="flex flex-col gap-4 md:text-lg">
           <p>
             Burst of
             Mana（バーストオブマナ）というボードゲームのフライヤーデザインを行いました。<br
@@ -80,7 +80,7 @@ const { work, nextWork } = getWork(pathname);
       </DetailSection>
 
       <div class="ts-horizontal-scroll-item">
-        <div class="md:py-[7.5rem] h-full px-5 md:px-0">
+        <div class="h-full px-5 md:px-0 md:py-[7.5rem]">
           <DetailImage>
             <li>
               <picture>

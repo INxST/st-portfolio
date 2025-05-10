@@ -9,10 +9,7 @@ const { isOpening = false, color } = Astro.props;
 ---
 
 <div
-  class="ts-page-loader w-screen h-dvh backdrop-blur fixed
-top-0 left-0 z-50 transition-all duration-700
-bg-transparent data-[color=dark]:bg-mine-shaft-texture data-[color=bright]:bg-gray-texture
-[&.is-hidden]:opacity-0 [&.is-hidden]:invisible [&.is-hidden]:bg-transparent"
+  class="ts-page-loader fixed left-0 top-0 z-50 h-dvh w-screen bg-transparent backdrop-blur transition-all duration-700 data-[color=bright]:bg-gray-texture data-[color=dark]:bg-mine-shaft-texture [&.is-hidden]:invisible [&.is-hidden]:bg-transparent [&.is-hidden]:opacity-0"
   data-opening={isOpening ? 'true' : 'false'}
   data-color={color}
 >

@@ -8,12 +8,10 @@ const { work } = Astro.props;
 ---
 
 <section
-  class="ts-horizontal-scroll-item md:mr-[23.75rem]
-flex flex-col justify-end items-start md:pb-[7.5rem]
-mt-28 md:mt-0 px-5 md:px-0 md:w-[40rem]"
+  class="ts-horizontal-scroll-item mt-28 flex flex-col items-start justify-end px-5 md:mr-[23.75rem] md:mt-0 md:w-[40rem] md:px-0 md:pb-[7.5rem]"
 >
-  <h1 class="w-full flex flex-col gap-[0.2rem] md:gap-4 whitespace-normal">
-    <span class="text-[2rem] md:text-5xl font-medium block w-full"
+  <h1 class="flex w-full flex-col gap-[0.2rem] whitespace-normal md:gap-4">
+    <span class="block w-full text-[2rem] font-medium md:text-5xl"
       >{work?.title}</span
     >
     {
@@ -24,7 +22,7 @@ mt-28 md:mt-0 px-5 md:px-0 md:w-[40rem]"
   </h1>
 
   <div
-    class="w-full mt-16 md:mt-24 flex flex-col md:flex-row gap-4 md:gap-20 whitespace-normal"
+    class="mt-16 flex w-full flex-col gap-4 whitespace-normal md:mt-24 md:flex-row md:gap-20"
   >
     <p class="flex flex-col gap-2">
       <span class="text-gray">ROLE</span>
@@ -47,8 +45,7 @@ mt-28 md:mt-0 px-5 md:px-0 md:w-[40rem]"
   </div>
 </section>
 
-<picture class="ts-horizontal-scroll-item mt-9 md:mt-0
-block">
+<picture class="ts-horizontal-scroll-item mt-9 block md:mt-0">
   <source
     srcset={updatePath(work?.mv)}
     media="(min-width: 768px)"
