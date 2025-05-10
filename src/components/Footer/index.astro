@@ -14,15 +14,15 @@ const isHome = path === '/';
 
 <div
   id="footer-wrapper"
-  class="relative overflow-hidden w-full"
+  class="relative w-full overflow-hidden"
   data-start={start}
 >
   <footer
     id="footer"
-    class="absolute -top-1/2 -translate-y-1/2 left-0 w-full text-pampas bg-mine-shaft-texture overflow-hidden"
+    class="absolute -top-1/2 left-0 w-full -translate-y-1/2 overflow-hidden text-pampas bg-mine-shaft-texture"
   >
-    <div class="container px-5 md:px-20 pt-[9rem] md:pt-[22rem]">
-      <ul class="flex flex-row-reverse gap-8 justify-center">
+    <div class="container px-5 pt-[9rem] md:px-20 md:pt-[22rem]">
+      <ul class="flex flex-row-reverse justify-center gap-8">
         {
           footerLinks.map(link => (
             <li class="relative flex flex-col items-center">
@@ -38,7 +38,7 @@ const isHome = path === '/';
                     : updatePath(link.href)
                 }
                 target={link.target}
-                class={`ts-text-link vertical-rl text-xl leading-none ${isHome && link.href === '/' && 'text-silver-chalice'} ${!isHome && link.href.includes(path) && 'text-silver-chalice'}`}
+                class={`ts-text-link text-xl leading-none vertical-rl ${isHome && link.href === '/' && 'text-silver-chalice'} ${!isHome && link.href.includes(path) && 'text-silver-chalice'}`}
                 data-vertical="rl"
                 data-stalker-color="bright"
               >
@@ -49,18 +49,16 @@ const isHome = path === '/';
         }
       </ul>
 
-      <div class="hidden md:flex justify-end mt-[15.5rem]">
+      <div class="mt-[15.5rem] hidden justify-end md:flex">
         <a
           href="#"
-          class="ts-text-link ts-anchor text-lg font-serif-en"
+          class="ts-text-link ts-anchor font-serif-en text-lg"
           data-stalker-color="bright">BACK TO TOP</a
         >
       </div>
 
       <ul
-        class="font-serif-en flex flex-wrap gap-y-4 gap-x-7 md:gap-8
-      items-center justify-center md:justify-between
-      pt-10 border-t border-emperor mt-28 md:mt-6"
+        class="mt-28 flex flex-wrap items-center justify-center gap-x-7 gap-y-4 border-t border-emperor pt-10 font-serif-en md:mt-6 md:justify-between md:gap-8"
       >
         {
           snsLinks.map(link => (
@@ -77,20 +75,20 @@ const isHome = path === '/';
           ))
         }
 
-        <li class="inline-block md:ml-auto w-full md:w-auto text-center">
-          <small class="text-silver-chalice text-base">
+        <li class="inline-block w-full text-center md:ml-auto md:w-auto">
+          <small class="text-base text-silver-chalice">
             &copy; 2024 Taiki Sato
           </small>
         </li>
       </ul>
     </div>
 
-    <div class="mt-9 md:mt-10 pb-5">
+    <div class="mt-9 pb-5 md:mt-10">
       <div class="contact">
         <a
           href="mailto:taaaaiki.mode@gmail.com?subject=お問い合わせ"
           target="_blank"
-          class="flex flex-nowrap whitespace-nowrap group"
+          class="group flex flex-nowrap whitespace-nowrap"
           data-stalker-color="bright"
           aria-label="GET IN CONTACT"
         >

@@ -10,7 +10,7 @@ const newWorks = works.filter(work => work.isTop);
 
 <section
   id="works-gallery"
-  class="relative py-24 md:py-[17.5rem] contents-full text-current"
+  class="relative py-24 text-current contents-full md:py-[17.5rem]"
 >
   <div class="flex md:justify-end md:pr-[20%]">
     <TopTitle
@@ -31,15 +31,15 @@ const newWorks = works.filter(work => work.isTop);
   </ul>
 
   <div
-    class="ts-focus-in data-[active='true']:animate-text-focus-in flex flex-col items-center mt-24 md:mt-52"
+    class="ts-focus-in mt-24 flex flex-col items-center data-[active='true']:animate-text-focus-in md:mt-52"
   >
-    <p class="vertical-rl font-medium text-3xl md:text-[2rem] leading-none">
+    <p class="text-3xl font-medium leading-none vertical-rl md:text-[2rem]">
       <span>全作品</span>
     </p>
-    <span class="w-[1px] h-7 md:h-16 bg-black mt-4 md:mt-6"></span>
+    <span class="mt-4 h-7 w-[1px] bg-black md:mt-6 md:h-16"></span>
     <a
       href="/works"
-      class="font-serif-en leading-none text-6xl md:text-[6.5rem] mt-8 md:mt-10 mb-8 md:mb-10"
+      class="mb-8 mt-8 font-serif-en text-6xl leading-none md:mb-10 md:mt-10 md:text-[6.5rem]"
       >ALL WORKS</a
     >
     <More href="/works" color="dark" />

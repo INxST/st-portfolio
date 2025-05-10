@@ -34,7 +34,7 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
         <div ref={wrapper} className="pt-[var(--header-height)]">
           <ul
             ref={container}
-            className="flex flex-nowrap justify-start whitespace-nowrap h-[calc(100vh-calc(var(--header-height)+3.25rem))] md:h-[calc(100vh-calc(var(--header-height)+var(--filter-height)))] pb-20"
+            className="flex h-[calc(100vh-calc(var(--header-height)+3.25rem))] flex-nowrap justify-start whitespace-nowrap pb-20 md:h-[calc(100vh-calc(var(--header-height)+var(--filter-height)))]"
           >
             <li className="mr-20 md:mr-60">
               <TitleVertical jp={title} en={titleEn} />
@@ -43,12 +43,7 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
               return (
                 <li
                   key={`${item.slug}-${i}`}
-                  className="h-full aspect-works-slide 
-                p-[1.4rem] md:pt-5 md:pb-6 md:px-12 
-                border-l peer-last:border-r last-of-type:border-r border-silver 
-                whitespace-nowrap max-w-full
-                transition-all duration-[1500ms] animate-text-focus-in
-                data-[hidden]:animate-text-blur-out data-[hidden]:max-w-0 data-[hidden]:px-0"
+                  className="aspect-works-slide h-full max-w-full animate-text-focus-in whitespace-nowrap border-l border-silver p-[1.4rem] transition-all duration-[1500ms] last-of-type:border-r peer-last:border-r data-[hidden]:max-w-0 data-[hidden]:animate-text-blur-out data-[hidden]:px-0 md:px-12 md:pb-6 md:pt-5"
                   data-tags={item.tags.join(' ')}
                   data-hidden={
                     selectedOption !== 'ALL' &&
@@ -59,17 +54,17 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
                 >
                   <a
                     href={`${path}/works/${item.slug}/`}
-                    className="ts-image-link flex flex-col h-full"
+                    className="ts-image-link flex h-full flex-col"
                   >
                     <div className="flex">
                       <picture className="flex-1">
                         <img
                           src={`${path}${item.image}`}
                           alt={item.title}
-                          className="w-full h-full object-cover"
+                          className="h-full w-full object-cover"
                         />
                       </picture>
-                      <div className="vertical-rl flex font-serif-en ml-3">
+                      <div className="ml-3 flex font-serif-en vertical-rl">
                         <ul className="flex flex-wrap gap-4">
                           {item.categories.map((category, i) => {
                             return (
@@ -79,14 +74,14 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
                             );
                           })}
                         </ul>
-                        <span className="inline-block mt-auto">
+                        <span className="mt-auto inline-block">
                           {item.year}
                         </span>
                       </div>
                     </div>
                     <div className="mt-4 flex-1 pr-8">
                       <h2
-                        className="font-medium text-xl md:text-[1.75rem] whitespace-normal overflow-hidden text-ellipsis"
+                        className="overflow-hidden text-ellipsis whitespace-normal text-xl font-medium md:text-[1.75rem]"
                         style={{
                           display: '-webkit-box',
                           WebkitLineClamp: 2,
@@ -95,7 +90,7 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
                       >
                         {item.title}
                       </h2>
-                      <ul className="flex flex-wrap gap-x-4 gap-y-[0.2rem] font-serif-en mt-6 text-gray min-h-[2.2rem]">
+                      <ul className="mt-6 flex min-h-[2.2rem] flex-wrap gap-x-4 gap-y-[0.2rem] font-serif-en text-gray">
                         {item.tags.map((tag, i) => {
                           return (
                             <li key={`${item.slug}-${tag}-${i}`}>{tag}</li>
@@ -107,21 +102,16 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
                 </li>
               );
             })}
-            <li className="pr-10 flex items-center">
+            <li className="flex items-center pr-10">
               <a
                 href="/about"
-                className="group text-2xl md:text-[2rem] font-medium ml-24 md:ml-72
-                  inline-flex flex-col items-center"
+                className="group ml-24 inline-flex flex-col items-center text-2xl font-medium md:ml-72 md:text-[2rem]"
               >
                 <span className="vertical-rl">
                   <span>私について</span>
                 </span>
                 <span
-                  className="border border-black text-black
-                  group-hover:bg-black group-hover:text-white
-                    mt-6 md:mt-9 mx-auto transition-colors duration-700
-                    rounded-full flex justify-center items-center
-                    w-[1.5rem] md:w-[2rem] h-[1.5rem] md:h-[2rem]"
+                  className="mx-auto mt-6 flex h-[1.5rem] w-[1.5rem] items-center justify-center rounded-full border border-black text-black transition-colors duration-700 group-hover:bg-black group-hover:text-white md:mt-9 md:h-[2rem] md:w-[2rem]"
                   aria-hidden="true"
                 >
                   <svg
@@ -143,29 +133,25 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
         </div>
 
         <div
-          className="fixed bottom-0 left-0 w-screen group data-[open]:z-30"
+          className="group fixed bottom-0 left-0 w-screen data-[open]:z-30"
           data-open={open ? open : null}
           ref={filter}
         >
-          <div className="w-full h-[1px] bg-silver">
-            <div className="w-0 h-full bg-black" ref={progress} />
+          <div className="h-[1px] w-full bg-silver">
+            <div className="h-full w-0 bg-black" ref={progress} />
           </div>
 
           <div
-            className="md:hidden transition-all duration-500 fixed top-0 left-0 w-screen h-screen
-        bg-[rgba(0,0,0,0.5)] opacity-0 invisible group-data-[open]:opacity-100 group-data-[open]:visible"
+            className="invisible fixed left-0 top-0 h-screen w-screen bg-[rgba(0,0,0,0.5)] opacity-0 transition-all duration-500 group-data-[open]:visible group-data-[open]:opacity-100 md:hidden"
             onClick={() => {
               setOpen(!open);
             }}
           />
 
-          <form
-            className="flex items-start container px-5 md:px-20 py-[0.875rem] md:py-7
-        overflow-hidden relative group-data-[open]:z-40 bg-gray-texture"
-          >
+          <form className="container relative flex items-start overflow-hidden px-5 py-[0.875rem] bg-gray-texture group-data-[open]:z-40 md:px-20 md:py-7">
             <button
               type="button"
-              className="font-serif-en text-[1.375rem] leading-none flex items-center md:pointer-events-none"
+              className="flex items-center font-serif-en text-[1.375rem] leading-none md:pointer-events-none"
               onClick={() => {
                 setOpen(!open);
               }}
@@ -177,30 +163,28 @@ const WorksSlide = ({ title, titleEn, items, path }: Props) => {
                 viewBox="0 0 12 8"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="fill-current ml-3 md:hidden transition-transform duration-500 group-data-[open]:-rotate-[540deg]"
+                className="ml-3 fill-current transition-transform duration-500 group-data-[open]:-rotate-[540deg] md:hidden"
               >
                 <path d="M5.90872 7.43347L-0.183594 1.78197L0.907946 0.769409L5.90872 5.43189L10.9095 0.792959L12.001 1.80552L5.90872 7.43347Z" />
               </svg>
             </button>
-            <ul className="flex flex-wrap items-center md:items-baseline ml-[7.5rem] gap-0 md:gap-6 group-data-[open]:gap-4">
+            <ul className="ml-[7.5rem] flex flex-wrap items-center gap-0 group-data-[open]:gap-4 md:items-baseline md:gap-6">
               {filters.map((filter, i) => {
                 return (
                   <li
                     key={`${filter}-${i}`}
                     data-checked={selectedOption === filter ? true : null}
-                    className="transition-all w-0 h-0 opacity-0 invisible animate-text-blur-out md:w-auto md:h-auto md:opacity-100 md:visible md:animate-none 
-                  data-[checked]:w-auto data-[checked]:h-auto data-[checked]:visible data-[checked]:opacity-100 data-[checked]:animate-text-focus-in md:data-[checked]:animate-none
-                  group-data-[open]:w-auto group-data-[open]:h-auto group-data-[open]:opacity-100 group-data-[open]:visible group-data-[open]:animate-text-focus-in"
+                    className="invisible h-0 w-0 animate-text-blur-out opacity-0 transition-all data-[checked]:visible data-[checked]:h-auto data-[checked]:w-auto data-[checked]:animate-text-focus-in data-[checked]:opacity-100 group-data-[open]:visible group-data-[open]:h-auto group-data-[open]:w-auto group-data-[open]:animate-text-focus-in group-data-[open]:opacity-100 md:visible md:h-auto md:w-auto md:animate-none md:opacity-100 md:data-[checked]:animate-none"
                   >
-                    <label className="font-serif-en flex items-center">
+                    <label className="flex items-center font-serif-en">
                       <input
-                        className="block box-content m-0 p-0 appearance-none border border-black rounded-full w-4 md:w-5 h-4 md:h-5 relative before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:w-3 md:before:w-[0.875rem] before:h-3 md:before:h-[0.875rem] checked:before:bg-black"
+                        className="relative m-0 box-content block h-4 w-4 appearance-none rounded-full border border-black p-0 before:absolute before:left-1/2 before:top-1/2 before:h-3 before:w-3 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full checked:before:bg-black md:h-5 md:w-5 md:before:h-[0.875rem] md:before:w-[0.875rem]"
                         type="radio"
                         value={filter}
                         checked={selectedOption === filter}
                         onChange={handleOptionChange}
                       />
-                      <span className="md:text-[1.125rem] ml-2 flex-1">
+                      <span className="ml-2 flex-1 md:text-[1.125rem]">
                         {filter}
                       </span>
                     </label>

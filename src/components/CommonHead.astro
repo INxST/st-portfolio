@@ -7,6 +7,7 @@ interface Props {
   meta: Meta;
 }
 const { meta } = Astro.props;
+const image = new URL('/common/ogp.png', Astro.url.origin).toString();
 ---
 
 <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -26,7 +27,7 @@ const { meta } = Astro.props;
     basic: {
       title: meta.title,
       type: 'website',
-      image: meta.image,
+      image,
     },
     image: {
       alt: meta.title,
@@ -42,7 +43,7 @@ const { meta } = Astro.props;
     site: siteInfo.x,
     title: meta.title,
     description: meta.description,
-    image: meta.image,
+    image,
     imageAlt: meta.title,
     creator: siteInfo.x,
   }}

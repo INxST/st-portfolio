@@ -38,7 +38,6 @@ const meta: Meta = {
   title: title ? `${title} | ${siteInfo.appName}` : siteInfo.appName,
   description: description || siteInfo.description,
   author: siteInfo.author,
-  image: new URL('/images/common/og.png', Astro.url.origin).toString(),
 };
 const bodyClass = cn({
   'font-serif': true,
@@ -59,7 +58,7 @@ const bodyClass = cn({
   <body class={bodyClass} data-bg-color={theme}>
     {
       theme === 'bright' && (
-        <div class="bg-gray-texture w-screen h-screen fixed top-0 left-0 -z-10" />
+        <div class="fixed left-0 top-0 -z-10 h-screen w-screen bg-gray-texture" />
       )
     }
     <PageLoader color={theme} />
@@ -74,7 +73,7 @@ const bodyClass = cn({
     {
       isFooter && (
         <>
-          <div class="h-[1px] w-screen bg-taupe-gray mt-32 md:mt-72" />
+          <div class="mt-32 h-[1px] w-screen bg-taupe-gray md:mt-72" />
           <Footer start="bottom" />
         </>
       )

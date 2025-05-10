@@ -9,7 +9,7 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<div class="ts-slider slider md:aspect-video w-full h-full">
+<div class="ts-slider slider h-full w-full md:aspect-video">
   {
     items.map(item => (
       <div class="ts-slider-item slider__item">
@@ -19,7 +19,7 @@ const { items } = Astro.props;
             autoplay
             muted
             loop
-            class="block w-full h-full object-cover"
+            class="block h-full w-full object-cover"
           >
             <source
               src={updatePath(item.src.pc)}
@@ -32,16 +32,16 @@ const { items } = Astro.props;
             />
           </video>
         ) : (
-          <picture class="block w-full h-full object-cover">
+          <picture class="block h-full w-full object-cover">
             <source
               srcset={updatePath(item.src.pc)}
               media="(min-width: 768px)"
-              class="w-full h-full object-cover"
+              class="h-full w-full object-cover"
             />
             <img
               src={updatePath(item.src.sp || item.src.pc)}
               alt={item.alt}
-              class="w-full h-full object-cover"
+              class="h-full w-full object-cover"
             />
           </picture>
         )}
