@@ -18,8 +18,8 @@ const base =
 
 // https://astro.build/config
 export default defineConfig({
-  site: site,
-  base: base,
+  site,
+  base,
   prefetch: {
     prefetchAll: true,
   },
