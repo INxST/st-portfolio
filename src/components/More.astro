@@ -11,15 +11,11 @@ const { href, color } = Astro.props;
 
 <a
   href={updatePath(href)}
-  class="ts-more group inline-block font-serif-en md:text-lg leading-none relative
-border rounded-[50%] py-5 md:py-6 px-10 md:px-12 transition-colors duration-[0.6s] overflow-hidden
-data-[color='bright']:border-silver-chalice data-[color='bright']:text-pampas data-[color='bright']:hover:border-black data-[color='bright']:hover:text-black
-data-[color='dark']:border-gray data-[color='dark']:text-black data-[color='dark']:hover:border-pampas data-[color='dark']:hover:text-pampas"
+  class="ts-more group relative inline-block overflow-hidden rounded-[50%] border px-10 py-5 font-serif-en leading-none transition-colors duration-[0.6s] data-[color='bright']:border-silver-chalice data-[color='dark']:border-gray data-[color='bright']:text-pampas data-[color='dark']:text-black data-[color='bright']:hover:border-black data-[color='dark']:hover:border-pampas data-[color='bright']:hover:text-black data-[color='dark']:hover:text-pampas md:px-12 md:py-6 md:text-lg"
   data-color={color}
 >
   <span
-    class="data-[color='bright']:bg-pampas data-[color='dark']:bg-black transition-all duration-[0.6s] rounded-[50%]
-  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-0 h-0 z-0 group-hover:w-full group-hover:h-full"
+    class="absolute left-1/2 top-1/2 z-0 h-0 w-0 -translate-x-1/2 -translate-y-1/2 rounded-[50%] transition-all duration-[0.6s] group-hover:h-full group-hover:w-full data-[color='bright']:bg-pampas data-[color='dark']:bg-black"
     data-color={color}></span>
   <span class="relative z-0">MORE</span>
 </a>

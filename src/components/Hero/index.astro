@@ -6,27 +6,25 @@ import updatePath from '@/libs/updatePath';
 <PageLoader isOpening={true} />
 <div
   id="opening-bg"
-  class="bg-mine-shaft-texture w-screen h-lvh transition-all duration-700
-fixed top-0 left-0 z-50
-[&.is-hidden]:opacity-0 [&.is-hidden]:invisible"
+  class="fixed left-0 top-0 z-50 h-lvh w-screen transition-all duration-700 bg-mine-shaft-texture [&.is-hidden]:invisible [&.is-hidden]:opacity-0"
 >
 </div>
 <section id="hero" class="relative">
   <div id="hero-container">
     <div
-      class="overflow-y-hidden bg-mine-shaft-texture contents-full text-silver-chalice py-16 h-lvh flex flex-col justify-center"
+      class="flex h-lvh flex-col justify-center overflow-y-hidden py-16 text-silver-chalice bg-mine-shaft-texture contents-full"
     >
       <div
-        class="flex flex-col lg:grid lg:grid-cols-3 lg:items-end justify-center"
+        class="flex flex-col justify-center lg:grid lg:grid-cols-3 lg:items-end"
       >
         <div
-          class="relative inline-block overflow-hidden w-72 md:w-[50vw] lg:w-[34rem] h-72 md:h-[50vw] lg:h-[34rem] md:col-start-2 z-0 mx-auto lg:mx-0"
+          class="relative z-0 mx-auto inline-block h-72 w-72 overflow-hidden md:col-start-2 md:h-[50vw] md:w-[50vw] lg:mx-0 lg:h-[34rem] lg:w-[34rem]"
         >
-          <canvas id="moon" class="w-full h-full" width="600" height="600"
+          <canvas id="moon" class="h-full w-full" width="600" height="600"
           ></canvas>
         </div>
 
-        <p class="font-serif-en ml-auto mt-4 lg:m-0 w-96 hidden md:block">
+        <p class="ml-auto mt-4 hidden w-96 font-serif-en md:block lg:m-0">
           I am Taiki Sato, a visual designer. <br />I am good at balancing
           logical and intuitive thinking, function and emotion, stillness and
           movement, and seeking and expressing the best visual expression that
@@ -36,10 +34,7 @@ fixed top-0 left-0 z-50
 
       <div
         id="hero-video"
-        class="absolute z-0 top-0 left-1/2 -translate-x-1/2
-        w-screen h-full overflow-hidden opacity-50
-        mix-blend-multiply transition-all duration-700
-        is-loading [&.is-loading]:z-50"
+        class="is-loading absolute left-1/2 top-0 z-0 h-full w-screen -translate-x-1/2 overflow-hidden opacity-50 mix-blend-multiply transition-all duration-700 [&.is-loading]:z-50"
       >
         <video
           poster={updatePath('/top/hero/shadow-image.png')}
@@ -49,7 +44,7 @@ fixed top-0 left-0 z-50
           muted
           autoplay
           loop
-          class="w-full h-full object-cover"
+          class="h-full w-full object-cover"
         >
           <source
             src={updatePath('/top/hero/shadow-movie.mp4')}
@@ -63,11 +58,11 @@ fixed top-0 left-0 z-50
       </p>
 
       <h1
-        class="flex items-end justify-between md:justify-normal gap-4 md:gap-10 mt-3 md:mt-0"
+        class="mt-3 flex items-end justify-between gap-4 md:mt-0 md:justify-normal md:gap-10"
       >
         <picture
           id="hero-logo"
-          class="relative max-w-[19.6rem] md:max-w-[85rem] is-loading [&.is-loading]:z-50"
+          class="is-loading relative max-w-[19.6rem] md:max-w-[85rem] [&.is-loading]:z-50"
         >
           <source
             srcset={updatePath('/top/hero/fv-moving.png')}
@@ -79,14 +74,14 @@ fixed top-0 left-0 z-50
           />
         </picture>
 
-        <span class="inline-flex flex-col vertical-rl text-taupe-gray">
+        <span class="inline-flex flex-col text-taupe-gray vertical-rl">
           <span
-            class="font-serif-en text-sm md:text-lg leading-none whitespace-pre-line"
+            class="whitespace-pre-line font-serif-en text-sm leading-none md:text-lg"
           >
             <span>(PORTFOLIO)</span>
           </span>
           <span
-            class="font-medium text-[2rem] md:text-5xl leading-none whitespace-pre-line"
+            class="whitespace-pre-line text-[2rem] font-medium leading-none md:text-5xl"
           >
             <span>作品集</span>
           </span>
@@ -95,11 +90,11 @@ fixed top-0 left-0 z-50
     </div>
 
     <div
-      class="scroll-nav w-[1px] h-[17.5rem] bg-emperor absolute bottom-[5px] right-0 z-0 hidden md:block"
+      class="scroll-nav absolute bottom-[5px] right-0 z-0 hidden h-[17.5rem] w-[1px] bg-emperor md:block"
     >
-      <div class="relative w-full h-full">
+      <div class="relative h-full w-full">
         <div
-          class="scroll-nav__inside w-full h-10 bg-silver-chalice absolute top-0 left-0"
+          class="scroll-nav__inside absolute left-0 top-0 h-10 w-full bg-silver-chalice"
         >
         </div>
       </div>

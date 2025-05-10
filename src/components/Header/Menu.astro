@@ -7,10 +7,10 @@ import updatePath from '@/libs/updatePath';
 import { buttonCloseClass } from './buttonClass';
 ---
 
-<div id="menu" class="menu w-screen h-dvh bg-mine-shaft-texture z-30">
-  <div class="p-5 md:p-10 w-full h-full flex relative">
+<div id="menu" class="menu z-30 h-dvh w-screen bg-mine-shaft-texture">
+  <div class="relative flex h-full w-full p-5 md:p-10">
     <video
-      class="hidden md:flex md:mr-4 h-full max-w-[50%] items-center"
+      class="hidden h-full max-w-[50%] items-center md:mr-4 md:flex"
       webkit-playsinline
       playsinline
       muted
@@ -20,21 +20,21 @@ import { buttonCloseClass } from './buttonClass';
       <source src={updatePath('/common/menu.mp4')} type="video/mp4" />
     </video>
 
-    <div class="w-full md:flex-1 flex flex-col">
+    <div class="flex w-full flex-col md:flex-1">
       <button class={buttonCloseClass} data-stalker-color="bright">
         <span class="inline-block">CLOSE</span>
         <Disc />
       </button>
 
-      <div class="w-full py-10 flex-1 flex flex-col items-center">
-        <div class="w-full flex justify-center items-center flex-1">
+      <div class="flex w-full flex-1 flex-col items-center py-10">
+        <div class="flex w-full flex-1 items-center justify-center">
           <ul
-            class="max-w-[85%] md:max-w-full w-full h-full max-h-[22.2rem] md:max-h-[30rem] md:w-auto flex flex-row-reverse justify-between md:justify-normal md:gap-12"
+            class="flex h-full max-h-[22.2rem] w-full max-w-[85%] flex-row-reverse justify-between md:max-h-[30rem] md:w-auto md:max-w-full md:justify-normal md:gap-12"
           >
             {
               menus.map(menu => {
                 return (
-                  <li class="leading-none flex">
+                  <li class="flex leading-none">
                     <a
                       href={
                         menu.href.includes('mailto:')
@@ -42,7 +42,7 @@ import { buttonCloseClass } from './buttonClass';
                           : updatePath(menu.href)
                       }
                       target={menu.target}
-                      class="relative group vertical-rl hover:opacity-70 duration-[0.6s]"
+                      class="group relative duration-[0.6s] vertical-rl hover:opacity-70"
                       data-stalker-color="bright"
                     >
                       <MenuLink menu={menu} />
@@ -62,7 +62,7 @@ import { buttonCloseClass } from './buttonClass';
                   <a
                     href={link.href}
                     target={link.target}
-                    class="ts-text-link text-pampas font-serif-en text-xl"
+                    class="ts-text-link font-serif-en text-xl text-pampas"
                     data-stalker-color="bright"
                   >
                     {link.text}

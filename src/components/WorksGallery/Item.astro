@@ -13,13 +13,11 @@ const opacityClass = cn([
 ---
 
 <li
-  class="ts-image-link image-link group
-    [&:not(:last-child)>a]:pb-9 md:[&:not(:last-child)>a]:pb-0
-    md:[&:not(:first-child)>a]:pt-14 md:contents-right"
+  class="ts-image-link image-link group md:contents-right md:[&:not(:first-child)>a]:pt-14 [&:not(:last-child)>a]:pb-9 md:[&:not(:last-child)>a]:pb-0"
 >
   <a
     href={updatePath(`/works/${item.slug}/`)}
-    class="flex flex-col md:flex-row gap-4 md:gap-16 md:pl-[10%] border-t md:border-none border-silver"
+    class="flex flex-col gap-4 border-t border-silver md:flex-row md:gap-16 md:border-none md:pl-[10%]"
   >
     <div class=`flex md:hidden justify-between pt-3 ${opacityClass}`>
       <span>{number}</span>
@@ -31,7 +29,7 @@ const opacityClass = cn([
         flex flex-col relative z-10
         order-2 md:order-1 ${opacityClass}`
     >
-      <div class="hidden md:flex justify-between">
+      <div class="hidden justify-between md:flex">
         <span>{number}</span>
         <span class="font-serif-en">{item.year}</span>
       </div>
@@ -53,7 +51,7 @@ const opacityClass = cn([
       </ul>
     </div>
 
-    <picture class="md:w-[75rem] order-1 md:order-2">
+    <picture class="order-1 md:order-2 md:w-[75rem]">
       <img
         src={updatePath(item.imageTop || item.image)}
         alt={item.title}
@@ -63,15 +61,13 @@ const opacityClass = cn([
   </a>
 
   <picture
-    class="image-link__bg w-screen h-screen order-3 hidden md:block
-      fixed top-0 left-0 z-0 opacity-0 invisible
-      transition-all duration-300 pointer-events-none"
+    class="image-link__bg pointer-events-none invisible fixed left-0 top-0 z-0 order-3 hidden h-screen w-screen opacity-0 transition-all duration-300 md:block"
     aria-hidden="true"
   >
     <img
       src={updatePath(item.imageTop || item.image)}
       alt={item.title}
-      class="w-full h-full object-cover"
+      class="h-full w-full object-cover"
     />
   </picture>
 </li>

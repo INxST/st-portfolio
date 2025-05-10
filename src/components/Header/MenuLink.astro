@@ -8,22 +8,22 @@ interface Props {
 const { menu } = Astro.props;
 ---
 
-<span class="vertical-rl flex flex-row items-center">
-  <span class="horizontal-tb text-taupe-gray">
+<span class="flex flex-row items-center vertical-rl">
+  <span class="text-taupe-gray horizontal-tb">
     <span>
       ({menu.number})
     </span>
   </span>
 
-  <span class="text-pampas text-2xl md:text-[2rem] mt-[1.42rem] md:mt-8"
+  <span class="mt-[1.42rem] text-2xl text-pampas md:mt-8 md:text-[2rem]"
     >{menu.text}</span
   >
 
-  <span class="h-full flex-1 mt-[1.14rem] md:mt-6 mb-[0.85rem] md:mb-4">
-    <span class="w-[1px] bg-emperor h-full block"></span>
+  <span class="mb-[0.85rem] mt-[1.14rem] h-full flex-1 md:mb-4 md:mt-6">
+    <span class="block h-full w-[1px] bg-emperor"></span>
   </span>
 
-  <span class="text-silver-chalice font-serif-en text-[0.928rem] md:text-base">
+  <span class="font-serif-en text-[0.928rem] text-silver-chalice md:text-base">
     <span>
       {menu.en}
     </span>

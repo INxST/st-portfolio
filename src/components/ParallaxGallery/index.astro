@@ -7,24 +7,23 @@ import Item from './Item.astro';
 
 <section id="parallax-gallery">
   <div
-    class="contents-full text-pampas relative py-[4.6rem] md:py-44 h-screen overflow-hidden"
+    class="relative h-screen overflow-hidden py-[4.6rem] text-pampas contents-full md:py-44"
   >
-    <div class="bg-mine-shaft-texture absolute top-0 left-0 w-full h-full">
+    <div class="absolute left-0 top-0 h-full w-full bg-mine-shaft-texture">
     </div>
 
     <div class="flex justify-between">
-      <ul class="flex-1 flex flex-col items-start">
+      <ul class="flex flex-1 flex-col items-start">
         {parallaxGalleryItems.left.map(item => <Item item={item} />)}
       </ul>
 
-      <ul class="flex-1 flex flex-col items-end">
+      <ul class="flex flex-1 flex-col items-end">
         {parallaxGalleryItems.right.map(item => <Item item={item} />)}
       </ul>
     </div>
 
     <div
-      class="flex flex-col justify-center items-center w-screen h-screen
-      absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
+      class="absolute left-1/2 top-1/2 z-20 flex h-screen w-screen -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center"
     >
       <div class="text-taupe-gray">
         <TopTitle
@@ -35,7 +34,7 @@ import Item from './Item.astro';
       </div>
 
       <div
-        class="ts-focus-in data-[active='true']:animate-text-focus-in mt-16 md:mt-[5.5rem]"
+        class="ts-focus-in mt-16 data-[active='true']:animate-text-focus-in md:mt-[5.5rem]"
       >
         <More color="bright" href="/about" />
       </div>

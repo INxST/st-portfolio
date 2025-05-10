@@ -9,11 +9,11 @@ const { work } = Astro.props;
 ---
 
 <section
-  class="ts-horizontal-scroll-item flex justify-end items-end md:pl-[34rem] md:pr-20 md:w-[40rem] box-content whitespace-normal"
+  class="ts-horizontal-scroll-item box-content flex items-end justify-end whitespace-normal md:w-[40rem] md:pl-[34rem] md:pr-20"
 >
-  <div class="pt-[7.43rem] md:py-[8.125rem] px-5 md:px-0">
-    <p class="md:text-lg font-serif-en">(NEXT PROJECT)</p>
-    <h2 class="text-[2rem] md:text-[2.625rem] font-medium">
+  <div class="px-5 pt-[7.43rem] md:px-0 md:py-[8.125rem]">
+    <p class="font-serif-en md:text-lg">(NEXT PROJECT)</p>
+    <h2 class="text-[2rem] font-medium md:text-[2.625rem]">
       {work.title}
     </h2>
   </div>
@@ -22,7 +22,7 @@ const { work } = Astro.props;
 <a
   href={updatePath(`/works/${work.slug}/`)}
   aria-label={`${work.title}を見る`}
-  class="ts-horizontal-scroll-item block mt-9 md:mt-0 relative"
+  class="ts-horizontal-scroll-item relative mt-9 block md:mt-0"
 >
   <picture class="ts-crossing-link block h-full">
     <source
@@ -34,7 +34,7 @@ const { work } = Astro.props;
   </picture>
 
   <span
-    class="bg-mine-shaft flex md:hidden justify-center items-center absolute bottom-[20px] right-5 rounded-full w-[40px] h-[40px]"
+    class="absolute bottom-[20px] right-5 flex h-[40px] w-[40px] items-center justify-center rounded-full bg-mine-shaft md:hidden"
   >
     <svg
       width="14"
