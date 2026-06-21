@@ -1,9 +1,8 @@
 name: Deploy to GitHub Pages
 
+# 本番はエックスサーバー（deploy-xserver.yml）に移行したため、自動実行は停止。
+# GitHub Pages へ上げたいときだけ Actions タブから手動実行する。
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
