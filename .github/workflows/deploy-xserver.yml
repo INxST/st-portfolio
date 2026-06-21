@@ -55,6 +55,7 @@ jobs:
             set net:timeout 30;
             set net:max-retries 3;
             open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\";
-            mirror --reverse --delete --verbose --exclude='.git' --exclude='.DS_Store' ./dist/ \"$FTP_SERVER_DIR\";
+            cd \"$FTP_SERVER_DIR\";
+            mirror --reverse --delete --verbose --exclude='.git' --exclude='.DS_Store' ./dist/ ./;
             bye
           "
