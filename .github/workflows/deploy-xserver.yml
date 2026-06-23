@@ -52,14 +52,10 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
         run: |
-          lftp -c "
-            set sftp:connect-program 'ssh -i ~/.ssh/xserver_deploy -p 10022 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null';
-            open sftp://$FTP_USERNAME@$FTP_SERVER;
-            mirror --reverse --delete --verbose \
-              --exclude='.git' \
-              --exclude='.DS_Store' \
-              --exclude='.htaccess' \
-              --exclude='.user.ini' \
-              ./dist/ $FTP_SERVER_DIR;
+          lftp -u "$FTP_USERNAME," "sftp://$FTP_SERVER" <<EOF
+            set sftp:connect-program "ssh -i $HOME/.ssh/xserver_deploy -p 10022 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o BatchMode=yes";
+            set net:timeout 60;
+            set net:max-retries 3;
+            mirror --reverse --delete --verbose --exclude='.git' --exclude='.DS_Store' --exclude='.htaccess' --exclude='.user.ini' ./dist/ $FTP_SERVER_DIR;
             bye
-          "
+          EOF
