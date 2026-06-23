@@ -37,22 +37,29 @@ jobs:
       - name: Build with Astro
         run: pnpm run build
 
-      # SSH鍵を配置
-      - name: Setup SSH key
+      # lftp と SSH鍵をインストール・配置
+      - name: Install lftp and setup SSH key
         run: |
+          sudo apt-get install -y lftp
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/xserver_deploy
           chmod 600 ~/.ssh/xserver_deploy
-          ssh-keyscan -p 10022 ${{ secrets.FTP_SERVER }} >> ~/.ssh/known_hosts 2>/dev/null
 
-      # rsync over SFTP でエックスサーバーへ転送（差分のみ・高速・確実）
-      - name: Deploy via SFTP (rsync)
+      # lftp の SFTP モードでエックスサーバーへ転送
+      - name: Deploy via SFTP (lftp)
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
         run: |
-          rsync -avz --delete \
-            --exclude='.git' \
-            --exclude='.DS_Store' \
-            --exclude='.htaccess' \
-            --exclude='.user.ini' \
-            -e "ssh -i ~/.ssh/xserver_deploy -p 10022 -o StrictHostKeyChecking=no" \
-            ./dist/ \
-            ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}:${{ secrets.FTP_SERVER_DIR }}
+          lftp -c "
+            set sftp:connect-program 'ssh -i ~/.ssh/xserver_deploy -p 10022 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null';
+            open sftp://$FTP_USERNAME@$FTP_SERVER;
+            mirror --reverse --delete --verbose \
+              --exclude='.git' \
+              --exclude='.DS_Store' \
+              --exclude='.htaccess' \
+              --exclude='.user.ini' \
+              ./dist/ $FTP_SERVER_DIR;
+            bye
+          "
