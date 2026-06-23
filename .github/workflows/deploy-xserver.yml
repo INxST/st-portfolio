@@ -44,6 +44,8 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/xserver_deploy
           chmod 600 ~/.ssh/xserver_deploy
+          # known_hosts に登録（これがないと接続が切れる）
+          ssh-keyscan -p 10022 -H ${{ secrets.FTP_SERVER }} >> ~/.ssh/known_hosts
 
       # lftp の SFTP モードでエックスサーバーへ転送
       - name: Deploy via SFTP (lftp)
@@ -53,7 +55,7 @@ jobs:
           FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
         run: |
           lftp <<EOF
-          set sftp:connect-program "ssh -i $HOME/.ssh/xserver_deploy -p 10022 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o BatchMode=yes";
+          set sftp:connect-program "ssh -i $HOME/.ssh/xserver_deploy -p 10022 -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o BatchMode=yes";
           set net:timeout 60;
           set net:max-retries 3;
           open -u "$FTP_USERNAME," sftp://$FTP_SERVER;
