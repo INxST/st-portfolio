@@ -37,22 +37,22 @@ jobs:
       - name: Build with Astro
         run: pnpm run build
 
-      # dist/ の中身をエックスサーバーへFTPS転送
-      # dangerous-clean-slate: サーバー上のファイルを一度削除してから全アップ（確実に同期）
-      - name: Deploy via FTPS
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          port: 21
-          local-dir: ./dist/
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
-          dangerous-clean-slate: true
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.DS_Store
-            .htaccess
-            .user.ini
+      # SSH鍵を配置
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/xserver_deploy
+          chmod 600 ~/.ssh/xserver_deploy
+          ssh-keyscan -p 10022 ${{ secrets.FTP_SERVER }} >> ~/.ssh/known_hosts 2>/dev/null
+
+      # rsync over SFTP でエックスサーバーへ転送（差分のみ・高速・確実）
+      - name: Deploy via SFTP (rsync)
+        run: |
+          rsync -avz --delete \
+            --exclude='.git' \
+            --exclude='.DS_Store' \
+            --exclude='.htaccess' \
+            --exclude='.user.ini' \
+            -e "ssh -i ~/.ssh/xserver_deploy -p 10022 -o StrictHostKeyChecking=no" \
+            ./dist/ \
+            ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}:${{ secrets.FTP_SERVER_DIR }}
