@@ -1,0 +1,52 @@
+backend:
+  name: github
+  repo: INxST/st-portfolio
+  branch: main
+  base_url: https://sveltia-cms-auth.taiki0521.workers.dev
+  auth_endpoint: /auth
+
+media_folder: public/detail
+public_folder: /detail
+
+locale: ja
+
+collections:
+  - name: works
+    label: 実績
+    label_singular: 実績
+    folder: src/content/works
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: タイトル, name: title, widget: string }
+      - { label: 年, name: year, widget: string, hint: "例: 2024" }
+      - label: カテゴリ
+        name: categories
+        widget: select
+        multiple: true
+        options:
+          - CLIENT WORKS
+          - PRIVATE WORKS
+      - label: タグ
+        name: tags
+        widget: select
+        multiple: true
+        options:
+          - ART DIRECTION
+          - WEB DESIGN
+          - GRAPHIC DESIGN
+          - CODING
+          - FASHION DESIGN
+      - { label: TOPページに表示, name: isTop, widget: boolean, default: false, required: false }
+      - { label: 画像枚数（詳細ページ）, name: imageCount, widget: number, default: 1, hint: "詳細ページの画像数（1.jpg〜N.jpg）" }
+      - { label: 外部URL, name: url, widget: string, required: false, hint: "コーディング作品など外部リンクがある場合" }
+      - label: 説明項目
+        name: description
+        widget: list
+        fields:
+          - { label: 見出し, name: title, widget: string }
+          - { label: 内容, name: content, widget: text }
+      - { label: 概要（Overview）, name: body, widget: markdown, required: false, hint: "詳細ページ上部の説明文" }
