@@ -7,9 +7,9 @@ const works = defineCollection({
     year: z.string(),
     categories: z.array(z.string()),
     tags: z.array(z.string()),
+    order: z.number(), // 一覧での表示順（小さいほど先頭）
     isTop: z.boolean().optional(),
     imageTop: z.string().optional(), // TOPページ用画像（デフォルトはmv-pc.jpg）
-    imageCount: z.number(), // 詳細画像の枚数（2.jpg〜N.jpg）
     url: z.string().optional(), // 外部URL（Overviewに表示）
     description: z.array(
       z.object({

@@ -8,7 +8,7 @@ tags:
   - WEB DESIGN
   - GRAPHIC DESIGN
 isTop: true
-imageCount: 4
+order: 3
 description:
   - title: ターゲット
     content: 石川県民。老若男女問わず県外からの観光者。LGBTなどのマイノリティの方。

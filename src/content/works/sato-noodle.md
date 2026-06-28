@@ -6,7 +6,7 @@ categories:
 tags:
   - GRAPHIC DESIGN
 isTop: true
-imageCount: 5
+order: 4
 description:
   - title: ターゲット
     content: 湘南に住む方や観光に来た方

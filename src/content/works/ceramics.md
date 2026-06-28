@@ -6,7 +6,7 @@ categories:
 tags:
   - WEB DESIGN
   - CODING
-imageCount: 3
+order: 8
 url: https://taikisato.com/ceramics
 description:
   - title: ターゲット

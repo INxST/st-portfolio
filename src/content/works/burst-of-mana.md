@@ -6,7 +6,7 @@ categories:
 tags:
   - GRAPHIC DESIGN
 isTop: true
-imageCount: 4
+order: 5
 description:
   - title: ターゲット
     content: 頭を使うゲームが好きな方、Burst of Manaに興味を持っている方

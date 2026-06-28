@@ -5,7 +5,7 @@ categories:
   - PRIVATE WORKS
 tags:
   - WEB DESIGN
-imageCount: 1
+order: 7
 url: https://taikisato.com/5days/
 description:
   - title: 課題概要

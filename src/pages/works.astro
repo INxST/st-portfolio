@@ -1,8 +1,9 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import WorksSlide from '@/components/WorksSlide';
-import works from '@/data/works';
+import { getWorks } from '@/libs/works';
 import updatePath from '@/libs/updatePath';
+const works = await getWorks();
 const path = updatePath();
 const title = '制作実績';
 const titleEn = 'WORKS';

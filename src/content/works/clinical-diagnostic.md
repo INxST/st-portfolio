@@ -6,7 +6,7 @@ categories:
 tags:
   - ART DIRECTION
   - WEB DESIGN
-imageCount: 3
+order: 6
 description:
   - title: ターゲット
     content: 30～60代の糖尿病内科、脳神経内科、耳鼻咽喉科の臨床専門医

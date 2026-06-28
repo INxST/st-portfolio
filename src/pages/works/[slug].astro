@@ -10,7 +10,7 @@ import NextWork from '@/components/NextWork.astro';
 import DetailInfo from '@/components/DetailInfo.astro';
 import BackToList from '@/components/BackToList.astro';
 import updatePath from '@/libs/updatePath';
-import works from '@/data/works';
+import { getWorks, getDetailImages } from '@/libs/works';
 
 export async function getStaticPaths() {
   const entries = await getCollection('works');
@@ -22,14 +22,17 @@ const entries = await getCollection('works');
 const entry = entries.find(e => e.slug === slug)!;
 const { Content } = await entry.render();
 
-// works.ts から DetailInfo・NextWork 用のデータを取得
+// 一覧データ（md + フォルダ規約から自動生成）から DetailInfo・NextWork 用を取得
+const works = await getWorks();
 const work = works.find(w => w.slug === slug);
 const workIndex = works.findIndex(w => w.slug === slug);
 const nextWork = works[workIndex + 1] || works[0];
 
-const { imageCount, url, description } = entry.data;
-// 詳細画像のインデックス配列（2.jpg〜N.jpg）
-const imageIndices = Array.from({ length: imageCount }, (_, i) => i + 2);
+const { url, description } = entry.data;
+// 詳細フォルダ内の連番画像を自動取得（拡張子混在に対応）
+const detailImages = getDetailImages(slug!);
+const heroImage = detailImages[0];
+const restImages = detailImages.slice(1);
 ---
 
 <Layout title={entry.data.title} isContainer={false}>
@@ -62,13 +65,15 @@ const imageIndices = Array.from({ length: imageCount }, (_, i) => i + 2);
         </div>
       </DetailSection>
 
-      <picture class="ts-horizontal-scroll-item">
-        <img
-          src={updatePath(`/detail/${slug}/1.jpg`)}
-          alt=""
-          class="ts-image-white-in md:h-full"
-        />
-      </picture>
+      {heroImage && (
+        <picture class="ts-horizontal-scroll-item">
+          <img
+            src={updatePath(heroImage)}
+            alt=""
+            class="ts-image-white-in md:h-full"
+          />
+        </picture>
+      )}
 
       <DetailSection title="(Description)" contentWidth="wide">
         {description.map(item => (
@@ -79,15 +84,15 @@ const imageIndices = Array.from({ length: imageCount }, (_, i) => i + 2);
         ))}
       </DetailSection>
 
-      {imageIndices.length > 0 && (
+      {restImages.length > 0 && (
         <div class="ts-horizontal-scroll-item">
           <div class="h-full px-5 md:px-0 md:py-[7.5rem]">
             <DetailImage>
-              {imageIndices.map(i => (
+              {restImages.map(src => (
                 <li>
                   <picture>
                     <img
-                      src={updatePath(`/detail/${slug}/${i}.jpg`)}
+                      src={updatePath(src)}
                       alt=""
                       class="ts-image-white-in"
                     />

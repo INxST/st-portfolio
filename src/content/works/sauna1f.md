@@ -7,7 +7,7 @@ tags:
   - ART DIRECTION
   - GRAPHIC DESIGN
 isTop: true
-imageCount: 8
+order: 2
 description:
   - title: コンセプト
     content: |

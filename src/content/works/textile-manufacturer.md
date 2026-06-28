@@ -8,7 +8,7 @@ tags:
   - WEB DESIGN
   - GRAPHIC DESIGN
 isTop: true
-imageCount: 9
+order: 1
 description:
   - title: ターゲット
     content: 自動車業界において部品の設計・製造担当者、求職者など

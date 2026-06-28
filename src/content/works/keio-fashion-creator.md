@@ -5,7 +5,7 @@ categories:
   - PRIVATE WORKS
 tags:
   - FASHION DESIGN
-imageCount: 11
+order: 9
 description:
   - title: ルック概要
     content: |

@@ -40,8 +40,8 @@ collections:
           - GRAPHIC DESIGN
           - CODING
           - FASHION DESIGN
+      - { label: 表示順, name: order, widget: number, default: 99, value_type: int, hint: "一覧での並び順。小さいほど先頭に表示されます" }
       - { label: TOPページに表示, name: isTop, widget: boolean, default: false, required: false }
-      - { label: 画像枚数（詳細ページ）, name: imageCount, widget: number, default: 1, hint: "詳細ページの画像数（1.jpg〜N.jpg）" }
       - { label: 外部URL, name: url, widget: string, required: false, hint: "コーディング作品など外部リンクがある場合" }
       - label: 説明項目
         name: description

@@ -1,10 +1,11 @@
 ---
 import TopTitle from '../TopTitle.astro';
 import Item from './Item.astro';
-import works from '@/data/works';
+import { getWorks } from '@/libs/works';
 import kanjiNumber from '@/libs/kanjiNumber';
 import More from '../More.astro';
 
+const works = await getWorks();
 const newWorks = works.filter(work => work.isTop);
 ---
 
